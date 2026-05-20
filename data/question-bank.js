@@ -1800,4 +1800,1918 @@ const QUESTION_BANK = [
     explanation: "Para ordenar de menor a mayor con números negativos, el menor es el que está más alejado hacia la izquierda en la recta numérica. Así, −7,62 < −7,6 < −7,53 < −7,09. Por tanto, el orden correcto es: Mariana, Santiago, Orlando y Ximena. La respuesta correcta es C."
   }
 
+  ,
+  {
+    uid: "s1-lect-026",
+    session: 1,
+    block: 2,
+    number: 26,
+    area: "Lectura Crítica",
+    competencia: "Comprensión lectora",
+    componente: "Paráfrasis y sentido local",
+    dificultad: "Media",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 1 - Lectura Crítica - Pregunta 26",
+    stem: "Responda de acuerdo con el texto “El placer y el dolor en el epicureísmo”.",
+    resources: [
+      {
+        type: "html",
+        html: `
+
+          <div class="reading-card">
+            <div class="reading-instruction">RESPONDA LAS PREGUNTAS 26 A 30 DE ACUERDO CON LA SIGUIENTE INFORMACIÓN</div>
+            <h3>El placer y el dolor en el epicureísmo</h3>
+            <p>La filosofía epicúrea tiene una finalidad ética*, pues pretende guiarnos para alcanzar la buena vida. Para el epicureísmo esta es la vida placentera, ya que considera que el fin último de todas nuestras acciones es conseguir placer y evitar dolor; por ello, el epicureísmo identifica el placer con el bien y el dolor con el mal.</p>
+            <p>Epicuro da por lo menos dos razones complementarias por las cuales considera que el propósito de la buena vida debe ser el placer. Por un lado, menciona el hecho de que, sin necesidad de pensarlo y desde su nacimiento, todas las criaturas vivientes, por instinto, se contentan con el placer y son reacias al dolor. Por otro lado, Epicuro toma a los sentimientos de placer y dolor como criterios esenciales de decisión y conducta, en tanto que son eventos reales que no pueden ser refutados: no hay razón o evidencia alguna que pueda hacernos dudar de que estamos sintiendo dolor o placer; es un hecho real que los sentimos, pues, ¿cómo podría ser falsa la sensación de dolor ante un golpe?</p>
+            <p>Así, si lo que trae placer es lo que elegimos y lo que trae dolor es lo que evitamos, son nuestros sentimientos los que nos permiten deliberar qué debemos elegir y evitar, pues ellos no se equivocan. De esta manera, esa tendencia instintiva y natural hacia buscar el placer y evitar el dolor concuerda con lo que, para el epicureísmo, es el criterio ético más fundamental y verdadero.</p>
+            <p class="reading-note">*La ética es el campo de la filosofía que estudia los principios para decidir correctamente.</p>
+            <p class="reading-source">Tomado y adaptado de: Cifuentes, F. (2021). Ataraxia &amp; Aponía en el Epicureísmo. Saga, Revista de Estudiantes de Filosofía. Universidad Nacional de Colombia.</p>
+          </div>
+
+
+        `
+      }
+    ],
+    prompt: "¿Cuál de las siguientes opciones es una paráfrasis correcta del segundo párrafo del texto?",
+    options: [
+      { letter: "A", text: "Para Epicuro hay dos formas de concebir la vida: aquella que busca el placer y aquella que busca evitar el dolor del nacimiento." },
+      { letter: "B", text: "Para Epicuro hay dos formas en la que todo ser vivo concibe la buena vida: la primera es la búsqueda del dolor y la segunda es huir del placer." },
+      { letter: "C", text: "Para Epicuro todos buscamos alcanzar una buena vida sin pensar en el dolor o en el placer. Desde que nacemos obramos guiados por el instinto." },
+      { letter: "D", text: "Para Epicuro son ciertas dos cosas: que todos buscamos el placer y rechazamos el dolor, y que los sentimientos son los que determinan nuestras decisiones." }
+    ],
+    correctAnswer: "D",
+    explanation: "El segundo párrafo presenta dos razones: todos los seres vivos buscan placer y rechazan el dolor por instinto, y los sentimientos de placer y dolor sirven como criterios reales para decidir y actuar. La opción D conserva esas ideas sin cambiar su sentido."
+  }
+
+  ,
+  {
+    uid: "s1-lect-027",
+    session: 1,
+    block: 2,
+    number: 27,
+    area: "Lectura Crítica",
+    competencia: "Comprensión lectora",
+    componente: "Relación entre enunciados",
+    dificultad: "Media",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 1 - Lectura Crítica - Pregunta 27",
+    stem: "Responda de acuerdo con el texto “El placer y el dolor en el epicureísmo”.",
+    resources: [
+      {
+        type: "html",
+        html: `
+
+          <div class="reading-card">
+            <div class="reading-instruction">RESPONDA LAS PREGUNTAS 26 A 30 DE ACUERDO CON LA SIGUIENTE INFORMACIÓN</div>
+            <h3>El placer y el dolor en el epicureísmo</h3>
+            <p>La filosofía epicúrea tiene una finalidad ética*, pues pretende guiarnos para alcanzar la buena vida. Para el epicureísmo esta es la vida placentera, ya que considera que el fin último de todas nuestras acciones es conseguir placer y evitar dolor; por ello, el epicureísmo identifica el placer con el bien y el dolor con el mal.</p>
+            <p>Epicuro da por lo menos dos razones complementarias por las cuales considera que el propósito de la buena vida debe ser el placer. Por un lado, menciona el hecho de que, sin necesidad de pensarlo y desde su nacimiento, todas las criaturas vivientes, por instinto, se contentan con el placer y son reacias al dolor. Por otro lado, Epicuro toma a los sentimientos de placer y dolor como criterios esenciales de decisión y conducta, en tanto que son eventos reales que no pueden ser refutados: no hay razón o evidencia alguna que pueda hacernos dudar de que estamos sintiendo dolor o placer; es un hecho real que los sentimos, pues, ¿cómo podría ser falsa la sensación de dolor ante un golpe?</p>
+            <p>Así, si lo que trae placer es lo que elegimos y lo que trae dolor es lo que evitamos, son nuestros sentimientos los que nos permiten deliberar qué debemos elegir y evitar, pues ellos no se equivocan. De esta manera, esa tendencia instintiva y natural hacia buscar el placer y evitar el dolor concuerda con lo que, para el epicureísmo, es el criterio ético más fundamental y verdadero.</p>
+            <p class="reading-note">*La ética es el campo de la filosofía que estudia los principios para decidir correctamente.</p>
+            <p class="reading-source">Tomado y adaptado de: Cifuentes, F. (2021). Ataraxia &amp; Aponía en el Epicureísmo. Saga, Revista de Estudiantes de Filosofía. Universidad Nacional de Colombia.</p>
+          </div>
+
+
+          <div class="fragment-card">
+            <p><strong>Lea los siguientes dos enunciados tomados del texto:</strong></p>
+            <ol class="numbered-statements">
+              <li>La filosofía epicúrea tiene una finalidad ética, pues pretende guiarnos para alcanzar la buena vida.</li>
+              <li>Para el epicureísmo esta es la vida placentera, ya que considera que el fin último de todas nuestras acciones es conseguir placer y evitar dolor.</li>
+            </ol>
+          </div>
+        `
+      }
+    ],
+    prompt: "¿Qué relación hay entre ambos enunciados?",
+    options: [
+      { letter: "A", text: "El primer enunciado rechaza la idea expuesta en el segundo enunciado." },
+      { letter: "B", text: "El segundo enunciado es una síntesis del primer enunciado." },
+      { letter: "C", text: "El primer enunciado da una hipótesis y el segundo enunciado la refuta." },
+      { letter: "D", text: "El segundo enunciado amplía lo dicho en el primer enunciado." }
+    ],
+    correctAnswer: "D",
+    explanation: "El primer enunciado afirma que la filosofía epicúrea busca orientar hacia la buena vida. El segundo amplía esa idea al explicar que, para el epicureísmo, la buena vida es placentera y busca placer evitando dolor."
+  }
+
+  ,
+  {
+    uid: "s1-lect-028",
+    session: 1,
+    block: 2,
+    number: 28,
+    area: "Lectura Crítica",
+    competencia: "Argumentación",
+    componente: "Identificación de argumentos",
+    dificultad: "Media",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 1 - Lectura Crítica - Pregunta 28",
+    stem: "Responda de acuerdo con el texto “El placer y el dolor en el epicureísmo”.",
+    resources: [
+      {
+        type: "html",
+        html: `
+
+          <div class="reading-card">
+            <div class="reading-instruction">RESPONDA LAS PREGUNTAS 26 A 30 DE ACUERDO CON LA SIGUIENTE INFORMACIÓN</div>
+            <h3>El placer y el dolor en el epicureísmo</h3>
+            <p>La filosofía epicúrea tiene una finalidad ética*, pues pretende guiarnos para alcanzar la buena vida. Para el epicureísmo esta es la vida placentera, ya que considera que el fin último de todas nuestras acciones es conseguir placer y evitar dolor; por ello, el epicureísmo identifica el placer con el bien y el dolor con el mal.</p>
+            <p>Epicuro da por lo menos dos razones complementarias por las cuales considera que el propósito de la buena vida debe ser el placer. Por un lado, menciona el hecho de que, sin necesidad de pensarlo y desde su nacimiento, todas las criaturas vivientes, por instinto, se contentan con el placer y son reacias al dolor. Por otro lado, Epicuro toma a los sentimientos de placer y dolor como criterios esenciales de decisión y conducta, en tanto que son eventos reales que no pueden ser refutados: no hay razón o evidencia alguna que pueda hacernos dudar de que estamos sintiendo dolor o placer; es un hecho real que los sentimos, pues, ¿cómo podría ser falsa la sensación de dolor ante un golpe?</p>
+            <p>Así, si lo que trae placer es lo que elegimos y lo que trae dolor es lo que evitamos, son nuestros sentimientos los que nos permiten deliberar qué debemos elegir y evitar, pues ellos no se equivocan. De esta manera, esa tendencia instintiva y natural hacia buscar el placer y evitar el dolor concuerda con lo que, para el epicureísmo, es el criterio ético más fundamental y verdadero.</p>
+            <p class="reading-note">*La ética es el campo de la filosofía que estudia los principios para decidir correctamente.</p>
+            <p class="reading-source">Tomado y adaptado de: Cifuentes, F. (2021). Ataraxia &amp; Aponía en el Epicureísmo. Saga, Revista de Estudiantes de Filosofía. Universidad Nacional de Colombia.</p>
+          </div>
+
+
+          <div class="fragment-card">
+            <p><strong>Lea el siguiente fragmento tomado del texto:</strong></p>
+            <blockquote>“Epicuro toma a los sentimientos de placer y dolor como criterios esenciales de decisión y conducta, en tanto que son eventos reales que no pueden ser refutados: no hay razón o evidencia alguna que pueda hacernos dudar de que estamos sintiendo dolor o placer; es un hecho real que lo sentimos”.</blockquote>
+          </div>
+        `
+      }
+    ],
+    prompt: "¿Por qué el enunciado anterior puede ser considerado un argumento a favor de la tesis de que el fin último de todas las acciones humanas es conseguir placer y evitar dolor?",
+    options: [
+      { letter: "A", text: "Porque justifica la idea de que el dolor y el placer son reales e inevitables al momento de elegir la forma en la que actuamos." },
+      { letter: "B", text: "Porque ejemplifica la teoría de que el placer y el dolor son criterios de decisión al ser sentimientos reales que tiene todo ser humano." },
+      { letter: "C", text: "Porque explica que el fin último de todas las acciones humanas consiste en relacionar el placer con el bien y el dolor con el mal." },
+      { letter: "D", text: "Porque relaciona los sentimientos reales de dolor y de placer existentes instintivamente en el ser humano con los conceptos de bien y de mal." }
+    ],
+    correctAnswer: "B",
+    explanation: "El fragmento funciona como argumento porque muestra que placer y dolor son sentimientos reales y, por eso, pueden orientar la conducta y las decisiones humanas. Esta idea corresponde a la opción B."
+  }
+
+  ,
+  {
+    uid: "s1-lect-029",
+    session: 1,
+    block: 2,
+    number: 29,
+    area: "Lectura Crítica",
+    competencia: "Comprensión lectora",
+    componente: "Perspectiva e inferencia",
+    dificultad: "Media",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 1 - Lectura Crítica - Pregunta 29",
+    stem: "Responda de acuerdo con el texto “El placer y el dolor en el epicureísmo”.",
+    resources: [
+      {
+        type: "html",
+        html: `
+
+          <div class="reading-card">
+            <div class="reading-instruction">RESPONDA LAS PREGUNTAS 26 A 30 DE ACUERDO CON LA SIGUIENTE INFORMACIÓN</div>
+            <h3>El placer y el dolor en el epicureísmo</h3>
+            <p>La filosofía epicúrea tiene una finalidad ética*, pues pretende guiarnos para alcanzar la buena vida. Para el epicureísmo esta es la vida placentera, ya que considera que el fin último de todas nuestras acciones es conseguir placer y evitar dolor; por ello, el epicureísmo identifica el placer con el bien y el dolor con el mal.</p>
+            <p>Epicuro da por lo menos dos razones complementarias por las cuales considera que el propósito de la buena vida debe ser el placer. Por un lado, menciona el hecho de que, sin necesidad de pensarlo y desde su nacimiento, todas las criaturas vivientes, por instinto, se contentan con el placer y son reacias al dolor. Por otro lado, Epicuro toma a los sentimientos de placer y dolor como criterios esenciales de decisión y conducta, en tanto que son eventos reales que no pueden ser refutados: no hay razón o evidencia alguna que pueda hacernos dudar de que estamos sintiendo dolor o placer; es un hecho real que los sentimos, pues, ¿cómo podría ser falsa la sensación de dolor ante un golpe?</p>
+            <p>Así, si lo que trae placer es lo que elegimos y lo que trae dolor es lo que evitamos, son nuestros sentimientos los que nos permiten deliberar qué debemos elegir y evitar, pues ellos no se equivocan. De esta manera, esa tendencia instintiva y natural hacia buscar el placer y evitar el dolor concuerda con lo que, para el epicureísmo, es el criterio ético más fundamental y verdadero.</p>
+            <p class="reading-note">*La ética es el campo de la filosofía que estudia los principios para decidir correctamente.</p>
+            <p class="reading-source">Tomado y adaptado de: Cifuentes, F. (2021). Ataraxia &amp; Aponía en el Epicureísmo. Saga, Revista de Estudiantes de Filosofía. Universidad Nacional de Colombia.</p>
+          </div>
+
+
+          <div class="fragment-card">
+            <p><strong>Considere el siguiente fragmento del texto:</strong></p>
+            <blockquote>“Esa tendencia instintiva y natural hacia buscar el placer y evitar el dolor concuerda con lo que, para el epicureísmo, es el criterio ético más fundamental y verdadero”.</blockquote>
+          </div>
+        `
+      }
+    ],
+    prompt: "¿Cuál de los siguientes enunciados presenta una perspectiva similar a la del fragmento?",
+    options: [
+      { letter: "A", text: "“El comportamiento del ser humano puede ser moldeado de acuerdo con las experiencias agradables y desagradables que se desprenden de cada acción”. B. F. Skinner." },
+      { letter: "B", text: "“No hay ninguna diferencia fundamental entre el hombre y los animales en su capacidad de sentir placer y dolor, felicidad y miseria”. C. Darwin." },
+      { letter: "C", text: "“La felicidad es un fin cuya posibilidad descansa en condiciones que solo pueden ser esperadas de la naturaleza, es decir, los medios para la felicidad propia están en la naturaleza tanto externa como interna”. I. Kant." },
+      { letter: "D", text: "“No se trata de concebir el placer como asunto único y verdadero de felicidad, sino de hallar la mejor manera para alcanzar la virtud que es universal y que no se supedita a la sensibilidad”. I. Kant." }
+    ],
+    correctAnswer: "A",
+    explanation: "El fragmento sostiene que la búsqueda del placer y la evitación del dolor guían la conducta. La opción A presenta una perspectiva semejante, pues relaciona el comportamiento con experiencias agradables y desagradables."
+  }
+
+  ,
+  {
+    uid: "s1-lect-030",
+    session: 1,
+    block: 2,
+    number: 30,
+    area: "Lectura Crítica",
+    competencia: "Comprensión lectora",
+    componente: "Intención comunicativa",
+    dificultad: "Básica",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 1 - Lectura Crítica - Pregunta 30",
+    stem: "Responda de acuerdo con el texto “El placer y el dolor en el epicureísmo”.",
+    resources: [
+      {
+        type: "html",
+        html: `
+
+          <div class="reading-card">
+            <div class="reading-instruction">RESPONDA LAS PREGUNTAS 26 A 30 DE ACUERDO CON LA SIGUIENTE INFORMACIÓN</div>
+            <h3>El placer y el dolor en el epicureísmo</h3>
+            <p>La filosofía epicúrea tiene una finalidad ética*, pues pretende guiarnos para alcanzar la buena vida. Para el epicureísmo esta es la vida placentera, ya que considera que el fin último de todas nuestras acciones es conseguir placer y evitar dolor; por ello, el epicureísmo identifica el placer con el bien y el dolor con el mal.</p>
+            <p>Epicuro da por lo menos dos razones complementarias por las cuales considera que el propósito de la buena vida debe ser el placer. Por un lado, menciona el hecho de que, sin necesidad de pensarlo y desde su nacimiento, todas las criaturas vivientes, por instinto, se contentan con el placer y son reacias al dolor. Por otro lado, Epicuro toma a los sentimientos de placer y dolor como criterios esenciales de decisión y conducta, en tanto que son eventos reales que no pueden ser refutados: no hay razón o evidencia alguna que pueda hacernos dudar de que estamos sintiendo dolor o placer; es un hecho real que los sentimos, pues, ¿cómo podría ser falsa la sensación de dolor ante un golpe?</p>
+            <p>Así, si lo que trae placer es lo que elegimos y lo que trae dolor es lo que evitamos, son nuestros sentimientos los que nos permiten deliberar qué debemos elegir y evitar, pues ellos no se equivocan. De esta manera, esa tendencia instintiva y natural hacia buscar el placer y evitar el dolor concuerda con lo que, para el epicureísmo, es el criterio ético más fundamental y verdadero.</p>
+            <p class="reading-note">*La ética es el campo de la filosofía que estudia los principios para decidir correctamente.</p>
+            <p class="reading-source">Tomado y adaptado de: Cifuentes, F. (2021). Ataraxia &amp; Aponía en el Epicureísmo. Saga, Revista de Estudiantes de Filosofía. Universidad Nacional de Colombia.</p>
+          </div>
+
+
+          <div class="fragment-card">
+            <p><strong>Lea la siguiente pregunta tomada del texto:</strong></p>
+            <blockquote>“¿cómo podría ser falsa la sensación de dolor ante un golpe?”</blockquote>
+          </div>
+        `
+      }
+    ],
+    prompt: "¿Cuál es la intención del autor con esa pregunta?",
+    options: [
+      { letter: "A", text: "Advertir sobre el peligro de dolor ante una decisión." },
+      { letter: "B", text: "Dar la orden de huir del dolor ante un golpe." },
+      { letter: "C", text: "Afirmar la idea de que no se puede dudar del dolor." },
+      { letter: "D", text: "Expresar que los dolores pueden inventarse." }
+    ],
+    correctAnswer: "C",
+    explanation: "La pregunta es retórica: no busca una respuesta literal, sino reforzar la idea de que la sensación de dolor es real y no puede ponerse en duda. Por eso, la opción correcta es C."
+  }
+
+
+  ,
+  {
+    uid: "s1-lect-031",
+    session: 1,
+    block: 2,
+    number: 31,
+    area: "Lectura Crítica",
+    competencia: "Comprensión lectora",
+    componente: "Supuestos e inferencia",
+    dificultad: "Media",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 1 - Lectura Crítica - Pregunta 31",
+    stem: "Responda de acuerdo con el texto sobre los sofistas y la educación práctica.",
+    resources: [
+      {
+        type: "html",
+        html: `
+
+          <div class="reading-card">
+            <div class="reading-instruction">RESPONDA LAS PREGUNTAS 31 Y 32 DE ACUERDO CON LA SIGUIENTE INFORMACIÓN</div>
+            <h3>Los sofistas y la educación práctica</h3>
+            <p>Auténticas bestias negras para Platón, los sofistas fueron unos filósofos y educadores que dominaron la escena intelectual de Atenas a finales del siglo IV a. C. De hecho, la palabra “sofista” no tenía entonces la connotación peyorativa que tiene hoy y que debemos, en buena medida, a la mala imagen que de ellos transmitió Platón. Sofista significaba simplemente “profesor”, y con el término se designaba a una serie de educadores que se ganaban la vida instruyendo jóvenes a cambio de una retribución.</p>
+            <p>Eran dos los elementos de la sofística que despertaban el recelo, por decir lo menos, entre una nutrida parte de la población griega. El primero de ellos residía en que, contrario a los sabios de antaño, los sofistas no reunían en torno a sí a un grupo de discípulos por el mero placer de difundir sus ideas, sino que cobraban y vivían de ello. Esto, que probablemente hoy no nos parezca grave, era visto con escándalo por los sectores más esnobs y aristocráticos de la polis. En definitiva, y sin que hayan cambiado las cosas, los que despreciaban el “vil metal” eran precisamente aquellos que lo tenían garantizado y no tenían necesidad de ganárselo.</p>
+            <p>En segundo lugar, y también como diferencia sustancial con los modelos del pasado, la educación impartida por los sofistas no tenía el objetivo teórico de alcanzar y descubrir la verdad, sino que su finalidad era eminentemente práctica: adquirir las técnicas necesarias para imponer el propio argumento. En efecto, en la democracia ateniense, regida con un sistema de participación directa de los ciudadanos en los asuntos de la polis, y con abundantes litigios y juicios, la capacidad de desenvolverse con habilidad en el arte de la palabra era imprescindible para el éxito en la política. En este contexto nacieron y se multiplicaron los sofistas, como maestros de la retórica y la oratoria cuya principal preocupación fue desarrollar y transmitir las técnicas necesarias para defender y convencer al público de un planteamiento, independientemente de que este fuera verdadero o no, moral o inmoral. Este énfasis práctico los condujo con frecuencia a posiciones escépticas o relativistas: no existía una verdad con mayúsculas, sino que todo dependía del punto de vista, de los usos y costumbres, de la fuerza de los argumentos. Para Protágoras “el hombre es la medida de todas las cosas” y, para Gorgias, nada existía; si existiera, sería incognoscible, y si existiera y fuera cognoscible, sería incomunicable.</p>
+            <p class="reading-source">Tomado y adaptado de: Dal Maschio, E. (2016). <em>Platón. La verdad está en otra parte.</em> Emse Publishing.</p>
+          </div>
+
+
+        `
+      }
+    ],
+    prompt: "¿Qué supuesto se encuentra presente en el tercer párrafo del texto?",
+    options: [
+      { letter: "A", text: "Que la búsqueda de la verdad no es un fin práctico." },
+      { letter: "B", text: "Que la participación política en la actualidad no es alta." },
+      { letter: "C", text: "Que los sofistas engañaban a sus discípulos con técnicas retóricas." },
+      { letter: "D", text: "Que la búsqueda teórica de la verdad puede ayudar a vencer en un juicio." }
+    ],
+    correctAnswer: "A",
+    explanation: "El tercer párrafo afirma que la educación sofista no buscaba alcanzar la verdad, sino desarrollar técnicas prácticas para imponer argumentos y convencer al público. Por eso, el supuesto presente es que la búsqueda de la verdad no constituye, en ese contexto, un fin práctico."
+  }
+
+  ,
+  {
+    uid: "s1-lect-032",
+    session: 1,
+    block: 2,
+    number: 32,
+    area: "Lectura Crítica",
+    competencia: "Comprensión lectora",
+    componente: "Relación lógica entre afirmaciones",
+    dificultad: "Media",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 1 - Lectura Crítica - Pregunta 32",
+    stem: "Responda de acuerdo con el texto sobre los sofistas y la educación práctica.",
+    resources: [
+      {
+        type: "html",
+        html: `
+
+          <div class="reading-card">
+            <div class="reading-instruction">RESPONDA LAS PREGUNTAS 31 Y 32 DE ACUERDO CON LA SIGUIENTE INFORMACIÓN</div>
+            <h3>Los sofistas y la educación práctica</h3>
+            <p>Auténticas bestias negras para Platón, los sofistas fueron unos filósofos y educadores que dominaron la escena intelectual de Atenas a finales del siglo IV a. C. De hecho, la palabra “sofista” no tenía entonces la connotación peyorativa que tiene hoy y que debemos, en buena medida, a la mala imagen que de ellos transmitió Platón. Sofista significaba simplemente “profesor”, y con el término se designaba a una serie de educadores que se ganaban la vida instruyendo jóvenes a cambio de una retribución.</p>
+            <p>Eran dos los elementos de la sofística que despertaban el recelo, por decir lo menos, entre una nutrida parte de la población griega. El primero de ellos residía en que, contrario a los sabios de antaño, los sofistas no reunían en torno a sí a un grupo de discípulos por el mero placer de difundir sus ideas, sino que cobraban y vivían de ello. Esto, que probablemente hoy no nos parezca grave, era visto con escándalo por los sectores más esnobs y aristocráticos de la polis. En definitiva, y sin que hayan cambiado las cosas, los que despreciaban el “vil metal” eran precisamente aquellos que lo tenían garantizado y no tenían necesidad de ganárselo.</p>
+            <p>En segundo lugar, y también como diferencia sustancial con los modelos del pasado, la educación impartida por los sofistas no tenía el objetivo teórico de alcanzar y descubrir la verdad, sino que su finalidad era eminentemente práctica: adquirir las técnicas necesarias para imponer el propio argumento. En efecto, en la democracia ateniense, regida con un sistema de participación directa de los ciudadanos en los asuntos de la polis, y con abundantes litigios y juicios, la capacidad de desenvolverse con habilidad en el arte de la palabra era imprescindible para el éxito en la política. En este contexto nacieron y se multiplicaron los sofistas, como maestros de la retórica y la oratoria cuya principal preocupación fue desarrollar y transmitir las técnicas necesarias para defender y convencer al público de un planteamiento, independientemente de que este fuera verdadero o no, moral o inmoral. Este énfasis práctico los condujo con frecuencia a posiciones escépticas o relativistas: no existía una verdad con mayúsculas, sino que todo dependía del punto de vista, de los usos y costumbres, de la fuerza de los argumentos. Para Protágoras “el hombre es la medida de todas las cosas” y, para Gorgias, nada existía; si existiera, sería incognoscible, y si existiera y fuera cognoscible, sería incomunicable.</p>
+            <p class="reading-source">Tomado y adaptado de: Dal Maschio, E. (2016). <em>Platón. La verdad está en otra parte.</em> Emse Publishing.</p>
+          </div>
+
+
+        
+
+          <div class="fragment-card">
+            <p><strong>Considere las siguientes afirmaciones del texto:</strong></p>
+            <ol>
+              <li>“no existía una verdad con mayúsculas, sino que todo dependía del punto de vista, de los usos y costumbres, de la fuerza de los argumentos”.</li>
+              <li>“nada existía; si existiera, sería incognoscible, y si existiera y fuera cognoscible, sería incomunicable”.</li>
+            </ol>
+          </div>
+        `
+      }
+    ],
+    prompt: "La afirmación 1 NO justifica la afirmación 2 por la siguiente razón:",
+    options: [
+      { letter: "A", text: "Que todo dependa del punto de vista y la cultura prueba que nada existe." },
+      { letter: "B", text: "Que todo dependa del punto de vista y la cultura no prueba que nada existe." },
+      { letter: "C", text: "Que el hombre sea la medida de todas las cosas prueba que hay muchas verdades universales." },
+      { letter: "D", text: "Que el hombre sea la medida de todas las cosas muestra que no dependen del punto de vista de alguien." }
+    ],
+    correctAnswer: "B",
+    explanation: "La primera afirmación expresa una postura relativista: la verdad depende del punto de vista, la cultura y los argumentos. Sin embargo, de esa idea no se sigue necesariamente la tesis radical de que nada existe. Por eso, la opción B explica correctamente por qué la afirmación 1 no justifica la afirmación 2."
+  }
+
+  ,
+  {
+    uid: "s1-lect-033",
+    session: 1,
+    block: 2,
+    number: 33,
+    area: "Lectura Crítica",
+    competencia: "Comprensión lectora",
+    componente: "Léxico en contexto",
+    dificultad: "Básica",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 1 - Lectura Crítica - Pregunta 33",
+    stem: "Responda de acuerdo con el texto “Ética para Amador (fragmento)”.",
+    resources: [
+      {
+        type: "html",
+        html: `
+
+          <div class="reading-card">
+            <div class="reading-instruction">RESPONDA LAS PREGUNTAS 33 A 35 DE ACUERDO CON LA SIGUIENTE INFORMACIÓN</div>
+            <h3>Ética para Amador (fragmento)</h3>
+            <p>Quieres darte la buena vida: estupendo. Pero también quieres que esa buena vida no sea la buena vida de una coliflor o de un escarabajo, con todo mi respeto para ambas especies, sino una buena vida humana. Es lo que te corresponde, creo yo. Y estoy seguro de que a ello no renunciarías por nada del mundo. <em>Ser humano</em>, ya lo hemos indicado antes, consiste principalmente en tener relaciones con los otros seres humanos.</p>
+            <p>Si pudieras tener muchísimo dinero, una casa más lujosa que un palacio de las mil y una noches, las mejores ropas, los más exquisitos alimentos —en tu caso, muchísimas lentejas—, los más sofisticados aparatos, etc., pero todo ello a costa de no volver a ver ni a ser visto por ningún ser humano jamás, ¿estarías contento? ¿Cuánto tiempo podrías vivir así sin volverte loco? ¿No es la mayor de las locuras querer las cosas a costa de la relación con las personas?</p>
+            <p>¡Pero si precisamente la gracia de todas esas cosas radica en que te permiten —o parecen permitirte— relacionarte más favorablemente con los demás! Por medio del dinero se espera poder deslumbrar o comprar a los otros: las ropas son para gustarles o para que nos envidien; y lo mismo la buena casa, los mejores vinos, etcétera. Muy pocas cosas conservan su gracia en la soledad; y si la soledad es completa y definitiva, todas las cosas resultan tristes inevitablemente. La buena vida humana es una buena vida entre seres humanos o de lo contrario puede que sea vida, pero no será ni buena ni humana.</p>
+            <p class="reading-source">Tomado y adaptado de: Savater, F. (1991). <em>Ética para Amador.</em> Ariel.</p>
+          </div>
+
+        `
+      }
+    ],
+    prompt: "Entre las siguientes opciones, ¿cuál podría reemplazar, sin cambiar el sentido, la palabra “deslumbrar” que aparece en la frase: “Por medio del dinero se espera poder deslumbrar o comprar a los otros [...]”?",
+    options: [
+      { letter: "A", text: "Encandilar." },
+      { letter: "B", text: "Impresionar." },
+      { letter: "C", text: "Ilusionar." },
+      { letter: "D", text: "Engañar." }
+    ],
+    correctAnswer: "B",
+    explanation: "En el contexto del texto, “deslumbrar” significa causar admiración o impresionar a los otros mediante el dinero o los bienes materiales. Por eso, la opción correcta es B."
+  }
+
+  ,
+  {
+    uid: "s1-lect-034",
+    session: 1,
+    block: 2,
+    number: 34,
+    area: "Lectura Crítica",
+    competencia: "Comprensión lectora",
+    componente: "Función de fragmentos en el texto",
+    dificultad: "Media",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 1 - Lectura Crítica - Pregunta 34",
+    stem: "Responda de acuerdo con el texto “Ética para Amador (fragmento)”.",
+    resources: [
+      {
+        type: "html",
+        html: `
+
+          <div class="reading-card">
+            <div class="reading-instruction">RESPONDA LAS PREGUNTAS 33 A 35 DE ACUERDO CON LA SIGUIENTE INFORMACIÓN</div>
+            <h3>Ética para Amador (fragmento)</h3>
+            <p>Quieres darte la buena vida: estupendo. Pero también quieres que esa buena vida no sea la buena vida de una coliflor o de un escarabajo, con todo mi respeto para ambas especies, sino una buena vida humana. Es lo que te corresponde, creo yo. Y estoy seguro de que a ello no renunciarías por nada del mundo. <em>Ser humano</em>, ya lo hemos indicado antes, consiste principalmente en tener relaciones con los otros seres humanos.</p>
+            <p>Si pudieras tener muchísimo dinero, una casa más lujosa que un palacio de las mil y una noches, las mejores ropas, los más exquisitos alimentos —en tu caso, muchísimas lentejas—, los más sofisticados aparatos, etc., pero todo ello a costa de no volver a ver ni a ser visto por ningún ser humano jamás, ¿estarías contento? ¿Cuánto tiempo podrías vivir así sin volverte loco? ¿No es la mayor de las locuras querer las cosas a costa de la relación con las personas?</p>
+            <p>¡Pero si precisamente la gracia de todas esas cosas radica en que te permiten —o parecen permitirte— relacionarte más favorablemente con los demás! Por medio del dinero se espera poder deslumbrar o comprar a los otros: las ropas son para gustarles o para que nos envidien; y lo mismo la buena casa, los mejores vinos, etcétera. Muy pocas cosas conservan su gracia en la soledad; y si la soledad es completa y definitiva, todas las cosas resultan tristes inevitablemente. La buena vida humana es una buena vida entre seres humanos o de lo contrario puede que sea vida, pero no será ni buena ni humana.</p>
+            <p class="reading-source">Tomado y adaptado de: Savater, F. (1991). <em>Ética para Amador.</em> Ariel.</p>
+          </div>
+
+          <div class="fragment-card">
+            <p><strong>Lea el siguiente fragmento del texto:</strong></p>
+            <blockquote>“Quieres darte la buena vida: estupendo. Pero también quieres que esa buena vida no sea la buena vida de una coliflor o de un escarabajo, con todo mi respeto para ambas especies, sino una buena vida humana”.</blockquote>
+          </div>
+        `
+      }
+    ],
+    prompt: "¿Qué función cumple este fragmento dentro del texto?",
+    options: [
+      { letter: "A", text: "Presenta la tesis general del texto." },
+      { letter: "B", text: "Introduce el tema que se trata en el texto." },
+      { letter: "C", text: "Expone la conclusión general del texto." },
+      { letter: "D", text: "Sintetiza el contenido del texto." }
+    ],
+    correctAnswer: "B",
+    explanation: "El fragmento inicial abre el tema de la buena vida humana y prepara el desarrollo posterior sobre la importancia de la relación con otros seres humanos. Por eso, cumple la función de introducir el tema del texto."
+  }
+
+  ,
+  {
+    uid: "s1-lect-035",
+    session: 1,
+    block: 2,
+    number: 35,
+    area: "Lectura Crítica",
+    competencia: "Argumentación",
+    componente: "Estrategias argumentativas",
+    dificultad: "Media",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 1 - Lectura Crítica - Pregunta 35",
+    stem: "Responda de acuerdo con el texto “Ética para Amador (fragmento)”.",
+    resources: [
+      {
+        type: "html",
+        html: `
+
+          <div class="reading-card">
+            <div class="reading-instruction">RESPONDA LAS PREGUNTAS 33 A 35 DE ACUERDO CON LA SIGUIENTE INFORMACIÓN</div>
+            <h3>Ética para Amador (fragmento)</h3>
+            <p>Quieres darte la buena vida: estupendo. Pero también quieres que esa buena vida no sea la buena vida de una coliflor o de un escarabajo, con todo mi respeto para ambas especies, sino una buena vida humana. Es lo que te corresponde, creo yo. Y estoy seguro de que a ello no renunciarías por nada del mundo. <em>Ser humano</em>, ya lo hemos indicado antes, consiste principalmente en tener relaciones con los otros seres humanos.</p>
+            <p>Si pudieras tener muchísimo dinero, una casa más lujosa que un palacio de las mil y una noches, las mejores ropas, los más exquisitos alimentos —en tu caso, muchísimas lentejas—, los más sofisticados aparatos, etc., pero todo ello a costa de no volver a ver ni a ser visto por ningún ser humano jamás, ¿estarías contento? ¿Cuánto tiempo podrías vivir así sin volverte loco? ¿No es la mayor de las locuras querer las cosas a costa de la relación con las personas?</p>
+            <p>¡Pero si precisamente la gracia de todas esas cosas radica en que te permiten —o parecen permitirte— relacionarte más favorablemente con los demás! Por medio del dinero se espera poder deslumbrar o comprar a los otros: las ropas son para gustarles o para que nos envidien; y lo mismo la buena casa, los mejores vinos, etcétera. Muy pocas cosas conservan su gracia en la soledad; y si la soledad es completa y definitiva, todas las cosas resultan tristes inevitablemente. La buena vida humana es una buena vida entre seres humanos o de lo contrario puede que sea vida, pero no será ni buena ni humana.</p>
+            <p class="reading-source">Tomado y adaptado de: Savater, F. (1991). <em>Ética para Amador.</em> Ariel.</p>
+          </div>
+
+        `
+      }
+    ],
+    prompt: "¿Qué tipo de estrategia argumentativa utiliza el autor para convencer al lector de su posición?",
+    options: [
+      { letter: "A", text: "El autor introduce el tema y la tesis con ironía, para hacer entender lo contrario de lo que dice, con la intención de restarle credibilidad a dicha tesis." },
+      { letter: "B", text: "El autor contextualiza el problema sobre la buena vida, presenta algunas opiniones suyas sobre el tema y concluye con la tesis contraria." },
+      { letter: "C", text: "El autor introduce el tema y la tesis, a través de diversas preguntas retóricas, ofreciendo ejemplos que lo conducen a una conclusión." },
+      { letter: "D", text: "El autor contextualiza el problema sobre la buena vida, presenta su tesis y la defiende con la ayuda de ejemplos dados por autoridades en el tema." }
+    ],
+    correctAnswer: "C",
+    explanation: "El autor guía al lector mediante preguntas retóricas y ejemplos relacionados con el dinero, la casa, la ropa y la soledad. Estos recursos conducen a la conclusión de que la buena vida humana requiere relación con otros seres humanos. La respuesta correcta es C."
+  }
+
+  ,
+  {
+    uid: "s1-lect-036",
+    session: 1,
+    block: 2,
+    number: 36,
+    area: "Lectura Crítica",
+    competencia: "Comprensión lectora",
+    componente: "Función de conectores y expresiones",
+    dificultad: "Media",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 1 - Lectura Crítica - Pregunta 36",
+    stem: "Responda de acuerdo con el texto “Nuestro cerebro, ¿hecho para la música?” (fragmento).",
+    resources: [
+      {
+        type: "html",
+        html: `
+
+          <div class="reading-card">
+            <div class="reading-instruction">RESPONDA LAS PREGUNTAS 36 A 39 DE ACUERDO CON LA SIGUIENTE INFORMACIÓN</div>
+            <h3>Nuestro cerebro, ¿hecho para la música? <span class="subtle-title">(fragmento)</span></h3>
+            <p>La relación entre los humanos y lo que hoy reconocemos como música se remonta a más de 40.000 años atrás, desde los principios de nuestra civilización. Nuestros antepasados, en ese entonces, ya tocaban flautas de hueso y percusiones. Los instrumentos se fueron diversificando y multiplicando, pasando por la creación de instrumentos de madera, cuerda y metal, hasta llegar a las guitarras eléctricas y consolas de música electrónica de hoy en día.</p>
+            <p>Casi todas las sociedades humanas conocidas han tenido música, lo que sugiere que nuestra apreciación por ella es innata; incluso bebés de dos meses de nacidos se voltean cuando escuchan sonidos agradables y le dan la espalda a los disonantes. Dada su universalidad, entonces, ¿será que la música podría haber ayudado en la supervivencia humana de alguna forma? ¿Tendría alguna ventaja o beneficio? Algunos investigadores sugieren que puede haber ayudado en el cortejo. Otros dicen que promueve la cohesión de grupo, tal como lo hace hoy en día. Incluso, puede ser un simple accidente feliz, una dulzura auditiva, que casualmente terminó creando una rumba cerebral.</p>
+            <p class="reading-source">Tomado y adaptado de: Pardo, E. (20 de marzo de 2021). <em>Nuestro cerebro, ¿hecho para la música?</em> Shots de Ciencia. Recuperado de: https://www.shotsdeciencia.com/post/nuestro-cerebro-hecho-para-la-m%C3%BAsica</p>
+          </div>
+
+          <div class="fragment-card">
+            <p><strong>Considere el siguiente apartado del texto:</strong></p>
+            <blockquote>“Casi todas las sociedades humanas conocidas han tenido música, lo que sugiere que nuestra apreciación por ella es innata”.</blockquote>
+          </div>
+        `
+      }
+    ],
+    prompt: "¿Cuál es la función de la expresión “lo que”?",
+    options: [
+      { letter: "A", text: "Plantear dos opciones opuestas sobre una teoría." },
+      { letter: "B", text: "Introducir una relación de causalidad entre la primera y la segunda idea." },
+      { letter: "C", text: "Aclarar el sentido de la primera idea a partir de la segunda." },
+      { letter: "D", text: "Añadir una idea similar a la que se presenta al principio de la oración." }
+    ],
+    correctAnswer: "B",
+    explanation: "La expresión “lo que” conecta el hecho de que casi todas las sociedades hayan tenido música con la conclusión que se deriva de ello: que la apreciación por la música podría ser innata. Por eso introduce una relación causal o de consecuencia entre las dos ideas."
+  }
+
+  ,
+  {
+    uid: "s1-lect-037",
+    session: 1,
+    block: 2,
+    number: 37,
+    area: "Lectura Crítica",
+    competencia: "Comprensión lectora",
+    componente: "Inferencia a partir de información explícita",
+    dificultad: "Básica",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 1 - Lectura Crítica - Pregunta 37",
+    stem: "Responda de acuerdo con el texto “Nuestro cerebro, ¿hecho para la música?” (fragmento).",
+    resources: [
+      {
+        type: "html",
+        html: `
+
+          <div class="reading-card">
+            <div class="reading-instruction">RESPONDA LAS PREGUNTAS 36 A 39 DE ACUERDO CON LA SIGUIENTE INFORMACIÓN</div>
+            <h3>Nuestro cerebro, ¿hecho para la música? <span class="subtle-title">(fragmento)</span></h3>
+            <p>La relación entre los humanos y lo que hoy reconocemos como música se remonta a más de 40.000 años atrás, desde los principios de nuestra civilización. Nuestros antepasados, en ese entonces, ya tocaban flautas de hueso y percusiones. Los instrumentos se fueron diversificando y multiplicando, pasando por la creación de instrumentos de madera, cuerda y metal, hasta llegar a las guitarras eléctricas y consolas de música electrónica de hoy en día.</p>
+            <p>Casi todas las sociedades humanas conocidas han tenido música, lo que sugiere que nuestra apreciación por ella es innata; incluso bebés de dos meses de nacidos se voltean cuando escuchan sonidos agradables y le dan la espalda a los disonantes. Dada su universalidad, entonces, ¿será que la música podría haber ayudado en la supervivencia humana de alguna forma? ¿Tendría alguna ventaja o beneficio? Algunos investigadores sugieren que puede haber ayudado en el cortejo. Otros dicen que promueve la cohesión de grupo, tal como lo hace hoy en día. Incluso, puede ser un simple accidente feliz, una dulzura auditiva, que casualmente terminó creando una rumba cerebral.</p>
+            <p class="reading-source">Tomado y adaptado de: Pardo, E. (20 de marzo de 2021). <em>Nuestro cerebro, ¿hecho para la música?</em> Shots de Ciencia. Recuperado de: https://www.shotsdeciencia.com/post/nuestro-cerebro-hecho-para-la-m%C3%BAsica</p>
+          </div>
+
+        `
+      }
+    ],
+    prompt: "La trompeta es un instrumento de metal. Teniendo en cuenta lo que dice el texto, la invención de la trompeta ocurrió:",
+    options: [
+      { letter: "A", text: "Antes de la invención de la flauta de hueso." },
+      { letter: "B", text: "Antes de la aparición de los instrumentos de percusión." },
+      { letter: "C", text: "Después de la aparición de los instrumentos de percusión." },
+      { letter: "D", text: "Después de la aparición de la guitarra eléctrica." }
+    ],
+    correctAnswer: "C",
+    explanation: "El texto señala que primero los antepasados tocaban flautas de hueso y percusiones, y luego los instrumentos se diversificaron hacia los de madera, cuerda y metal. Como la trompeta es de metal, su aparición ocurrió después de los instrumentos de percusión."
+  }
+
+  ,
+  {
+    uid: "s1-lect-038",
+    session: 1,
+    block: 2,
+    number: 38,
+    area: "Lectura Crítica",
+    competencia: "Comprensión lectora",
+    componente: "Léxico en contexto",
+    dificultad: "Básica",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 1 - Lectura Crítica - Pregunta 38",
+    stem: "Responda de acuerdo con el texto “Nuestro cerebro, ¿hecho para la música?” (fragmento).",
+    resources: [
+      {
+        type: "html",
+        html: `
+
+          <div class="reading-card">
+            <div class="reading-instruction">RESPONDA LAS PREGUNTAS 36 A 39 DE ACUERDO CON LA SIGUIENTE INFORMACIÓN</div>
+            <h3>Nuestro cerebro, ¿hecho para la música? <span class="subtle-title">(fragmento)</span></h3>
+            <p>La relación entre los humanos y lo que hoy reconocemos como música se remonta a más de 40.000 años atrás, desde los principios de nuestra civilización. Nuestros antepasados, en ese entonces, ya tocaban flautas de hueso y percusiones. Los instrumentos se fueron diversificando y multiplicando, pasando por la creación de instrumentos de madera, cuerda y metal, hasta llegar a las guitarras eléctricas y consolas de música electrónica de hoy en día.</p>
+            <p>Casi todas las sociedades humanas conocidas han tenido música, lo que sugiere que nuestra apreciación por ella es innata; incluso bebés de dos meses de nacidos se voltean cuando escuchan sonidos agradables y le dan la espalda a los disonantes. Dada su universalidad, entonces, ¿será que la música podría haber ayudado en la supervivencia humana de alguna forma? ¿Tendría alguna ventaja o beneficio? Algunos investigadores sugieren que puede haber ayudado en el cortejo. Otros dicen que promueve la cohesión de grupo, tal como lo hace hoy en día. Incluso, puede ser un simple accidente feliz, una dulzura auditiva, que casualmente terminó creando una rumba cerebral.</p>
+            <p class="reading-source">Tomado y adaptado de: Pardo, E. (20 de marzo de 2021). <em>Nuestro cerebro, ¿hecho para la música?</em> Shots de Ciencia. Recuperado de: https://www.shotsdeciencia.com/post/nuestro-cerebro-hecho-para-la-m%C3%BAsica</p>
+          </div>
+
+        `
+      }
+    ],
+    prompt: "En el texto, la palabra “disonantes” hace referencia a:",
+    options: [
+      { letter: "A", text: "Sonidos cautivantes." },
+      { letter: "B", text: "Sonidos intensos." },
+      { letter: "C", text: "Sonidos agudos." },
+      { letter: "D", text: "Sonidos desagradables." }
+    ],
+    correctAnswer: "D",
+    explanation: "El texto contrasta los sonidos agradables con los disonantes. Por oposición, “disonantes” se refiere a sonidos que no resultan agradables o armónicos. La respuesta correcta es D."
+  }
+
+  ,
+  {
+    uid: "s1-lect-039",
+    session: 1,
+    block: 2,
+    number: 39,
+    area: "Lectura Crítica",
+    competencia: "Comprensión lectora",
+    componente: "Función de fragmentos en el texto",
+    dificultad: "Media",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 1 - Lectura Crítica - Pregunta 39",
+    stem: "Responda de acuerdo con el texto “Nuestro cerebro, ¿hecho para la música?” (fragmento).",
+    resources: [
+      {
+        type: "html",
+        html: `
+
+          <div class="reading-card">
+            <div class="reading-instruction">RESPONDA LAS PREGUNTAS 36 A 39 DE ACUERDO CON LA SIGUIENTE INFORMACIÓN</div>
+            <h3>Nuestro cerebro, ¿hecho para la música? <span class="subtle-title">(fragmento)</span></h3>
+            <p>La relación entre los humanos y lo que hoy reconocemos como música se remonta a más de 40.000 años atrás, desde los principios de nuestra civilización. Nuestros antepasados, en ese entonces, ya tocaban flautas de hueso y percusiones. Los instrumentos se fueron diversificando y multiplicando, pasando por la creación de instrumentos de madera, cuerda y metal, hasta llegar a las guitarras eléctricas y consolas de música electrónica de hoy en día.</p>
+            <p>Casi todas las sociedades humanas conocidas han tenido música, lo que sugiere que nuestra apreciación por ella es innata; incluso bebés de dos meses de nacidos se voltean cuando escuchan sonidos agradables y le dan la espalda a los disonantes. Dada su universalidad, entonces, ¿será que la música podría haber ayudado en la supervivencia humana de alguna forma? ¿Tendría alguna ventaja o beneficio? Algunos investigadores sugieren que puede haber ayudado en el cortejo. Otros dicen que promueve la cohesión de grupo, tal como lo hace hoy en día. Incluso, puede ser un simple accidente feliz, una dulzura auditiva, que casualmente terminó creando una rumba cerebral.</p>
+            <p class="reading-source">Tomado y adaptado de: Pardo, E. (20 de marzo de 2021). <em>Nuestro cerebro, ¿hecho para la música?</em> Shots de Ciencia. Recuperado de: https://www.shotsdeciencia.com/post/nuestro-cerebro-hecho-para-la-m%C3%BAsica</p>
+          </div>
+
+          <div class="fragment-card">
+            <p><strong>Considere el siguiente fragmento del texto:</strong></p>
+            <blockquote>“La relación entre los humanos y lo que hoy reconocemos como música se remonta a más de 40.000 años atrás, desde los principios de nuestra civilización”.</blockquote>
+          </div>
+        `
+      }
+    ],
+    prompt: "¿Qué función cumple el fragmento en el texto?",
+    options: [
+      { letter: "A", text: "Presentar la tesis central del texto." },
+      { letter: "B", text: "Introducir el tema que se trata en el texto." },
+      { letter: "C", text: "Resumir el contenido del texto." },
+      { letter: "D", text: "Plantear la conclusión central del texto." }
+    ],
+    correctAnswer: "B",
+    explanation: "El fragmento inicial ubica al lector en el tema general del texto: la relación histórica entre los seres humanos y la música. No presenta la conclusión ni resume todo el contenido, sino que introduce el tema que será desarrollado."
+  }
+
+  ,
+  {
+    uid: "s1-lect-040",
+    session: 1,
+    block: 2,
+    number: 40,
+    area: "Lectura Crítica",
+    competencia: "Comprensión lectora",
+    componente: "Estrategias retóricas y argumentativas",
+    dificultad: "Media",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 1 - Lectura Crítica - Pregunta 40",
+    stem: "Responda de acuerdo con el texto adaptado de Vargas Llosa, “Parábola de la solitaria”",
+    resources: [
+      {
+        type: "html",
+        html: `
+          <div class="reading-card">
+            <div class="reading-instruction">RESPONDA LAS PREGUNTAS 40 A 42 DE ACUERDO CON LA SIGUIENTE INFORMACIÓN</div>
+            <p><strong>Querido amigo,</strong></p>
+            <p><strong>Usted ha decidido dedicarse a la literatura, ¿ahora qué?</strong></p>
+            <p>Su decisión de asumir su afición por la literatura como un destino deberá convertirse en servidumbre, en nada menos que esclavitud. Para explicarlo de una manera gráfica, le diré que acaba usted de hacer algo que, por lo visto, hacían en el siglo XIX algunas damas espantadas con el grosor de su cuerpo, que, a fin de recobrar una silueta de sílfide, se tragaban una solitaria. ¿Ha tenido usted ocasión de ver a alguien que lleva en sus entrañas ese horrendo parásito? Yo sí, y puedo asegurarle que aquellas damas eran unas heroínas, unas mártires de la belleza. A comienzos de los años sesenta, en París, yo tenía un magnífico amigo, José María, un muchacho español, pintor y cineasta, que padeció esa enfermedad. Una vez que la solitaria se instala en el organismo se consubstancia con él, se alimenta de él, crece y se fortalece a expensas de él, y es dificilísimo expulsarla de ese cuerpo del que se aprovecha, al que tiene colonizado. José María enflaquecía, a pesar de que debía comer y beber líquidos (leche, sobre todo) constantemente para aplacar la ansiedad del animal aposentado en sus entrañas, pues, si no, su malestar se volvía insoportable. Pero todo lo que comía y bebía no era para su gusto y placer, sino para los de la solitaria. Un día, que estábamos conversando en un pequeño bistrot de Montparnasse, me sorprendió con esta confesión: “Nosotros hacemos tantas cosas juntos. Vamos al cine, a exposiciones, a recorrer librerías, y discutimos horas de horas sobre política, libros, amigos comunes. Y tú crees que yo estoy haciendo esas cosas como las haces tú, porque te divierte hacerlas. Pero te equivocas. Yo las hago para ella, la solitaria. Esa es la impresión que tengo: que todo en mi vida, ahora, no lo vivo para mí, sino para ese ser que llevo adentro, del que ya no soy más que un sirviente”.</p>
+            <p>Desde entonces, me gusta comparar la situación del escritor con la de mi amigo José María cuando llevaba adentro la solitaria.</p>
+            <p class="reading-source">Tomado y adaptado de: Vargas Llosa, M. (2011). Parábola de la solitaria. En M. Vargas Llosa (Ed.). <em>Cartas a un joven novelista</em> (pp. 11-22). Madrid: Alfaguara.</p>
+          </div>
+`
+      }
+    ],
+    prompt: "Según el autor, la afición por la literatura puede convertirse en esclavitud. ¿Qué estrategia retórica usa el autor para ilustrar esto?",
+    options: [
+      { letter: "A", text: "Contraste." },
+      { letter: "B", text: "Exageración." },
+      { letter: "C", text: "Comparación." },
+      { letter: "D", text: "Cita de autoridades." }
+    ],
+    correctAnswer: "C",
+    explanation: "El autor compara la situación del escritor con la de José María cuando llevaba una solitaria dentro de su organismo. Esa comparación ilustra cómo la afición por la literatura puede convertirse en una forma de servidumbre o esclavitud."
+  }
+  ,
+  {
+    uid: "s1-lect-041",
+    session: 1,
+    block: 2,
+    number: 41,
+    area: "Lectura Crítica",
+    competencia: "Comprensión lectora",
+    componente: "Localización de información explícita",
+    dificultad: "Básica",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 1 - Lectura Crítica - Pregunta 41",
+    stem: "Responda de acuerdo con el texto adaptado de Vargas Llosa, “Parábola de la solitaria”",
+    resources: [
+      {
+        type: "html",
+        html: `
+          <div class="reading-card">
+            <div class="reading-instruction">RESPONDA LAS PREGUNTAS 40 A 42 DE ACUERDO CON LA SIGUIENTE INFORMACIÓN</div>
+            <p><strong>Querido amigo,</strong></p>
+            <p><strong>Usted ha decidido dedicarse a la literatura, ¿ahora qué?</strong></p>
+            <p>Su decisión de asumir su afición por la literatura como un destino deberá convertirse en servidumbre, en nada menos que esclavitud. Para explicarlo de una manera gráfica, le diré que acaba usted de hacer algo que, por lo visto, hacían en el siglo XIX algunas damas espantadas con el grosor de su cuerpo, que, a fin de recobrar una silueta de sílfide, se tragaban una solitaria. ¿Ha tenido usted ocasión de ver a alguien que lleva en sus entrañas ese horrendo parásito? Yo sí, y puedo asegurarle que aquellas damas eran unas heroínas, unas mártires de la belleza. A comienzos de los años sesenta, en París, yo tenía un magnífico amigo, José María, un muchacho español, pintor y cineasta, que padeció esa enfermedad. Una vez que la solitaria se instala en el organismo se consubstancia con él, se alimenta de él, crece y se fortalece a expensas de él, y es dificilísimo expulsarla de ese cuerpo del que se aprovecha, al que tiene colonizado. José María enflaquecía, a pesar de que debía comer y beber líquidos (leche, sobre todo) constantemente para aplacar la ansiedad del animal aposentado en sus entrañas, pues, si no, su malestar se volvía insoportable. Pero todo lo que comía y bebía no era para su gusto y placer, sino para los de la solitaria. Un día, que estábamos conversando en un pequeño bistrot de Montparnasse, me sorprendió con esta confesión: “Nosotros hacemos tantas cosas juntos. Vamos al cine, a exposiciones, a recorrer librerías, y discutimos horas de horas sobre política, libros, amigos comunes. Y tú crees que yo estoy haciendo esas cosas como las haces tú, porque te divierte hacerlas. Pero te equivocas. Yo las hago para ella, la solitaria. Esa es la impresión que tengo: que todo en mi vida, ahora, no lo vivo para mí, sino para ese ser que llevo adentro, del que ya no soy más que un sirviente”.</p>
+            <p>Desde entonces, me gusta comparar la situación del escritor con la de mi amigo José María cuando llevaba adentro la solitaria.</p>
+            <p class="reading-source">Tomado y adaptado de: Vargas Llosa, M. (2011). Parábola de la solitaria. En M. Vargas Llosa (Ed.). <em>Cartas a un joven novelista</em> (pp. 11-22). Madrid: Alfaguara.</p>
+          </div>
+`
+      }
+    ],
+    prompt: "El fragmento del texto que responde la pregunta “¿cómo actúa la solitaria dentro del organismo?” es:",
+    options: [
+      { letter: "A", text: "Pero todo lo que comía y bebía no era para su gusto y placer, sino para los de la solitaria." },
+      { letter: "B", text: "Una vez que la solitaria se instala en el organismo se consubstancia con él, se alimenta de él, crece y se fortalece a expensas de él." },
+      { letter: "C", text: "José María enflaquecía a pesar de que debía comer y beber líquidos (leche, sobre todo) constantemente para aplacar la ansiedad del animal aposentado en sus entrañas." },
+      { letter: "D", text: "Nosotros hacemos tantas cosas juntos. Y tú crees que yo estoy haciendo esas cosas como las haces tú, porque te divierte hacerlas. Pero te equivocas. Yo las hago para ella, la solitaria." }
+    ],
+    correctAnswer: "B",
+    explanation: "La opción B responde directamente cómo actúa la solitaria dentro del organismo: se instala, se consubstancia con él, se alimenta de él, crece y se fortalece a sus expensas."
+  }
+  ,
+  {
+    uid: "s1-lect-042",
+    session: 1,
+    block: 2,
+    number: 42,
+    area: "Lectura Crítica",
+    competencia: "Comprensión lectora",
+    componente: "Caracterización de personajes y situaciones",
+    dificultad: "Media",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 1 - Lectura Crítica - Pregunta 42",
+    stem: "Responda de acuerdo con el texto adaptado de Vargas Llosa, “Parábola de la solitaria”",
+    resources: [
+      {
+        type: "html",
+        html: `
+          <div class="reading-card">
+            <div class="reading-instruction">RESPONDA LAS PREGUNTAS 40 A 42 DE ACUERDO CON LA SIGUIENTE INFORMACIÓN</div>
+            <p><strong>Querido amigo,</strong></p>
+            <p><strong>Usted ha decidido dedicarse a la literatura, ¿ahora qué?</strong></p>
+            <p>Su decisión de asumir su afición por la literatura como un destino deberá convertirse en servidumbre, en nada menos que esclavitud. Para explicarlo de una manera gráfica, le diré que acaba usted de hacer algo que, por lo visto, hacían en el siglo XIX algunas damas espantadas con el grosor de su cuerpo, que, a fin de recobrar una silueta de sílfide, se tragaban una solitaria. ¿Ha tenido usted ocasión de ver a alguien que lleva en sus entrañas ese horrendo parásito? Yo sí, y puedo asegurarle que aquellas damas eran unas heroínas, unas mártires de la belleza. A comienzos de los años sesenta, en París, yo tenía un magnífico amigo, José María, un muchacho español, pintor y cineasta, que padeció esa enfermedad. Una vez que la solitaria se instala en el organismo se consubstancia con él, se alimenta de él, crece y se fortalece a expensas de él, y es dificilísimo expulsarla de ese cuerpo del que se aprovecha, al que tiene colonizado. José María enflaquecía, a pesar de que debía comer y beber líquidos (leche, sobre todo) constantemente para aplacar la ansiedad del animal aposentado en sus entrañas, pues, si no, su malestar se volvía insoportable. Pero todo lo que comía y bebía no era para su gusto y placer, sino para los de la solitaria. Un día, que estábamos conversando en un pequeño bistrot de Montparnasse, me sorprendió con esta confesión: “Nosotros hacemos tantas cosas juntos. Vamos al cine, a exposiciones, a recorrer librerías, y discutimos horas de horas sobre política, libros, amigos comunes. Y tú crees que yo estoy haciendo esas cosas como las haces tú, porque te divierte hacerlas. Pero te equivocas. Yo las hago para ella, la solitaria. Esa es la impresión que tengo: que todo en mi vida, ahora, no lo vivo para mí, sino para ese ser que llevo adentro, del que ya no soy más que un sirviente”.</p>
+            <p>Desde entonces, me gusta comparar la situación del escritor con la de mi amigo José María cuando llevaba adentro la solitaria.</p>
+            <p class="reading-source">Tomado y adaptado de: Vargas Llosa, M. (2011). Parábola de la solitaria. En M. Vargas Llosa (Ed.). <em>Cartas a un joven novelista</em> (pp. 11-22). Madrid: Alfaguara.</p>
+          </div>
+
+          <div class="fragment-card">
+            <p><strong>Considere el siguiente fragmento del texto:</strong></p>
+            <blockquote>Un día, que estábamos conversando en un pequeño bistrot de Montparnasse, me sorprendió con esta confesión: “Nosotros hacemos tantas cosas juntos. Vamos al cine, a exposiciones, a recorrer librerías, y discutimos horas de horas sobre política, libros, amigos comunes. Y tú crees que yo estoy haciendo esas cosas como las haces tú, porque te divierte hacerlas. Pero te equivocas. Yo las hago para ella, la solitaria. Esa es la impresión que tengo: que todo en mi vida, ahora, no lo vivo para mí, sino para ese ser que llevo adentro, del que ya no soy más que un sirviente”.</blockquote>
+          </div>
+`
+      }
+    ],
+    prompt: "El anterior fragmento hace una caracterización de",
+    options: [
+      { letter: "A", text: "la libertad de José María." },
+      { letter: "B", text: "la esclavitud de José María." },
+      { letter: "C", text: "la soledad de José María." },
+      { letter: "D", text: "la inteligencia de José María." }
+    ],
+    correctAnswer: "B",
+    explanation: "El fragmento muestra que José María siente que ya no vive para sí mismo, sino para la solitaria, y que se considera un sirviente de ese ser. Por eso caracteriza su esclavitud."
+  }
+  ,
+  {
+    uid: "s1-lect-043",
+    session: 1,
+    block: 2,
+    number: 43,
+    area: "Lectura Crítica",
+    competencia: "Comprensión lectora",
+    componente: "Paráfrasis y significado contextual",
+    dificultad: "Básica",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 1 - Lectura Crítica - Pregunta 43",
+    stem: "Responda de acuerdo con la infografía “Petricor: el olor de la lluvia”",
+    resources: [
+      {
+        type: "html",
+        html: `
+          <div class="reading-card petrichor-card">
+            <div class="reading-instruction">RESPONDA LAS PREGUNTAS 43 A 46 DE ACUERDO CON LA SIGUIENTE INFORMACIÓN</div>
+            <div class="petrichor-title">PETRICOR:<span>EL OLOR DE LA LLUVIA</span></div>
+            <div class="petrichor-strip">
+              <div class="rain-lines" aria-hidden="true"></div>
+              <div class="petrichor-bubble left">CUANDO LAS GOTAS DE LLUVIA IMPACTAN CONTRA EL SUELO, SE FORMAN BURBUJAS DE AIRE.</div>
+              <div class="puddle splash"><span></span><span></span><span></span><span></span></div>
+            </div>
+            <div class="petrichor-strip">
+              <div class="puddle large"><span></span><span></span><span></span><span></span><span></span></div>
+              <div class="petrichor-bubble right">ESTAS BURBUJAS “ATRAPAN” PARTÍCULAS DE LA TIERRA (ACEITES Y QUÍMICOS PRODUCIDOS POR BACTERIAS).</div>
+            </div>
+            <div class="petrichor-strip">
+              <div class="petrichor-bubble left bottom">LAS BURBUJAS HACEN EFERVESCENCIA COMO CHAMPAÑA Y ESPARCEN LAS PARTÍCULAS EN EL AMBIENTE.</div>
+              <div class="puddle flat"><span></span><span></span><span></span></div>
+              <div class="particles" aria-hidden="true">✦ · ✧ · ✦ ·</div>
+            </div>
+            <div class="petrichor-close">
+              <p>EL CONJUNTO DE PARTÍCULAS ES LO QUE PRODUCE ESE OLOR LLAMADO “PETRICOR”</p>
+              <span class="arrow-line">→</span>
+              <p>O COMO LO CONOCES TÚ:<br><strong>TIERRA MOJADA</strong></p>
+            </div>
+            <p class="reading-source">Fuente: “How the Smell of Rain Bubbles from the Ground” - The New York Times. Pictoline.com</p>
+          </div>
+
+          <div class="fragment-card">
+            <p><strong>Considere el siguiente fragmento del texto:</strong> “Las burbujas hacen efervescencia como champaña”.</p>
+          </div>`
+      }
+    ],
+    prompt: "¿Cuál de las siguientes opciones expresa el mismo significado que este fragmento?",
+    options: [
+      { letter: "A", text: "Las burbujas de agua están llenas de alcohol, al igual que las burbujas de champaña." },
+      { letter: "B", text: "El agua hierve de la misma manera que la champaña crea burbujas." },
+      { letter: "C", text: "El gas sale de las burbujas de agua del mismo modo que de las burbujas de champaña." },
+      { letter: "D", text: "Las burbujas que salen de la champaña son del mismo color que las del agua." }
+    ],
+    correctAnswer: "C",
+    explanation: "La expresión compara la efervescencia de las burbujas con el comportamiento de la champaña. Es decir, el gas sale de las burbujas de manera semejante."
+  }
+  ,
+  {
+    uid: "s1-lect-044",
+    session: 1,
+    block: 2,
+    number: 44,
+    area: "Lectura Crítica",
+    competencia: "Comprensión lectora",
+    componente: "Función de partes del texto",
+    dificultad: "Media",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 1 - Lectura Crítica - Pregunta 44",
+    stem: "Responda de acuerdo con la infografía “Petricor: el olor de la lluvia”",
+    resources: [
+      {
+        type: "html",
+        html: `
+          <div class="reading-card petrichor-card">
+            <div class="reading-instruction">RESPONDA LAS PREGUNTAS 43 A 46 DE ACUERDO CON LA SIGUIENTE INFORMACIÓN</div>
+            <div class="petrichor-title">PETRICOR:<span>EL OLOR DE LA LLUVIA</span></div>
+            <div class="petrichor-strip">
+              <div class="rain-lines" aria-hidden="true"></div>
+              <div class="petrichor-bubble left">CUANDO LAS GOTAS DE LLUVIA IMPACTAN CONTRA EL SUELO, SE FORMAN BURBUJAS DE AIRE.</div>
+              <div class="puddle splash"><span></span><span></span><span></span><span></span></div>
+            </div>
+            <div class="petrichor-strip">
+              <div class="puddle large"><span></span><span></span><span></span><span></span><span></span></div>
+              <div class="petrichor-bubble right">ESTAS BURBUJAS “ATRAPAN” PARTÍCULAS DE LA TIERRA (ACEITES Y QUÍMICOS PRODUCIDOS POR BACTERIAS).</div>
+            </div>
+            <div class="petrichor-strip">
+              <div class="petrichor-bubble left bottom">LAS BURBUJAS HACEN EFERVESCENCIA COMO CHAMPAÑA Y ESPARCEN LAS PARTÍCULAS EN EL AMBIENTE.</div>
+              <div class="puddle flat"><span></span><span></span><span></span></div>
+              <div class="particles" aria-hidden="true">✦ · ✧ · ✦ ·</div>
+            </div>
+            <div class="petrichor-close">
+              <p>EL CONJUNTO DE PARTÍCULAS ES LO QUE PRODUCE ESE OLOR LLAMADO “PETRICOR”</p>
+              <span class="arrow-line">→</span>
+              <p>O COMO LO CONOCES TÚ:<br><strong>TIERRA MOJADA</strong></p>
+            </div>
+            <p class="reading-source">Fuente: “How the Smell of Rain Bubbles from the Ground” - The New York Times. Pictoline.com</p>
+          </div>
+`
+      }
+    ],
+    prompt: "Teniendo en cuenta el proceso descrito en el texto, ¿qué función cumple el último cuadro?",
+    options: [
+      { letter: "A", text: "Sintetiza el contenido del texto." },
+      { letter: "B", text: "Presenta los contenidos del texto." },
+      { letter: "C", text: "Anuncia la estructura del texto." },
+      { letter: "D", text: "Funciona como el cierre del texto." }
+    ],
+    correctAnswer: "D",
+    explanation: "El último cuadro cierra la explicación al nombrar el fenómeno descrito: el conjunto de partículas produce el olor llamado petricor, conocido como tierra mojada."
+  }
+  ,
+  {
+    uid: "s1-lect-045",
+    session: 1,
+    block: 2,
+    number: 45,
+    area: "Lectura Crítica",
+    competencia: "Comprensión lectora",
+    componente: "Relaciones semánticas y conectores",
+    dificultad: "Media",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 1 - Lectura Crítica - Pregunta 45",
+    stem: "Responda de acuerdo con la infografía “Petricor: el olor de la lluvia”",
+    resources: [
+      {
+        type: "html",
+        html: `
+          <div class="reading-card petrichor-card">
+            <div class="reading-instruction">RESPONDA LAS PREGUNTAS 43 A 46 DE ACUERDO CON LA SIGUIENTE INFORMACIÓN</div>
+            <div class="petrichor-title">PETRICOR:<span>EL OLOR DE LA LLUVIA</span></div>
+            <div class="petrichor-strip">
+              <div class="rain-lines" aria-hidden="true"></div>
+              <div class="petrichor-bubble left">CUANDO LAS GOTAS DE LLUVIA IMPACTAN CONTRA EL SUELO, SE FORMAN BURBUJAS DE AIRE.</div>
+              <div class="puddle splash"><span></span><span></span><span></span><span></span></div>
+            </div>
+            <div class="petrichor-strip">
+              <div class="puddle large"><span></span><span></span><span></span><span></span><span></span></div>
+              <div class="petrichor-bubble right">ESTAS BURBUJAS “ATRAPAN” PARTÍCULAS DE LA TIERRA (ACEITES Y QUÍMICOS PRODUCIDOS POR BACTERIAS).</div>
+            </div>
+            <div class="petrichor-strip">
+              <div class="petrichor-bubble left bottom">LAS BURBUJAS HACEN EFERVESCENCIA COMO CHAMPAÑA Y ESPARCEN LAS PARTÍCULAS EN EL AMBIENTE.</div>
+              <div class="puddle flat"><span></span><span></span><span></span></div>
+              <div class="particles" aria-hidden="true">✦ · ✧ · ✦ ·</div>
+            </div>
+            <div class="petrichor-close">
+              <p>EL CONJUNTO DE PARTÍCULAS ES LO QUE PRODUCE ESE OLOR LLAMADO “PETRICOR”</p>
+              <span class="arrow-line">→</span>
+              <p>O COMO LO CONOCES TÚ:<br><strong>TIERRA MOJADA</strong></p>
+            </div>
+            <p class="reading-source">Fuente: “How the Smell of Rain Bubbles from the Ground” - The New York Times. Pictoline.com</p>
+          </div>
+
+          <div class="fragment-card">
+            <p><strong>En el último recuadro se presentan dos enunciados:</strong></p>
+            <p>1. “El conjunto de partículas es lo que produce ese olor llamado petricor”; 2. “o como lo conoces tú: tierra mojada”.</p>
+          </div>`
+      }
+    ],
+    prompt: "¿Qué relación establece la palabra “o” entre estas dos frases?",
+    options: [
+      { letter: "A", text: "Permite establecer una relación de oposición, pues el segundo enunciado se opone al primero." },
+      { letter: "B", text: "Permite establecer una relación de causa-efecto, pues el primer enunciado es la causa del segundo." },
+      { letter: "C", text: "Permite expresar una alternativa, pues el segundo enunciado presenta otra manera de denominar al primero." },
+      { letter: "D", text: "Permite expresar una adición, pues el segundo enunciado agrega nuevas ideas al tema presentado por el primero." }
+    ],
+    correctAnswer: "C",
+    explanation: "La palabra “o” introduce una alternativa de denominación: petricor es el nombre técnico, mientras que tierra mojada es una forma común de llamar el mismo olor."
+  }
+  ,
+  {
+    uid: "s1-lect-046",
+    session: 1,
+    block: 2,
+    number: 46,
+    area: "Lectura Crítica",
+    competencia: "Comprensión lectora",
+    componente: "Estrategias discursivas",
+    dificultad: "Media",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 1 - Lectura Crítica - Pregunta 46",
+    stem: "Responda de acuerdo con la infografía “Petricor: el olor de la lluvia”",
+    resources: [
+      {
+        type: "html",
+        html: `
+          <div class="reading-card petrichor-card">
+            <div class="reading-instruction">RESPONDA LAS PREGUNTAS 43 A 46 DE ACUERDO CON LA SIGUIENTE INFORMACIÓN</div>
+            <div class="petrichor-title">PETRICOR:<span>EL OLOR DE LA LLUVIA</span></div>
+            <div class="petrichor-strip">
+              <div class="rain-lines" aria-hidden="true"></div>
+              <div class="petrichor-bubble left">CUANDO LAS GOTAS DE LLUVIA IMPACTAN CONTRA EL SUELO, SE FORMAN BURBUJAS DE AIRE.</div>
+              <div class="puddle splash"><span></span><span></span><span></span><span></span></div>
+            </div>
+            <div class="petrichor-strip">
+              <div class="puddle large"><span></span><span></span><span></span><span></span><span></span></div>
+              <div class="petrichor-bubble right">ESTAS BURBUJAS “ATRAPAN” PARTÍCULAS DE LA TIERRA (ACEITES Y QUÍMICOS PRODUCIDOS POR BACTERIAS).</div>
+            </div>
+            <div class="petrichor-strip">
+              <div class="petrichor-bubble left bottom">LAS BURBUJAS HACEN EFERVESCENCIA COMO CHAMPAÑA Y ESPARCEN LAS PARTÍCULAS EN EL AMBIENTE.</div>
+              <div class="puddle flat"><span></span><span></span><span></span></div>
+              <div class="particles" aria-hidden="true">✦ · ✧ · ✦ ·</div>
+            </div>
+            <div class="petrichor-close">
+              <p>EL CONJUNTO DE PARTÍCULAS ES LO QUE PRODUCE ESE OLOR LLAMADO “PETRICOR”</p>
+              <span class="arrow-line">→</span>
+              <p>O COMO LO CONOCES TÚ:<br><strong>TIERRA MOJADA</strong></p>
+            </div>
+            <p class="reading-source">Fuente: “How the Smell of Rain Bubbles from the Ground” - The New York Times. Pictoline.com</p>
+          </div>
+`
+      }
+    ],
+    prompt: "A partir de la lectura de la infografía, ¿qué tipo de estrategia utiliza el autor del texto para lograr su propósito?",
+    options: [
+      { letter: "A", text: "Muestra las similitudes y las diferencias entre dos temas con el propósito de demostrar preferencia." },
+      { letter: "B", text: "Utiliza detalles y lenguaje figurado con el fin de apoyar una impresión dominante con respecto al tema." },
+      { letter: "C", text: "Explica el significado de un término relevante para el texto y así deja claro cómo este se va a entender." },
+      { letter: "D", text: "Señala y explica pasos o etapas según sus características." }
+    ],
+    correctAnswer: "C",
+    explanation: "La infografía explica el significado del término petricor y lo relaciona con una expresión conocida por el lector: tierra mojada. Por eso, la estrategia consiste en definir y aclarar un término relevante."
+  }
+
+  ,
+  {
+    uid: "s1-lect-047",
+    session: 1,
+    block: 2,
+    number: 47,
+    area: "Lectura Crítica",
+    competencia: "Comprensión lectora",
+    componente: "Identificación de tesis central",
+    dificultad: "Básica",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 1 - Lectura Crítica - Pregunta 47",
+    stem: "Responda de acuerdo con el texto “La verdad en la infancia”",
+    resources: [
+      {
+        type: "html",
+        html: `
+          <div class="reading-card infancia-card">
+            <div class="reading-instruction">RESPONDA LAS PREGUNTAS 47 Y 48 DE ACUERDO CON LA SIGUIENTE INFORMACIÓN</div>
+            <h3>La verdad en la infancia</h3>
+            <p>En la vasta comedia de los sentimientos y de las pasiones humanas, la infancia representa la única certeza de sinceridad. Nos hacemos hombres adultos, nos hacemos viejos, maduramos principal y casi exclusivamente para mentir, para disimular, para fingir acerca del amor, de la amistad, del aprecio, entre otras cosas. Sobre ninguna de tales categorías morales conoce la infancia el recurso de la hipocresía. Los niños aman y detestan integral, honda y sinceramente con diáfana lealtad. Confiesan su desamor por una cosa o por una persona, con esplendorosa claridad, sin agregar vanas razones al mandato interior que los fuerza a declarar su pueril odio o abominación. Afirman, de la misma manera honesta, su prodigiosa ternura por una persona o un juguete, por un desaprovechado trozo de madera, por un inservible artefacto, resto de un naufragio de cosas domésticas, por un perro de ojos tristes y de estampa maltrecha, por un gato envejecido y cojo, por una piedrecilla minúscula, cuyos hostiles bordes se han ido suavizando al roce de las caricias entre las manos incansables. Los niños aman el viento y la lluvia, la tierra mojada, el agua que brota y que salta en los estanques públicos, el sol y el cielo, la yerba, los árboles, la luz, los colores, todo el universo real y todo el universo irreal de sus sueños.</p>
+            <p class="reading-source">Tomado y adaptado de: Téllez, H. (1946). Bagatela sobre la infancia. En Hernando Téllez (Ed.), <em>Luces en el bosque</em> (pp. 141-142). Ediciones Librería Siglo XX.</p>
+          </div>
+`
+      }
+    ],
+    prompt: "¿Cuál de las siguientes opciones presenta la idea que defiende el texto?",
+    options: [
+      { letter: "A", text: "Cuando se es viejo siempre se ama con libertad." },
+      { letter: "B", text: "Cuando se es niño siempre se ama con claridad." },
+      { letter: "C", text: "Cuando se es viejo siempre se miente." },
+      { letter: "D", text: "Cuando se es niño siempre se dice la verdad." }
+    ],
+    correctAnswer: "D",
+    explanation: "El texto defiende la idea de que la infancia representa una certeza de sinceridad: los niños aman, detestan y expresan lo que sienten con claridad, sin hipocresía. Por eso, la opción correcta es D."
+  }
+  ,
+  {
+    uid: "s1-lect-048",
+    session: 1,
+    block: 2,
+    number: 48,
+    area: "Lectura Crítica",
+    competencia: "Comprensión lectora",
+    componente: "Estrategia argumentativa",
+    dificultad: "Media",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 1 - Lectura Crítica - Pregunta 48",
+    stem: "Responda de acuerdo con el texto “La verdad en la infancia”",
+    resources: [
+      {
+        type: "html",
+        html: `
+          <div class="reading-card infancia-card">
+            <div class="reading-instruction">RESPONDA LAS PREGUNTAS 47 Y 48 DE ACUERDO CON LA SIGUIENTE INFORMACIÓN</div>
+            <h3>La verdad en la infancia</h3>
+            <p>En la vasta comedia de los sentimientos y de las pasiones humanas, la infancia representa la única certeza de sinceridad. Nos hacemos hombres adultos, nos hacemos viejos, maduramos principal y casi exclusivamente para mentir, para disimular, para fingir acerca del amor, de la amistad, del aprecio, entre otras cosas. Sobre ninguna de tales categorías morales conoce la infancia el recurso de la hipocresía. Los niños aman y detestan integral, honda y sinceramente con diáfana lealtad. Confiesan su desamor por una cosa o por una persona, con esplendorosa claridad, sin agregar vanas razones al mandato interior que los fuerza a declarar su pueril odio o abominación. Afirman, de la misma manera honesta, su prodigiosa ternura por una persona o un juguete, por un desaprovechado trozo de madera, por un inservible artefacto, resto de un naufragio de cosas domésticas, por un perro de ojos tristes y de estampa maltrecha, por un gato envejecido y cojo, por una piedrecilla minúscula, cuyos hostiles bordes se han ido suavizando al roce de las caricias entre las manos incansables. Los niños aman el viento y la lluvia, la tierra mojada, el agua que brota y que salta en los estanques públicos, el sol y el cielo, la yerba, los árboles, la luz, los colores, todo el universo real y todo el universo irreal de sus sueños.</p>
+            <p class="reading-source">Tomado y adaptado de: Téllez, H. (1946). Bagatela sobre la infancia. En Hernando Téllez (Ed.), <em>Luces en el bosque</em> (pp. 141-142). Ediciones Librería Siglo XX.</p>
+          </div>
+`
+      }
+    ],
+    prompt: "¿Cuál es la estrategia argumentativa usada por el autor?",
+    options: [
+      { letter: "A", text: "El autor presenta el tema, seguido de una tesis y de una antítesis, y concluye con una síntesis." },
+      { letter: "B", text: "El autor emprende la tarea de defender una tesis enumerando evidencias a favor de ella." },
+      { letter: "C", text: "El autor presenta diferentes argumentos y concluye refutando esos argumentos." },
+      { letter: "D", text: "El autor expone una tesis, pero no presenta argumentos para apoyarla." }
+    ],
+    correctAnswer: "B",
+    explanation: "El autor sostiene la tesis de que la infancia es sincera y la apoya mediante una enumeración de evidencias: los niños aman, detestan, confiesan y afirman sus sentimientos sin hipocresía. Por eso, la respuesta correcta es B."
+  }
+
+  ,
+  {
+    uid: "s1-lect-049",
+    session: 1,
+    block: 2,
+    number: 49,
+    area: "Lectura Crítica",
+    competencia: "Comprensión lectora",
+    componente: "Inferencia a partir de información textual y paratextual",
+    dificultad: "Básica",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 1 - Lectura Crítica - Pregunta 49",
+    stem: "Responda de acuerdo con el cómic sobre el Corán.",
+    resources: [
+      {
+        type: "html",
+        html: `
+          <div class="reading-card comic-card riad-comic-card">
+            <div class="reading-instruction">RESPONDA LAS PREGUNTAS 49 A 51 DE ACUERDO CON LA SIGUIENTE INFORMACIÓN</div>
+            <div class="comic-grid" aria-label="Cómic sobre la recuperación de lectura del Corán">
+              <section class="comic-panel">
+                <div class="caption-box">El director de la escuela y mi padre creían que mi nivel de Corán* era muy deficiente.</div>
+                <div class="comic-scene school-scene"><span>Escuela</span><span>Niños en el patio</span></div>
+                <span class="panel-number">1</span>
+              </section>
+              <section class="comic-panel">
+                <div class="comic-scene desk-scene"><span>El árabe del Corán no es el mismo que el que se hablaba en clase.</span></div>
+                <span class="panel-number">2</span>
+              </section>
+              <section class="comic-panel">
+                <div class="caption-box">Así que me obligaron a pasarme todos los recreos haciendo recuperación con la maestra.</div>
+                <div class="speech teacher">¡Venga, Riad!</div>
+                <div class="speech child">Explícame de qué habla este versículo.</div>
+                <div class="thought">Como todo el mundo quería matarme a la hora del recreo, me venía bien.</div>
+                <span class="panel-number">3</span>
+              </section>
+              <section class="comic-panel">
+                <div class="caption-box">Yo me preguntaba si iba en serio o disimulaba. Si apenas conseguía leer...</div>
+                <div class="speech teacher">Yo... No sé...</div>
+                <div class="speech child big">BUAAA</div>
+                <span class="panel-number">4</span>
+              </section>
+              <section class="comic-panel">
+                <div class="speech teacher wide">Venga, no pasa nada, volvemos a empezar, escucha bien.</div>
+                <div class="comic-scene reading-scene"><span>Libro abierto sobre el pupitre</span></div>
+                <span class="panel-number">5</span>
+              </section>
+              <section class="comic-panel">
+                <div class="caption-box">Olía a una fragancia jabonosa y, de fondo, a un sudor embriagador y reconfortante.</div>
+                <div class="speech teacher">Bismilá arramán arrahim...</div>
+                <div class="thought child-note">Escucharla era muy agradable.</div>
+                <span class="panel-number">6</span>
+              </section>
+            </div>
+            <p class="reading-note"><strong>*Corán:</strong> Libro sagrado para los musulmanes.</p>
+            <p class="reading-source">Sattouf, R. (2019). <em>El árabe del futuro 4. Una juventud en Oriente Medio (1987-1992)</em>. España: Editorial Salamandra.</p>
+          </div>
+`
+      }
+    ],
+    prompt: "El texto en árabe al que se refieren en los recuadros está dividido en versículos. Uno podría deducir que se trata de:",
+    options: [
+      { letter: "A", text: "Un diccionario de una lengua de Oriente Medio." },
+      { letter: "B", text: "Un texto religioso como la Biblia." },
+      { letter: "C", text: "Una colección de cuentos de los hermanos Grimm." },
+      { letter: "D", text: "Una novela como María, de Jorge Isaacs." }
+    ],
+    correctAnswer: "B",
+    explanation: "El texto menciona el Corán y la nota aclara que es el libro sagrado para los musulmanes. Además, se habla de versículos, una forma de organización propia de textos religiosos. Por eso, la opción correcta es B."
+  }
+  ,
+  {
+    uid: "s1-lect-050",
+    session: 1,
+    block: 2,
+    number: 50,
+    area: "Lectura Crítica",
+    competencia: "Comprensión lectora",
+    componente: "Relación entre texto verbal y elementos gráficos",
+    dificultad: "Media",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 1 - Lectura Crítica - Pregunta 50",
+    stem: "Responda de acuerdo con el cómic sobre el Corán.",
+    resources: [
+      {
+        type: "html",
+        html: `
+          <div class="reading-card comic-card riad-comic-card">
+            <div class="reading-instruction">RESPONDA LAS PREGUNTAS 49 A 51 DE ACUERDO CON LA SIGUIENTE INFORMACIÓN</div>
+            <div class="comic-grid" aria-label="Cómic sobre la recuperación de lectura del Corán">
+              <section class="comic-panel">
+                <div class="caption-box">El director de la escuela y mi padre creían que mi nivel de Corán* era muy deficiente.</div>
+                <div class="comic-scene school-scene"><span>Escuela</span><span>Niños en el patio</span></div>
+                <span class="panel-number">1</span>
+              </section>
+              <section class="comic-panel">
+                <div class="comic-scene desk-scene"><span>El árabe del Corán no es el mismo que el que se hablaba en clase.</span></div>
+                <span class="panel-number">2</span>
+              </section>
+              <section class="comic-panel">
+                <div class="caption-box">Así que me obligaron a pasarme todos los recreos haciendo recuperación con la maestra.</div>
+                <div class="speech teacher">¡Venga, Riad!</div>
+                <div class="speech child">Explícame de qué habla este versículo.</div>
+                <div class="thought">Como todo el mundo quería matarme a la hora del recreo, me venía bien.</div>
+                <span class="panel-number">3</span>
+              </section>
+              <section class="comic-panel">
+                <div class="caption-box">Yo me preguntaba si iba en serio o disimulaba. Si apenas conseguía leer...</div>
+                <div class="speech teacher">Yo... No sé...</div>
+                <div class="speech child big">BUAAA</div>
+                <span class="panel-number">4</span>
+              </section>
+              <section class="comic-panel">
+                <div class="speech teacher wide">Venga, no pasa nada, volvemos a empezar, escucha bien.</div>
+                <div class="comic-scene reading-scene"><span>Libro abierto sobre el pupitre</span></div>
+                <span class="panel-number">5</span>
+              </section>
+              <section class="comic-panel">
+                <div class="caption-box">Olía a una fragancia jabonosa y, de fondo, a un sudor embriagador y reconfortante.</div>
+                <div class="speech teacher">Bismilá arramán arrahim...</div>
+                <div class="thought child-note">Escucharla era muy agradable.</div>
+                <span class="panel-number">6</span>
+              </section>
+            </div>
+            <p class="reading-note"><strong>*Corán:</strong> Libro sagrado para los musulmanes.</p>
+            <p class="reading-source">Sattouf, R. (2019). <em>El árabe del futuro 4. Una juventud en Oriente Medio (1987-1992)</em>. España: Editorial Salamandra.</p>
+          </div>
+`
+      }
+    ],
+    prompt: "En el sexto recuadro del cómic, ¿cuál es la relación entre el texto en cursiva debajo de la flecha y el texto dentro del globo?",
+    options: [
+      { letter: "A", text: "Mediante el texto en cursiva la mujer corrige la pronunciación de la niña, cuyas palabras aparecen en el globo." },
+      { letter: "B", text: "Con el texto en el globo la niña busca hacer una pregunta, que la mujer responde con el texto en cursiva." },
+      { letter: "C", text: "Mediante el texto en cursiva la niña expresa gusto por la voz de la mujer, cuyas palabras están en el globo." },
+      { letter: "D", text: "Con el texto en el globo la mujer responde las observaciones de la niña, que aparecen en cursiva." }
+    ],
+    correctAnswer: "C",
+    explanation: "En el sexto recuadro, el globo presenta las palabras que pronuncia la maestra. El texto en cursiva, debajo de la flecha, corresponde a la voz de la niña narradora, quien expresa que escucharla era agradable. Por eso, la respuesta correcta es C."
+  }
+  ,
+  {
+    uid: "s1-lect-051",
+    session: 1,
+    block: 2,
+    number: 51,
+    area: "Lectura Crítica",
+    competencia: "Comprensión lectora",
+    componente: "Voces narrativas y punto de vista",
+    dificultad: "Media",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 1 - Lectura Crítica - Pregunta 51",
+    stem: "Responda de acuerdo con el cómic sobre el Corán.",
+    resources: [
+      {
+        type: "html",
+        html: `
+          <div class="reading-card comic-card riad-comic-card">
+            <div class="reading-instruction">RESPONDA LAS PREGUNTAS 49 A 51 DE ACUERDO CON LA SIGUIENTE INFORMACIÓN</div>
+            <div class="comic-grid" aria-label="Cómic sobre la recuperación de lectura del Corán">
+              <section class="comic-panel">
+                <div class="caption-box">El director de la escuela y mi padre creían que mi nivel de Corán* era muy deficiente.</div>
+                <div class="comic-scene school-scene"><span>Escuela</span><span>Niños en el patio</span></div>
+                <span class="panel-number">1</span>
+              </section>
+              <section class="comic-panel">
+                <div class="comic-scene desk-scene"><span>El árabe del Corán no es el mismo que el que se hablaba en clase.</span></div>
+                <span class="panel-number">2</span>
+              </section>
+              <section class="comic-panel">
+                <div class="caption-box">Así que me obligaron a pasarme todos los recreos haciendo recuperación con la maestra.</div>
+                <div class="speech teacher">¡Venga, Riad!</div>
+                <div class="speech child">Explícame de qué habla este versículo.</div>
+                <div class="thought">Como todo el mundo quería matarme a la hora del recreo, me venía bien.</div>
+                <span class="panel-number">3</span>
+              </section>
+              <section class="comic-panel">
+                <div class="caption-box">Yo me preguntaba si iba en serio o disimulaba. Si apenas conseguía leer...</div>
+                <div class="speech teacher">Yo... No sé...</div>
+                <div class="speech child big">BUAAA</div>
+                <span class="panel-number">4</span>
+              </section>
+              <section class="comic-panel">
+                <div class="speech teacher wide">Venga, no pasa nada, volvemos a empezar, escucha bien.</div>
+                <div class="comic-scene reading-scene"><span>Libro abierto sobre el pupitre</span></div>
+                <span class="panel-number">5</span>
+              </section>
+              <section class="comic-panel">
+                <div class="caption-box">Olía a una fragancia jabonosa y, de fondo, a un sudor embriagador y reconfortante.</div>
+                <div class="speech teacher">Bismilá arramán arrahim...</div>
+                <div class="thought child-note">Escucharla era muy agradable.</div>
+                <span class="panel-number">6</span>
+              </section>
+            </div>
+            <p class="reading-note"><strong>*Corán:</strong> Libro sagrado para los musulmanes.</p>
+            <p class="reading-source">Sattouf, R. (2019). <em>El árabe del futuro 4. Una juventud en Oriente Medio (1987-1992)</em>. España: Editorial Salamandra.</p>
+          </div>
+`
+      }
+    ],
+    prompt: "Los rectángulos de texto que aparecen en la parte superior de los recuadros 1, 3, 4 y 6 corresponden a la voz de:",
+    options: [
+      { letter: "A", text: "La maestra que aparece en el cómic, que cuenta todo en tercera persona." },
+      { letter: "B", text: "El director de la escuela, que no aparece en los recuadros pero conoció la historia." },
+      { letter: "C", text: "El padre de la niña del cómic, que recuerda los eventos en segunda persona." },
+      { letter: "D", text: "La niña de la historia, que hace su relato en primera persona." }
+    ],
+    correctAnswer: "D",
+    explanation: "Los recuadros superiores usan expresiones como “mi padre”, “me obligaron” y “yo me preguntaba”, por lo que corresponden a una narración en primera persona realizada por la niña de la historia. La respuesta correcta es D."
+  }
+
+  ,
+  {
+    uid: "s1-lect-052",
+    session: 1,
+    block: 2,
+    number: 52,
+    area: "Lectura Crítica",
+    competencia: "Comprensión lectora",
+    componente: "Relación entre enunciados y función argumentativa",
+    dificultad: "Media",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 1 - Lectura Crítica - Pregunta 52",
+    stem: "Responda de acuerdo con el texto sobre los horóscopos.",
+    resources: [
+      {
+        type: "html",
+        html: `
+          <article class="reading-card prose-reading horoscope-reading">
+            <div class="reading-instruction">RESPONDA LAS PREGUNTAS 52 Y 53 DE ACUERDO CON LA SIGUIENTE INFORMACIÓN</div>
+            <p>Me pregunto qué diría un comité de ética si un periódico indujera a sus lectores a cambiar comportamientos, a vender o comprar propiedades, a suspender relaciones amorosas o a cambiar de trabajo. Todo eso con el agravante de que la intromisión proviene de afirmaciones sin base científica o factual, producto de la pluma de alguien que ya ha demostrado estar equivocado y se lucra de la ingenuidad de la gente. Pues eso es exactamente lo que pasa con los horóscopos que nos inundan por esta época, incluso en los medios de la mayor seriedad.</p>
+            <p>Horóscopos y cartas astrales se basan en creencias y mitos de diversas culturas, en escritos antiguos que están equivocados y se contradicen en sus predicciones. Los signos del Zodíaco, por ejemplo, no son 12 sino 13, y hay quienes piensan que 14. Los astrólogos esconden ese hecho, que nos obligaría a reubicarnos en signos diferentes al nuestro tradicional, cambiando el análisis de personalidad y las predicciones de toda la vida. ¡Qué oso!</p>
+            <p>El nombre y carácter de los signos se derivan de lo que creían ver en las estrellas astrónomos de la Antigüedad. Podrían haber imaginado cosas distintas. Hoy, por ejemplo, no verían una balanza (pieza de museo) en los astros del signo Libra. Quizás verían un brasier, y eso nos daría a los del signo nuestra proverbial fama de equilibrados.</p>
+            <p>En los análisis de personalidad hacen afirmaciones generales que le cuadran a cualquiera. Aprovechan lo que en psicología se llama efecto Forer. Forer sometió a sus estudiantes a un test que supuestamente había elaborado para definir la personalidad. Posteriormente, le entregó a cada uno su resultado y le pidió que calificara su precisión de 0 a 5. El test recibió una excelente calificación promedio de 4,2.</p>
+            <p>El asunto fue que Forer no leyó los exámenes y entregó a todos los estudiantes el mismo resultado. Este le decía al examinado que tenía gran necesidad de aprecio, pero que era crítico consigo mismo. Que trataba de compensar sus debilidades, y así muchas otras cosas, muy personales e íntimas. El texto les cuadró a todos. Así, la mayoría de astrólogos usan esa técnica, y la gente siente que acertaron.</p>
+            <p>Algunos se arriesgan a pronósticos más precisos, y en ellos casi siempre se equivocan, pero nos recuerdan solo sus aciertos. Este año habrá quienes se vanagloriarán de haber predicho la muerte de Fidel Castro; no nos recordarán que llevan 10 años prediciéndola. Busquen en la web las predicciones de sus astrólogos preferidos para el 2016. Una conocida astróloga mexicana pronosticó la caída de Maduro y que Jeb Bush iba a ser presidente. Otro lamentó informarnos que el papa Francisco sufriría una grave enfermedad. Acertó, eso sí, al predecir que en el mundo habría más refugiados.</p>
+            <p>A mí, el astrólogo colombiano de cabecera me predijo que iba a participar en eventos al aire libre y me recomendó utilizar mi capacidad creativa para labrarme un buen futuro. Comparto feliz estas buenas predicciones con otros 625 millones de terrícolas.</p>
+            <p class="reading-source">Tomado y adaptado de: Wasserman, M. (22 de diciembre de 2016). Otra vez “horoscopeando”. <em>El Tiempo</em>. Recuperado de http://www.eltiempo.com/archivo/documento/CMS-16778742</p>
+          </article>
+`
+      }
+    ],
+    prompt: "Considere las siguientes predicciones, presentadas en el penúltimo párrafo del texto: 1) El papa Francisco sufrirá una grave enfermedad. 2) En el mundo habrá más refugiados. ¿Cuál es la relación entre estas dos afirmaciones?",
+    options: [
+      { letter: "A", text: "Son complementarias, puesto que ambas sirven para probar que las predicciones específicas de los astrólogos son ciertas." },
+      { letter: "B", text: "Tienen la misma función, ya que ambas prueban que las predicciones generales de los astrólogos suelen resultar falsas." },
+      { letter: "C", text: "Son contradictorias, puesto que 1) dice lo contrario que 2), mostrando que los horóscopos son una práctica incoherente." },
+      { letter: "D", text: "Tienen funciones opuestas, ya que 1) prueba que las predicciones particulares fallan, y 2) que las generales aciertan." }
+    ],
+    correctAnswer: "D",
+    explanation: "En el penúltimo párrafo, el autor muestra que las predicciones específicas suelen fallar, como la enfermedad grave del papa Francisco, mientras que una predicción general puede parecer acertada, como afirmar que habría más refugiados. Por eso, las dos afirmaciones cumplen funciones opuestas. La respuesta correcta es D."
+  }
+  ,
+  {
+    uid: "s1-lect-053",
+    session: 1,
+    block: 2,
+    number: 53,
+    area: "Lectura Crítica",
+    competencia: "Comprensión lectora",
+    componente: "Uso de evidencia en la argumentación",
+    dificultad: "Media",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 1 - Lectura Crítica - Pregunta 53",
+    stem: "Responda de acuerdo con el texto sobre los horóscopos.",
+    resources: [
+      {
+        type: "html",
+        html: `
+          <article class="reading-card prose-reading horoscope-reading">
+            <div class="reading-instruction">RESPONDA LAS PREGUNTAS 52 Y 53 DE ACUERDO CON LA SIGUIENTE INFORMACIÓN</div>
+            <p>Me pregunto qué diría un comité de ética si un periódico indujera a sus lectores a cambiar comportamientos, a vender o comprar propiedades, a suspender relaciones amorosas o a cambiar de trabajo. Todo eso con el agravante de que la intromisión proviene de afirmaciones sin base científica o factual, producto de la pluma de alguien que ya ha demostrado estar equivocado y se lucra de la ingenuidad de la gente. Pues eso es exactamente lo que pasa con los horóscopos que nos inundan por esta época, incluso en los medios de la mayor seriedad.</p>
+            <p>Horóscopos y cartas astrales se basan en creencias y mitos de diversas culturas, en escritos antiguos que están equivocados y se contradicen en sus predicciones. Los signos del Zodíaco, por ejemplo, no son 12 sino 13, y hay quienes piensan que 14. Los astrólogos esconden ese hecho, que nos obligaría a reubicarnos en signos diferentes al nuestro tradicional, cambiando el análisis de personalidad y las predicciones de toda la vida. ¡Qué oso!</p>
+            <p>El nombre y carácter de los signos se derivan de lo que creían ver en las estrellas astrónomos de la Antigüedad. Podrían haber imaginado cosas distintas. Hoy, por ejemplo, no verían una balanza (pieza de museo) en los astros del signo Libra. Quizás verían un brasier, y eso nos daría a los del signo nuestra proverbial fama de equilibrados.</p>
+            <p>En los análisis de personalidad hacen afirmaciones generales que le cuadran a cualquiera. Aprovechan lo que en psicología se llama efecto Forer. Forer sometió a sus estudiantes a un test que supuestamente había elaborado para definir la personalidad. Posteriormente, le entregó a cada uno su resultado y le pidió que calificara su precisión de 0 a 5. El test recibió una excelente calificación promedio de 4,2.</p>
+            <p>El asunto fue que Forer no leyó los exámenes y entregó a todos los estudiantes el mismo resultado. Este le decía al examinado que tenía gran necesidad de aprecio, pero que era crítico consigo mismo. Que trataba de compensar sus debilidades, y así muchas otras cosas, muy personales e íntimas. El texto les cuadró a todos. Así, la mayoría de astrólogos usan esa técnica, y la gente siente que acertaron.</p>
+            <p>Algunos se arriesgan a pronósticos más precisos, y en ellos casi siempre se equivocan, pero nos recuerdan solo sus aciertos. Este año habrá quienes se vanagloriarán de haber predicho la muerte de Fidel Castro; no nos recordarán que llevan 10 años prediciéndola. Busquen en la web las predicciones de sus astrólogos preferidos para el 2016. Una conocida astróloga mexicana pronosticó la caída de Maduro y que Jeb Bush iba a ser presidente. Otro lamentó informarnos que el papa Francisco sufriría una grave enfermedad. Acertó, eso sí, al predecir que en el mundo habría más refugiados.</p>
+            <p>A mí, el astrólogo colombiano de cabecera me predijo que iba a participar en eventos al aire libre y me recomendó utilizar mi capacidad creativa para labrarme un buen futuro. Comparto feliz estas buenas predicciones con otros 625 millones de terrícolas.</p>
+            <p class="reading-source">Tomado y adaptado de: Wasserman, M. (22 de diciembre de 2016). Otra vez “horoscopeando”. <em>El Tiempo</em>. Recuperado de http://www.eltiempo.com/archivo/documento/CMS-16778742</p>
+          </article>
+`
+      }
+    ],
+    prompt: "Considere los párrafos 4 y 5 del texto. En ellos, el autor busca mostrar que los análisis de personalidad a veces son engañosos. El experimento realizado por Forer logra apoyar bien esa idea, pues en este se evidencia que",
+    options: [
+      { letter: "A", text: "la mayoría de la gente es proclive a creer en los test de personalidad, sobre todo si estos afirman cosas positivas." },
+      { letter: "B", text: "los estudiantes están sesgados y predispuestos a considerar como verdadero lo que su profesor de psicología les dice." },
+      { letter: "C", text: "debido a las diferencias normales entre sus personalidades, los estudiantes no le otorgaron a la prueba una calificación más alta." },
+      { letter: "D", text: "a pesar de las diferentes personalidades de los estudiantes, todos ellos se sintieron identificados con una misma descripción general." }
+    ],
+    correctAnswer: "D",
+    explanation: "El experimento de Forer apoya la idea de que ciertas descripciones generales parecen ajustarse a cualquiera: todos los estudiantes recibieron el mismo resultado y, aun así, lo calificaron como preciso. Por eso, la respuesta correcta es D."
+  }
+
+  ,
+  {
+    uid: "s1-lect-054",
+    session: 1,
+    block: 2,
+    number: 54,
+    area: "Lectura Crítica",
+    competencia: "Comprensión lectora",
+    componente: "Ubicación de información explícita",
+    dificultad: "Básica",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 1 - Lectura Crítica - Pregunta 54",
+    stem: "Responda de acuerdo con el texto sobre la firma del armisticio.",
+    resources: [
+      {
+        type: "html",
+        html: `
+          <article class="reading-card prose-reading war-reading">
+            <div class="reading-instruction">RESPONDA LAS PREGUNTAS 54 A 57 DE ACUERDO CON LA SIGUIENTE INFORMACIÓN</div>
+            <p>El tren se detuvo en el interior del bosque. La niebla envolvía los robles alrededor del claro. Eran las 7 a. m. del 8 de noviembre de 1918. Estaba finalizando la Primera Guerra Mundial. Estaba empezando la Segunda.</p>
+            <p>Desde el último coche, cuya tapicería de raso verde era una reliquia de los tiempos en que había sido el vagón privado del emperador Napoleón III de Francia, los pasajeros pudieron ver otro coche en un apartadero. Ignoraban dónde estaban, pero sabían que aquella era la última parada de un viaje de pesadilla... un viaje, que esperaban, pondría fin a los combates.</p>
+            <p>Un oficial del ejército francés apareció en la puerta para informar a los recién llegados, seis alemanes, que el mariscal Ferdinand Foch, supremo comandante de las fuerzas aliadas, les recibiría a las 9 a. m. Para Matthias Erzberger, portavoz del grupo, la perspectiva de esperar solo podía aumentar su incomodidad. Le dolía el pesado cuerpo, su sombrero estaba aplastado y, en algún lugar del camino había perdido las gafas.</p>
+            <p>Unos minutos antes de las 9 a. m., los alemanes cruzaron un caminillo de tablillas que había sido colocado entre las vías y entraron en el cuartel de Foch, un antiguo coche-cama francés. Luego, de porte erguido a la edad de 67 años, apareció Foch, acompañado por el Primer Lord de la Marina de Inglaterra, almirante Rosslyn Wemyss.</p>
+            <p>Foch se mostró glacialmente formal:</p>
+            <p>— ¿Qué trae a estos caballeros por aquí? ¿Qué quieren de mí?</p>
+            <p>Erzberger dijo que habían ido con el fin de recibir las propuestas aliadas para una tregua.</p>
+            <p>— No tengo ninguna propuesta que hacer —dijo Foch.</p>
+            <p>Hubo un momento de consternación; uno de los alemanes preguntó cómo quería que se expresaran.</p>
+            <p>— ¿Desean una tregua? —respondió Foch—. Si es así, les puedo comunicar las condiciones bajo las cuales la pueden obtener.</p>
+            <p>Pidieron tregua.</p>
+            <p>El silencio fue absoluto mientras un edecán leía las condiciones. Foch permaneció sentado como una estatua. El almirante jugaba con su monóculo. Mientras escuchaban, los alemanes quedaron aturdidos, comprendiendo por primera vez la magnitud de su derrota.</p>
+            <p>Tres días más tarde, el 11 de noviembre de 1918, a las 5:20 a. m., en el mismo vagón, Erzberger firmó la tregua y, al hacerlo, su propia sentencia de muerte. Tres años después sería abatido a tiros por compatriotas resentidos, un par de exoficiales del ejército, nacionalistas y fanáticos.</p>
+            <p>La intransigencia de Foch y el fatídico destino de Erzberger son vívidos ejemplos de las fuerzas desatadas al final del primer gran conflicto, que condujeron —y hoy nos parece inevitable— al segundo. Estas fuerzas, compuestas de rencor y orgullo, tanto en los alemanes como en sus vencedores, iban a cobrar impulso aún después de que se acallaran las armas.</p>
+            <p class="source-note">Tomado y adaptado de: Elson, R. (1995). <em>La Segunda Guerra Mundial. El preludio de la guerra I.</em> Barcelona: Ediciones Folio.</p>
+          </article>
+        `
+      }
+    ],
+    prompt: "De acuerdo con el texto, la firma del armisticio se da en",
+    options: [
+      { letter: "A", text: "una zona neutral para aliados y alemanes." },
+      { letter: "B", text: "un vagón de tren en territorio aliado." },
+      { letter: "C", text: "un batallón militar del ejército francés." },
+      { letter: "D", text: "una estación de tren en medio de un bosque." }
+    ],
+    correctAnswer: "B",
+    explanation: "El texto indica que tres días después, el 11 de noviembre de 1918, Erzberger firmó la tregua “en el mismo vagón”. Además, ese vagón correspondía al cuartel de Foch, un antiguo coche-cama francés, es decir, en territorio aliado. Por eso, la respuesta correcta es B."
+  },
+  {
+    uid: "s1-lect-055",
+    session: 1,
+    block: 2,
+    number: 55,
+    area: "Lectura Crítica",
+    competencia: "Comprensión lectora",
+    componente: "Inferencia y caracterización de personajes",
+    dificultad: "Media",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 1 - Lectura Crítica - Pregunta 55",
+    stem: "Responda de acuerdo con el texto sobre la situación de los delegados alemanes.",
+    resources: [
+      {
+        type: "html",
+        html: `
+          <article class="reading-card prose-reading war-reading">
+            <div class="reading-instruction">RESPONDA LAS PREGUNTAS 54 A 57 DE ACUERDO CON LA SIGUIENTE INFORMACIÓN</div>
+            <p>El tren se detuvo en el interior del bosque. La niebla envolvía los robles alrededor del claro. Eran las 7 a. m. del 8 de noviembre de 1918. Estaba finalizando la Primera Guerra Mundial. Estaba empezando la Segunda.</p>
+            <p>Desde el último coche, cuya tapicería de raso verde era una reliquia de los tiempos en que había sido el vagón privado del emperador Napoleón III de Francia, los pasajeros pudieron ver otro coche en un apartadero. Ignoraban dónde estaban, pero sabían que aquella era la última parada de un viaje de pesadilla... un viaje, que esperaban, pondría fin a los combates.</p>
+            <p>Un oficial del ejército francés apareció en la puerta para informar a los recién llegados, seis alemanes, que el mariscal Ferdinand Foch, supremo comandante de las fuerzas aliadas, les recibiría a las 9 a. m. Para Matthias Erzberger, portavoz del grupo, la perspectiva de esperar solo podía aumentar su incomodidad. Le dolía el pesado cuerpo, su sombrero estaba aplastado y, en algún lugar del camino había perdido las gafas.</p>
+            <p>Unos minutos antes de las 9 a. m., los alemanes cruzaron un caminillo de tablillas que había sido colocado entre las vías y entraron en el cuartel de Foch, un antiguo coche-cama francés. Luego, de porte erguido a la edad de 67 años, apareció Foch, acompañado por el Primer Lord de la Marina de Inglaterra, almirante Rosslyn Wemyss.</p>
+            <p>Foch se mostró glacialmente formal:</p>
+            <p>— ¿Qué trae a estos caballeros por aquí? ¿Qué quieren de mí?</p>
+            <p>Erzberger dijo que habían ido con el fin de recibir las propuestas aliadas para una tregua.</p>
+            <p>— No tengo ninguna propuesta que hacer —dijo Foch.</p>
+            <p>Hubo un momento de consternación; uno de los alemanes preguntó cómo quería que se expresaran.</p>
+            <p>— ¿Desean una tregua? —respondió Foch—. Si es así, les puedo comunicar las condiciones bajo las cuales la pueden obtener.</p>
+            <p>Pidieron tregua.</p>
+            <p>El silencio fue absoluto mientras un edecán leía las condiciones. Foch permaneció sentado como una estatua. El almirante jugaba con su monóculo. Mientras escuchaban, los alemanes quedaron aturdidos, comprendiendo por primera vez la magnitud de su derrota.</p>
+            <p>Tres días más tarde, el 11 de noviembre de 1918, a las 5:20 a. m., en el mismo vagón, Erzberger firmó la tregua y, al hacerlo, su propia sentencia de muerte. Tres años después sería abatido a tiros por compatriotas resentidos, un par de exoficiales del ejército, nacionalistas y fanáticos.</p>
+            <p>La intransigencia de Foch y el fatídico destino de Erzberger son vívidos ejemplos de las fuerzas desatadas al final del primer gran conflicto, que condujeron —y hoy nos parece inevitable— al segundo. Estas fuerzas, compuestas de rencor y orgullo, tanto en los alemanes como en sus vencedores, iban a cobrar impulso aún después de que se acallaran las armas.</p>
+            <p class="source-note">Tomado y adaptado de: Elson, R. (1995). <em>La Segunda Guerra Mundial. El preludio de la guerra I.</em> Barcelona: Ediciones Folio.</p>
+          </article>
+        `
+      }
+    ],
+    prompt: "Es posible describir a los alemanes como",
+    options: [
+      { letter: "A", text: "desesperados, pues hicieron un largo viaje para poder hablar con Foch." },
+      { letter: "B", text: "vencidos, pero ignorantes de su situación real." },
+      { letter: "C", text: "indecisos, pues les tomó alrededor de tres días decidir firmar el armisticio." },
+      { letter: "D", text: "combativos, pero con voluntad de hacer la paz." }
+    ],
+    correctAnswer: "B",
+    explanation: "Los alemanes ya estaban vencidos, pero el texto señala que al escuchar las condiciones quedaron aturdidos y comprendieron por primera vez la magnitud de su derrota. Por eso, la respuesta correcta es B."
+  },
+  {
+    uid: "s1-lect-056",
+    session: 1,
+    block: 2,
+    number: 56,
+    area: "Lectura Crítica",
+    competencia: "Comprensión lectora",
+    componente: "Identificación de información explícita",
+    dificultad: "Básica",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 1 - Lectura Crítica - Pregunta 56",
+    stem: "Responda de acuerdo con el texto sobre Matthias Erzberger.",
+    resources: [
+      {
+        type: "html",
+        html: `
+          <article class="reading-card prose-reading war-reading">
+            <div class="reading-instruction">RESPONDA LAS PREGUNTAS 54 A 57 DE ACUERDO CON LA SIGUIENTE INFORMACIÓN</div>
+            <p>El tren se detuvo en el interior del bosque. La niebla envolvía los robles alrededor del claro. Eran las 7 a. m. del 8 de noviembre de 1918. Estaba finalizando la Primera Guerra Mundial. Estaba empezando la Segunda.</p>
+            <p>Desde el último coche, cuya tapicería de raso verde era una reliquia de los tiempos en que había sido el vagón privado del emperador Napoleón III de Francia, los pasajeros pudieron ver otro coche en un apartadero. Ignoraban dónde estaban, pero sabían que aquella era la última parada de un viaje de pesadilla... un viaje, que esperaban, pondría fin a los combates.</p>
+            <p>Un oficial del ejército francés apareció en la puerta para informar a los recién llegados, seis alemanes, que el mariscal Ferdinand Foch, supremo comandante de las fuerzas aliadas, les recibiría a las 9 a. m. Para Matthias Erzberger, portavoz del grupo, la perspectiva de esperar solo podía aumentar su incomodidad. Le dolía el pesado cuerpo, su sombrero estaba aplastado y, en algún lugar del camino había perdido las gafas.</p>
+            <p>Unos minutos antes de las 9 a. m., los alemanes cruzaron un caminillo de tablillas que había sido colocado entre las vías y entraron en el cuartel de Foch, un antiguo coche-cama francés. Luego, de porte erguido a la edad de 67 años, apareció Foch, acompañado por el Primer Lord de la Marina de Inglaterra, almirante Rosslyn Wemyss.</p>
+            <p>Foch se mostró glacialmente formal:</p>
+            <p>— ¿Qué trae a estos caballeros por aquí? ¿Qué quieren de mí?</p>
+            <p>Erzberger dijo que habían ido con el fin de recibir las propuestas aliadas para una tregua.</p>
+            <p>— No tengo ninguna propuesta que hacer —dijo Foch.</p>
+            <p>Hubo un momento de consternación; uno de los alemanes preguntó cómo quería que se expresaran.</p>
+            <p>— ¿Desean una tregua? —respondió Foch—. Si es así, les puedo comunicar las condiciones bajo las cuales la pueden obtener.</p>
+            <p>Pidieron tregua.</p>
+            <p>El silencio fue absoluto mientras un edecán leía las condiciones. Foch permaneció sentado como una estatua. El almirante jugaba con su monóculo. Mientras escuchaban, los alemanes quedaron aturdidos, comprendiendo por primera vez la magnitud de su derrota.</p>
+            <p>Tres días más tarde, el 11 de noviembre de 1918, a las 5:20 a. m., en el mismo vagón, Erzberger firmó la tregua y, al hacerlo, su propia sentencia de muerte. Tres años después sería abatido a tiros por compatriotas resentidos, un par de exoficiales del ejército, nacionalistas y fanáticos.</p>
+            <p>La intransigencia de Foch y el fatídico destino de Erzberger son vívidos ejemplos de las fuerzas desatadas al final del primer gran conflicto, que condujeron —y hoy nos parece inevitable— al segundo. Estas fuerzas, compuestas de rencor y orgullo, tanto en los alemanes como en sus vencedores, iban a cobrar impulso aún después de que se acallaran las armas.</p>
+            <p class="source-note">Tomado y adaptado de: Elson, R. (1995). <em>La Segunda Guerra Mundial. El preludio de la guerra I.</em> Barcelona: Ediciones Folio.</p>
+          </article>
+        `
+      }
+    ],
+    prompt: "De acuerdo con el texto, Matthias Erzberger era",
+    options: [
+      { letter: "A", text: "un político francés que sirvió como mediador en la negociación entre los alemanes y Foch." },
+      { letter: "B", text: "un diplomático alemán encargado de negociar con el supremo comandante de las fuerzas aliadas." },
+      { letter: "C", text: "un oficial del ejército aliado que acompañó a los alemanes al momento de negociar con Foch." },
+      { letter: "D", text: "un edecán encargado de comandar el grupo de negociación conformado por alemanes y aliados." }
+    ],
+    correctAnswer: "B",
+    explanation: "El texto presenta a Matthias Erzberger como portavoz del grupo de alemanes y muestra que fue quien explicó a Foch que habían ido a recibir las propuestas aliadas para una tregua. Por eso, la respuesta correcta es B."
+  },
+  {
+    uid: "s1-lect-057",
+    session: 1,
+    block: 2,
+    number: 57,
+    area: "Lectura Crítica",
+    competencia: "Comprensión lectora",
+    componente: "Relación entre textos",
+    dificultad: "Media",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 1 - Lectura Crítica - Pregunta 57",
+    stem: "Responda de acuerdo con el texto principal y el fragmento complementario.",
+    resources: [
+      {
+        type: "html",
+        html: `
+          <article class="reading-card prose-reading war-reading">
+            <div class="reading-instruction">RESPONDA LAS PREGUNTAS 54 A 57 DE ACUERDO CON LA SIGUIENTE INFORMACIÓN</div>
+            <p>El tren se detuvo en el interior del bosque. La niebla envolvía los robles alrededor del claro. Eran las 7 a. m. del 8 de noviembre de 1918. Estaba finalizando la Primera Guerra Mundial. Estaba empezando la Segunda.</p>
+            <p>Desde el último coche, cuya tapicería de raso verde era una reliquia de los tiempos en que había sido el vagón privado del emperador Napoleón III de Francia, los pasajeros pudieron ver otro coche en un apartadero. Ignoraban dónde estaban, pero sabían que aquella era la última parada de un viaje de pesadilla... un viaje, que esperaban, pondría fin a los combates.</p>
+            <p>Un oficial del ejército francés apareció en la puerta para informar a los recién llegados, seis alemanes, que el mariscal Ferdinand Foch, supremo comandante de las fuerzas aliadas, les recibiría a las 9 a. m. Para Matthias Erzberger, portavoz del grupo, la perspectiva de esperar solo podía aumentar su incomodidad. Le dolía el pesado cuerpo, su sombrero estaba aplastado y, en algún lugar del camino había perdido las gafas.</p>
+            <p>Unos minutos antes de las 9 a. m., los alemanes cruzaron un caminillo de tablillas que había sido colocado entre las vías y entraron en el cuartel de Foch, un antiguo coche-cama francés. Luego, de porte erguido a la edad de 67 años, apareció Foch, acompañado por el Primer Lord de la Marina de Inglaterra, almirante Rosslyn Wemyss.</p>
+            <p>Foch se mostró glacialmente formal:</p>
+            <p>— ¿Qué trae a estos caballeros por aquí? ¿Qué quieren de mí?</p>
+            <p>Erzberger dijo que habían ido con el fin de recibir las propuestas aliadas para una tregua.</p>
+            <p>— No tengo ninguna propuesta que hacer —dijo Foch.</p>
+            <p>Hubo un momento de consternación; uno de los alemanes preguntó cómo quería que se expresaran.</p>
+            <p>— ¿Desean una tregua? —respondió Foch—. Si es así, les puedo comunicar las condiciones bajo las cuales la pueden obtener.</p>
+            <p>Pidieron tregua.</p>
+            <p>El silencio fue absoluto mientras un edecán leía las condiciones. Foch permaneció sentado como una estatua. El almirante jugaba con su monóculo. Mientras escuchaban, los alemanes quedaron aturdidos, comprendiendo por primera vez la magnitud de su derrota.</p>
+            <p>Tres días más tarde, el 11 de noviembre de 1918, a las 5:20 a. m., en el mismo vagón, Erzberger firmó la tregua y, al hacerlo, su propia sentencia de muerte. Tres años después sería abatido a tiros por compatriotas resentidos, un par de exoficiales del ejército, nacionalistas y fanáticos.</p>
+            <p>La intransigencia de Foch y el fatídico destino de Erzberger son vívidos ejemplos de las fuerzas desatadas al final del primer gran conflicto, que condujeron —y hoy nos parece inevitable— al segundo. Estas fuerzas, compuestas de rencor y orgullo, tanto en los alemanes como en sus vencedores, iban a cobrar impulso aún después de que se acallaran las armas.</p>
+            <p class="source-note">Tomado y adaptado de: Elson, R. (1995). <em>La Segunda Guerra Mundial. El preludio de la guerra I.</em> Barcelona: Ediciones Folio.</p>
+          </article>
+
+          <article class="reading-card prose-reading fragment-reading">
+            <p><strong>Considere el siguiente fragmento:</strong></p>
+            <p>Las cláusulas territoriales del Tratado de Versalles [el acuerdo de paz firmado en 1919 entre aliados y alemanes tras finalizar la Primera Guerra Mundial] dejaban a Alemania prácticamente intacta. Seguía siendo el más grande de los bloques raciales homogéneos de Europa.</p>
+            <p>Cuando el mariscal Foch se enteró de la firma del Tratado de Paz de Versalles, comentó con singular acierto: "Esto no es la paz. Es una tregua por veinte años".</p>
+            <p class="source-note">Tomado y adaptado de: Churchill, W. (1986). <em>The Second World War. The Gathering Storm.</em> Mariner Books.</p>
+          </article>
+        `
+      }
+    ],
+    prompt: "¿Qué relación guarda el anterior fragmento con el texto principal?",
+    options: [
+      { letter: "A", text: "Lo complementa, pues muestra un aspecto desconocido del mariscal Foch que está en contra de aceptar el armisticio." },
+      { letter: "B", text: "Lo contradice, pues en el texto principal se advierte que Foch apoyaba las condiciones impuestas a los alemanes para la firma del armisticio." },
+      { letter: "C", text: "Lo complementa, pues da más razones para asegurar que el fin de la Primera Guerra Mundial fue el inicio de la Segunda." },
+      { letter: "D", text: "Lo contradice, pues en el texto principal se advierte que el fin de la Primera Guerra Mundial solo tuvo consecuencias negativas para Alemania." }
+    ],
+    correctAnswer: "C",
+    explanation: "El fragmento complementa el texto principal porque añade otra razón para sostener que el cierre de la Primera Guerra Mundial no resolvió el conflicto de fondo, sino que dejó condiciones que anticipaban la Segunda Guerra Mundial. Por eso, la respuesta correcta es C."
+  }
+
+
+,
+  {
+    uid: "s1-lect-058",
+    session: 1,
+    block: 2,
+    number: 58,
+    area: "Lectura Crítica",
+    competencia: "Comprensión lectora",
+    componente: "Relación entre enunciados",
+    dificultad: "Media",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 1 - Lectura Crítica - Pregunta 58",
+    stem: "Responda de acuerdo con el texto sobre la preservación de las especies.",
+    resources: [
+      {
+        type: "html",
+        html: `
+          <article class="reading-card prose-reading ecology-reading">
+            <div class="reading-instruction">RESPONDA LAS PREGUNTAS 58 Y 59 DE ACUERDO CON LA SIGUIENTE INFORMACIÓN</div>
+            <p>Existen argumentos en contra de la preservación de las especies, esgrimidos por quienes no consideran fatal que la humanidad colabore en la desaparición del escenario de otras especies. Quizás el más extendido es el de que la extinción es un proceso evolutivo perfectamente natural, que se ha venido produciendo durante millones de años con o sin la participación humana. ¿Por qué hay que preocuparse si en realidad se está ayudando a la naturaleza a seguir su curso?</p>
+            <p>Cuando en 1859, Charles Darwin expuso la teoría de la evolución, junto a las correspondientes pruebas a su favor, no proponía solo la selección natural como fuerza directriz del proceso evolutivo, sino que reconocía también la inevitabilidad de la extinción. Decía Darwin que "como las nuevas formas se producen lenta y constantemente, a menos que admitamos que el número de formas específicas puede seguir aumentando perpetua y casi indefinidamente, es inevitable que haya grupos que se extingan".</p>
+            <p>Antes de Darwin, la idea de la extinción ya había sido tratada por varios geólogos y naturalistas; sin embargo, a mediados del siglo XIX, el concepto resultaba escandaloso para la mayoría de personas. Se creía que todo ser vivo había sido creado por Dios, según una secuencia de complejidad creciente, y que las especies aparecieron en un único acto creador, así que la visión “creacionista” de las especies no contemplaba la extinción. No obstante, actualmente parece haberse cerrado el ciclo; no solo ya no escandaliza la idea de la extinción, sino que se toma el nombre de Darwin en vano cuando se pretende justificar el exterminio de las otras especies a manos del <em>Homo sapiens</em>.</p>
+            <p>Es evidente que quienes recurren a este tipo de argumentos pasan por alto un dato importante, y es que la humanidad ya ha elevado la tasa de extinción de especies muy por encima de las tasas históricas de aparición de las mismas. Las especies desaparecen ahora mucho más deprisa de lo que aparecen, y la tasa de desaparición promete seguir aumentando vertiginosamente. El argumento que justifica el exterminio recuerda a aquel hombre que, al ver cómo el agua escapaba por unas grietas cada vez más anchas del muro de una gran presa, decía a las gentes que vivían río abajo: "No hay por qué preocuparse; después de todo, el agua siempre ha salido por el sobradero".</p>
+            <p class="source-note">Tomado de: Ehrlich, P. R. y Ehrlich, A. H. (1987). <em>Extinción.</em> Barcelona: Salvat Editores.</p>
+          </article>
+        `
+      }
+    ],
+    prompt: "Considere el siguiente fragmento del texto: “Quizás el [argumento contra la preservación de las especies] más extendido es el de que la extinción es un proceso evolutivo perfectamente natural, que se ha venido produciendo durante millones de años con o sin la participación humana. ¿Por qué hay que preocuparse si en realidad se está ayudando a la naturaleza a seguir su curso?”. ¿Cuál es la relación entre los dos enunciados que componen este fragmento?",
+    options: [
+      { letter: "A", text: "La pregunta pone en duda la tesis de la frase que la precede." },
+      { letter: "B", text: "Los enunciados se oponen entre sí." },
+      { letter: "C", text: "La pregunta busca aclarar una idea de la frase que la precede." },
+      { letter: "D", text: "Los enunciados apoyan una misma tesis." }
+    ],
+    correctAnswer: "A",
+    explanation: "La pregunta final introduce un cuestionamiento retórico frente a la afirmación anterior: si la extinción se presenta como natural, entonces se pone en duda la necesidad de preocuparse por ella. Por eso, la respuesta correcta es A."
+  },
+  {
+    uid: "s1-lect-059",
+    session: 1,
+    block: 2,
+    number: 59,
+    area: "Lectura Crítica",
+    competencia: "Comprensión lectora",
+    componente: "Relación entre textos y argumentos",
+    dificultad: "Media",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 1 - Lectura Crítica - Pregunta 59",
+    stem: "Responda de acuerdo con el texto principal y el texto complementario.",
+    resources: [
+      {
+        type: "html",
+        html: `
+          <article class="reading-card prose-reading ecology-reading">
+            <div class="reading-instruction">RESPONDA LAS PREGUNTAS 58 Y 59 DE ACUERDO CON LA SIGUIENTE INFORMACIÓN</div>
+            <p>Existen argumentos en contra de la preservación de las especies, esgrimidos por quienes no consideran fatal que la humanidad colabore en la desaparición del escenario de otras especies. Quizás el más extendido es el de que la extinción es un proceso evolutivo perfectamente natural, que se ha venido produciendo durante millones de años con o sin la participación humana. ¿Por qué hay que preocuparse si en realidad se está ayudando a la naturaleza a seguir su curso?</p>
+            <p>Cuando en 1859, Charles Darwin expuso la teoría de la evolución, junto a las correspondientes pruebas a su favor, no proponía solo la selección natural como fuerza directriz del proceso evolutivo, sino que reconocía también la inevitabilidad de la extinción. Decía Darwin que "como las nuevas formas se producen lenta y constantemente, a menos que admitamos que el número de formas específicas puede seguir aumentando perpetua y casi indefinidamente, es inevitable que haya grupos que se extingan".</p>
+            <p>Antes de Darwin, la idea de la extinción ya había sido tratada por varios geólogos y naturalistas; sin embargo, a mediados del siglo XIX, el concepto resultaba escandaloso para la mayoría de personas. Se creía que todo ser vivo había sido creado por Dios, según una secuencia de complejidad creciente, y que las especies aparecieron en un único acto creador, así que la visión “creacionista” de las especies no contemplaba la extinción. No obstante, actualmente parece haberse cerrado el ciclo; no solo ya no escandaliza la idea de la extinción, sino que se toma el nombre de Darwin en vano cuando se pretende justificar el exterminio de las otras especies a manos del <em>Homo sapiens</em>.</p>
+            <p>Es evidente que quienes recurren a este tipo de argumentos pasan por alto un dato importante, y es que la humanidad ya ha elevado la tasa de extinción de especies muy por encima de las tasas históricas de aparición de las mismas. Las especies desaparecen ahora mucho más deprisa de lo que aparecen, y la tasa de desaparición promete seguir aumentando vertiginosamente. El argumento que justifica el exterminio recuerda a aquel hombre que, al ver cómo el agua escapaba por unas grietas cada vez más anchas del muro de una gran presa, decía a las gentes que vivían río abajo: "No hay por qué preocuparse; después de todo, el agua siempre ha salido por el sobradero".</p>
+            <p class="source-note">Tomado de: Ehrlich, P. R. y Ehrlich, A. H. (1987). <em>Extinción.</em> Barcelona: Salvat Editores.</p>
+          </article>
+
+          <article class="reading-card prose-reading fragment-reading">
+            <p><strong>Considere el siguiente texto:</strong></p>
+            <p>"¡Ah, la madre naturaleza necesita favores! Debió pensarlo cuando nos asoló con inundaciones, sequías y monos enfermos. ¿Ella inició la lucha por sobrevivir y ahora quiere renunciar porque está perdiendo? Pues yo digo, ¡mala noche!" (Montgomery Burns, <em>Los Simpsons</em>).</p>
+          </article>
+        `
+      }
+    ],
+    prompt: "Quienes están en contra de la preservación de las especies podrían argumentar que la idea del párrafo anterior",
+    options: [
+      { letter: "A", text: "contradice su tesis, porque favorece el rechazo del autor a quienes dudan de la extinción." },
+      { letter: "B", text: "complementa su tesis, porque contradice la defensa del autor de que la extinción es antinatural." },
+      { letter: "C", text: "debilita su tesis, porque caricaturiza el argumento de que la extinción es aceptable por tratarse de un proceso natural." },
+      { letter: "D", text: "apoya su tesis, porque presenta una nueva manera de comprender la teoría de la inevitabilidad de la extinción." }
+    ],
+    correctAnswer: "B",
+    explanation: "Desde la postura de quienes se oponen a la preservación, el texto de Montgomery Burns podría usarse para reforzar la idea de que la naturaleza funciona por lucha y pérdida, y que no habría que intervenir para proteger especies. Por eso, la respuesta correcta es B."
+  }
+
+
+,
+  {
+    uid: "s1-lect-060",
+    session: 1,
+    block: 2,
+    number: 60,
+    area: "Lectura Crítica",
+    competencia: "Comprensión lectora",
+    componente: "Vocabulario en contexto",
+    dificultad: "Básica",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 1 - Lectura Crítica - Pregunta 60",
+    stem: "Responda de acuerdo con el texto sobre los computadores y su obediencia a las instrucciones.",
+    resources: [
+      {
+        type: "html",
+        html: `
+          <article class="reading-card prose-reading tech-reading">
+            <div class="reading-instruction">RESPONDA LAS PREGUNTAS 60 A 64 DE ACUERDO CON LA SIGUIENTE INFORMACIÓN</div>
+            <p>Los computadores hacen lo que se les manda. Servilmente obedecen cualquier instrucción dada en su propio lenguaje de programación. Así es como hacen cosas útiles como procesar textos y realizar operaciones en hojas de cálculo. Pero, como inevitable subproducto, son igualmente robóticos a la hora de obedecer instrucciones incorrectas. No tienen modo alguno de decir si una instrucción tendrá un buen efecto o uno malo.</p>
+            <p>Simplemente, obedecen, como se supone que lo hacen los soldados. Es su incuestionable obediencia lo que hace que los computadores sean útiles, y exactamente eso mismo hace que sean inevitablemente vulnerables a la infección de virus y gusanos. Un programa maliciosamente diseñado que diga «cópiame y envíame a todas las direcciones que puedas encontrar en el disco duro» será simplemente obedecido y vuelto a obedecer por los demás computadores de la línea por la que se está enviando, en una expansión exponencial. Es difícil, por no decir imposible, diseñar un computador que sea obedientemente útil y, al mismo tiempo, inmune a la infección.</p>
+            <p class="source-note">Tomado y adaptado de: Dawkins, R. (2007). <em>El espejismo de Dios.</em> P. 190. Madrid: Espasa Calpe.</p>
+          </article>
+`
+      }
+    ],
+    prompt: `Considere la siguiente oración del texto:<br><br><em>"Es difícil, por no decir imposible, diseñar un ordenador que sea obedientemente útil y, al mismo tiempo, inmune a la infección".</em><br><br>En la oración anterior, la palabra "inmune" se podría reemplazar por`,
+    options: [
+      { letter: "A", text: "inatacable." },
+      { letter: "B", text: "proclive." },
+      { letter: "C", text: "invulnerable." },
+      { letter: "D", text: "propenso." }
+    ],
+    correctAnswer: "C",
+    explanation: "En el contexto, 'inmune' significa que no puede ser afectado o vulnerado por la infección. La palabra más cercana es 'invulnerable'. Por eso, la respuesta correcta es C."
+  }
+,
+  {
+    uid: "s1-lect-061",
+    session: 1,
+    block: 2,
+    number: 61,
+    area: "Lectura Crítica",
+    competencia: "Comprensión lectora",
+    componente: "Interpretación de sentido local",
+    dificultad: "Básica",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 1 - Lectura Crítica - Pregunta 61",
+    stem: "Responda de acuerdo con el texto sobre los computadores y su obediencia a las instrucciones.",
+    resources: [
+      {
+        type: "html",
+        html: `
+          <article class="reading-card prose-reading tech-reading">
+            <div class="reading-instruction">RESPONDA LAS PREGUNTAS 60 A 64 DE ACUERDO CON LA SIGUIENTE INFORMACIÓN</div>
+            <p>Los computadores hacen lo que se les manda. Servilmente obedecen cualquier instrucción dada en su propio lenguaje de programación. Así es como hacen cosas útiles como procesar textos y realizar operaciones en hojas de cálculo. Pero, como inevitable subproducto, son igualmente robóticos a la hora de obedecer instrucciones incorrectas. No tienen modo alguno de decir si una instrucción tendrá un buen efecto o uno malo.</p>
+            <p>Simplemente, obedecen, como se supone que lo hacen los soldados. Es su incuestionable obediencia lo que hace que los computadores sean útiles, y exactamente eso mismo hace que sean inevitablemente vulnerables a la infección de virus y gusanos. Un programa maliciosamente diseñado que diga «cópiame y envíame a todas las direcciones que puedas encontrar en el disco duro» será simplemente obedecido y vuelto a obedecer por los demás computadores de la línea por la que se está enviando, en una expansión exponencial. Es difícil, por no decir imposible, diseñar un computador que sea obedientemente útil y, al mismo tiempo, inmune a la infección.</p>
+            <p class="source-note">Tomado y adaptado de: Dawkins, R. (2007). <em>El espejismo de Dios.</em> P. 190. Madrid: Espasa Calpe.</p>
+          </article>
+`
+      }
+    ],
+    prompt: `Considere el siguiente enunciado del texto:<br><br><em>"Simplemente, [los computadores] obedecen, como se supone que lo hacen los soldados".</em><br><br>Lo que el autor quiere decir con este enunciado es que los computadores`,
+    options: [
+      { letter: "A", text: "siempre están expuestos a los virus." },
+      { letter: "B", text: "desconocen si una instrucción es correcta." },
+      { letter: "C", text: "siguen las órdenes sin cuestionarlas." },
+      { letter: "D", text: "son capaces de tomar decisiones." }
+    ],
+    correctAnswer: "C",
+    explanation: "La comparación con los soldados resalta la obediencia automática de los computadores: ejecutan órdenes sin analizarlas ni cuestionarlas. Por eso, la respuesta correcta es C."
+  }
+,
+  {
+    uid: "s1-lect-062",
+    session: 1,
+    block: 2,
+    number: 62,
+    area: "Lectura Crítica",
+    competencia: "Comprensión lectora",
+    componente: "Relación entre enunciados",
+    dificultad: "Media",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 1 - Lectura Crítica - Pregunta 62",
+    stem: "Responda de acuerdo con el texto sobre los computadores y su obediencia a las instrucciones.",
+    resources: [
+      {
+        type: "html",
+        html: `
+          <article class="reading-card prose-reading tech-reading">
+            <div class="reading-instruction">RESPONDA LAS PREGUNTAS 60 A 64 DE ACUERDO CON LA SIGUIENTE INFORMACIÓN</div>
+            <p>Los computadores hacen lo que se les manda. Servilmente obedecen cualquier instrucción dada en su propio lenguaje de programación. Así es como hacen cosas útiles como procesar textos y realizar operaciones en hojas de cálculo. Pero, como inevitable subproducto, son igualmente robóticos a la hora de obedecer instrucciones incorrectas. No tienen modo alguno de decir si una instrucción tendrá un buen efecto o uno malo.</p>
+            <p>Simplemente, obedecen, como se supone que lo hacen los soldados. Es su incuestionable obediencia lo que hace que los computadores sean útiles, y exactamente eso mismo hace que sean inevitablemente vulnerables a la infección de virus y gusanos. Un programa maliciosamente diseñado que diga «cópiame y envíame a todas las direcciones que puedas encontrar en el disco duro» será simplemente obedecido y vuelto a obedecer por los demás computadores de la línea por la que se está enviando, en una expansión exponencial. Es difícil, por no decir imposible, diseñar un computador que sea obedientemente útil y, al mismo tiempo, inmune a la infección.</p>
+            <p class="source-note">Tomado y adaptado de: Dawkins, R. (2007). <em>El espejismo de Dios.</em> P. 190. Madrid: Espasa Calpe.</p>
+          </article>
+`
+      }
+    ],
+    prompt: `Considere los siguientes enunciados del texto:<br><br>1. Un programa maliciosamente diseñado que diga «cópiame y envíame a todas las direcciones que puedas encontrar en el disco duro» será simplemente obedecido y vuelto a obedecer por los demás computadores.<br><br>2. Es su incuestionable obediencia lo que hace que los computadores sean útiles, y exactamente eso mismo hace que sean inevitablemente vulnerables a la infección de virus y gusanos.<br><br>La relación entre los enunciados 1 y 2 puede describirse de la siguiente manera:`,
+    options: [
+      { letter: "A", text: "El enunciado 1 es una evidencia en contra del enunciado 2." },
+      { letter: "B", text: "El enunciado 2 es una evidencia a favor del enunciado 1." },
+      { letter: "C", text: "El enunciado 1 es una evidencia a favor del enunciado 2." },
+      { letter: "D", text: "El enunciado 2 es una evidencia en contra del enunciado 1." }
+    ],
+    correctAnswer: "C",
+    explanation: "El primer enunciado funciona como ejemplo concreto de la idea general expresada en el segundo: la obediencia de los computadores los hace vulnerables. Por eso, la respuesta correcta es C."
+  }
+,
+  {
+    uid: "s1-lect-063",
+    session: 1,
+    block: 2,
+    number: 63,
+    area: "Lectura Crítica",
+    competencia: "Comprensión lectora",
+    componente: "Identificación de la idea global",
+    dificultad: "Media",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 1 - Lectura Crítica - Pregunta 63",
+    stem: "Responda de acuerdo con el texto sobre los computadores y su obediencia a las instrucciones.",
+    resources: [
+      {
+        type: "html",
+        html: `
+          <article class="reading-card prose-reading tech-reading">
+            <div class="reading-instruction">RESPONDA LAS PREGUNTAS 60 A 64 DE ACUERDO CON LA SIGUIENTE INFORMACIÓN</div>
+            <p>Los computadores hacen lo que se les manda. Servilmente obedecen cualquier instrucción dada en su propio lenguaje de programación. Así es como hacen cosas útiles como procesar textos y realizar operaciones en hojas de cálculo. Pero, como inevitable subproducto, son igualmente robóticos a la hora de obedecer instrucciones incorrectas. No tienen modo alguno de decir si una instrucción tendrá un buen efecto o uno malo.</p>
+            <p>Simplemente, obedecen, como se supone que lo hacen los soldados. Es su incuestionable obediencia lo que hace que los computadores sean útiles, y exactamente eso mismo hace que sean inevitablemente vulnerables a la infección de virus y gusanos. Un programa maliciosamente diseñado que diga «cópiame y envíame a todas las direcciones que puedas encontrar en el disco duro» será simplemente obedecido y vuelto a obedecer por los demás computadores de la línea por la que se está enviando, en una expansión exponencial. Es difícil, por no decir imposible, diseñar un computador que sea obedientemente útil y, al mismo tiempo, inmune a la infección.</p>
+            <p class="source-note">Tomado y adaptado de: Dawkins, R. (2007). <em>El espejismo de Dios.</em> P. 190. Madrid: Espasa Calpe.</p>
+          </article>
+`
+      }
+    ],
+    prompt: `¿Cuál es la pregunta principal que busca responder el texto?`,
+    options: [
+      { letter: "A", text: "¿Por qué los computadores pueden ser invulnerables a los virus?" },
+      { letter: "B", text: "¿Cuál es el principal rasgo de los computadores y qué implicaciones tiene dicho rasgo?" },
+      { letter: "C", text: "¿Cuál es la principal característica de los computadores y qué ventajas posee dicho rasgo?" },
+      { letter: "D", text: "¿Por qué los computadores, a pesar de ser vulnerables, tienen la utilidad de detectar buenos y malos efectos?" }
+    ],
+    correctAnswer: "B",
+    explanation: "El texto explica que el rasgo central de los computadores es su obediencia a las instrucciones, y desarrolla sus implicaciones: utilidad y vulnerabilidad. Por eso, la respuesta correcta es B."
+  }
+,
+  {
+    uid: "s1-lect-064",
+    session: 1,
+    block: 2,
+    number: 64,
+    area: "Lectura Crítica",
+    competencia: "Comprensión lectora",
+    componente: "Inferencia a partir de información explícita",
+    dificultad: "Básica",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 1 - Lectura Crítica - Pregunta 64",
+    stem: "Responda de acuerdo con el texto sobre los computadores y su obediencia a las instrucciones.",
+    resources: [
+      {
+        type: "html",
+        html: `
+          <article class="reading-card prose-reading tech-reading">
+            <div class="reading-instruction">RESPONDA LAS PREGUNTAS 60 A 64 DE ACUERDO CON LA SIGUIENTE INFORMACIÓN</div>
+            <p>Los computadores hacen lo que se les manda. Servilmente obedecen cualquier instrucción dada en su propio lenguaje de programación. Así es como hacen cosas útiles como procesar textos y realizar operaciones en hojas de cálculo. Pero, como inevitable subproducto, son igualmente robóticos a la hora de obedecer instrucciones incorrectas. No tienen modo alguno de decir si una instrucción tendrá un buen efecto o uno malo.</p>
+            <p>Simplemente, obedecen, como se supone que lo hacen los soldados. Es su incuestionable obediencia lo que hace que los computadores sean útiles, y exactamente eso mismo hace que sean inevitablemente vulnerables a la infección de virus y gusanos. Un programa maliciosamente diseñado que diga «cópiame y envíame a todas las direcciones que puedas encontrar en el disco duro» será simplemente obedecido y vuelto a obedecer por los demás computadores de la línea por la que se está enviando, en una expansión exponencial. Es difícil, por no decir imposible, diseñar un computador que sea obedientemente útil y, al mismo tiempo, inmune a la infección.</p>
+            <p class="source-note">Tomado y adaptado de: Dawkins, R. (2007). <em>El espejismo de Dios.</em> P. 190. Madrid: Espasa Calpe.</p>
+          </article>
+`
+      }
+    ],
+    prompt: `De acuerdo con la información dada en el texto, si su computador es infectado por un programa con las características descritas por el autor,`,
+    options: [
+      { letter: "A", text: "no podrá obedecer otro tipo de instrucciones dadas en el lenguaje de programación." },
+      { letter: "B", text: "enviará el programa a todas las direcciones que encuentre en el disco duro." },
+      { letter: "C", text: "no podrá realizar acciones útiles como procesar textos o realizar hojas de cálculo." },
+      { letter: "D", text: "será incapaz de ser útil y, al mismo tiempo, invulnerable a diferentes virus." }
+    ],
+    correctAnswer: "B",
+    explanation: "El programa descrito ordena copiarse y enviarse a todas las direcciones encontradas en el disco duro; según el texto, el computador obedecerá esa instrucción. Por eso, la respuesta correcta es B."
+  }
+,
+  {
+    uid: "s1-lect-065",
+    session: 1,
+    block: 2,
+    number: 65,
+    area: "Lectura Crítica",
+    competencia: "Comprensión lectora",
+    componente: "Inferencia a partir de información explícita",
+    dificultad: "Básica",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 1 - Lectura Crítica - Pregunta 65",
+    stem: "Responda de acuerdo con el fragmento de Frankenstein.",
+    resources: [
+      {
+        type: "html",
+        html: `
+
+          <article class="reading-card prose-reading frankenstein-reading">
+            <div class="reading-instruction">RESPONDA LAS PREGUNTAS 65 Y 66 DE ACUERDO CON LA SIGUIENTE INFORMACIÓN</div>
+            <p>Con estos sentimientos, empecé la creación de un ser humano. Como la pequeñez de las partes constituía un gran obstáculo para la rapidez de mi trabajo, decidí, en contra de mi primera intención, hacer un ser de estatura gigantesca; es decir, de unos ocho pies de alto, y de una anchura proporcionada. Y tras adoptar esta decisión, y pasar meses recogiendo y ordenando material, emprendí mi trabajo.</p>
+            <p>Nadie puede imaginar la diversidad de sentimientos que me empujaron a seguir, como un huracán, desde el primer entusiasmo de éxito. La vida y la muerte me parecían barreras ideales que yo sería el primero en romper, derramando un torrente de luz sobre nuestro mundo en tinieblas. Una nueva especie me bendeciría como su origen y creador; muchas naturalezas excelentes y dichosas me deberían su ser. Ningún padre podría reclamar la gratitud de sus hijos con tanto derecho como yo merecería la de ellos. Siguiendo con estas reflexiones, pensé que si podía infundir animación en la materia inerte, en el curso del tiempo (pues ahora resultaba imposible), podría renovar la vida allí donde la muerte había sometido el cuerpo aparentemente a la corrupción.</p>
+            <p>Hoy me tiemblan las piernas y se me humedecen los ojos ante el recuerdo; pero entonces me empujaba un deseo irresistible y casi frenético; parecía haber perdido por completo el alma y la sensibilidad salvo para este objetivo.</p>
+            <p>La sala de disección y el matadero me proporcionaron muchos de mis materiales; con frecuencia, mi naturaleza abominaba mi empresa mientras, impulsado por una ansiedad perpetuamente en aumento, mi trabajo se acercaba a su fin.</p>
+            <p class="source-note">Tomado de: Shelley, Mary. (2018). <em>Frankenstein.</em> p. 74. Madrid: Alianza Editorial.</p>
+          </article>
+`
+      }
+    ],
+    prompt: `El narrador decide crear un ser de estatura gigantesca porque`,
+    options: [
+      { letter: "A", text: "su intención era que aquel nuevo ser infundiera terror en quienes lo vieran." },
+      { letter: "B", text: "hacer un ser pequeño le iba a tomar más tiempo que hacer uno gigante." },
+      { letter: "C", text: "en la sala de disección y en el matadero solo había materiales de gran tamaño." },
+      { letter: "D", text: "sentía un deseo irresistible por crear una criatura de esa dimensión." }
+    ],
+    correctAnswer: "B",
+    explanation: "El narrador afirma que la pequeñez de las partes era un obstáculo para la rapidez de su trabajo; por eso decide crear un ser gigantesco. La respuesta correcta es B."
+  }
+,
+  {
+    uid: "s1-lect-066",
+    session: 1,
+    block: 2,
+    number: 66,
+    area: "Lectura Crítica",
+    competencia: "Comprensión lectora",
+    componente: "Interpretación de intención comunicativa",
+    dificultad: "Media",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 1 - Lectura Crítica - Pregunta 66",
+    stem: "Responda de acuerdo con el fragmento de Frankenstein.",
+    resources: [
+      {
+        type: "html",
+        html: `
+
+          <article class="reading-card prose-reading frankenstein-reading">
+            <div class="reading-instruction">RESPONDA LAS PREGUNTAS 65 Y 66 DE ACUERDO CON LA SIGUIENTE INFORMACIÓN</div>
+            <p>Con estos sentimientos, empecé la creación de un ser humano. Como la pequeñez de las partes constituía un gran obstáculo para la rapidez de mi trabajo, decidí, en contra de mi primera intención, hacer un ser de estatura gigantesca; es decir, de unos ocho pies de alto, y de una anchura proporcionada. Y tras adoptar esta decisión, y pasar meses recogiendo y ordenando material, emprendí mi trabajo.</p>
+            <p>Nadie puede imaginar la diversidad de sentimientos que me empujaron a seguir, como un huracán, desde el primer entusiasmo de éxito. La vida y la muerte me parecían barreras ideales que yo sería el primero en romper, derramando un torrente de luz sobre nuestro mundo en tinieblas. Una nueva especie me bendeciría como su origen y creador; muchas naturalezas excelentes y dichosas me deberían su ser. Ningún padre podría reclamar la gratitud de sus hijos con tanto derecho como yo merecería la de ellos. Siguiendo con estas reflexiones, pensé que si podía infundir animación en la materia inerte, en el curso del tiempo (pues ahora resultaba imposible), podría renovar la vida allí donde la muerte había sometido el cuerpo aparentemente a la corrupción.</p>
+            <p>Hoy me tiemblan las piernas y se me humedecen los ojos ante el recuerdo; pero entonces me empujaba un deseo irresistible y casi frenético; parecía haber perdido por completo el alma y la sensibilidad salvo para este objetivo.</p>
+            <p>La sala de disección y el matadero me proporcionaron muchos de mis materiales; con frecuencia, mi naturaleza abominaba mi empresa mientras, impulsado por una ansiedad perpetuamente en aumento, mi trabajo se acercaba a su fin.</p>
+            <p class="source-note">Tomado de: Shelley, Mary. (2018). <em>Frankenstein.</em> p. 74. Madrid: Alianza Editorial.</p>
+          </article>
+`
+      }
+    ],
+    prompt: `La intención del narrador cuando dice "parecía haber perdido por completo el alma y la sensibilidad salvo para este objetivo" es:`,
+    options: [
+      { letter: "A", text: "Hacer una afirmación acerca de la creación del nuevo ser y la manera en que lo hizo." },
+      { letter: "B", text: "Manifestar una emoción con respecto a su actitud durante la creación del nuevo ser." },
+      { letter: "C", text: "Dirigir una pregunta indirecta al lector sobre su opinión al respecto del nuevo ser." },
+      { letter: "D", text: "Comprometerse con el lector a no volver a actuar de la manera en que lo hizo." }
+    ],
+    correctAnswer: "B",
+    explanation: "La frase aparece en una valoración retrospectiva: el narrador recuerda con estremecimiento su obsesión y expresa una emoción frente a la actitud que tuvo durante la creación. La respuesta correcta es B."
+  }
+
+
 ];
