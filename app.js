@@ -4,14 +4,13 @@ const EXAM_STRUCTURE = [
     label: "Sección 1",
     title: "Primera sesión",
     durationMinutes: 270,
-    totalQuestions: 131,
-    description: "Primera sesión del simulacro, organizada en Matemáticas, Lectura Crítica, Sociales y Ciudadanas, Ciencias Naturales y Cuestionario socioeconómico.",
+    totalQuestions: 120,
+    description: "Primera sesión del simulacro, organizada en Matemáticas, Lectura Crítica, Sociales y Ciudadanas y Ciencias Naturales.",
     blocks: [
       { block: 1, from: 1, to: 25, area: "Matemáticas", scored: true },
       { block: 2, from: 26, to: 66, area: "Lectura Crítica", scored: true },
       { block: 3, from: 67, to: 91, area: "Sociales y Ciudadanas", scored: true },
-      { block: 4, from: 92, to: 120, area: "Ciencias Naturales", scored: true },
-      { block: 5, from: 121, to: 131, area: "Cuestionario socioeconómico", scored: false }
+      { block: 4, from: 92, to: 120, area: "Ciencias Naturales", scored: true }
     ]
   },
   {
@@ -19,14 +18,13 @@ const EXAM_STRUCTURE = [
     label: "Sección 2",
     title: "Segunda sesión",
     durationMinutes: 270,
-    totalQuestions: 147,
-    description: "Segunda sesión del simulacro. En el material visible se observan Sociales y Ciudadanas, Matemáticas, Ciencias Naturales e Inglés hasta la pregunta 134; las preguntas 135 a 147 quedan como bloque pendiente por clasificar.",
+    totalQuestions: 134,
+    description: "Segunda sesión del simulacro, organizada en Sociales y Ciudadanas, Matemáticas, Ciencias Naturales e Inglés.",
     blocks: [
       { block: 1, from: 1, to: 28, area: "Sociales y Ciudadanas", scored: true },
       { block: 2, from: 29, to: 50, area: "Matemáticas", scored: true },
       { block: 3, from: 51, to: 79, area: "Ciencias Naturales", scored: true },
-      { block: 4, from: 80, to: 134, area: "Inglés", scored: true },
-      { block: 5, from: 135, to: 147, area: "Pendiente por clasificar", scored: false, note: "Posible cuestionario socioeconómico o cierre no visible en el material entregado." }
+      { block: 4, from: 80, to: 134, area: "Inglés", scored: true }
     ]
   }
 ];
@@ -54,8 +52,42 @@ let state = {
   finished: false
 };
 
+function storageGet(key, fallback = null) {
+  try {
+    const value = window.localStorage.getItem(key);
+    return value === null ? fallback : value;
+  } catch (error) {
+    return fallback;
+  }
+}
+
+function storageSet(key, value) {
+  try {
+    window.localStorage.setItem(key, value);
+    return true;
+  } catch (error) {
+    return false;
+  }
+}
+
+function storageRemove(key) {
+  try {
+    window.localStorage.removeItem(key);
+  } catch (error) {
+    // En algunos navegadores, al estar incrustado en Google Sites, el almacenamiento puede estar limitado.
+  }
+}
+
+function storageJson(key, fallback) {
+  try {
+    return JSON.parse(storageGet(key, JSON.stringify(fallback)));
+  } catch (error) {
+    return fallback;
+  }
+}
+
 function init() {
-  const savedTheme = localStorage.getItem("simulador_icfes_theme") || "light";
+  const savedTheme = storageGet("simulador_icfes_theme", "light");
   document.documentElement.dataset.theme = savedTheme;
   themeBtn.textContent = savedTheme === "dark" ? "☀️" : "🌙";
   renderHome();
@@ -63,23 +95,83 @@ function init() {
 }
 
 function bindGlobalEvents() {
-  homeBtn.addEventListener("click", () => {
-    if (state.screen === "exam" && !state.finished) {
-      const leave = confirm("¿Deseas volver al inicio? El intento actual se conservará en este navegador.");
-      if (!leave) return;
-      saveState();
-    }
-    clearTimer();
-    renderHome();
-  });
+  homeBtn.addEventListener("click", handleHomeNavigation);
 
   themeBtn.addEventListener("click", () => {
     const current = document.documentElement.dataset.theme === "dark" ? "dark" : "light";
     const next = current === "dark" ? "light" : "dark";
     document.documentElement.dataset.theme = next;
     themeBtn.textContent = next === "dark" ? "☀️" : "🌙";
-    localStorage.setItem("simulador_icfes_theme", next);
+    storageSet("simulador_icfes_theme", next);
   });
+}
+
+function handleHomeNavigation() {
+  if (state.screen === "exam" && !state.finished) {
+    openActionDialog({
+      title: "Volver al inicio",
+      message: "El intento actual se guardará en este navegador. Podrás retomarlo con el botón ‘Continuar intento guardado’. ¿Deseas volver al inicio?",
+      confirmText: "Sí, ir al inicio",
+      cancelText: "Continuar intento",
+      onConfirm: () => {
+        saveState();
+        clearTimer();
+        renderHome();
+        focusApp();
+      }
+    });
+    return;
+  }
+
+  clearTimer();
+  renderHome();
+  focusApp();
+}
+
+function openActionDialog({ title, message, confirmText = "Aceptar", cancelText = "Cancelar", danger = false, onConfirm }) {
+  closeActionDialog();
+
+  const overlay = document.createElement("div");
+  overlay.className = "dialog-overlay";
+  overlay.setAttribute("role", "presentation");
+  overlay.innerHTML = `
+    <section class="dialog-card" role="dialog" aria-modal="true" aria-labelledby="dialogTitle" aria-describedby="dialogMessage">
+      <button class="dialog-close" type="button" aria-label="Cerrar">×</button>
+      <p class="eyebrow">Simulador ICFES</p>
+      <h2 id="dialogTitle">${title}</h2>
+      <p id="dialogMessage">${message}</p>
+      <div class="dialog-actions">
+        <button class="secondary-btn" type="button" data-dialog-cancel>${cancelText}</button>
+        <button class="${danger ? "danger-btn" : "primary-btn"}" type="button" data-dialog-confirm>${confirmText}</button>
+      </div>
+    </section>
+  `;
+
+  overlay.addEventListener("click", event => {
+    if (event.target === overlay || event.target.closest("[data-dialog-cancel]") || event.target.closest(".dialog-close")) {
+      closeActionDialog();
+    }
+
+    if (event.target.closest("[data-dialog-confirm]")) {
+      closeActionDialog();
+      if (typeof onConfirm === "function") onConfirm();
+    }
+  });
+
+  document.body.appendChild(overlay);
+  const confirmBtn = overlay.querySelector("[data-dialog-confirm]");
+  if (confirmBtn) confirmBtn.focus({ preventScroll: true });
+}
+
+function closeActionDialog() {
+  const current = document.querySelector(".dialog-overlay");
+  if (current) current.remove();
+}
+
+function focusApp() {
+  if (app && typeof app.focus === "function") {
+    requestAnimationFrame(() => app.focus({ preventScroll: true }));
+  }
 }
 
 function renderHome() {
@@ -91,13 +183,13 @@ function renderHome() {
       <p class="eyebrow">Estructura del material</p>
       <h2>Simulador ICFES Saber 11° por sesiones, bloques y áreas</h2>
       <p>
-        Selecciona una sesión completa o un bloque específico. El sistema conserva la estructura general del material:
-        Primera sesión con 131 preguntas y Segunda sesión con 147 preguntas. Por ahora están cargadas las preguntas 1 a 25 de Matemáticas, 26 a 66 de Lectura Crítica y las preguntas 67 a 76 de Sociales y Ciudadanas en la Sección 1.
+        Selecciona una sesión completa o un bloque específico. El sistema conserva la estructura académica del material:
+        Primera sesión con 120 preguntas y Segunda sesión con 134 preguntas. Por ahora están cargadas las preguntas 1 a 25 de Matemáticas, 26 a 66 de Lectura Crítica y 67 a 91 de Sociales y Ciudadanas en la Sección 1.
       </p>
       <div class="hero-grid">
         <div class="stat"><strong>2</strong><span>sesiones configuradas</span></div>
         <div class="stat"><strong>270 min</strong><span>por sesión completa</span></div>
-        <div class="stat"><strong>278</strong><span>preguntas estructuradas</span></div>
+        <div class="stat"><strong>${EXAM_STRUCTURE.reduce((sum, session) => sum + session.totalQuestions, 0)}</strong><span>preguntas estructuradas</span></div>
         <div class="stat"><strong>${QUESTION_BANK.length}</strong><span>preguntas cargadas</span></div>
       </div>
     </section>
@@ -135,7 +227,7 @@ function renderHome() {
             <li>Sociales y Ciudadanas</li>
             <li>Ciencias Naturales</li>
           </ul>
-          <p>También aparece una duración de <strong>4 horas y 30 minutos</strong> y un total de <strong>131 preguntas</strong>.</p>
+          <p>También aparece una duración de <strong>4 horas y 30 minutos</strong>. En esta versión del simulador se trabajan las preguntas académicas de la sesión: <strong>1 a 120</strong>.</p>
           <p>La distribución visible es aproximadamente:</p>
           <div class="table-wrap tips-table-wrap">
             <table class="structure-table">
@@ -147,7 +239,6 @@ function renderHome() {
                 <tr><td>2</td><td>26 a 66</td><td>Lectura Crítica</td></tr>
                 <tr><td>3</td><td>67 a 91</td><td>Sociales y Ciudadanas</td></tr>
                 <tr><td>4</td><td>92 a 120</td><td>Ciencias Naturales</td></tr>
-                <tr><td>5</td><td>121 a 131</td><td>Cuestionario socioeconómico</td></tr>
               </tbody>
             </table>
           </div>
@@ -160,7 +251,7 @@ function renderHome() {
             <li>Ciencias Naturales</li>
             <li>Inglés</li>
           </ul>
-          <p>También aparece una duración de <strong>4 horas y 30 minutos</strong> y un total de <strong>147 preguntas</strong>.</p>
+          <p>También aparece una duración de <strong>4 horas y 30 minutos</strong>. En esta versión del simulador se trabajan las preguntas académicas visibles: <strong>1 a 134</strong>.</p>
           <p>En el archivo visible se observa esta distribución:</p>
           <div class="table-wrap tips-table-wrap">
             <table class="structure-table">
@@ -175,7 +266,6 @@ function renderHome() {
               </tbody>
             </table>
           </div>
-          <p class="tip-note">El archivo de la segunda sección llega hasta la pregunta 134 y luego aparece una página en blanco; por eso es posible que falten páginas del cuestionario socioeconómico o parte final del material.</p>
         </article>
 
         <article class="tip-card tip-card--wide">
@@ -323,7 +413,6 @@ function renderSessionCards() {
 
     node.querySelector(".session-actions").innerHTML = `
       <button class="primary-btn" type="button" data-action="session" data-session="${session.id}">Iniciar ${session.title}</button>
-      <button class="secondary-btn" type="button" data-action="structure" data-session="${session.id}">Ver estructura</button>
     `;
 
     grid.appendChild(node);
@@ -343,7 +432,6 @@ function renderSessionCards() {
           area: event.currentTarget.dataset.area
         });
       }
-      if (action === "structure") showStructure(sessionId);
     });
   });
 }
@@ -625,18 +713,31 @@ function moveLoadedQuestion(direction) {
 }
 
 function finishAttempt() {
+  if (state.screen !== "exam") return;
   const loaded = state.availableNumbers.length;
   const answered = state.availableNumbers.filter(number => state.answers[getAnswerKey(number)]).length;
-  const confirmText = answered < loaded
-    ? `Has respondido ${answered} de ${loaded} preguntas cargadas. ¿Deseas finalizar?`
-    : "¿Deseas finalizar el intento?";
-  if (!confirm(confirmText)) return;
+  const pending = Math.max(loaded - answered, 0);
+  const message = pending > 0
+    ? `Has respondido ${answered} de ${loaded} preguntas cargadas. Quedan ${pending} sin responder. ¿Deseas finalizar el intento y ver los resultados?`
+    : "Has respondido todas las preguntas cargadas. ¿Deseas finalizar el intento y ver los resultados?";
 
+  openActionDialog({
+    title: "Finalizar intento",
+    message,
+    confirmText: "Sí, finalizar",
+    cancelText: "Seguir respondiendo",
+    danger: true,
+    onConfirm: completeAttempt
+  });
+}
+
+function completeAttempt() {
   clearTimer();
   state.finished = true;
   saveAttemptToHistory();
-  localStorage.removeItem(STORAGE_KEY);
+  storageRemove(STORAGE_KEY);
   renderResults();
+  focusApp();
 }
 
 function renderResults() {
@@ -722,7 +823,7 @@ function startTimer() {
       alert("El tiempo ha finalizado. Se mostrarán los resultados.");
       state.finished = true;
       saveAttemptToHistory();
-      localStorage.removeItem(STORAGE_KEY);
+      storageRemove(STORAGE_KEY);
       renderResults();
     } else {
       saveState();
@@ -802,12 +903,12 @@ function groupBy(items, callback) {
 
 function saveState() {
   if (state.screen === "exam" && !state.finished) {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+    storageSet(STORAGE_KEY, JSON.stringify(state));
   }
 }
 
 function resumeSavedAttempt() {
-  const raw = localStorage.getItem(STORAGE_KEY);
+  const raw = storageGet(STORAGE_KEY);
   if (!raw) {
     alert("No hay un intento guardado en este navegador.");
     return;
@@ -822,12 +923,12 @@ function resumeSavedAttempt() {
     if (state.mode !== "entrenamiento") startTimer();
   } catch (error) {
     alert("No fue posible recuperar el intento guardado.");
-    localStorage.removeItem(STORAGE_KEY);
+    storageRemove(STORAGE_KEY);
   }
 }
 
 function saveAttemptToHistory() {
-  const history = JSON.parse(localStorage.getItem(HISTORY_KEY) || "[]");
+  const history = storageJson(HISTORY_KEY, []);
   history.unshift({
     date: new Date().toISOString(),
     sessionId: state.sessionId,
@@ -838,7 +939,7 @@ function saveAttemptToHistory() {
     startedAt: state.startedAt,
     finishedAt: new Date().toISOString()
   });
-  localStorage.setItem(HISTORY_KEY, JSON.stringify(history.slice(0, 20)));
+  storageSet(HISTORY_KEY, JSON.stringify(history.slice(0, 20)));
 }
 
 function downloadCsv() {

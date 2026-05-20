@@ -1,6 +1,6 @@
 # Simulador ICFES Saber 11°
 
-Proyecto en HTML, CSS y JavaScript puro.
+Proyecto en HTML, CSS y JavaScript puro, rediseñado con experiencia responsive tipo aplicación móvil.
 
 ## Estructura configurada
 
@@ -12,9 +12,8 @@ Proyecto en HTML, CSS y JavaScript puro.
 | 2 | 26 a 66 | Lectura Crítica |
 | 3 | 67 a 91 | Sociales y Ciudadanas |
 | 4 | 92 a 120 | Ciencias Naturales |
-| 5 | 121 a 131 | Cuestionario socioeconómico |
 
-Duración: 4 horas y 30 minutos. Total: 131 preguntas.
+Duración: 4 horas y 30 minutos. Total académico configurado: 120 preguntas.
 
 ### Sección 2 - Segunda sesión
 
@@ -24,29 +23,25 @@ Duración: 4 horas y 30 minutos. Total: 131 preguntas.
 | 2 | 29 a 50 | Matemáticas |
 | 3 | 51 a 79 | Ciencias Naturales |
 | 4 | 80 a 134 | Inglés |
-| 5 | 135 a 147 | Pendiente por clasificar |
 
-Duración: 4 horas y 30 minutos. Total: 147 preguntas.
+Duración: 4 horas y 30 minutos. Total académico configurado: 134 preguntas.
+
+## Cambios de esta versión
+
+- Se retiró el bloque de cuestionario socioeconómico de la Sección 1.
+- Se retiró el bloque pendiente por clasificar de la Sección 2.
+- Se eliminaron los botones de “Ver estructura”.
+- Se rediseñó la interfaz responsive para móviles: tarjetas, botones táctiles, tablas convertidas en tarjetas, encabezado tipo app, mejor navegación y estética visual renovada.
 
 ## Sección TIPS
 
-El inicio del simulador incluye una sección llamada **TIPS**, con la estructura de las dos sesiones y los tipos de preguntas identificadas por área: Matemáticas, Lectura Crítica, Sociales y Ciudadanas, Ciencias Naturales e Inglés.
+El inicio del simulador incluye una sección llamada **TIPS**, con la estructura académica de las dos sesiones y los tipos de preguntas identificadas por área: Matemáticas, Lectura Crítica, Sociales y Ciudadanas, Ciencias Naturales e Inglés.
 
 ## Preguntas cargadas
 
 - Sección 1 - Matemáticas - Preguntas 1 a 25.
 - Sección 1 - Lectura Crítica - Preguntas 26 a 66.
-- Sección 1 - Sociales y Ciudadanas - Preguntas 67 a 85.
-
-## Cómo agregar más preguntas
-
-Abrir el archivo:
-
-```text
-data/question-bank.js
-```
-
-Agregar cada pregunta nueva dentro del arreglo `QUESTION_BANK` como objeto JavaScript.
+- Sección 1 - Sociales y Ciudadanas - Preguntas 67 a 91.
 
 ## Cómo probar
 
@@ -61,21 +56,7 @@ Agregar cada pregunta nueva dentro del arreglo `QUESTION_BANK` como objeto JavaS
 - `styles.css`: diseño visual responsive.
 - `app.js`: lógica del simulador.
 - `data/question-bank.js`: banco interno de preguntas.
-- `assets/img/`: carpeta reservada para imágenes de futuras preguntas.
 
+## Actualización para Google Sites
 
-Actualización: se agregó Sociales y Ciudadanas 80 con enunciado, opciones y retroalimentación.
-
-
-Actualización: se agregó Sociales y Ciudadanas 80.
-
-Actualización: se agregó Sociales y Ciudadanas 84 con enunciado, opciones y retroalimentación.
-
-
-Actualización: se agregó Sociales y Ciudadanas 85 con enunciado, opciones y retroalimentación.
-
-
-Actualización: se agregó la pregunta 89 de Sociales y Ciudadanas.
-
-
-Actualización: se agregó la pregunta 90 de Sociales y Ciudadanas.
+Esta versión evita depender de ventanas nativas `confirm()` para las acciones críticas. Los botones **Inicio** y **Finalizar intento** usan una confirmación interna del simulador, por lo que funcionan correctamente al alojar el proyecto en GitHub Pages e incrustarlo como iframe en Google Sites.

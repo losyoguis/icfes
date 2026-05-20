@@ -1594,3 +1594,546 @@ h3 { font-size: 1.08rem; }
   .comic-grid { grid-template-columns: 1fr; }
   .comic-panel { min-height: 190px; }
 }
+
+/* =========================================================
+   Rediseño responsive 2026: experiencia móvil tipo app
+   ========================================================= */
+:root {
+  --glass: rgba(255, 255, 255, 0.72);
+  --glow: 0 28px 80px rgba(36, 85, 195, 0.18);
+}
+
+[data-theme="dark"] {
+  --glass: rgba(17, 30, 51, 0.78);
+  --glow: 0 28px 80px rgba(0, 0, 0, 0.38);
+}
+
+.app-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  padding: 10px 0 14px;
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+.app-header::before {
+  content: "";
+  position: absolute;
+  inset: 0 -20px;
+  z-index: -1;
+  background: linear-gradient(180deg, var(--bg), color-mix(in srgb, var(--bg), transparent 24%));
+  border-bottom: 1px solid color-mix(in srgb, var(--line), transparent 20%);
+}
+
+.brand-mark {
+  position: relative;
+  isolation: isolate;
+}
+
+.brand-mark::after {
+  content: "";
+  position: absolute;
+  inset: -4px;
+  z-index: -1;
+  border-radius: 22px;
+  background: linear-gradient(145deg, var(--primary), var(--accent));
+  filter: blur(14px);
+  opacity: .35;
+}
+
+.hero {
+  min-height: 280px;
+  display: grid;
+  align-content: center;
+  background:
+    radial-gradient(circle at 8% 15%, rgba(255,255,255,.24), transparent 25%),
+    radial-gradient(circle at 92% 22%, rgba(255,255,255,.18), transparent 28%),
+    linear-gradient(135deg, #143d9c 0%, #2455c3 44%, #04a777 100%);
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.10) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.10) 1px, transparent 1px);
+  background-size: 34px 34px;
+  mask-image: linear-gradient(180deg, #000, transparent 92%);
+  opacity: .42;
+}
+
+.session-card,
+.panel,
+.exam-main,
+.exam-side,
+.results-panel,
+.tips-section {
+  background: linear-gradient(180deg, var(--glass), var(--panel));
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: var(--glow);
+}
+
+.session-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.session-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 5px;
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+}
+
+.primary-btn,
+.secondary-btn,
+.ghost-btn,
+.tiny-btn,
+.nav-btn,
+.danger-btn,
+.area-btn,
+.icon-btn {
+  min-height: 46px;
+  box-shadow: 0 10px 24px rgba(17,36,75,.08);
+}
+
+.primary-btn,
+.tiny-btn[data-action="area"] {
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  color: #fff;
+  border: 0;
+}
+
+.tiny-btn[data-action="area"] {
+  min-height: 38px;
+}
+
+.table-wrap {
+  background: var(--panel);
+}
+
+.structure-table tr {
+  transition: background .16s ease, transform .16s ease;
+}
+
+.structure-table tbody tr:hover {
+  background: color-mix(in srgb, var(--primary), transparent 94%);
+}
+
+.option {
+  min-height: 64px;
+  transition: transform .16s ease, border-color .16s ease, box-shadow .16s ease, background .16s ease;
+}
+
+.option:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 28px rgba(17, 36, 75, .10);
+}
+
+.question-card {
+  scroll-margin-top: 96px;
+}
+
+.q-dot {
+  min-height: 44px;
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+
+.q-dot:not(:disabled):hover {
+  transform: translateY(-2px);
+}
+
+/* Tablas transformadas en tarjetas para celular */
+@media (max-width: 760px) {
+  .app-shell {
+    width: 100%;
+    padding: 8px 10px calc(72px + env(safe-area-inset-bottom));
+  }
+
+  .app-header {
+    padding: 8px 2px 12px;
+    margin-bottom: 12px;
+  }
+
+  .brand {
+    gap: 10px;
+  }
+
+  .brand h1 {
+    font-size: 1.28rem;
+  }
+
+  .eyebrow {
+    font-size: .68rem;
+    letter-spacing: .10em;
+  }
+
+  .header-actions {
+    gap: 6px;
+  }
+
+  .icon-btn,
+  .ghost-btn {
+    min-height: 42px;
+  }
+
+  .ghost-btn {
+    padding: 0 12px;
+  }
+
+  .hero {
+    min-height: auto;
+    border-radius: 26px;
+    padding: 24px 18px;
+  }
+
+  .hero p {
+    line-height: 1.55;
+  }
+
+  .hero-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .stat {
+    border-radius: 18px;
+    padding: 14px 12px;
+  }
+
+  .stat strong {
+    font-size: 1.35rem;
+  }
+
+  .config-bar,
+  .session-card,
+  .tips-section,
+  .exam-main,
+  .exam-side,
+  .results-panel,
+  .empty-state {
+    border-radius: 24px;
+  }
+
+  .config-bar {
+    padding: 14px;
+  }
+
+  .mode-control {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .mode-option {
+    width: 100%;
+    justify-content: flex-start;
+    border-radius: 16px;
+    padding: 12px 14px;
+  }
+
+  #resumeBtn,
+  .session-actions .primary-btn,
+  .session-actions .secondary-btn,
+  .bottom-actions .danger-btn,
+  .question-actions .secondary-btn,
+  .nav-group .nav-btn {
+    width: 100%;
+  }
+
+  .session-card {
+    padding: 18px 14px;
+  }
+
+  .session-card__head {
+    gap: 8px;
+  }
+
+  .session-duration {
+    align-self: flex-start;
+  }
+
+  .session-stats {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .session-stats .pill {
+    width: 100%;
+    padding-inline: 6px;
+    font-size: .72rem;
+  }
+
+  .table-wrap {
+    overflow: visible;
+    border: 0;
+    background: transparent;
+  }
+
+  .structure-table,
+  .structure-table thead,
+  .structure-table tbody,
+  .structure-table tr,
+  .structure-table th,
+  .structure-table td {
+    display: block;
+    width: 100%;
+    min-width: 0;
+  }
+
+  .structure-table thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+  }
+
+  .structure-table tbody {
+    display: grid;
+    gap: 10px;
+  }
+
+  .structure-table tr {
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: 10px;
+    background: var(--panel);
+    box-shadow: 0 12px 26px rgba(17,36,75,.07);
+  }
+
+  .structure-table td {
+    border: 0;
+    padding: 8px 6px;
+    display: grid;
+    grid-template-columns: minmax(104px, 38%) 1fr;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .structure-table td::before {
+    color: var(--muted);
+    font-size: .72rem;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    font-weight: 900;
+  }
+
+  .structure-table td:nth-child(1)::before { content: "Bloque"; }
+  .structure-table td:nth-child(2)::before { content: "Preguntas"; }
+  .structure-table td:nth-child(3)::before { content: "Área"; }
+  .structure-table td:nth-child(4)::before { content: "Cargadas"; }
+  .structure-table td:nth-child(5)::before { content: "Acción"; }
+
+  .row-actions,
+  .row-actions .tiny-btn {
+    width: 100%;
+  }
+
+  .exam-layout {
+    gap: 12px;
+  }
+
+  .exam-top {
+    padding: 16px 14px;
+  }
+
+  .progress-wrap {
+    padding: 0 14px 16px;
+  }
+
+  .question-card {
+    padding: 16px 14px 18px;
+  }
+
+  .question-text,
+  .prompt {
+    line-height: 1.62;
+  }
+
+  .options {
+    gap: 12px;
+  }
+
+  .option {
+    border-radius: 18px;
+    padding: 12px 10px;
+    grid-template-columns: 40px 1fr;
+  }
+
+  .option-letter {
+    width: 40px;
+    height: 40px;
+    border-radius: 14px;
+  }
+
+  .question-actions,
+  .bottom-actions,
+  .nav-group {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .bottom-actions {
+    padding-bottom: 8px;
+  }
+
+  .exam-side {
+    padding: 14px;
+  }
+
+  .legend {
+    grid-template-columns: 1fr 1fr;
+    font-size: .78rem;
+  }
+
+  .question-grid {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 7px;
+  }
+
+  .q-dot {
+    height: 40px;
+    border-radius: 13px;
+    font-size: .86rem;
+  }
+
+  .side-note {
+    font-size: .78rem;
+  }
+
+  .tips-header {
+    display: grid;
+    gap: 10px;
+  }
+
+  .tip-card {
+    border-radius: 20px;
+    padding: 16px 14px;
+  }
+
+  .tips-area-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .data-table {
+    font-size: .88rem;
+  }
+}
+
+@media (max-width: 430px) {
+  .hero-grid,
+  .session-stats,
+  .legend {
+    grid-template-columns: 1fr;
+  }
+
+  .question-grid {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+
+  .pill {
+    white-space: normal;
+    text-align: center;
+  }
+}
+
+/* Confirmaciones internas: compatibles con GitHub Pages e incrustación en Google Sites */
+.dialog-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: grid;
+  place-items: center;
+  padding: 18px;
+  background: rgba(15, 23, 42, .58);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.dialog-card {
+  width: min(460px, 100%);
+  position: relative;
+  padding: 24px;
+  border-radius: 28px;
+  background: var(--panel);
+  color: var(--text);
+  border: 1px solid var(--line);
+  box-shadow: 0 26px 80px rgba(15, 23, 42, .32);
+  animation: dialogPop .18s ease-out;
+}
+
+.dialog-card h2 {
+  margin: 4px 0 10px;
+  font-size: clamp(1.3rem, 5vw, 1.85rem);
+}
+
+.dialog-card p {
+  margin: 0 0 18px;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.dialog-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 38px;
+  height: 38px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: var(--soft);
+  color: var(--text);
+  font-size: 1.35rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.dialog-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+#homeBtn,
+#finishBtn,
+.danger-btn,
+.primary-btn,
+.secondary-btn,
+.ghost-btn,
+.icon-btn {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+@keyframes dialogPop {
+  from { opacity: 0; transform: translateY(10px) scale(.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@media (max-width: 520px) {
+  .dialog-overlay {
+    align-items: end;
+    padding: 12px;
+  }
+
+  .dialog-card {
+    border-radius: 26px;
+    padding: 22px 16px 16px;
+  }
+
+  .dialog-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .dialog-actions button {
+    width: 100%;
+  }
+}
