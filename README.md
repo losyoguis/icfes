@@ -36,6 +36,7 @@ El inicio del simulador incluye una sección llamada **TIPS**, con la estructura
 
 - Sección 1 - Matemáticas - Preguntas 1 a 25.
 - Sección 1 - Lectura Crítica - Preguntas 26 a 66.
+- Sección 1 - Sociales y Ciudadanas - Preguntas 67 a 85.
 
 ## Cómo agregar más preguntas
 
@@ -61,3 +62,20 @@ Agregar cada pregunta nueva dentro del arreglo `QUESTION_BANK` como objeto JavaS
 - `app.js`: lógica del simulador.
 - `data/question-bank.js`: banco interno de preguntas.
 - `assets/img/`: carpeta reservada para imágenes de futuras preguntas.
+
+
+Actualización: se agregó Sociales y Ciudadanas 80 con enunciado, opciones y retroalimentación.
+
+
+Actualización: se agregó Sociales y Ciudadanas 80.
+
+Actualización: se agregó Sociales y Ciudadanas 84 con enunciado, opciones y retroalimentación.
+
+
+Actualización: se agregó Sociales y Ciudadanas 85 con enunciado, opciones y retroalimentación.
+
+
+Actualización: se agregó la pregunta 89 de Sociales y Ciudadanas.
+
+
+Actualización: se agregó la pregunta 90 de Sociales y Ciudadanas.
