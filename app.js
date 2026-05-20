@@ -92,7 +92,7 @@ function renderHome() {
       <h2>Simulador ICFES Saber 11° por sesiones, bloques y áreas</h2>
       <p>
         Selecciona una sesión completa o un bloque específico. El sistema conserva la estructura general del material:
-        Primera sesión con 131 preguntas y Segunda sesión con 147 preguntas. Por ahora están cargadas las preguntas 1 a 25 de la Sección 1, área Matemáticas.
+        Primera sesión con 131 preguntas y Segunda sesión con 147 preguntas. Por ahora están cargadas las preguntas 1 a 25 de Matemáticas y 26 a 64 de Lectura Crítica en la Sección 1.
       </p>
       <div class="hero-grid">
         <div class="stat"><strong>2</strong><span>sesiones configuradas</span></div>

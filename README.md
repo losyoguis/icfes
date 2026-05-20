@@ -34,7 +34,8 @@ El inicio del simulador incluye una sección llamada **TIPS**, con la estructura
 
 ## Preguntas cargadas
 
-- Sección 1 - Matemáticas - Preguntas 1 a 20.
+- Sección 1 - Matemáticas - Preguntas 1 a 25.
+- Sección 1 - Lectura Crítica - Preguntas 26 a 66.
 
 ## Cómo agregar más preguntas
 
