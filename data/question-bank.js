@@ -3714,4 +3714,1035 @@ const QUESTION_BANK = [
   }
 
 
+
+,
+  {
+    uid: "s1-soc-067",
+    session: 1,
+    block: 3,
+    number: 67,
+    area: "Sociales y Ciudadanas",
+    competencia: "Pensamiento social",
+    componente: "Historia política de Colombia",
+    dificultad: "Media",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 1 - Sociales y Ciudadanas - Pregunta 67",
+    stem: "A continuación, se presentan dos textos escritos por Antonio Nariño sobre la polémica entre centralistas y federalistas durante la independencia de la Nueva Granada. El primero fue escrito en 1811, cuando acababan de ocurrir los primeros gritos de independencia a lo largo de todo el reino. El segundo, mucho más tardío, se publicó en 1823, cuando las últimas acciones militares contra los españoles se estaban librando en lo que entonces era ya Colombia.",
+    resources: [
+      {
+        type: "html",
+        html: `
+          <article class="reading-card prose-reading sociales-reading">
+            <div class="reading-instruction">SOCIALES Y CIUDADANAS</div>
+            <p><strong>1.</strong> "[...] el sistema de convertir nuestras provincias en estados soberanos para hacer la federación es una locura hija de la precipitación de nuestros juicios y de una ambición mal entendida. No es la extensión del terreno, no es la población, no son las riquezas ni las luces que forman la fuerza de un imperio por sí solas: la suma total de todas estas cosas forman su fuerza; y si nosotros en lugar de acumular nuestras luces, nuestras riquezas y nuestras fuerzas, las dividimos en otras tantas partes como tenemos de provincias, ¿cuál será el resultado?".</p>
+            <p class="source-note">Tomado y adaptado de: Nariño, A. (1811). <em>La Bagatela N.º 5.</em> Imprenta Real de Don Bruno Espinosa de los Monteros.</p>
+            <p><strong>2.</strong> "[...] el Gobierno federal es [...] el más adecuado para la libertad y el menos expuesto al abuso por el contrapeso que oponen las partes federadas. De aquí se deduce que, mientras tengamos sobre nosotros el Gobierno español, mientras este no reconozca nuestra independencia, lo que nos conviene es unidad de acción y el sistema centralista; pero que reconocida la independencia por la España, hallándonos sin peligros y con los elementos necesarios, la federación será la llama de la libertad".</p>
+            <p class="source-note">Tomado y adaptado de: Nariño, A. (5 de marzo de 1823). <em>Los toros de Fucha.</em> Imprenta Real de Don Bruno Espinosa de los Monteros.</p>
+          </article>
+        `
+      }
+    ],
+    prompt: "En el plazo de doce años, Antonio Nariño cambió su percepción sobre el sistema federalista: pasó de atacarlo en 1811 a defenderlo en 1823. ¿Qué razón explica el cambio de perspectiva del prócer de la independencia sobre este modelo político?",
+    options: [
+      { letter: "A", text: "Porque, para Nariño, el modelo centralista garantizaba la unión de fuerzas de todas las provincias en la guerra contra España, algo necesario en 1823." },
+      { letter: "B", text: "Porque, para Nariño, el modelo federalista velaba por las libertades individuales, pero imponía límites en el ejercicio del poder de cada provincia federada." },
+      { letter: "C", text: "Porque, para Nariño, el modelo centralista era adecuado para la Nueva Granada, ya que se asemejaba al modelo de administración que tenía la Corona española." },
+      { letter: "D", text: "Porque, para Nariño, el modelo federalista era útil en países libres y, por tanto, lo rechaza en 1811, pero lo defiende en 1823 con la independencia consolidada." }
+    ],
+    correctAnswer: "D",
+    explanation: "En el primer texto, Nariño critica la federación porque dividir las provincias debilitaba la unidad necesaria en medio de la guerra. En el segundo texto, plantea que, una vez reconocida la independencia y sin peligros, la federación puede ser favorable para la libertad. La respuesta correcta es D."
+  }
+
+
+,
+  {
+    uid: "s1-soc-068",
+    session: 1,
+    block: 3,
+    number: 68,
+    area: "Sociales y Ciudadanas",
+    competencia: "Pensamiento social",
+    componente: "Diversidad cultural y jurisdicción especial indígena",
+    dificultad: "Media",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 1 - Sociales y Ciudadanas - Pregunta 68",
+    stem: "Las autoridades de un cabildo indígena prohibieron la caza del jaguar en su territorio, pues en su cosmovisión este animal tiene un valor espiritual y cumple un papel esencial para el equilibrio ecológico. Pedro, un campesino que no pertenece a la comunidad indígena, fue sorprendido cazando un jaguar en el territorio del cabildo, por lo que fue condenado por las autoridades indígenas a una multa para compensar a la comunidad por el daño causado. Pedro se opone a la condena porque no hace parte de la comunidad indígena y el jaguar atacaba con frecuencia el ganado de su propiedad.",
+    resources: [
+      {
+        type: "html",
+        html: `
+          <article class="reading-card prose-reading sociales-reading">
+            <div class="reading-instruction">SOCIALES Y CIUDADANAS</div>
+            <p>Las autoridades de un cabildo indígena prohibieron la caza del jaguar en su territorio, pues en su cosmovisión este animal tiene un valor espiritual y cumple un papel esencial para el equilibrio ecológico.</p>
+            <p>Pedro, un campesino que no pertenece a la comunidad indígena, fue sorprendido cazando un jaguar en el territorio del cabildo, por lo que fue condenado por las autoridades indígenas a una multa para compensar a la comunidad por el daño causado.</p>
+            <p>Pedro se opone a la condena porque no hace parte de la comunidad indígena y el jaguar atacaba con frecuencia el ganado de su propiedad.</p>
+          </article>
+        `
+      }
+    ],
+    prompt: "¿Cuáles dimensiones se encuentran en conflicto en la problemática presentada?",
+    options: [
+      { letter: "A", text: "La cultural y la ambiental, porque la cosmovisión del cabildo indígena respecto al jaguar se opone al interés de Pedro en el cuidado del medio ambiente." },
+      { letter: "B", text: "La jurisdiccional y la cultural, porque al interés de la comunidad indígena de imponer una sanción se opone el hecho de que Pedro no pertenece a esa comunidad." },
+      { letter: "C", text: "La ambiental y la religiosa, porque el interés del cabildo indígena en la protección del jaguar se opone a su cosmovisión respecto al valor espiritual de este animal." },
+      { letter: "D", text: "La económica y la ambiental, porque el interés del cabildo indígena de imponer una sanción económica va en contra de la protección del jaguar en su territorio." }
+    ],
+    correctAnswer: "B",
+    explanation: "El conflicto principal combina una dimensión jurisdiccional, porque las autoridades indígenas ejercen su facultad de sancionar dentro de su territorio, y una dimensión cultural, porque Pedro cuestiona esa autoridad al no pertenecer a la comunidad. La respuesta correcta es B."
+  }
+
+
+
+,
+  {
+    uid: "s1-soc-069",
+    session: 1,
+    block: 3,
+    number: 69,
+    area: "Sociales y Ciudadanas",
+    competencia: "Pensamiento social",
+    componente: "Derechos, libertades y responsabilidad social de la prensa",
+    dificultad: "Media",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 1 - Sociales y Ciudadanas - Pregunta 69",
+    stem: "Un periodista ha estado divulgando notas de prensa con el fin de acusar de actos de corrupción a la alcaldesa de un municipio, sin haber verificado la credibilidad de las fuentes consultadas para elaborar los señalamientos. Ante el reclamo que le hizo la alcaldesa, el periodista argumentó que podía seguir publicando estas acusaciones porque en el país existe la libertad de prensa y él, como periodista, puede difundir todo lo que considere importante para la opinión pública, así no haya sido verificado.",
+    resources: [
+      {
+        type: "html",
+        html: `
+          <article class="reading-card prose-reading sociales-reading">
+            <div class="reading-instruction">SOCIALES Y CIUDADANAS</div>
+            <p>Un periodista ha estado divulgando notas de prensa con el fin de acusar de actos de corrupción a la alcaldesa de un municipio, sin haber verificado la credibilidad de las fuentes consultadas para elaborar los señalamientos.</p>
+            <p>Ante el reclamo que le hizo la alcaldesa, el periodista argumentó que podía seguir publicando estas acusaciones porque en el país existe la libertad de prensa y él, como periodista, puede difundir todo lo que considere importante para la opinión pública, así no haya sido verificado.</p>
+          </article>
+        `
+      }
+    ],
+    prompt: "De las siguientes opciones, ¿cuál representa un argumento que contradice lo señalado por el periodista con respecto a la libertad de prensa en el país?",
+    options: [
+      { letter: "A", text: "La libertad de prensa en el país protege a los periodistas cuando divulgan información de manera veraz e imparcial." },
+      { letter: "B", text: "La libertad de expresión es un derecho constitucional que respalda la actividad periodística en el país sin restricción alguna." },
+      { letter: "C", text: "La libertad de prensa sobre hechos políticos es una de las bases que sostiene la libertad y la democracia de cualquier país." },
+      { letter: "D", text: "Existe persecución a los periodistas cuando las noticias que publican ellos son cuestionadas por actores políticos." }
+    ],
+    correctAnswer: "A",
+    explanation: "El periodista interpreta la libertad de prensa como una autorización para publicar acusaciones no verificadas. La opción A contradice esa idea, porque señala que la libertad de prensa protege la divulgación de información veraz e imparcial. La respuesta correcta es A."
+  }
+
+
+,
+  {
+    uid: "s1-soc-070",
+    session: 1,
+    block: 3,
+    number: 70,
+    area: "Sociales y Ciudadanas",
+    competencia: "Pensamiento social",
+    componente: "Dimensiones sociales, económicas y ambientales del desarrollo",
+    dificultad: "Media",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 1 - Sociales y Ciudadanas - Pregunta 70",
+    stem: "Con relación a la construcción de la represa Gibe, un columnista escribió: \"La construcción de la represa Gibe puede convertirse en un evento trascendental para el continente africano. Se espera que esta represa sea la más grande de África y que funcione como una hidroeléctrica que genere grandes ingresos, al brindar empleo y llevar electricidad a muchas partes del continente. Sin embargo, para su construcción, es necesario hacer varias intervenciones en el río Omo, algo que alarma a algunas entidades, pues este río es uno de los más biodiversos del planeta y su intervención podría acabar con miles de animales y plantas nativas\".",
+    resources: [
+      {
+        type: "html",
+        html: `
+          <article class="reading-card prose-reading sociales-reading">
+            <div class="reading-instruction">SOCIALES Y CIUDADANAS</div>
+            <p>Con relación a la construcción de la represa Gibe, un columnista escribió:</p>
+            <blockquote>
+              <p>“La construcción de la represa Gibe puede convertirse en un evento trascendental para el continente africano. Se espera que esta represa sea la más grande de África y que funcione como una hidroeléctrica que genere grandes ingresos, al brindar empleo y llevar electricidad a muchas partes del continente. Sin embargo, para su construcción, es necesario hacer varias intervenciones en el río Omo, algo que alarma a algunas entidades, pues este río es uno de los más biodiversos del planeta y su intervención podría acabar con miles de animales y plantas nativas”.</p>
+            </blockquote>
+          </article>
+        `
+      }
+    ],
+    prompt: "¿Cuáles de las siguientes dimensiones están presentes en la anterior descripción de la situación?",
+    options: [
+      { letter: "A", text: "La social y la cultural." },
+      { letter: "B", text: "La económica y la social." },
+      { letter: "C", text: "La cultural y la ambiental." },
+      { letter: "D", text: "La ambiental y la económica." }
+    ],
+    correctAnswer: "D",
+    explanation: "La situación menciona beneficios económicos, como la generación de ingresos, empleo y electricidad, y también efectos ambientales, como la intervención del río Omo y el riesgo para animales y plantas nativas. La respuesta correcta es D."
+  }
+
+  
+,
+  {
+    uid: "s1-soc-071",
+    session: 1,
+    block: 3,
+    number: 71,
+    area: "Sociales y Ciudadanas",
+    competencia: "Interpretación y análisis de perspectivas",
+    componente: "Relaciones temporales entre hechos y discursos públicos",
+    dificultad: "Media",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 1 - Sociales y Ciudadanas - Pregunta 71",
+    stem: "Los siguientes son reportes periodísticos sobre dos discursos diferentes pronunciados acerca de los atentados terroristas ocurridos en Francia, en 2015. Léalos detenidamente:",
+    resources: [
+      {
+        type: "html",
+        html: `
+          <article class="reading-card prose-reading sociales-reading">
+            <div class="reading-instruction">SOCIALES Y CIUDADANAS</div>
+            <p>Los siguientes son reportes periodísticos sobre dos discursos diferentes pronunciados acerca de los atentados terroristas ocurridos en Francia, en 2015. Léalos detenidamente:</p>
+            <p><strong>Fragmento A.</strong> “Aunque el presidente francés dijo que el Gobierno ha hecho grandes avances aprobando nuevas leyes y reforzando la seguridad, de acuerdo con el Gobierno, el nivel de alerta sigue siendo alto [...] Igualmente, explicó que en el último año [...] se dictaron medidas contra medio centenar de extranjeros a fin de impedir que puedan entrar en territorio francés por sospechas terroristas”.</p>
+            <p class="source-note">Tomado y adaptado de: http://www.lanacion.com.ar/1860111franciafrancoishollandecharliehebdoamenazaterrorista</p>
+            <p><strong>Fragmento B.</strong> “[...] el presidente francés se dirige por segunda vez en 48 horas a la nación, para condenar los hechos, y llamar a la calma y la unidad sin fisuras. El miércoles calificó a las víctimas como héroes que habían muerto por defender los valores de la República y pidió que los franceses dejaran a un lado sus diferencias (nada puede dividirnos)”.</p>
+            <p class="source-note">Tomado y adaptado de: http://www.rtve.es/noticias/20150109/franciaconvulsionadadelataquecharliehebdomarcharepublicana/1081424.shtml</p>
+          </article>
+        `
+      }
+    ],
+    prompt: "A partir de la información contenida en los dos discursos, es correcto afirmar que se pronunció primero",
+    options: [
+      { letter: "A", text: "el fragmento A, porque promueve el caos y la confusión inmediata luego de los atentados; el B se refiere a un momento de calma y unidad que solo se logra después de un consenso nacional." },
+      { letter: "B", text: "el fragmento B, porque este garantiza el cubrimiento inmediato de la noticia de los atentados; el A se refiere a un momento en el que ya se ha superado la crisis que se desató a raíz de los atentados." },
+      { letter: "C", text: "el fragmento A, porque es una respuesta que hace un llamado a la prevención en contra de los extranjeros; el B habla sobre procesos a largo plazo, como fortalecer la sociedad a futuro." },
+      { letter: "D", text: "el fragmento B porque es una respuesta inmediata que hace un llamado a la calma y la unidad; el A habla sobre procesos a largo plazo, como la aprobación de leyes y políticas de seguridad." }
+    ],
+    correctAnswer: "D",
+    explanation: "El fragmento B se ubica más cerca del momento inmediato de los atentados porque habla de una segunda intervención en 48 horas, condena los hechos y llama a la calma y la unidad. El fragmento A se refiere a medidas posteriores y de más largo plazo, como nuevas leyes, refuerzo de seguridad y controles a extranjeros. Por eso la respuesta correcta es D."
+  }
+
+,
+  {
+    uid: "s1-soc-072",
+    session: 1,
+    block: 3,
+    number: 72,
+    area: "Sociales y Ciudadanas",
+    competencia: "Interpretación y análisis de perspectivas",
+    componente: "Actores, intereses y conflictos sociales",
+    dificultad: "Media",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 1 - Sociales y Ciudadanas - Pregunta 72",
+    stem: "La erradicación de cultivos ilícitos, como la coca, es una de las principales problemáticas que vive Colombia. Este flagelo ha generado un debate sobre la forma correcta de erradicar los cultivos: si se debe hacer de manera manual o a través de aspersión aérea, con químicos que eliminan las plantas. En esta problemática confluyen varios actores e intereses a la hora de buscar soluciones que satisfagan las necesidades del país, entre los cuales se encuentran los siguientes:",
+    resources: [
+      {
+        type: "html",
+        html: `
+          <article class="reading-card prose-reading sociales-reading">
+            <div class="reading-instruction">SOCIALES Y CIUDADANAS</div>
+            <p>La erradicación de cultivos ilícitos, como la coca, es una de las principales problemáticas que vive Colombia. Este flagelo ha generado un debate sobre la forma correcta de erradicar los cultivos: si se debe hacer de manera manual o a través de aspersión aérea, con químicos que eliminan las plantas.</p>
+            <p>En esta problemática confluyen varios actores e intereses a la hora de buscar soluciones que satisfagan las necesidades del país, entre los cuales se encuentran los siguientes:</p>
+            <p>Por un lado, está el Estado, que tiene como misión, bajo el mando de la fuerza pública, eliminar los cultivos para disminuir el número de hectáreas cultivadas y mejorar los índices nacionales de erradicación.</p>
+            <p>Por otro lado, están los grupos armados organizados —GAO— que promueven la siembra de cultivos para que estos sean usados, posteriormente, en el narcotráfico y financiar sus actividades delictivas.</p>
+            <p>Otro actor importante son los campesinos que han sido obligados por los GAO a cultivar coca, y a quienes no se contempla judicializar dentro de la política de erradicación manual.</p>
+            <p>Adicionalmente, se encuentran las organizaciones, como las Naciones Unidas, que elaboran informes para mostrar el avance o retroceso de la siembra de cultivos ilícitos.</p>
+            <p>Finalmente, existen algunos países, como Estados Unidos, que, a través de recursos internacionales, se encargan de financiar actividades que logren erradicar los cultivos que son usados para actividades ilegales.</p>
+          </article>
+        `
+      }
+    ],
+    prompt: "Si se lleva a cabo la estrategia de erradicación manual de cultivos ilícitos, ¿entre quiénes es probable que se dé un conflicto?",
+    options: [
+      { letter: "A", text: "Los campesinos víctimas de los GAO y las Naciones Unidas." },
+      { letter: "B", text: "Los Estados Unidos y las Naciones Unidas." },
+      { letter: "C", text: "La fuerza pública y los campesinos víctimas de los GAO." },
+      { letter: "D", text: "La fuerza pública y los grupos armados organizados." }
+    ],
+    correctAnswer: "D",
+    explanation: "La estrategia de erradicación manual sería ejecutada por el Estado mediante la fuerza pública. El actor que tiene un interés directamente opuesto es el de los grupos armados organizados, porque promueven la siembra de coca para financiar actividades delictivas. Por eso, el conflicto más probable se daría entre la fuerza pública y los grupos armados organizados. La respuesta correcta es D."
+  }
+,
+  {
+    uid: "s1-soc-073",
+    session: 1,
+    block: 3,
+    number: 73,
+    area: "Sociales y Ciudadanas",
+    competencia: "Pensamiento social",
+    componente: "Participación ciudadana y control político",
+    dificultad: "Media",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 1 - Sociales y Ciudadanas - Pregunta 73",
+    stem: "El clientelismo consiste en un arreglo de intercambios entre gobernantes y terceros, de manera que ambos pueden beneficiarse recíprocamente: los primeros, al recibir apoyo político, y los segundos, al recibir bienes y servicios o un tratamiento privilegiado o excepcional en ciertos asuntos.",
+    resources: [
+      {
+        type: "html",
+        html: `
+          <article class="reading-card prose-reading sociales-reading">
+            <div class="reading-instruction">SOCIALES Y CIUDADANAS</div>
+            <p>El clientelismo consiste en un arreglo de intercambios entre gobernantes y terceros, de manera que ambos pueden beneficiarse recíprocamente: los primeros, al recibir apoyo político, y los segundos, al recibir bienes y servicios o un tratamiento privilegiado o excepcional en ciertos asuntos.</p>
+          </article>
+        `
+      }
+    ],
+    prompt: "Teniendo en cuenta esta definición, el clientelismo justifica la creación de entes de control a los gobernantes, porque",
+    options: [
+      { letter: "A", text: "es antiético que un gobernante o dirigente político busque beneficiarse electoralmente de un grupo de ciudadanos." },
+      { letter: "B", text: "es inconveniente que un gobernante haga alianzas políticas con otros dirigentes para mantenerse en el poder." },
+      { letter: "C", text: "es necesario evitar que los gobernantes usen su posición privilegiada para ser elegidos con favores, a cambio de votos." },
+      { letter: "D", text: "es reprochable que los gobernantes adopten medidas populares para aumentar su aceptación entre los ciudadanos." }
+    ],
+    correctAnswer: "C",
+    explanation: "El clientelismo implica un intercambio indebido de apoyo político por favores, bienes, servicios o tratamientos privilegiados. Los entes de control se justifican porque buscan impedir que quienes gobiernan utilicen su cargo para obtener votos mediante favores. Por eso la respuesta correcta es C."
+  }
+
+
+  ,
+  {
+    uid: "s1-soc-074",
+    session: 1,
+    block: 3,
+    number: 74,
+    area: "Sociales y Ciudadanas",
+    competencia: "Pensamiento social",
+    componente: "Derechos, familia e inclusión social",
+    dificultad: "Media",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 1 - Sociales y Ciudadanas - Pregunta 74",
+    stem: `En el 2011, la Corte Constitucional de Colombia estableció que las parejas conformadas por personas del mismo sexo sí constituyen una familia. Cinco años después, la misma entidad reconoció la validez del matrimonio igualitario para estas mismas parejas. Antes de eso, solo las parejas heterosexuales podían casarse legalmente, mientras que las homosexuales solo podían acceder a una figura contractual llamada "unión solemne", la cual otorgaba solo algunos de los derechos conferidos a los matrimonios. Con esto, la Corte Constitucional busca responder a los nuevos patrones en la conformación de las familias en el país y evitar que los derechos de cerca de cuatro millones de colombianos sigan siendo vulnerados.`,
+    resources: [
+      {
+        type: "html",
+        html: `
+          <article class="reading-card prose-reading sociales-reading">
+            <div class="reading-instruction">SOCIALES Y CIUDADANAS</div>
+            <p>En el 2011, la Corte Constitucional de Colombia estableció que las parejas conformadas por personas del mismo sexo sí constituyen una familia. Cinco años después, la misma entidad reconoció la validez del matrimonio igualitario para estas mismas parejas.</p>
+            <p>Antes de eso, solo las parejas heterosexuales podían casarse legalmente, mientras que las homosexuales solo podían acceder a una figura contractual llamada "unión solemne", la cual otorgaba solo algunos de los derechos conferidos a los matrimonios.</p>
+            <p>Con esto, la Corte Constitucional busca responder a los nuevos patrones en la conformación de las familias en el país y evitar que los derechos de cerca de cuatro millones de colombianos sigan siendo vulnerados.</p>
+            <p class="source-note"><strong>Tomado y adaptado de:</strong> Rueda, M. (30 de abril de 2005). <em>¿Es fácil ser gay en Colombia?</em> Revista Semana. http://www.semana.com y Redacción Judicial (7 de abril de 2016). Corte Constitucional le da el “Sí” al matrimonio igualitario. <em>El Espectador</em>. http://www.elespectador.com</p>
+          </article>
+        `
+      }
+    ],
+    prompt: "Con base en la información anterior, ¿cuál de las siguientes afirmaciones es una de las razones por las cuales se modificó el concepto legal de matrimonio y familia en Colombia?",
+    options: [
+      { letter: "A", text: "Para restringir los derechos de las familias católicas, ya que, al considerar todos los matrimonios como iguales, se reduce la dimensión sagrada del matrimonio." },
+      { letter: "B", text: "Para privilegiar los derechos de los homosexuales, ya que estas personas ahora recibirán un trato preferencial por su orientación sexual." },
+      { letter: "C", text: "Para facilitar la convivencia en una sociedad cambiante, ya que las normas deben adaptarse a las transformaciones sociales." },
+      { letter: "D", text: "Para priorizar los valores de la sociedad, ya que estos son el centro de la vida en comunidad y no deberían modificarse." }
+    ],
+    correctAnswer: "C",
+    explanation: "El texto indica que la Corte Constitucional modificó el reconocimiento legal de matrimonio y familia para responder a nuevos patrones familiares y evitar la vulneración de derechos. Esto muestra que las normas deben adaptarse a las transformaciones sociales. Por eso la respuesta correcta es C."
+  }
+
+
+  ,
+  {
+    uid: "s1-soc-075",
+    session: 1,
+    block: 3,
+    number: 75,
+    area: "Sociales y Ciudadanas",
+    competencia: "Pensamiento social",
+    componente: "Derechos colectivos, ambiente y regulación estatal",
+    dificultad: "Media",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 1 - Sociales y Ciudadanas - Pregunta 75",
+    stem: "En un municipio, un grupo de mineros artesanales ha aumentado sus ingresos al encontrar un punto del río en el cual se puede extraer oro con la ayuda de mercurio. La comunidad del municipio aledaño se ha visto afectada por esta situación, porque el río se ha contaminado con los desechos tóxicos que genera la actividad minera y es la única fuente de agua que tienen los habitantes para el consumo e irrigación de cultivos. Ante esto, la alcaldesa del municipio considera necesario establecer una normatividad que regule este tipo de actividades.",
+    resources: [
+      {
+        type: "html",
+        html: `
+          <article class="reading-card prose-reading sociales-reading">
+            <div class="reading-instruction">SOCIALES Y CIUDADANAS</div>
+            <p>En un municipio, un grupo de mineros artesanales ha aumentado sus ingresos al encontrar un punto del río en el cual se puede extraer oro con la ayuda de mercurio.</p>
+            <p>La comunidad del municipio aledaño se ha visto afectada por esta situación, porque el río se ha contaminado con los desechos tóxicos que genera la actividad minera y es la única fuente de agua que tienen los habitantes para el consumo e irrigación de cultivos.</p>
+            <p>Ante esto, la alcaldesa del municipio considera necesario establecer una normatividad que regule este tipo de actividades.</p>
+          </article>
+        `
+      }
+    ],
+    prompt: "¿Cuál es la razón que mejor justifica por qué debería establecerse allí una normatividad que regule las actividades de extracción minera en el municipio?",
+    options: [
+      { letter: "A", text: "Para que los mineros busquen más lugares de extracción de oro sin tener problemas con las autoridades." },
+      { letter: "B", text: "Para garantizar los derechos a la salud y a un ambiente sano de los pobladores y el derecho de los mineros al trabajo." },
+      { letter: "C", text: "Para que se pueda subsidiar la compra de agua para los pobladores, por medio de las ganancias que genera la explotación minera." },
+      { letter: "D", text: "Para establecer periodos de alternancia en la extracción del oro, para que los mineros descansen y permitan que el agua no se contamine tanto." }
+    ],
+    correctAnswer: "B",
+    explanation: "La situación presenta un conflicto entre la actividad económica de los mineros artesanales y los derechos de la comunidad afectada por la contaminación del río. Una normatividad se justifica porque permite regular la minería para proteger la salud, el acceso al agua y el ambiente sano de los pobladores, sin desconocer el derecho al trabajo de los mineros. Por eso la respuesta correcta es B."
+  }
+
+
+
+  ,
+  {
+    uid: "s1-soc-076",
+    session: 1,
+    block: 3,
+    number: 76,
+    area: "Sociales y Ciudadanas",
+    competencia: "Pensamiento social",
+    componente: "Contexto histórico, ideologías políticas y análisis de fuentes",
+    dificultad: "Media",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 1 - Sociales y Ciudadanas - Pregunta 76",
+    stem: `En la introducción al Manifiesto Comunista, Karl Marx y Friedrich Engels escribieron: "Un fantasma recorre Europa: el fantasma del comunismo. Todas las fuerzas de la vieja Europa se han unido en santa cruzada para acosar a ese fantasma [...] No hay un solo partido de oposición a quien los adversarios gobernantes no motejen de comunista [...] De este hecho, se desprenden dos consecuencias: la primera es que el comunismo se halla ya reconocido como una potencia por todas las potencias europeas. La segunda, que ya es hora de que los comunistas expresen a la luz del día y ante el mundo entero sus ideas, sus tendencias, sus aspiraciones, saliendo así al paso de esa leyenda del espectro comunista, con un manifiesto de su partido [...]".`,
+    resources: [
+      {
+        type: "html",
+        html: `
+          <article class="reading-card prose-reading sociales-reading">
+            <div class="reading-instruction">SOCIALES Y CIUDADANAS</div>
+            <p>En la introducción al <em>Manifiesto Comunista</em>, Karl Marx y Friedrich Engels escribieron:</p>
+            <blockquote>
+              <p>"Un fantasma recorre Europa: el fantasma del comunismo. Todas las fuerzas de la vieja Europa se han unido en santa cruzada para acosar a ese fantasma [...] No hay un solo partido de oposición a quien los adversarios gobernantes no motejen de comunista [...] De este hecho, se desprenden dos consecuencias: la primera es que el comunismo se halla ya reconocido como una potencia por todas las potencias europeas. La segunda, que ya es hora de que los comunistas expresen a la luz del día y ante el mundo entero sus ideas, sus tendencias, sus aspiraciones, saliendo así al paso de esa leyenda del espectro comunista, con un manifiesto de su partido [...]".</p>
+            </blockquote>
+          </article>
+        `
+      }
+    ],
+    prompt: "¿Este texto fue escrito en el siglo XX?",
+    options: [
+      { letter: "A", text: "No, ya que fue escrito en el siglo XIX como respuesta a las injusticias cometidas en América por las potencias imperialistas de la vieja Europa." },
+      { letter: "B", text: "Sí, porque el texto describe cómo el Partido Comunista empezó a obtener el poder en varias potencias europeas y a perseguir cualquier fuerza política opositora." },
+      { letter: "C", text: "No, porque el comunismo solo tuvo relevancia después de la segunda mitad del siglo XX, durante el enfrentamiento entre la Unión Soviética y los países capitalistas en la Guerra Fría." },
+      { letter: "D", text: "Sí, porque el contexto del escrito es la consolidación del comunismo en Europa como fuerza política y, por tanto, el rechazo del mismo por los regímenes gobernantes y sus aliados." }
+    ],
+    correctAnswer: "A",
+    explanation: "El texto corresponde a una fuente del siglo XIX, no del siglo XX. La opción marcada como correcta es A, porque reconoce que el fragmento no fue escrito en el siglo XX."
+  }
+
+  ,
+  {
+    uid: "s1-soc-077",
+    session: 1,
+    block: 3,
+    number: 77,
+    area: "Sociales y Ciudadanas",
+    competencia: "Pensamiento social",
+    componente: "Ordenamiento territorial, desarrollo sostenible y planeación",
+    dificultad: "Media",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 1 - Sociales y Ciudadanas - Pregunta 77",
+    stem: `En Colombia, se debe tener un Plan de Ordenamiento Territorial (POT) en cada uno de los municipios, para organizar y planear el desarrollo físico del territorio. "Un POT se define como el conjunto de objetivos, directrices, políticas, estrategias, metas, programas, actuaciones y normas adoptadas para orientar y administrar el desarrollo físico del territorio y la utilización del suelo. Señala, pues, los derroteros de las diferentes acciones urbanísticas posibles que pueden emprenderse. Las ciudades deben crecer ordenadamente, de manera tal que los recursos con que se cuenta para el desarrollo de la comunidad, se empleen eficientemente y de manera sostenible en el tiempo. El POT nos pone de presente que no todo está permitido y que lo que sí lo está, debe ser en función de la obtención del desarrollo más equitativo posible".`,
+    resources: [
+      {
+        type: "html",
+        html: `
+          <article class="reading-card prose-reading sociales-reading">
+            <div class="reading-instruction">SOCIALES Y CIUDADANAS</div>
+            <p>En Colombia, se debe tener un Plan de Ordenamiento Territorial (POT) en cada uno de los municipios, para organizar y planear el desarrollo físico del territorio.</p>
+            <blockquote>
+              <p>"Un POT se define como el conjunto de objetivos, directrices, políticas, estrategias, metas, programas, actuaciones y normas adoptadas para orientar y administrar el desarrollo físico del territorio y la utilización del suelo. Señala, pues, los derroteros de las diferentes acciones urbanísticas posibles que pueden emprenderse. Las ciudades deben crecer ordenadamente, de manera tal que los recursos con que se cuenta para el desarrollo de la comunidad, se empleen eficientemente y de manera sostenible en el tiempo. El POT nos pone de presente que no todo está permitido y que lo que sí lo está, debe ser en función de la obtención del desarrollo más equitativo posible".</p>
+            </blockquote>
+            <p class="source-note"><strong>Tomado y adaptado de:</strong> Fenalco. (2013). <em>¿Qué es un Plan de Ordenamiento Territorial y para qué sirve?</em> http://fenalcobolivar.com/desarrollosectorial/queesunplandeordenamientoterritorialyparaquesirve1687</p>
+          </article>
+        `
+      }
+    ],
+    prompt: "¿Cuál de los siguientes conceptos se aplica en la anterior definición de un POT?",
+    options: [
+      { letter: "A", text: "Desarrollo equitativo y sustentable." },
+      { letter: "B", text: "Capital político y social." },
+      { letter: "C", text: "Participación política." },
+      { letter: "D", text: "Crecimiento económico." }
+    ],
+    correctAnswer: "A",
+    explanation: "La definición del POT indica que las ciudades deben crecer de forma ordenada, usando los recursos de manera eficiente y sostenible en el tiempo, y buscando el desarrollo más equitativo posible. Por eso el concepto que mejor se aplica es desarrollo equitativo y sustentable. La respuesta correcta es A."
+  }
+
+
+
+
+  ,
+  {
+    uid: "s1-soc-078",
+    session: 1,
+    block: 3,
+    number: 78,
+    area: "Sociales y Ciudadanas",
+    competencia: "Pensamiento social",
+    componente: "Medio ambiente, fuentes de energía y sostenibilidad",
+    dificultad: "Media",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 1 - Sociales y Ciudadanas - Pregunta 78",
+    stem: `En España, se han instalado miles de generadores de energía eólica (aquellos que producen energía a partir del viento) que, actualmente, ocupan grandes extensiones de tierra. A diferencia de los combustibles fósiles o de las centrales nucleares, los generadores de energía eólica son fuentes de energía limpia y amigable con el medio ambiente. En este momento, se está analizando la posibilidad de instalar este tipo de generadores en una región desértica en el norte de Colombia, para satisfacer las necesidades energéticas de la población del lugar. Esta población produce la mayor parte de la energía que consume a partir de la quema de madera, lo que genera problemas de contaminación y deforestación.`,
+    resources: [
+      {
+        type: "html",
+        html: `
+          <article class="reading-card prose-reading sociales-reading">
+            <div class="reading-instruction">SOCIALES Y CIUDADANAS</div>
+            <p>En España, se han instalado miles de generadores de energía eólica (aquellos que producen energía a partir del viento) que, actualmente, ocupan grandes extensiones de tierra.</p>
+            <p>A diferencia de los combustibles fósiles o de las centrales nucleares, los generadores de energía eólica son fuentes de energía limpia y amigable con el medio ambiente.</p>
+            <p>En este momento, se está analizando la posibilidad de instalar este tipo de generadores en una región desértica en el norte de Colombia, para satisfacer las necesidades energéticas de la población del lugar.</p>
+            <p>Esta población produce la mayor parte de la energía que consume a partir de la quema de madera, lo que genera problemas de contaminación y deforestación.</p>
+          </article>
+        `
+      }
+    ],
+    prompt: "¿Cuál de las siguientes condiciones NO sería necesaria para implementar esta medida, de energía eólica, en dicha región del territorio colombiano?",
+    options: [
+      { letter: "A", text: "Que sea posible convencer a la población de los efectos negativos de la quema de madera para que abandone dicha práctica." },
+      { letter: "B", text: "Que la población no se vea incomodada por el impacto que tendría la instalación de los generadores en el paisaje." },
+      { letter: "C", text: "Que sea posible reforestar las selvas de donde se ha extraído la madera que la población ha utilizado tradicionalmente para generar energía." },
+      { letter: "D", text: "Que la capacidad de producción de los generadores eólicos que se instalarían sea suficiente para satisfacer las necesidades energéticas de la población." }
+    ],
+    correctAnswer: "C",
+    explanation: "Para implementar la medida de energía eólica serían necesarias condiciones como que los generadores produzcan suficiente energía, que la población acepte el cambio y que pueda abandonar progresivamente la quema de madera. Reforestar las selvas afectadas sería una acción ambiental valiosa, pero no es una condición indispensable para instalar los generadores eólicos en la región. Por eso la respuesta correcta es C."
+  }
+
+
+
+  ,
+  {
+    uid: "s1-soc-079",
+    session: 1,
+    block: 3,
+    number: 79,
+    area: "Sociales y Ciudadanas",
+    competencia: "Pensamiento social",
+    componente: "Migración, discriminación, convivencia ciudadana y discursos públicos",
+    dificultad: "Media",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 1 - Sociales y Ciudadanas - Pregunta 79",
+    stem: `Un político de una ciudad del país se encuentra muy preocupado por el aumento en la inseguridad que se ha venido presentando en los últimos años. Recientemente, afirma el político, el número de robos y atracos a mano armada se ha intensificado y esta problemática se debería, en gran parte, a la llegada de personas de un país vecino, que migran por la crisis económica y social que viven al interior de su país. En palabras del político: "Ya se han registrado muchos casos de personas atracadas por estos ciudadanos inmigrantes. Recomiendo a la población tener mucho cuidado al momento de relacionarse en la calle con cualquier persona que parezca tener un acento del país vecino. También, hago un llamado a la comunidad para que continúe denunciando los casos de atraco que cometen las personas de ese país".`,
+    resources: [
+      {
+        type: "html",
+        html: `
+          <article class="reading-card prose-reading sociales-reading">
+            <div class="reading-instruction">SOCIALES Y CIUDADANAS</div>
+            <p>Un político de una ciudad del país se encuentra muy preocupado por el aumento en la inseguridad que se ha venido presentando en los últimos años.</p>
+            <p>Recientemente, afirma el político, el número de robos y atracos a mano armada se ha intensificado y esta problemática se debería, en gran parte, a la llegada de personas de un país vecino, que migran por la crisis económica y social que viven al interior de su país.</p>
+            <p>En palabras del político:</p>
+            <blockquote>
+              <p>"Ya se han registrado muchos casos de personas atracadas por estos ciudadanos inmigrantes. Recomiendo a la población tener mucho cuidado al momento de relacionarse en la calle con cualquier persona que parezca tener un acento del país vecino. También, hago un llamado a la comunidad para que continúe denunciando los casos de atraco que cometen las personas de ese país".</p>
+            </blockquote>
+          </article>
+        `
+      }
+    ],
+    prompt: "Ahora bien, en esta situación, las palabras pronunciadas por el político",
+    options: [
+      { letter: "A", text: "promueven el rechazo hacia los inmigrantes del país vecino porque la gente va a tratarlos con sospecha, sean o no atracadores." },
+      { letter: "B", text: "ignoran que el origen de la inseguridad puede deberse a las necesidades económicas que atraviesan los inmigrantes." },
+      { letter: "C", text: "desconocen que la comunidad no está obligada a participar ni a denunciar los atracos que se cometen en la ciudad." },
+      { letter: "D", text: "motivan a que las personas de un país que se encuentran en situaciones de pobreza, decidan irse a vivir a otro país." }
+    ],
+    correctAnswer: "A",
+    explanation: "Las palabras del político generalizan la responsabilidad de los atracos hacia las personas inmigrantes del país vecino y recomiendan sospechar de quienes parezcan tener ese origen. Esto puede promover rechazo y discriminación hacia todos los inmigrantes, independientemente de que hayan cometido o no delitos. Por eso, la respuesta correcta es A."
+  }
+
+
+  ,
+  {
+    uid: "s1-soc-080",
+    session: 1,
+    block: 3,
+    number: 80,
+    area: "Sociales y Ciudadanas",
+    competencia: "Pensamiento social",
+    componente: "Democracia representativa, oposición política y garantías electorales",
+    dificultad: "Media",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 1 - Sociales y Ciudadanas - Pregunta 80",
+    stem: `Un líder político afirmó lo siguiente durante una entrevista: "Volveremos a participar en las elecciones cuando: 1. El calendario electoral vuelva a ser estable y no haya intervención por parte del presidente. 2. Aumenten los controles por parte de entes independientes en los puestos de votación. 3. Los ciudadanos no sufran represalias por expresar su preferencia electoral. 4. Se les permita a los ciudadanos crear y pertenecer a partidos políticos diferentes al de Gobierno. 5. Las decisiones tomadas en las urnas se respeten y los candidatos elegidos puedan posesionarse".`,
+    resources: [
+      {
+        type: "html",
+        html: `
+          <article class="reading-card prose-reading sociales-reading">
+            <div class="reading-instruction">SOCIALES Y CIUDADANAS</div>
+            <p><strong>Un líder político afirmó lo siguiente durante una entrevista:</strong></p>
+            <blockquote>
+              <p>"Volveremos a participar en las elecciones cuando:</p>
+              <ol class="numbered-list">
+                <li>El calendario electoral vuelva a ser estable y no haya intervención por parte del presidente.</li>
+                <li>Aumenten los controles por parte de entes independientes en los puestos de votación.</li>
+                <li>Los ciudadanos no sufran represalias por expresar su preferencia electoral.</li>
+                <li>Se les permita a los ciudadanos crear y pertenecer a partidos políticos diferentes al de Gobierno.</li>
+                <li>Las decisiones tomadas en las urnas se respeten y los candidatos elegidos puedan posesionarse".</li>
+              </ol>
+            </blockquote>
+          </article>
+        `
+      }
+    ],
+    prompt: "¿Cuál es el propósito de las medidas propuestas?",
+    options: [
+      { letter: "A", text: "Establecer límites a la democracia, modificando el calendario electoral y concentrando el poder en los partidos políticos existentes." },
+      { letter: "B", text: "Fortalecer la democracia, priorizando la gobernabilidad del partido político en el poder y creando un consenso nacional, al disminuir la oposición." },
+      { letter: "C", text: "Establecer límites a la democracia, controlando el número de partidos que pueden postular candidatos y debilitando la figura presidencial." },
+      { letter: "D", text: "Fortalecer la democracia representativa, garantizando condiciones para ejercer la oposición y disminuyendo los límites al ejercicio electoral." }
+    ],
+    correctAnswer: "D",
+    explanation: "Las medidas propuestas buscan garantizar elecciones libres, participación de partidos distintos al gobierno, ausencia de represalias, control independiente y respeto por los resultados. Todo ello fortalece la democracia representativa y las condiciones para ejercer la oposición. Por eso, la respuesta correcta es D."
+  }
+
+
+
+  ,
+  {
+    uid: "s1-soc-081",
+    session: 1,
+    block: 3,
+    number: 81,
+    area: "Sociales y Ciudadanas",
+    competencia: "Pensamiento social",
+    componente: "Conflictos socioambientales, Amazonía y pueblos indígenas",
+    dificultad: "Media",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 1 - Sociales y Ciudadanas - Pregunta 81",
+    stem: `Representantes de los gremios minero y petrolero han enviado un comunicado al Gobierno con la intención de obtener los permisos necesarios para intervenir la selva amazónica. Estos gremios argumentan que esta intervención les permitirá mejorar la competitividad de este sector del mercado y generar empleos para las comunidades de la región del Amazonas. Por otra parte, los líderes de algunos pueblos indígenas del Amazonas llevan varios meses pidiendo la ayuda del Gobierno para proteger los territorios de sus "hermanos aislados", pueblos indígenas que han decidido voluntariamente aislarse en las selvas huyendo de la esclavitud, la violencia y las enfermedades que la civilización occidental ha traído consigo durante los últimos cinco siglos. La amenaza para estos pueblos aún sigue latente; por ejemplo, en el último año varias comunidades indígenas se han visto seriamente afectadas por cuenta de contagios de gripa y sarampión, producto de encuentros imprevistos con leñadores de grupos madereros ilegales en el Amazonas.
+
+Para tomar una decisión informada sobre este tema, el Gobierno ha pedido la colaboración, tanto de su Ministerio de Minas y Energía, como de los académicos estudiosos de la cultura y la cosmovisión de estos pueblos indígenas del Amazonas. Los académicos argumentan que, teniendo en cuenta la gran vulnerabilidad que estos pueblos antiguos presentan frente a las enfermedades más comunes de Occidente, es necesario crear estructuras legales que protejan los territorios en donde podrían habitar los pueblos indígenas en aislamiento voluntario, respetando su autodeterminación a no ser contactados y protegiendo el gran patrimonio cultural, espiritual y natural que ellos poseen. Por otra parte, desde el Ministerio de Minas y Energía se argumenta que la solución está en que se reúnan los gremios minero, petrolero y maderero con las comunidades indígenas del Amazonas, incluyendo a las comunidades indígenas en aislamiento voluntario, para así poder negociar qué partes de la selva amazónica pueden ser explotadas legalmente para beneficio del desarrollo económico del país.`,
+    resources: [
+      {
+        type: "html",
+        html: `
+          <article class="reading-card prose-reading sociales-reading">
+            <div class="reading-instruction">RESPONDA LAS PREGUNTAS 81 Y 82 DE ACUERDO CON LA SIGUIENTE INFORMACIÓN</div>
+            <p>Representantes de los gremios minero y petrolero han enviado un comunicado al Gobierno con la intención de obtener los permisos necesarios para intervenir la selva amazónica. Estos gremios argumentan que esta intervención les permitirá mejorar la competitividad de este sector del mercado y generar empleos para las comunidades de la región del Amazonas.</p>
+            <p>Por otra parte, los líderes de algunos pueblos indígenas del Amazonas llevan varios meses pidiendo la ayuda del Gobierno para proteger los territorios de sus "hermanos aislados", pueblos indígenas que han decidido voluntariamente aislarse en las selvas huyendo de la esclavitud, la violencia y las enfermedades que la civilización occidental ha traído consigo durante los últimos cinco siglos. La amenaza para estos pueblos aún sigue latente; por ejemplo, en el último año varias comunidades indígenas se han visto seriamente afectadas por cuenta de contagios de gripa y sarampión, producto de encuentros imprevistos con leñadores de grupos madereros ilegales en el Amazonas.</p>
+            <p>Para tomar una decisión informada sobre este tema, el Gobierno ha pedido la colaboración, tanto de su Ministerio de Minas y Energía, como de los académicos estudiosos de la cultura y la cosmovisión de estos pueblos indígenas del Amazonas.</p>
+            <p>Los académicos argumentan que, teniendo en cuenta la gran vulnerabilidad que estos pueblos antiguos presentan frente a las enfermedades más comunes de Occidente, es necesario crear estructuras legales que protejan los territorios en donde podrían habitar los pueblos indígenas en aislamiento voluntario, respetando su autodeterminación a no ser contactados y protegiendo el gran patrimonio cultural, espiritual y natural que ellos poseen.</p>
+            <p>Por otra parte, desde el Ministerio de Minas y Energía se argumenta que la solución está en que se reúnan los gremios minero, petrolero y maderero con las comunidades indígenas del Amazonas, incluyendo a las comunidades indígenas en aislamiento voluntario, para así poder negociar qué partes de la selva amazónica pueden ser explotadas legalmente para beneficio del desarrollo económico del país.</p>
+            <p class="source-note"><strong>Tomado y adaptado de:</strong> Calle, H. (2 de noviembre de 2017). Una política de buen vecino para los pueblos aislados colombianos. <em>El Espectador.</em> https://www.elespectador.com/noticias/medio-ambiente/una-politica-de-buen-vecino-para-los-pueblos-aislados-colombianos-articulo-721038</p>
+          </article>
+        `
+      }
+    ],
+    prompt: "De acuerdo con los intereses involucrados en la situación descrita, ¿entre quiénes sería más probable que se genere un conflicto?",
+    options: [
+      { letter: "A", text: "Entre los pueblos indígenas y los académicos." },
+      { letter: "B", text: "Entre el gremio minero y los pueblos indígenas." },
+      { letter: "C", text: "Entre el Ministerio de Minas y Energía y el gremio petrolero." },
+      { letter: "D", text: "Entre los grupos madereros ilegales y el gremio petrolero." }
+    ],
+    correctAnswer: "B",
+    explanation: "El conflicto más probable se daría entre quienes buscan intervenir o explotar la selva amazónica, como los gremios minero y petrolero, y los pueblos indígenas que piden protección de sus territorios y respeto por su aislamiento voluntario. Por eso, la respuesta correcta es B."
+  }
+
+  ,
+  {
+    uid: "s1-soc-082",
+    session: 1,
+    block: 3,
+    number: 82,
+    area: "Sociales y Ciudadanas",
+    competencia: "Interpretación y análisis de perspectivas",
+    componente: "Decisiones públicas, participación y pueblos indígenas en aislamiento voluntario",
+    dificultad: "Media",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 1 - Sociales y Ciudadanas - Pregunta 82",
+    stem: `Representantes de los gremios minero y petrolero han enviado un comunicado al Gobierno con la intención de obtener los permisos necesarios para intervenir la selva amazónica. Estos gremios argumentan que esta intervención les permitirá mejorar la competitividad de este sector del mercado y generar empleos para las comunidades de la región del Amazonas. Por otra parte, los líderes de algunos pueblos indígenas del Amazonas llevan varios meses pidiendo la ayuda del Gobierno para proteger los territorios de sus "hermanos aislados", pueblos indígenas que han decidido voluntariamente aislarse en las selvas huyendo de la esclavitud, la violencia y las enfermedades que la civilización occidental ha traído consigo durante los últimos cinco siglos.`,
+    resources: [
+      {
+        type: "html",
+        html: `
+          <article class="reading-card prose-reading sociales-reading compact-reading">
+            <div class="reading-instruction">RESPONDA LAS PREGUNTAS 81 Y 82 DE ACUERDO CON LA SIGUIENTE INFORMACIÓN</div>
+            <p>Representantes de los gremios minero y petrolero han enviado un comunicado al Gobierno con la intención de obtener los permisos necesarios para intervenir la selva amazónica. Estos gremios argumentan que esta intervención les permitirá mejorar la competitividad de este sector del mercado y generar empleos para las comunidades de la región del Amazonas.</p>
+            <p>Por otra parte, los líderes de algunos pueblos indígenas del Amazonas llevan varios meses pidiendo la ayuda del Gobierno para proteger los territorios de sus "hermanos aislados", pueblos indígenas que han decidido voluntariamente aislarse en las selvas huyendo de la esclavitud, la violencia y las enfermedades que la civilización occidental ha traído consigo durante los últimos cinco siglos.</p>
+            <p>Los académicos argumentan que es necesario crear estructuras legales que protejan los territorios en donde podrían habitar los pueblos indígenas en aislamiento voluntario, respetando su autodeterminación a no ser contactados. Desde el Ministerio de Minas y Energía se propone reunir a los gremios minero, petrolero y maderero con las comunidades indígenas, incluyendo a las comunidades en aislamiento voluntario, para negociar qué partes de la selva amazónica pueden ser explotadas legalmente.</p>
+          </article>
+        `
+      }
+    ],
+    prompt: "En relación con la propuesta planteada por el Ministerio de Minas y Energía, ¿cuál de las siguientes opciones describe una posible reacción o respuesta que NO se tuvo en cuenta en dicha propuesta?",
+    options: [
+      { letter: "A", text: "Que los gremios petroleros y mineros solo quieran beneficiarse de la extracción legal de la mayor cantidad de recursos del Amazonas." },
+      { letter: "B", text: "Que los académicos no tengan en cuenta los beneficios que conlleva el modelo extractivo legal que busca el desarrollo económico del país." },
+      { letter: "C", text: "Que los pueblos indígenas aislados voluntariamente no acepten entablar ningún tipo de relación con la sociedad occidental." },
+      { letter: "D", text: "Que los grupos madereros ilegales no tengan las vías para poder negociar la explotación legal de los bosques amazónicos." }
+    ],
+    correctAnswer: "C",
+    explanation: "La propuesta del Ministerio supone que todas las comunidades indígenas, incluso las que viven en aislamiento voluntario, podrían reunirse y negociar con los gremios. Sin embargo, no considera que esos pueblos hayan decidido no establecer contacto con la sociedad occidental. Por eso, la respuesta correcta es C."
+  }
+
+
+  ,
+  {
+    uid: "s1-soc-083",
+    session: 1,
+    block: 3,
+    number: 83,
+    area: "Sociales y Ciudadanas",
+    competencia: "Pensamiento social",
+    componente: "Dimensiones económica, cultural y social de los conflictos rurales",
+    dificultad: "Media",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 1 - Sociales y Ciudadanas - Pregunta 83",
+    stem: `Un grupo de campesinos productores de papa se ha visto afectado por la entrada en vigencia de un tratado de libre comercio que ha permitido el ingreso al país de alimentos extranjeros, que son más económicos, incluyendo la papa. La situación se ha complicado tanto para ellos, que sus ingresos se han reducido considerablemente y se ha puesto en riesgo su permanencia como agricultores. Esto afecta aspectos esenciales de su vida, dado que muchas de sus tradiciones y elementos culturales están relacionados con el cultivo de la tierra. Los campesinos mencionan que los políticos prometieron, en sus campañas, que los tratados no los afectarían, pues sus cultivos y productos serían protegidos.
+
+Ante esta situación, deciden rescatar una antigua tradición: los mercados campesinos, donde pueden vender sus productos sin intermediarios y a precios más bajos. Con esto se busca mejorar la calidad de vida de los productores, que más personas accedan a alimentos de alta calidad y que sus productos compitan en mejores condiciones frente a los productos extranjeros. Ahora bien, se busca ampliar este tipo de mercados a todo el país, pues la medida ha sido altamente beneficiosa para los cultivadores de papa, para los consumidores y para la tradición, pues se rescatan prácticas olvidadas.`,
+    resources: [
+      {
+        type: "html",
+        html: `
+          <article class="reading-card prose-reading sociales-reading">
+            <div class="reading-instruction">SOCIALES Y CIUDADANAS</div>
+            <p>Un grupo de campesinos productores de papa se ha visto afectado por la entrada en vigencia de un tratado de libre comercio que ha permitido el ingreso al país de alimentos extranjeros, que son más económicos, incluyendo la papa.</p>
+            <p>La situación se ha complicado tanto para ellos, que sus ingresos se han reducido considerablemente y se ha puesto en riesgo su permanencia como agricultores. Esto afecta aspectos esenciales de su vida, dado que muchas de sus tradiciones y elementos culturales están relacionados con el cultivo de la tierra.</p>
+            <p>Los campesinos mencionan que los políticos prometieron, en sus campañas, que los tratados no los afectarían, pues sus cultivos y productos serían protegidos.</p>
+            <p>Ante esta situación, deciden rescatar una antigua tradición: los mercados campesinos, donde pueden vender sus productos sin intermediarios y a precios más bajos.</p>
+            <p>Con esto se busca mejorar la calidad de vida de los productores, que más personas accedan a alimentos de alta calidad y que sus productos compitan en mejores condiciones frente a los productos extranjeros.</p>
+            <p>Ahora bien, se busca ampliar este tipo de mercados a todo el país, pues la medida ha sido altamente beneficiosa para los cultivadores de papa, para los consumidores y para la tradición, pues se rescatan prácticas olvidadas.</p>
+          </article>
+        `
+      }
+    ],
+    prompt: "¿Cuáles de las siguientes dimensiones se privilegiaron en la solución propuesta por los campesinos?",
+    options: [
+      { letter: "A", text: "Social y política." },
+      { letter: "B", text: "Cultural y social." },
+      { letter: "C", text: "Económica y cultural." },
+      { letter: "D", text: "Política y comercial." }
+    ],
+    correctAnswer: "C",
+    explanation: "La solución propuesta privilegia la dimensión económica, porque busca mejorar los ingresos de los campesinos y permitir que sus productos compitan en mejores condiciones; y la dimensión cultural, porque rescata la tradición de los mercados campesinos y prácticas vinculadas al cultivo de la tierra. Por eso, la respuesta correcta es C."
+  }
+
+
+  ,
+  {
+    uid: "s1-soc-084",
+    session: 1,
+    block: 3,
+    number: 84,
+    area: "Sociales y Ciudadanas",
+    competencia: "Pensamiento social",
+    componente: "Dimensiones económica, social y ambiental de proyectos públicos",
+    dificultad: "Media",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 1 - Sociales y Ciudadanas - Pregunta 84",
+    stem: `Para llevar agua a varios municipios, el gobernador de un departamento propone la extensión del sistema de acueducto con presupuesto del Gobierno nacional. Después de varios estudios, un equipo de ingenieros entrega el diseño del proyecto.
+
+Este diseño contempla el trazado que tendrá el acueducto, el presupuesto general que se requiere para construirlo, el plan para proteger la flora y la fauna de la región, y la reubicación temporal de algunas familias que viven donde se llevarán a cabo las obras. Ahora bien, cuando el gobernador pretende dar inicio al proyecto, el Gobierno nacional le comunica que, si se considera el diseño entregado por los ingenieros, no habrá dinero suficiente para ejecutar la obra.`,
+    resources: [
+      {
+        type: "html",
+        html: `
+          <article class="reading-card prose-reading sociales-reading">
+            <div class="reading-instruction">SOCIALES Y CIUDADANAS</div>
+            <p>Para llevar agua a varios municipios, el gobernador de un departamento propone la extensión del sistema de acueducto con presupuesto del Gobierno nacional. Después de varios estudios, un equipo de ingenieros entrega el diseño del proyecto.</p>
+            <p>Este diseño contempla el trazado que tendrá el acueducto, el presupuesto general que se requiere para construirlo, el plan para proteger la flora y la fauna de la región, y la reubicación temporal de algunas familias que viven donde se llevarán a cabo las obras.</p>
+            <p>Ahora bien, cuando el gobernador pretende dar inicio al proyecto, el Gobierno nacional le comunica que, si se considera el diseño entregado por los ingenieros, no habrá dinero suficiente para ejecutar la obra.</p>
+          </article>
+        `
+      }
+    ],
+    prompt: "¿Qué aspecto descrito anteriormente obstaculiza el desarrollo del acueducto?",
+    options: [
+      { letter: "A", text: "El aspecto social, pues las familias que viven en la zona de la obra no podrán ser reubicadas permanentemente." },
+      { letter: "B", text: "El aspecto económico, pues los requerimientos de diseño de la obra no se ajustan al presupuesto del Gobierno." },
+      { letter: "C", text: "El aspecto ambiental, pues el diseño no especifica qué sucederá con la flora y la fauna presente en la zona." },
+      { letter: "D", text: "El aspecto logístico, pues los ingenieros no especifican el trazado definitivo del acueducto." }
+    ],
+    correctAnswer: "B",
+    explanation: "El obstáculo señalado en el caso es la falta de dinero suficiente para ejecutar la obra si se mantiene el diseño presentado. Por tanto, el problema corresponde al aspecto económico, porque los requerimientos del proyecto no se ajustan al presupuesto disponible. La respuesta correcta es B."
+  }
+
+
+
+  ,
+  {
+    uid: "s1-soc-085",
+    session: 1,
+    block: 3,
+    number: 85,
+    area: "Sociales y Ciudadanas",
+    competencia: "Pensamiento social",
+    componente: "Acuerdos de paz, transición a la vida civil y funciones de las Fuerzas Armadas",
+    dificultad: "Media",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 1 - Sociales y Ciudadanas - Pregunta 85",
+    stem: `Como resultado del acuerdo de paz firmado por un Gobierno y un grupo armado al margen de la ley, se establecieron zonas veredales transitorias de normalización (ZVTN), las cuales consisten en locaciones rurales donde se concentran los militantes del grupo armado para iniciar su transición a la vida civil. En estas zonas, el ejército del país debe custodiar a los miembros del grupo armado, en lugar de combatirlo.`,
+    resources: [
+      {
+        type: "html",
+        html: `
+          <article class="reading-card prose-reading sociales-reading">
+            <div class="reading-instruction">SOCIALES Y CIUDADANAS</div>
+            <p>Como resultado del acuerdo de paz firmado por un Gobierno y un grupo armado al margen de la ley, se establecieron zonas veredales transitorias de normalización (ZVTN), las cuales consisten en locaciones rurales donde se concentran los militantes del grupo armado para iniciar su transición a la vida civil.</p>
+            <p>En estas zonas, el ejército del país debe custodiar a los miembros del grupo armado, en lugar de combatirlo.</p>
+          </article>
+        `
+      }
+    ],
+    prompt: "De acuerdo con lo expuesto, ¿por qué es posible que se dé esta situación?",
+    options: [
+      { letter: "A", text: "Porque el Gobierno nacional quiere que el grupo armado conviva con el Ejército, para que en el futuro haga parte de él." },
+      { letter: "B", text: "Porque el Gobierno nacional ha dado un giro hacia el socialismo y ha decidido poner a su Ejército al servicio del grupo armado." },
+      { letter: "C", text: "Porque el grupo armado ahora controla las ZVTN y tiene miembros del Ejército a su disposición." },
+      { letter: "D", text: "Porque la función de las Fuerzas Armadas se adecuó al nuevo contexto sociopolítico del país." }
+    ],
+    correctAnswer: "D",
+    explanation: "La situación se explica porque, después del acuerdo de paz, el papel de las Fuerzas Armadas cambia frente al grupo armado: ya no se centra en combatirlo, sino en custodiar el proceso de transición a la vida civil dentro de las ZVTN. Por eso, la respuesta correcta es D."
+  }
+
+
+
+  ,
+  {
+    uid: "s1-soc-086",
+    session: 1,
+    block: 3,
+    number: 86,
+    area: "Sociales y Ciudadanas",
+    competencia: "Pensamiento social",
+    componente: "Cambio climático, intereses políticos y confiabilidad de fuentes",
+    dificultad: "Media",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 1 - Sociales y Ciudadanas - Pregunta 86",
+    stem: `En Estados Unidos existe un debate sobre el cambio climático, definido como variaciones del clima atribuidas directa o indirectamente a la actividad humana, que alteran la composición de la atmósfera mundial y que se suman a la variabilidad natural del clima observada durante periodos de tiempo comparables. Este debate ha llevado a que algunos Gobiernos se resistan a suscribir acuerdos internacionales que comprometan a los Estados a reducir la emisión de gases. El ejemplo más reciente fue el retiro de los Estados Unidos del Acuerdo de París. Esta situación ha generado que grupos ambientalistas protesten e insistan en que el desarrollo económico no puede seguir poniendo en peligro la existencia misma del planeta.
+
+Al respecto, el presidente de un país, escéptico del cambio climático, escribió en su red social de internet las siguientes dos frases:
+
+1. "Por el cambio climático que deberíamos estar preocupados es el provocado por las armas nucleares que están en las manos de líderes locos o incompetentes".
+2. "Hace frío afuera. ¿Dónde demonios está el cambio climático?"`,
+    resources: [
+      {
+        type: "html",
+        html: `
+          <article class="reading-card prose-reading sociales-reading">
+            <div class="reading-instruction">SOCIALES Y CIUDADANAS</div>
+            <p>En Estados Unidos existe un debate sobre el cambio climático, definido como variaciones del clima atribuidas directa o indirectamente a la actividad humana, que alteran la composición de la atmósfera mundial y que se suman a la variabilidad natural del clima observada durante periodos de tiempo comparables.</p>
+            <p>Este debate ha llevado a que algunos Gobiernos se resistan a suscribir acuerdos internacionales que comprometan a los Estados a reducir la emisión de gases. El ejemplo más reciente fue el retiro de los Estados Unidos del Acuerdo de París.</p>
+            <p>Esta situación ha generado que grupos ambientalistas protesten e insistan en que el desarrollo económico no puede seguir poniendo en peligro la existencia misma del planeta.</p>
+            <p>Al respecto, el presidente de un país, escéptico del cambio climático, escribió en su red social de internet las siguientes dos frases:</p>
+            <ol class="numbered-text-list">
+              <li>"Por el cambio climático que deberíamos estar preocupados es el provocado por las armas nucleares que están en las manos de líderes locos o incompetentes".</li>
+              <li>"Hace frío afuera. ¿Dónde demonios está el cambio climático?"</li>
+            </ol>
+            <p class="source-note">Tomado y adaptado de: http://www.minambiente.gov.co/index.php/cambio-climatico y de http://www.elfinanciero.com.mx/</p>
+          </article>
+        `
+      }
+    ],
+    prompt: "A partir de la información anterior, ¿resultan confiables las afirmaciones del presidente en su red social acerca del cambio climático?",
+    options: [
+      { letter: "A", text: "Sí, porque, como presidente, tiene acceso a información precisa sobre los aspectos relevantes del planeta." },
+      { letter: "B", text: "No, porque, como presidente, tiene intereses en que el país que gobierna siga siendo competitivo en la economía mundial." },
+      { letter: "C", text: "No, porque, al ser un político, los temas de las ciencias naturales le son ajenos a sus conocimientos de la vida diaria." },
+      { letter: "D", text: "Sí, porque, al ser difundido en una red social con tantos seguidores, lo expresado tiene un impacto a nivel de la economía internacional." }
+    ],
+    correctAnswer: "B",
+    explanation: "Las afirmaciones no resultan confiables porque provienen de una autoridad política que puede tener intereses económicos y políticos vinculados con la competitividad del país y con la resistencia a compromisos internacionales de reducción de emisiones. Además, sus frases no se apoyan en evidencia científica. Por eso, la respuesta correcta es B."
+  }
+
+
+
+  ,
+  {
+    uid: "s1-soc-087",
+    session: 1,
+    block: 3,
+    number: 87,
+    area: "Sociales y Ciudadanas",
+    competencia: "Pensamiento social",
+    componente: "Teoría de la dependencia y relaciones centro-periferia",
+    dificultad: "Media",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 1 - Sociales y Ciudadanas - Pregunta 87",
+    stem: `La teoría de la dependencia argumenta que la pobreza que existe en los países del sur se debe a condiciones históricas que han estructurado el mercado global de tal manera que favorece a los países del norte y mantiene a los países del sur en un estado constante de pobreza. Es así como, desde sus inicios, los países del sur han servido como proveedores de materia prima para los países del norte y a cambio, han sido receptores de aquellos productos terminados que ya han cumplido su ciclo en los mercados del norte. De esta manera, se crea un vínculo de dependencia, en el que las economías del sur dependen de la voluntad de compra de materias primas por parte de los países del norte.`,
+    resources: [
+      {
+        type: "html",
+        html: `
+          <article class="reading-card prose-reading sociales-reading">
+            <div class="reading-instruction">SOCIALES Y CIUDADANAS</div>
+            <p>La teoría de la dependencia argumenta que la pobreza que existe en los países del sur se debe a condiciones históricas que han estructurado el mercado global de tal manera que favorece a los países del norte y mantiene a los países del sur en un estado constante de pobreza.</p>
+            <p>Es así como, desde sus inicios, los países del sur han servido como proveedores de materia prima para los países del norte y a cambio, han sido receptores de aquellos productos terminados que ya han cumplido su ciclo en los mercados del norte.</p>
+            <p>De esta manera, se crea un vínculo de dependencia, en el que las economías del sur dependen de la voluntad de compra de materias primas por parte de los países del norte.</p>
+            <p class="source-note">Tomado y adaptado de: Subgerencia Cultural del Banco de la República. (2015). <em>Teoría de la dependencia</em>. http://www.banrepcultural.org/blaavirtual/ayudadetareas/politica/teoria_de_la_dependencia</p>
+          </article>
+        `
+      }
+    ],
+    prompt: "¿Cuál de las siguientes situaciones se ajusta al modelo teórico descrito?",
+    options: [
+      { letter: "A", text: "Un país latinoamericano desarrolla tecnología industrial que le permite procesar materias primas para generar productos con valor añadido, que se venden dentro del mismo país." },
+      { letter: "B", text: "Una compañía multinacional adquiere, en un país pobre, materias primas a bajo costo, las procesa e incrementa su valor añadido para, luego, vender sus productos en el país pobre." },
+      { letter: "C", text: "Un país desarrollado de Europa genera riquezas gracias a sus adelantos tecnológicos y, luego, impulsa el avance de la industria de países en desarrollo, porque comparte con ellos esta nueva tecnología." },
+      { letter: "D", text: "Una organización internacional regula las relaciones comerciales entre países, para asegurarse de que los países que venden materias primas no cobren de más a los países que más las necesitan." }
+    ],
+    correctAnswer: "B",
+    explanation: "La situación que mejor se ajusta a la teoría de la dependencia es aquella en la que un país pobre suministra materias primas de bajo costo y luego recibe productos con mayor valor añadido, lo que reproduce la dependencia económica frente a actores externos. Por eso, la respuesta correcta es B."
+  }
+
+  ,
+  {
+    uid: "s1-soc-088",
+    session: 1,
+    block: 3,
+    number: 88,
+    area: "Sociales y Ciudadanas",
+    competencia: "Pensamiento social",
+    componente: "Desarrollo sostenible",
+    dificultad: "Media",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 1 - Sociales y Ciudadanas - Pregunta 88",
+    stem: `La Organización de las Naciones Unidas (ONU) define el "desarrollo sostenible" como
+
+"[...] la satisfacción de las necesidades de la generación presente sin comprometer la capacidad de las generaciones futuras para satisfacer sus propias necesidades". El desarrollo sostenible ha emergido como el principio rector para el desarrollo mundial a largo plazo. Consta de tres pilares: el desarrollo sostenible trata de lograr, de manera equilibrada, el desarrollo económico, el desarrollo social y la protección del medio ambiente. [A partir de lo anterior] la Conferencia de las Naciones Unidas sobre el Desarrollo Sostenible, o Cumbre de la Tierra de Río 20, se centrará en dos temas: 1) la economía verde en el contexto del desarrollo sostenible y la erradicación de la pobreza y 2) el marco institucional para el desarrollo sostenible.` ,
+    resources: [
+      {
+        type: "html",
+        html: `
+          <article class="reading-card prose-reading sociales-reading">
+            <div class="reading-instruction">SOCIALES Y CIUDADANAS</div>
+            <p>La Organización de las Naciones Unidas (ONU) define el <strong>"desarrollo sostenible"</strong> como</p>
+            <blockquote>
+              <p>"[...] la satisfacción de las necesidades de la generación presente sin comprometer la capacidad de las generaciones futuras para satisfacer sus propias necesidades". El desarrollo sostenible ha emergido como el principio rector para el desarrollo mundial a largo plazo. Consta de tres pilares: el desarrollo sostenible trata de lograr, de manera equilibrada, el desarrollo económico, el desarrollo social y la protección del medio ambiente. [A partir de lo anterior] la Conferencia de las Naciones Unidas sobre el Desarrollo Sostenible, o Cumbre de la Tierra de Río 20, se centrará en dos temas: 1) la economía verde en el contexto del desarrollo sostenible y la erradicación de la pobreza y 2) el marco institucional para el desarrollo sostenible.</p>
+            </blockquote>
+            <p class="source-note">Tomado y adaptado de: Asamblea General de las Naciones Unidas (s. f.). <em>Desarrollo Sostenible</em>. http://www.un.org/es/ga/president/65/issues/sustdev.shtml</p>
+          </article>
+        `
+      }
+    ],
+    prompt: "De acuerdo con la anterior definición, una política económica es sostenible cuando",
+    options: [
+      { letter: "A", text: "privilegia la industrialización para generar empleo por encima de la necesidad de disminuir los gases de efecto invernadero." },
+      { letter: "B", text: "le da la misma importancia a la generación de riqueza y a la explotación ilimitada de los recursos naturales." },
+      { letter: "C", text: "le da la misma importancia a la generación de riqueza para las personas y a la protección del medio ambiente." },
+      { letter: "D", text: "prohíbe totalmente aprovechar económicamente los bienes y servicios ecosistémicos de lagos, ríos y bosques para lograr su conservación." }
+    ],
+    correctAnswer: "C",
+    explanation: "La definición de desarrollo sostenible plantea un equilibrio entre el desarrollo económico, el desarrollo social y la protección ambiental. Por eso, una política económica sostenible debe promover la generación de riqueza sin descuidar la protección del medio ambiente. La respuesta correcta es C."
+  }
+
+
+  ,
+  {
+    uid: "s1-soc-089",
+    session: 1,
+    block: 3,
+    number: 89,
+    area: "Sociales y Ciudadanas",
+    competencia: "Pensamiento social",
+    componente: "División del trabajo y mercado",
+    dificultad: "Media",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 1 - Sociales y Ciudadanas - Pregunta 89",
+    stem: `Para Adam Smith, economista y filósofo escocés del siglo XVIII, la división del trabajo aumenta la productividad, pues cada persona se enfoca en producir aquello en lo que es mejor y, luego, lo intercambia de forma mercantil por los otros bienes y servicios que necesita. Si cada uno dependiera del autosuministro, tendría menos posibilidades de fabricar la misma cantidad de bienes que le es posible conseguir en el intercambio.`,
+    resources: [
+      {
+        type: "html",
+        html: `
+          <article class="reading-card prose-reading sociales-reading">
+            <div class="reading-instruction">SOCIALES Y CIUDADANAS</div>
+            <p>Para Adam Smith, economista y filósofo escocés del siglo XVIII, la división del trabajo aumenta la productividad, pues cada persona se enfoca en producir aquello en lo que es mejor y, luego, lo intercambia de forma mercantil por los otros bienes y servicios que necesita.</p>
+            <p>Si cada uno dependiera del autosuministro, tendría menos posibilidades de fabricar la misma cantidad de bienes que le es posible conseguir en el intercambio.</p>
+          </article>
+        `
+      }
+    ],
+    prompt: "Según el concepto de división del trabajo, para Smith, el mercado",
+    options: [
+      { letter: "A", text: "genera injusticias sociales al separar a las personas en clases sociales según sus ingresos." },
+      { letter: "B", text: "lleva la economía al fracaso, pues no hay coordinación entre productores y consumidores." },
+      { letter: "C", text: "hace que las personas se vuelvan más ignorantes, pues no saben cómo producir ciertos bienes." },
+      { letter: "D", text: "es una forma eficiente de repartir los bienes que se han producido mediante la especialización." }
+    ],
+    correctAnswer: "D",
+    explanation: "El texto plantea que la división del trabajo aumenta la productividad y que el intercambio permite conseguir más bienes y servicios que el autosuministro. Por eso, para Smith, el mercado funciona como un mecanismo eficiente de distribución de los bienes producidos mediante la especialización. La respuesta correcta es D."
+  }
+
+
+  ,
+  {
+    uid: "s1-soc-090",
+    session: 1,
+    block: 3,
+    number: 90,
+    area: "Sociales y Ciudadanas",
+    competencia: "Pensamiento social",
+    componente: "Ecosistemas, especies invasoras e investigación pública",
+    dificultad: "Media",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 1 - Sociales y Ciudadanas - Pregunta 90",
+    stem: `El Gobierno está investigando el impacto que tiene el pez león en los ecosistemas marítimos colombianos y las formas de combatirlo. El pez león, especie originaria de Asia, se ha convertido en una amenaza o "plaga" para los ecosistemas marítimos y se ha extendido a las costas del Caribe colombiano. Según un artículo de prensa, este pez genera dos tipos de peligro: "Por un lado, es una amenaza para el hombre, que puede sufrir accidentes al pisar o tocar sus nocivas púas venenosas, y, por otro, es una amenaza para las especies nativas, pues se alimenta de peces jóvenes que sirven de alimentación para el hombre, como el pargo y el mero".`,
+    resources: [
+      {
+        type: "html",
+        html: `
+          <article class="reading-card prose-reading sociales-reading">
+            <div class="reading-instruction">SOCIALES Y CIUDADANAS</div>
+            <p>El Gobierno está investigando el impacto que tiene el <strong>pez león</strong> en los ecosistemas marítimos colombianos y las formas de combatirlo.</p>
+            <p>El pez león, especie originaria de Asia, se ha convertido en una amenaza o <strong>"plaga"</strong> para los ecosistemas marítimos y se ha extendido a las costas del Caribe colombiano.</p>
+            <p>Según un artículo de prensa, este pez genera dos tipos de peligro: <em>"Por un lado, es una amenaza para el hombre, que puede sufrir accidentes al pisar o tocar sus nocivas púas venenosas, y, por otro, es una amenaza para las especies nativas, pues se alimenta de peces jóvenes que sirven de alimentación para el hombre, como el pargo y el mero".</em></p>
+            <p class="source-note">Tomado y adaptado de: Agencia de Noticias de la Universidad Nacional. (15 de diciembre de 2009). <em>Pez león ataca en el Caribe colombiano</em>. Revista Semana. https://www.semana.com/-vida-moderna/ciencia/articulo/pez-leon-ataca-caribe-colombiano/111041-3/</p>
+          </article>
+        `
+      }
+    ],
+    prompt: "¿Para cuál de los siguientes objetivos de investigación del Gobierno sería útil la anterior información?",
+    options: [
+      { letter: "A", text: "Establecer el impacto económico que provocan las plagas en la fauna y flora del Caribe colombiano." },
+      { letter: "B", text: "Promover la caza del pez león para fortalecer la economía de las zonas pesqueras en el Caribe." },
+      { letter: "C", text: "Determinar los factores que han provocado una disminución de la fauna en algunas costas colombianas." },
+      { letter: "D", text: "Establecer la cantidad de especies nativas existentes antes de la aparición del pez león." }
+    ],
+    correctAnswer: "C",
+    explanation: "La información del texto muestra que el pez león amenaza a las especies nativas porque se alimenta de peces jóvenes. Por ello, resulta útil para investigar factores que pueden haber provocado disminución de fauna en algunas costas colombianas. La respuesta correcta es C."
+  }
+
+
+
+  ,
+  {
+    uid: "s1-soc-091",
+    session: 1,
+    block: 3,
+    number: 91,
+    area: "Sociales y Ciudadanas",
+    competencia: "Pensamiento social",
+    componente: "Participación ciudadana y mecanismos democráticos",
+    dificultad: "Media",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 1 - Sociales y Ciudadanas - Pregunta 91",
+    stem: `En Colombia, una importante firma encuestadora reveló que, desde hace cuatro años, la corrupción es percibida por la ciudadanía como uno de los problemas más graves que afecta al país. En la versión más reciente de la encuesta aplicada, se muestra que el 84 % de los encuestados piensa que el problema está empeorando. Al respecto, un grupo de jóvenes decide promover el aumento de las penas para los delitos de corrupción y fortalecer a las entidades de control como la Procuraduría General de la Nación y la Contraloría General de la República.
+
+Sin embargo, al buscar apoyo para promover su ley, los jóvenes se dan cuenta de que en todos los partidos políticos hay escándalos de corrupción, por lo que reciben poco apoyo para su iniciativa. Ante esta situación, los jóvenes deciden promover un referendo aprobatorio de iniciativa ciudadana.`,
+    resources: [
+      {
+        type: "html",
+        html: `
+          <article class="reading-card prose-reading sociales-reading">
+            <div class="reading-instruction">SOCIALES Y CIUDADANAS</div>
+            <p>En Colombia, una importante firma encuestadora reveló que, desde hace cuatro años, la corrupción es percibida por la ciudadanía como uno de los problemas más graves que afecta al país. En la versión más reciente de la encuesta aplicada, se muestra que el <strong>84 %</strong> de los encuestados piensa que el problema está empeorando.</p>
+            <p>Al respecto, un grupo de jóvenes decide promover el aumento de las penas para los delitos de corrupción y fortalecer a las entidades de control como la Procuraduría General de la Nación y la Contraloría General de la República.</p>
+            <p>Sin embargo, al buscar apoyo para promover su ley, los jóvenes se dan cuenta de que en todos los partidos políticos hay escándalos de corrupción, por lo que reciben poco apoyo para su iniciativa. Ante esta situación, los jóvenes deciden promover un <strong>referendo aprobatorio de iniciativa ciudadana</strong>.</p>
+            <p class="source-note">Tomado y adaptado de: Ávila, R. (4 de octubre de 2020). <em>La corrupción en Colombia: un mal más grave que el coronavirus</em>. Portafolio. https://www.portafolio.co/economia/la-corrupcion-en-colombia-un-mal-mas-grave-que-el-coronavirus-545299</p>
+          </article>
+        `
+      }
+    ],
+    prompt: "En esta situación, y teniendo en cuenta la Constitución Política de Colombia, ¿pueden los jóvenes continuar con su propuesta de referendo?",
+    options: [
+      { letter: "A", text: "No, pues solo pueden proponer leyes de la República los integrantes del Congreso de la República y del Gobierno nacional." },
+      { letter: "B", text: "No, pues solo pueden pronunciarse sobre temas políticos los expertos y los representantes elegidos popularmente." },
+      { letter: "C", text: "Sí, pues en Colombia existen los referendos como mecanismos para que los ciudadanos propongan cambios normativos de manera directa." },
+      { letter: "D", text: "Sí, pues en Colombia existen los referendos para que cada una de las decisiones públicas en el país sea consultada a la ciudadanía." }
+    ],
+    correctAnswer: "C",
+    explanation: "El referendo es un mecanismo de participación ciudadana que permite a la ciudadanía intervenir directamente en decisiones normativas. En el caso presentado, los jóvenes pueden continuar con una propuesta de referendo de iniciativa ciudadana para promover cambios frente a la corrupción. La respuesta correcta es C."
+  }
+
+
 ];
