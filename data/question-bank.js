@@ -4745,4 +4745,2142 @@ Sin embargo, al buscar apoyo para promover su ley, los jóvenes se dan cuenta de
   }
 
 
+
+  ,
+  {
+    uid: "s1-cn-092",
+    session: 1,
+    block: 4,
+    number: 92,
+    area: "Ciencias Naturales",
+    competencia: "Uso comprensivo del conocimiento científico",
+    componente: "Contaminación del agua y ecosistemas acuáticos",
+    dificultad: "Media",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 1 - Ciencias Naturales - Pregunta 92",
+    stem: `Un grupo de expertos quiere llevar a cabo un plan de recuperación de un ecosistema en el que una fuente de agua, y varias especies de peces y de plantas se han visto afectadas por un grave problema de contaminación, la cual es causada por la actividad humana de un barrio cercano que tiene sus tuberías de desagüe conectadas a la fuente de agua. Al respecto, los expertos afirman que el foco de la contaminación son sustancias como el aceite que se usa en casas, restaurantes y en la industria, y que esto no solo afecta la calidad del agua, sino que también ha causado la disminución de los individuos de especies acuáticas de animales y el desmejoramiento de especies vegetales.`,
+    resources: [
+      {
+        type: "html",
+        html: `
+          <article class="reading-card prose-reading science-reading">
+            <div class="reading-instruction">CIENCIAS NATURALES</div>
+            <p><strong>RESPONDA LAS PREGUNTAS 92 A 94 DE ACUERDO CON LA SIGUIENTE INFORMACIÓN</strong></p>
+            <p>Un grupo de expertos quiere llevar a cabo un plan de recuperación de un ecosistema en el que una fuente de agua, y varias especies de peces y de plantas se han visto afectadas por un grave problema de contaminación, la cual es causada por la actividad humana de un barrio cercano que tiene sus tuberías de desagüe conectadas a la fuente de agua.</p>
+            <p>Al respecto, los expertos afirman que el foco de la contaminación son sustancias como el aceite que se usa en casas, restaurantes y en la industria, y que esto no solo afecta la calidad del agua, sino que también ha causado la disminución de los individuos de especies acuáticas de animales y el desmejoramiento de especies vegetales.</p>
+          </article>
+        `
+      }
+    ],
+    prompt: "Los expertos saben que la causa de la contaminación de la fuente de agua se debe a una actividad en concreto que se desarrolla en el barrio. De acuerdo con lo anterior, ¿cuál de las siguientes es la causa de la contaminación de la fuente de agua?",
+    options: [
+      { letter: "A", text: "El consumo de comidas rápidas altas en grasas por parte de los habitantes del barrio." },
+      { letter: "B", text: "El uso de una marca de aceite que se emplea en las cocinas de los restaurantes y casas." },
+      { letter: "C", text: "El vertimiento al desagüe de aceites residuales de los hogares, la industria y los restaurantes." },
+      { letter: "D", text: "El tipo de maquinaria obsoleta que utilizan las diferentes industrias que se ubican en el barrio." }
+    ],
+    correctAnswer: "C",
+    explanation: "El texto señala que la contaminación proviene de sustancias como el aceite usado en casas, restaurantes e industria, y que las tuberías de desagüe están conectadas a la fuente de agua. Por tanto, la causa es el vertimiento de aceites residuales al desagüe. La respuesta correcta es C."
+  }
+
+  ,
+  {
+    uid: "s1-cn-093",
+    session: 1,
+    block: 4,
+    number: 93,
+    area: "Ciencias Naturales",
+    competencia: "Explicación de fenómenos",
+    componente: "Fotosíntesis y nutrición vegetal",
+    dificultad: "Media",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 1 - Ciencias Naturales - Pregunta 93",
+    stem: `Un experto en botánica muestra la siguiente figura. Él explica que el aceite contaminante, representado en negro, se adhiere a los órganos de la planta como las hojas y el tallo, y, además, se acumula en el suelo, lo cual impide que se realice correctamente la fotosíntesis y la planta no crezca adecuadamente.`,
+    resources: [
+      {
+        type: "html",
+        html: `
+          <article class="reading-card prose-reading science-reading">
+            <div class="reading-instruction">Figura: fotosíntesis y contaminación por aceite</div>
+            <div style="display:grid;grid-template-columns:minmax(220px,1fr) minmax(220px,1fr);gap:18px;align-items:center">
+              <svg viewBox="0 0 520 360" role="img" aria-label="Figura de una planta que recibe luz solar, dióxido de carbono y agua, y libera oxígeno" style="width:100%;max-width:520px;border:1px solid var(--line);border-radius:18px;background:rgba(255,255,255,.65)">
+                <rect x="0" y="265" width="520" height="95" fill="rgba(80,120,90,.18)"></rect>
+                <circle cx="86" cy="70" r="26" fill="none" stroke="currentColor" stroke-width="4"></circle>
+                <g stroke="currentColor" stroke-width="3">
+                  <line x1="86" y1="20" x2="86" y2="2"></line><line x1="86" y1="120" x2="86" y2="138"></line>
+                  <line x1="36" y1="70" x2="18" y2="70"></line><line x1="136" y1="70" x2="154" y2="70"></line>
+                  <line x1="51" y1="35" x2="38" y2="22"></line><line x1="121" y1="105" x2="134" y2="118"></line>
+                  <line x1="121" y1="35" x2="134" y2="22"></line><line x1="51" y1="105" x2="38" y2="118"></line>
+                </g>
+                <text x="35" y="150" font-size="20" font-weight="700">Luz solar</text>
+                <path d="M145 86 C185 75, 180 118, 220 100" fill="none" stroke="currentColor" stroke-width="3" stroke-dasharray="8 8"></path>
+                <text x="30" y="222" font-size="18">Dióxido de carbono</text>
+                <path d="M155 205 C185 195, 175 230, 215 220" fill="none" stroke="currentColor" stroke-width="3" stroke-dasharray="8 8"></path>
+                <line x1="260" y1="275" x2="260" y2="145" stroke="currentColor" stroke-width="8" stroke-linecap="round"></line>
+                <path d="M260 170 C215 140, 185 125, 180 95 C230 102, 250 125, 260 160" fill="none" stroke="currentColor" stroke-width="5"></path>
+                <path d="M263 190 C315 150, 360 130, 390 102 C382 155, 330 177, 263 205" fill="none" stroke="currentColor" stroke-width="5"></path>
+                <path d="M260 235 C215 220, 190 205, 170 180 C220 178, 248 198, 260 230" fill="none" stroke="currentColor" stroke-width="5"></path>
+                <path d="M264 248 C320 230, 360 215, 400 195 C385 240, 335 255, 264 258" fill="none" stroke="currentColor" stroke-width="5"></path>
+                <g fill="currentColor">
+                  <circle cx="238" cy="148" r="7"></circle><circle cx="294" cy="169" r="7"></circle><circle cx="221" cy="219" r="7"></circle><circle cx="345" cy="225" r="7"></circle><circle cx="258" cy="280" r="8"></circle>
+                  <circle cx="210" cy="288" r="5"></circle><circle cx="305" cy="292" r="5"></circle><circle cx="350" cy="278" r="5"></circle><circle cx="175" cy="272" r="5"></circle>
+                </g>
+                <path d="M260 278 C235 303, 210 320, 178 344" fill="none" stroke="currentColor" stroke-width="4"></path>
+                <path d="M260 278 C286 303, 318 321, 360 344" fill="none" stroke="currentColor" stroke-width="4"></path>
+                <path d="M260 278 C262 313, 260 329, 260 354" fill="none" stroke="currentColor" stroke-width="4"></path>
+                <text x="402" y="120" font-size="20" font-weight="700">Oxígeno O₂</text>
+                <path d="M390 160 C430 143, 420 188, 465 170" fill="none" stroke="currentColor" stroke-width="3" stroke-dasharray="8 8"></path>
+                <text x="98" y="317" font-size="20" font-weight="700">Agua</text>
+              </svg>
+              <div class="formula-box" style="border:1px solid var(--line);border-radius:18px;padding:18px;background:rgba(255,255,255,.62)">
+                <h4 style="margin:0 0 10px">Ecuación de la fotosíntesis</h4>
+                <p style="font-size:1.05rem;font-weight:800;text-align:center">6CO₂ + 6H₂O + energía solar → C₆H₁₂O₆ + 6O₂</p>
+                <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;text-align:center;font-size:.8rem">
+                  <span>Dióxido de carbono</span><span>Agua</span><span>Carbohidratos</span><span>Oxígeno</span>
+                </div>
+              </div>
+            </div>
+            <p>El aceite contaminante, representado en negro, se adhiere a los órganos de la planta como las hojas y el tallo, y, además, se acumula en el suelo, lo cual impide que se realice correctamente la fotosíntesis y la planta no crezca adecuadamente.</p>
+          </article>
+        `
+      }
+    ],
+    prompt: "De acuerdo con la información anterior, ¿por qué el no realizar correctamente la fotosíntesis impide el crecimiento de las plantas?",
+    options: [
+      { letter: "A", text: "Porque el tallo no hace la circulación de nutrientes a las partes altas de la planta." },
+      { letter: "B", text: "Porque las raíces no absorben la suficiente agua para el crecimiento de la planta." },
+      { letter: "C", text: "Porque no se permite la entrada a la planta del oxígeno necesario para la fotosíntesis." },
+      { letter: "D", text: "Porque no se producen los carbohidratos necesarios para el crecimiento de las plantas." }
+    ],
+    correctAnswer: "D",
+    explanation: "La ecuación muestra que la fotosíntesis produce carbohidratos, que son fuente de materia y energía para el crecimiento de la planta. Si la fotosíntesis no ocurre correctamente, no se producen los carbohidratos necesarios. La respuesta correcta es D."
+  }
+
+  ,
+  {
+    uid: "s1-cn-094",
+    session: 1,
+    block: 4,
+    number: 94,
+    area: "Ciencias Naturales",
+    competencia: "Indagación",
+    componente: "Biodiversidad, riqueza de especies y representación de datos",
+    dificultad: "Media",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 1 - Ciencias Naturales - Pregunta 94",
+    stem: `Con el fin de evidenciar la variación en la biodiversidad animal de especies acuáticas, se revisaron los registros de la entidad ambiental competente, teniendo en cuenta las variables de riqueza (número de especies) y el número total de individuos de todas las especies presentes, y se compilaron en la siguiente tabla.`,
+    resources: [
+      {
+        type: "table",
+        caption: "Registros de biodiversidad animal de especies acuáticas",
+        headers: ["Año", "Riqueza", "Cantidad de individuos"],
+        rows: [
+          ["2003", "68", "1.563"],
+          ["2008", "62", "1.621"],
+          ["2013", "45", "803"],
+          ["2018", "22", "456"],
+          ["2023", "12", "102"]
+        ]
+      },
+      {
+        type: "html",
+        html: `
+          <div class="reading-card science-reading">
+            <div class="reading-instruction">Opciones gráficas</div>
+            <div style="display:grid;grid-template-columns:repeat(2,minmax(220px,1fr));gap:16px">
+              <figure style="margin:0;border:1px solid var(--line);border-radius:16px;padding:12px;background:rgba(255,255,255,.55)">
+                <figcaption style="font-weight:800;margin-bottom:8px">A.</figcaption>
+                <svg viewBox="0 0 320 190" style="width:100%" aria-label="Gráfico A">
+                  <line x1="35" y1="155" x2="300" y2="155" stroke="currentColor"/><line x1="35" y1="155" x2="35" y2="20" stroke="currentColor"/>
+                  <g stroke="currentColor" opacity=".25"><line x1="35" y1="130" x2="300" y2="130"/><line x1="35" y1="105" x2="300" y2="105"/><line x1="35" y1="80" x2="300" y2="80"/><line x1="35" y1="55" x2="300" y2="55"/></g>
+                  <rect x="96" y="151" width="45" height="4" fill="currentColor"/><rect x="210" y="40" width="55" height="115" fill="currentColor" opacity=".75"/>
+                  <text x="84" y="176" font-size="12">Riqueza</text><text x="185" y="176" font-size="12">Cantidad de individuos</text>
+                </svg>
+              </figure>
+              <figure style="margin:0;border:1px solid var(--line);border-radius:16px;padding:12px;background:rgba(255,255,255,.55)">
+                <figcaption style="font-weight:800;margin-bottom:8px">B.</figcaption>
+                <svg viewBox="0 0 320 190" style="width:100%" aria-label="Gráfico B">
+                  <line x1="35" y1="155" x2="300" y2="155" stroke="currentColor"/><line x1="35" y1="155" x2="35" y2="20" stroke="currentColor"/>
+                  <g stroke="currentColor" opacity=".25"><line x1="35" y1="125" x2="300" y2="125"/><line x1="35" y1="95" x2="300" y2="95"/><line x1="35" y1="65" x2="300" y2="65"/><line x1="35" y1="35" x2="300" y2="35"/></g>
+                  <g fill="currentColor"><rect x="55" y="38" width="12" height="117"/><rect x="105" y="36" width="12" height="119"/><rect x="155" y="33" width="12" height="122"/><rect x="205" y="34" width="12" height="121"/><rect x="255" y="32" width="12" height="123"/></g>
+                  <g fill="currentColor" opacity=".35"><rect x="72" y="55" width="18" height="100"/><rect x="122" y="50" width="18" height="105"/><rect x="172" y="95" width="18" height="60"/><rect x="222" y="128" width="18" height="27"/><rect x="272" y="148" width="18" height="7"/></g>
+                  <text x="57" y="176" font-size="12">1</text><text x="107" y="176" font-size="12">2</text><text x="157" y="176" font-size="12">3</text><text x="207" y="176" font-size="12">4</text><text x="257" y="176" font-size="12">5</text>
+                </svg>
+              </figure>
+              <figure style="margin:0;border:1px solid var(--line);border-radius:16px;padding:12px;background:rgba(255,255,255,.55)">
+                <figcaption style="font-weight:800;margin-bottom:8px">C.</figcaption>
+                <svg viewBox="0 0 320 190" style="width:100%" aria-label="Gráfico C">
+                  <line x1="35" y1="155" x2="300" y2="155" stroke="currentColor"/><line x1="35" y1="155" x2="35" y2="20" stroke="currentColor"/>
+                  <g fill="currentColor" opacity=".85"><rect x="55" y="25" width="28" height="130"/><rect x="105" y="25" width="28" height="130"/><rect x="155" y="25" width="28" height="130"/><rect x="205" y="25" width="28" height="130"/><rect x="255" y="25" width="28" height="130"/></g>
+                  <g fill="currentColor" opacity=".35"><rect x="55" y="145" width="28" height="10"/><rect x="105" y="145" width="28" height="10"/><rect x="155" y="145" width="28" height="10"/><rect x="205" y="145" width="28" height="10"/><rect x="255" y="135" width="28" height="20"/></g>
+                  <text x="49" y="176" font-size="12">2003</text><text x="99" y="176" font-size="12">2008</text><text x="149" y="176" font-size="12">2013</text><text x="199" y="176" font-size="12">2018</text><text x="249" y="176" font-size="12">2023</text>
+                </svg>
+              </figure>
+              <figure style="margin:0;border:2px solid var(--primary);border-radius:16px;padding:12px;background:rgba(255,255,255,.55)">
+                <figcaption style="font-weight:800;margin-bottom:8px">D.</figcaption>
+                <svg viewBox="0 0 320 190" style="width:100%" aria-label="Gráfico D">
+                  <line x1="35" y1="155" x2="300" y2="155" stroke="currentColor"/><line x1="35" y1="155" x2="35" y2="20" stroke="currentColor"/>
+                  <g stroke="currentColor" opacity=".22"><line x1="35" y1="130" x2="300" y2="130"/><line x1="35" y1="105" x2="300" y2="105"/><line x1="35" y1="80" x2="300" y2="80"/><line x1="35" y1="55" x2="300" y2="55"/></g>
+                  <polyline points="58,49 112,45 166,92 220,120 276,148" fill="none" stroke="currentColor" stroke-width="4"/>
+                  <polyline points="58,149 112,149 166,151 220,153 276,154" fill="none" stroke="currentColor" stroke-width="3" opacity=".55"/>
+                  <g fill="currentColor"><circle cx="58" cy="49" r="4"/><circle cx="112" cy="45" r="4"/><circle cx="166" cy="92" r="4"/><circle cx="220" cy="120" r="4"/><circle cx="276" cy="148" r="4"/></g>
+                  <g fill="currentColor" opacity=".55"><circle cx="58" cy="149" r="4"/><circle cx="112" cy="149" r="4"/><circle cx="166" cy="151" r="4"/><circle cx="220" cy="153" r="4"/><circle cx="276" cy="154" r="4"/></g>
+                  <text x="46" y="174" font-size="12">2003</text><text x="101" y="174" font-size="12">2008</text><text x="155" y="174" font-size="12">2013</text><text x="209" y="174" font-size="12">2018</text><text x="263" y="174" font-size="12">2023</text>
+                  <text x="48" y="42" font-size="11">1.563</text><text x="100" y="38" font-size="11">1.621</text><text x="157" y="86" font-size="11">803</text><text x="214" y="114" font-size="11">456</text><text x="265" y="142" font-size="11">102</text>
+                </svg>
+              </figure>
+            </div>
+          </div>
+        `
+      }
+    ],
+    prompt: "De acuerdo con la información anterior, ¿cuál de los siguientes gráficos representa adecuadamente los datos recolectados?",
+    options: [
+      { letter: "A", text: "Gráfico A." },
+      { letter: "B", text: "Gráfico B." },
+      { letter: "C", text: "Gráfico C." },
+      { letter: "D", text: "Gráfico D." }
+    ],
+    correctAnswer: "D",
+    explanation: "El gráfico D representa de forma adecuada la variación por año de las dos variables de la tabla: riqueza y cantidad de individuos. En él se observa la disminución de la riqueza y la caída marcada del número de individuos después de 2008. La respuesta correcta es D."
+  }
+
+
+  ,
+  {
+    uid: "s1-cn-095",
+    session: 1,
+    block: 4,
+    number: 95,
+    area: "Ciencias Naturales",
+    competencia: "Uso comprensivo del conocimiento científico",
+    componente: "Ondas electromagnéticas y transmisión de información",
+    dificultad: "Media",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 1 - Ciencias Naturales - Pregunta 95",
+    stem: `Un ingeniero investiga cómo se dará la transmisión de información para que su pueblo se conecte a internet. Él encuentra que esto ocurrirá a través de la integración de dos tecnologías: un cable de fibra óptica por el que se transporta la información desde internet hasta la antena principal del pueblo, y un grupo de antenas que emiten y reciben la información por medio de ondas electromagnéticas.`,
+    resources: [
+      {
+        type: "html",
+        html: `
+          <article class="reading-card prose-reading science-reading">
+            <div class="reading-instruction">RESPONDA LAS PREGUNTAS 95 A 97 DE ACUERDO CON LA SIGUIENTE INFORMACIÓN</div>
+            <p>Un ingeniero investiga cómo se dará la transmisión de información para que su pueblo se conecte a internet. Él encuentra que esto ocurrirá a través de la integración de dos tecnologías:</p>
+            <ul>
+              <li>Un cable de fibra óptica por el que se transporta la información desde internet hasta la antena principal del pueblo.</li>
+              <li>Un grupo de antenas que emiten y reciben la información por medio de ondas electromagnéticas, como antenas de wifi.</li>
+            </ul>
+            <p>Ambas tecnologías se comunican con la antena principal en la cabecera del pueblo, que repite la señal a otras antenas ubicadas estratégicamente en las plazas y zonas comunes.</p>
+            <div class="wifi-board" aria-label="Esquemas de wifi en zonas comunitarias y megazonas wifi">
+              <section>
+                <h4>Esquema wifi zonas comunitarias</h4>
+                <svg viewBox="0 0 760 330" role="img" aria-label="Esquema de zonas comunitarias wifi" class="diagram-svg">
+                  <defs>
+                    <marker id="arrow95" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="currentColor"></path></marker>
+                  </defs>
+                  <rect x="22" y="84" width="315" height="210" rx="105" fill="rgba(77,124,113,.11)" stroke="currentColor" opacity=".9"></rect>
+                  <text x="116" y="72" font-size="17" font-weight="800">Zona común del pueblo</text>
+                  <g fill="currentColor" opacity=".85">
+                    <rect x="146" y="138" width="38" height="74" rx="4"></rect><rect x="196" y="158" width="44" height="54" rx="4"></rect><rect x="74" y="180" width="48" height="32" rx="4"></rect>
+                    <path d="M72 180 L98 154 L124 180 Z"></path><path d="M145 138 L165 112 L185 138 Z"></path><path d="M196 158 L218 136 L240 158 Z"></path>
+                    <circle cx="172" cy="238" r="17"></circle>
+                    <rect x="164" y="255" width="16" height="32"></rect>
+                  </g>
+                  <g stroke="currentColor" stroke-width="3" fill="none">
+                    <path d="M53 113 q18 -18 36 0"></path><path d="M61 124 q10 -10 20 0"></path><line x1="71" y1="128" x2="71" y2="210"></line>
+                    <path d="M272 98 q20 -20 40 0"></path><path d="M282 110 q10 -10 20 0"></path><line x1="292" y1="114" x2="292" y2="240"></line>
+                    <path d="M171 84 q22 -23 44 0"></path><path d="M182 96 q11 -12 22 0"></path><line x1="193" y1="100" x2="193" y2="134"></line>
+                  </g>
+                  <text x="162" y="105" font-size="13" font-weight="800">Antena principal</text>
+                  <text x="246" y="267" font-size="13" font-weight="800">Antena secundaria</text>
+                  <g stroke="currentColor" stroke-width="2" opacity=".55">
+                    <line x1="193" y1="111" x2="71" y2="128"></line><line x1="193" y1="111" x2="292" y2="114"></line><line x1="71" y1="128" x2="172" y2="238"></line><line x1="292" y1="114" x2="172" y2="238"></line>
+                  </g>
+                  <path d="M620 116 C520 106, 480 138, 398 136" fill="none" stroke="currentColor" stroke-width="6" marker-end="url(#arrow95)"></path>
+                  <text x="420" y="116" font-size="16" font-weight="800">Conexión por fibra óptica</text>
+                  <g fill="none" stroke="currentColor" stroke-width="3">
+                    <path d="M610 92 q18 -18 36 0"></path><path d="M618 103 q10 -10 20 0"></path><line x1="628" y1="106" x2="628" y2="160"></line>
+                    <rect x="636" y="142" width="52" height="80" rx="6"></rect>
+                    <path d="M364 92 q18 -18 36 0"></path><path d="M372 103 q10 -10 20 0"></path><line x1="382" y1="106" x2="382" y2="160"></line>
+                    <path d="M458 52 q18 -18 36 0"></path><path d="M466 63 q10 -10 20 0"></path><line x1="476" y1="66" x2="476" y2="120"></line>
+                  </g>
+                  <text x="643" y="238" font-size="16" font-weight="900">Internet</text>
+                  <g stroke="currentColor" stroke-width="3" fill="none" marker-end="url(#arrow95)">
+                    <path d="M382 112 C404 79, 431 62, 472 66"></path>
+                    <path d="M476 66 C520 55, 565 72, 626 96"></path>
+                  </g>
+                  <text x="465" y="42" font-size="15" font-weight="800">Conexión por ondas</text>
+                </svg>
+              </section>
+              <section>
+                <h4>Esquema Megazonas wifi</h4>
+                <svg viewBox="0 0 760 330" role="img" aria-label="Esquema de megazonas wifi" class="diagram-svg">
+                  <defs>
+                    <marker id="arrow95b" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="currentColor"></path></marker>
+                  </defs>
+                  <g fill="currentColor" opacity=".85">
+                    <rect x="38" y="55" width="48" height="46" rx="4"></rect><path d="M35 55 L62 33 L90 55 Z"></path><text x="35" y="125" font-size="15" font-weight="800">Escuela</text>
+                    <rect x="616" y="50" width="64" height="70" rx="8" fill="none" stroke="currentColor" stroke-width="3"></rect><text x="606" y="145" font-size="15" font-weight="900">Internet</text>
+                  </g>
+                  <g stroke="currentColor" stroke-width="3" fill="none">
+                    <path d="M134 75 q17 -17 34 0"></path><path d="M141 85 q10 -10 20 0"></path><line x1="151" y1="88" x2="151" y2="160"></line>
+                  </g>
+                  <g class="mesh" stroke="currentColor" stroke-width="3" fill="none" stroke-dasharray="5 7" opacity=".75">
+                    <line x1="220" y1="110" x2="305" y2="72"></line><line x1="305" y1="72" x2="402" y2="112"></line><line x1="402" y1="112" x2="497" y2="78"></line><line x1="220" y1="110" x2="330" y2="150"></line><line x1="330" y1="150" x2="402" y2="112"></line><line x1="402" y1="112" x2="486" y2="168"></line><line x1="330" y1="150" x2="430" y2="220"></line><line x1="486" y1="168" x2="430" y2="220"></line><line x1="305" y1="72" x2="330" y2="150"></line><line x1="497" y1="78" x2="486" y2="168"></line>
+                  </g>
+                  <g stroke="currentColor" stroke-width="3" fill="none">
+                    <path d="M215 86 q14 -14 28 0"></path><path d="M300 48 q14 -14 28 0"></path><path d="M397 88 q14 -14 28 0"></path><path d="M492 54 q14 -14 28 0"></path><path d="M325 126 q14 -14 28 0"></path><path d="M481 144 q14 -14 28 0"></path><path d="M425 196 q14 -14 28 0"></path>
+                    <line x1="229" y1="88" x2="229" y2="125"></line><line x1="314" y1="50" x2="314" y2="87"></line><line x1="411" y1="90" x2="411" y2="127"></line><line x1="506" y1="56" x2="506" y2="93"></line><line x1="339" y1="128" x2="339" y2="165"></line><line x1="495" y1="146" x2="495" y2="183"></line><line x1="439" y1="198" x2="439" y2="235"></line>
+                  </g>
+                  <g stroke="currentColor" stroke-width="4" fill="none" marker-end="url(#arrow95b)">
+                    <line x1="151" y1="92" x2="220" y2="110"></line><line x1="616" y1="86" x2="500" y2="78"></line>
+                  </g>
+                  <text x="218" y="260" font-size="15" font-weight="800">Las ondas de la señal pueden tener frecuencias entre 928 MHz y 5.850 MHz para mayor cobertura.</text>
+                </svg>
+              </section>
+            </div>
+          </article>
+        `
+      }
+    ],
+    prompt: "De acuerdo con el esquema de wifi zonas comunitarias, ¿cuál de las siguientes razones puede argumentar la necesidad de conectar el cable de fibra óptica?",
+    options: [
+      { letter: "A", text: "El cable de fibra óptica es el que lleva la corriente a las antenas." },
+      { letter: "B", text: "El cable de fibra óptica es la única forma de comunicarse con internet." },
+      { letter: "C", text: "El cable de fibra óptica es una segunda forma de conectarse con internet." },
+      { letter: "D", text: "El cable de fibra óptica llega a cada antena y repite la señal de internet." }
+    ],
+    correctAnswer: "D",
+    explanation: "Según la respuesta marcada en el material, la opción correcta es D. El esquema relaciona el cable de fibra óptica con la conexión de internet que alimenta el sistema y permite repetir la señal hacia las antenas del pueblo."
+  }
+
+  ,
+  {
+    uid: "s1-cn-096",
+    session: 1,
+    block: 4,
+    number: 96,
+    area: "Ciencias Naturales",
+    competencia: "Explicación de fenómenos",
+    componente: "Frecuencia de ondas electromagnéticas",
+    dificultad: "Media",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 1 - Ciencias Naturales - Pregunta 96",
+    stem: `En el esquema Megazonas wifi, el ingeniero sugiere utilizar dos grupos de ondas, en donde se observa que la frecuencia de las ondas del Grupo 2 es, aproximadamente, cinco veces mayor que la del Grupo 1.`,
+    resources: [
+      {
+        type: "html",
+        html: `
+          <article class="reading-card prose-reading science-reading">
+            <div class="reading-instruction">Contexto: Megazonas wifi</div>
+            <p>La propuesta del ingeniero consiste en realizar una conexión por medio de ondas electromagnéticas, con antenas conectadas entre sí y con frecuencias de onda, sin costo, como las ondas de radio.</p>
+            <p>En el esquema Megazonas wifi se sugiere utilizar dos grupos de ondas. La frecuencia de las ondas del <strong>Grupo 2</strong> es, aproximadamente, <strong>5 veces mayor</strong> que la del <strong>Grupo 1</strong>.</p>
+            <div class="wave-options" aria-label="Opciones de ondas para comparar frecuencia">
+              <figure><figcaption>A.</figcaption><svg viewBox="0 0 360 120" class="wave-svg" aria-label="Opción A"><line x1="22" y1="60" x2="338" y2="60"/><text x="118" y="20">Grupo 1</text><path d="M30 60 C38 15, 52 15, 60 60 S82 105, 90 60 S112 15, 120 60 S142 105, 150 60 S172 15, 180 60 S202 105, 210 60 S232 15, 240 60 S262 105, 270 60 S292 15, 300 60 S322 105, 330 60"/></svg><svg viewBox="0 0 360 120" class="wave-svg" aria-label="Grupo 2 opción A"><line x1="22" y1="60" x2="338" y2="60"/><text x="118" y="20">Grupo 2</text><path d="M30 60 C38 22, 52 22, 60 60 S82 98, 90 60 S112 22, 120 60 S142 98, 150 60 S172 22, 180 60 S202 98, 210 60 S232 22, 240 60 S262 98, 270 60 S292 22, 300 60 S322 98, 330 60"/></svg></figure>
+              <figure><figcaption>B.</figcaption><svg viewBox="0 0 360 120" class="wave-svg" aria-label="Grupo 1 opción B"><line x1="22" y1="60" x2="338" y2="60"/><text x="118" y="20">Grupo 1</text><path d="M30 60 C38 15, 52 15, 60 60 S82 105, 90 60 S112 15, 120 60 S142 105, 150 60 S172 15, 180 60 S202 105, 210 60 S232 15, 240 60 S262 105, 270 60 S292 15, 300 60 S322 105, 330 60"/></svg><svg viewBox="0 0 360 120" class="wave-svg" aria-label="Grupo 2 opción B"><line x1="22" y1="60" x2="338" y2="60"/><text x="118" y="20">Grupo 2</text><path d="M30 60 C70 15, 110 15, 150 60 S230 105, 270 60 S310 15, 340 60"/></svg></figure>
+              <figure><figcaption>C.</figcaption><svg viewBox="0 0 360 120" class="wave-svg" aria-label="Grupo 1 opción C"><line x1="22" y1="60" x2="338" y2="60"/><text x="118" y="20">Grupo 1</text><path d="M30 60 C70 15, 110 15, 150 60 S230 105, 270 60 S310 15, 340 60"/></svg><svg viewBox="0 0 360 120" class="wave-svg" aria-label="Grupo 2 opción C"><line x1="22" y1="60" x2="338" y2="60"/><text x="118" y="20">Grupo 2</text><path d="M30 60 C70 25, 110 25, 150 60 S230 95, 270 60 S310 25, 340 60"/></svg></figure>
+              <figure class="selected-graphic"><figcaption>D.</figcaption><svg viewBox="0 0 360 120" class="wave-svg" aria-label="Grupo 1 opción D"><line x1="22" y1="60" x2="338" y2="60"/><text x="118" y="20">Grupo 1</text><path d="M30 60 C70 15, 110 15, 150 60 S230 105, 270 60 S310 15, 340 60"/></svg><svg viewBox="0 0 360 120" class="wave-svg" aria-label="Grupo 2 opción D"><line x1="22" y1="60" x2="338" y2="60"/><text x="118" y="20">Grupo 2</text><path d="M30 60 C35 20, 45 20, 50 60 S65 100, 70 60 S85 20, 90 60 S105 100, 110 60 S125 20, 130 60 S145 100, 150 60 S165 20, 170 60 S185 100, 190 60 S205 20, 210 60 S225 100, 230 60 S245 20, 250 60 S265 100, 270 60 S285 20, 290 60 S305 100, 310 60 S325 20, 330 60"/></svg></figure>
+            </div>
+          </article>
+        `
+      }
+    ],
+    prompt: "¿Cómo serían las ondas de estas frecuencias?",
+    options: [
+      { letter: "A", text: "Opción A." },
+      { letter: "B", text: "Opción B." },
+      { letter: "C", text: "Opción C." },
+      { letter: "D", text: "Opción D." }
+    ],
+    correctAnswer: "D",
+    explanation: "Si la frecuencia del Grupo 2 es aproximadamente cinco veces mayor que la del Grupo 1, en el mismo intervalo de tiempo el Grupo 2 debe mostrar muchas más oscilaciones. Eso ocurre en la opción D."
+  }
+
+  ,
+  {
+    uid: "s1-cn-097",
+    session: 1,
+    block: 4,
+    number: 97,
+    area: "Ciencias Naturales",
+    competencia: "Indagación",
+    componente: "Comunicación de modelos científicos y tecnológicos",
+    dificultad: "Media",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 1 - Ciencias Naturales - Pregunta 97",
+    stem: `En una encuesta aplicada a la población, se resaltó que dibujar en el esquema la conexión entre las antenas es una fortaleza en la comunicación de la propuesta de las Megazonas wifi.`,
+    resources: [
+      {
+        type: "html",
+        html: `
+          <article class="reading-card prose-reading science-reading">
+            <div class="reading-instruction">Contexto: comunicación de la propuesta Megazonas wifi</div>
+            <p>La propuesta de Megazonas wifi muestra antenas conectadas entre sí mediante ondas electromagnéticas. El esquema permite observar que varias poblaciones, como cabeceras rurales y una escuela, pueden enlazarse por medio de una red de antenas.</p>
+            <svg viewBox="0 0 760 260" role="img" aria-label="Red de antenas conectadas en Megazonas wifi" class="diagram-svg">
+              <g fill="currentColor" opacity=".85"><rect x="48" y="55" width="50" height="42" rx="4"></rect><path d="M45 55 L73 34 L102 55 Z"></path><text x="39" y="125" font-size="15" font-weight="800">Escuela</text><rect x="626" y="58" width="60" height="66" rx="8" fill="none" stroke="currentColor" stroke-width="3"></rect><text x="622" y="150" font-size="15" font-weight="900">Internet</text></g>
+              <g class="mesh" stroke="currentColor" stroke-width="3" fill="none" stroke-dasharray="5 7" opacity=".75"><line x1="210" y1="90" x2="310" y2="55"></line><line x1="310" y1="55" x2="430" y2="88"></line><line x1="430" y1="88" x2="540" y2="64"></line><line x1="210" y1="90" x2="328" y2="143"></line><line x1="328" y1="143" x2="430" y2="88"></line><line x1="430" y1="88" x2="510" y2="155"></line><line x1="328" y1="143" x2="440" y2="208"></line><line x1="510" y1="155" x2="440" y2="208"></line><line x1="540" y1="64" x2="510" y2="155"></line></g>
+              <g stroke="currentColor" stroke-width="3" fill="none"><path d="M124 68 q17 -17 34 0"></path><path d="M131 78 q10 -10 20 0"></path><line x1="141" y1="82" x2="141" y2="150"></line><path d="M204 66 q14 -14 28 0"></path><path d="M304 31 q14 -14 28 0"></path><path d="M424 64 q14 -14 28 0"></path><path d="M534 40 q14 -14 28 0"></path><path d="M322 119 q14 -14 28 0"></path><path d="M504 131 q14 -14 28 0"></path><path d="M434 184 q14 -14 28 0"></path><line x1="218" y1="68" x2="218" y2="105"></line><line x1="318" y1="33" x2="318" y2="70"></line><line x1="438" y1="66" x2="438" y2="103"></line><line x1="548" y1="42" x2="548" y2="79"></line><line x1="336" y1="121" x2="336" y2="158"></line><line x1="518" y1="133" x2="518" y2="170"></line><line x1="448" y1="186" x2="448" y2="223"></line></g>
+              <g stroke="currentColor" stroke-width="4" fill="none"><line x1="141" y1="82" x2="210" y2="90"></line><line x1="626" y1="91" x2="540" y2="64"></line></g>
+              <text x="180" y="242" font-size="15" font-weight="800">El dibujo permite visualizar la conexión entre varias antenas y poblaciones.</text>
+            </svg>
+          </article>
+        `
+      }
+    ],
+    prompt: "¿Por qué mostrar la conexión entre las antenas es una fortaleza en la comunicación?",
+    options: [
+      { letter: "A", text: "Porque se puede deducir que cada antena se comunica con una sola antena, y de esta manera, llevan la señal." },
+      { letter: "B", text: "Porque, de acuerdo con la conexión entre las antenas, se puede determinar qué frecuencias usa cada una de ellas." },
+      { letter: "C", text: "Porque se puede saber cuántas antenas se necesitan para llevar la señal de internet a la escuela." },
+      { letter: "D", text: "Porque ilustra cómo pueden conectarse varias poblaciones entre sí y con una señal muy estable." }
+    ],
+    correctAnswer: "D",
+    explanation: "El esquema comunica visualmente la interconexión de varias antenas y poblaciones. Esa representación facilita comprender cómo la red puede enlazar diferentes lugares mediante una señal estable. La respuesta correcta es D."
+  }
+
+
+
+  ,
+  {
+    uid: "s1-cn-098",
+    session: 1,
+    block: 4,
+    number: 98,
+    area: "Ciencias Naturales",
+    competencia: "Indagación",
+    componente: "Cambios químicos y velocidad de reacción",
+    dificultad: "Media",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 1 - Ciencias Naturales - Pregunta 98",
+    stem: `Pedro dejó una fruta al aire libre para ver cuánto tardaba en descomponerse. Los días pasaban y seguía sin descomponerse totalmente, entonces planteó la hipótesis de que todos los cambios químicos necesitan de varios días para que ocurran. Al otro día, leyó en un libro de ciencias lo siguiente: “Es fundamental controlar la velocidad de las reacciones químicas, ya que existen varios factores que la afectan, como la concentración de los reactivos, el tamaño de partícula, la temperatura y los catalizadores, entre otros”.`,
+    resources: [
+      {
+        type: "html",
+        html: `
+          <article class="reading-card prose-reading science-reading">
+            <div class="reading-instruction">Situación experimental</div>
+            <p>Pedro dejó una fruta al aire libre para observar cuánto tardaba en descomponerse. Como pasaban los días y la fruta seguía sin descomponerse totalmente, propuso la hipótesis de que todos los cambios químicos necesitan varios días para ocurrir.</p>
+            <p>Luego leyó que la velocidad de las reacciones químicas puede cambiar por factores como la concentración de los reactivos, el tamaño de partícula, la temperatura y los catalizadores.</p>
+          </article>
+        `
+      }
+    ],
+    prompt: "Teniendo en cuenta la información anterior, ¿la hipótesis planteada por Pedro es compatible con el fenómeno observado y la información del libro?",
+    options: [
+      { letter: "A", text: "Es compatible, porque tuvo en cuenta las observaciones realizadas y consideró que algunas reacciones tardan bastante tiempo." },
+      { letter: "B", text: "No es compatible, porque las frutas se descomponen en un día al aire libre, además no tuvo en cuenta la información del libro." },
+      { letter: "C", text: "Es compatible, porque existen factores que aceleran las reacciones, de tal forma que su experimento pudo tardar varias semanas." },
+      { letter: "D", text: "No es compatible, porque no se puede generalizar que todos los cambios tardan varios días, desconociendo la información del libro." }
+    ],
+    correctAnswer: "C",
+    explanation: "Según la respuesta marcada en el material, la opción correcta es C. La descomposición puede variar según factores que modifican la velocidad de las reacciones químicas; por eso el experimento pudo tardar varios días o semanas."
+  }
+
+  ,
+  {
+    uid: "s1-cn-099",
+    session: 1,
+    block: 4,
+    number: 99,
+    area: "Ciencias Naturales",
+    competencia: "Explicación de fenómenos",
+    componente: "Evolución, especiación y aislamiento reproductivo",
+    dificultad: "Media",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 1 - Ciencias Naturales - Pregunta 99",
+    stem: `Existe una población de monos que vive en un ecosistema boscoso. Este ecosistema, durante un largo periodo de tiempo, ha estado dividido por un gran río, dejando a la población de monos dividida en dos lugares diferentes. Algunos científicos han investigado este fenómeno y han resuelto que la población de monos, que en principio se creía pertenecían a una misma especie, sufrió un aislamiento reproductivo a causa de la división causada por el río y, posteriormente, se demostró que pertenecen a dos especies diferentes.`,
+    resources: [
+      {
+        type: "html",
+        html: `
+          <article class="reading-card prose-reading science-reading evolution-card">
+            <div class="reading-instruction">Modelos de especiación por aislamiento</div>
+            <p>De acuerdo con la información anterior, se debe escoger el modelo que represente una población inicial, la aparición de una barrera geográfica —el río—, el aislamiento reproductivo y la formación de dos especies de monos.</p>
+            <div class="evolution-options" aria-label="Modelos que representan el fenómeno de aislamiento reproductivo">
+              <figure>
+                <figcaption>A.</figcaption>
+                <svg viewBox="0 0 900 150" role="img" aria-label="Modelo A: población inicial, aparece el río, aislamiento reproductivo y dos especies de monos">
+                  <defs>
+                    <marker id="arrow-evo-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z"></path></marker>
+                  </defs>
+                  <line x1="120" y1="22" x2="820" y2="22" stroke="currentColor" stroke-width="10" marker-end="url(#arrow-evo-a)"></line>
+                  <text x="128" y="18" font-size="18" font-weight="900">Tiempo</text>
+                  <circle cx="115" cy="74" r="42" fill="#d8dde3" stroke="currentColor" stroke-width="3"></circle>
+                  <text x="45" y="133" font-size="15" font-weight="800">Población inicial</text><text x="70" y="149" font-size="15" font-weight="800">de monos</text>
+                  <path d="M295 34 A42 42 0 0 0 295 114 L295 34" fill="#d8dde3" stroke="currentColor" stroke-width="3"></path>
+                  <path d="M355 34 A42 42 0 0 1 355 114 L355 34" fill="#d8dde3" stroke="currentColor" stroke-width="3"></path>
+                  <rect x="318" y="35" width="14" height="78" fill="#ffffff" stroke="currentColor" stroke-width="2"></rect>
+                  <text x="270" y="133" font-size="15" font-weight="800">Aparece el río</text>
+                  <path d="M500 34 A42 42 0 0 0 500 114 L500 34" fill="#d8dde3" stroke="currentColor" stroke-width="3"></path>
+                  <path d="M560 34 A42 42 0 0 1 560 114 L560 34" fill="#5c6570" stroke="currentColor" stroke-width="3"></path>
+                  <rect x="523" y="35" width="14" height="78" fill="#ffffff" stroke="currentColor" stroke-width="2"></rect>
+                  <text x="468" y="133" font-size="15" font-weight="800">Aislamiento</text><text x="466" y="149" font-size="15" font-weight="800">reproductivo</text>
+                  <circle cx="724" cy="75" r="28" fill="#d8dde3" stroke="currentColor" stroke-width="3"></circle>
+                  <circle cx="804" cy="75" r="28" fill="#5c6570" stroke="currentColor" stroke-width="3"></circle>
+                  <text x="693" y="133" font-size="15" font-weight="800">Dos especies</text><text x="713" y="149" font-size="15" font-weight="800">de monos</text>
+                </svg>
+              </figure>
+
+              <figure>
+                <figcaption>B.</figcaption>
+                <svg viewBox="0 0 900 150" role="img" aria-label="Modelo B">
+                  <defs><marker id="arrow-evo-b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z"></path></marker></defs>
+                  <line x1="120" y1="22" x2="820" y2="22" stroke="currentColor" stroke-width="10" marker-end="url(#arrow-evo-b)"></line>
+                  <text x="128" y="18" font-size="18" font-weight="900">Tiempo</text>
+                  <circle cx="115" cy="74" r="42" fill="#d8dde3" stroke="currentColor" stroke-width="3"></circle>
+                  <text x="45" y="133" font-size="15" font-weight="800">Población inicial</text><text x="70" y="149" font-size="15" font-weight="800">de monos</text>
+                  <path d="M325 32 A42 42 0 0 0 325 116 Z" fill="#d8dde3" stroke="currentColor" stroke-width="3"></path>
+                  <path d="M325 32 A42 42 0 0 1 325 116 Z" fill="#5c6570" stroke="currentColor" stroke-width="3"></path>
+                  <text x="270" y="133" font-size="15" font-weight="800">Aparece el río</text>
+                  <path d="M530 32 A42 42 0 0 0 530 116 Z" fill="#d8dde3" stroke="currentColor" stroke-width="3"></path>
+                  <path d="M530 32 A42 42 0 0 1 530 116 Z" fill="#5c6570" stroke="currentColor" stroke-width="3"></path>
+                  <rect x="523" y="35" width="14" height="78" fill="#ffffff" stroke="currentColor" stroke-width="2"></rect>
+                  <text x="468" y="133" font-size="15" font-weight="800">Aislamiento</text><text x="466" y="149" font-size="15" font-weight="800">reproductivo</text>
+                  <circle cx="724" cy="75" r="28" fill="#d8dde3" stroke="currentColor" stroke-width="3"></circle>
+                  <circle cx="804" cy="75" r="28" fill="#5c6570" stroke="currentColor" stroke-width="3"></circle>
+                  <text x="693" y="133" font-size="15" font-weight="800">Dos especies</text><text x="713" y="149" font-size="15" font-weight="800">de monos</text>
+                </svg>
+              </figure>
+
+              <figure>
+                <figcaption>C.</figcaption>
+                <svg viewBox="0 0 900 150" role="img" aria-label="Modelo C">
+                  <defs><marker id="arrow-evo-c" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z"></path></marker></defs>
+                  <line x1="120" y1="22" x2="820" y2="22" stroke="currentColor" stroke-width="10" marker-end="url(#arrow-evo-c)"></line>
+                  <text x="128" y="18" font-size="18" font-weight="900">Tiempo</text>
+                  <circle cx="115" cy="74" r="42" fill="#d8dde3" stroke="currentColor" stroke-width="3"></circle>
+                  <text x="45" y="133" font-size="15" font-weight="800">Población inicial</text><text x="70" y="149" font-size="15" font-weight="800">de monos</text>
+                  <path d="M295 34 A42 42 0 0 0 295 114 L295 34" fill="#d8dde3" stroke="currentColor" stroke-width="3"></path>
+                  <path d="M355 34 A42 42 0 0 1 355 114 L355 34" fill="#d8dde3" stroke="currentColor" stroke-width="3"></path>
+                  <rect x="318" y="35" width="14" height="78" fill="#ffffff" stroke="currentColor" stroke-width="2"></rect>
+                  <text x="270" y="133" font-size="15" font-weight="800">Aparece el río</text>
+                  <path d="M530 32 A42 42 0 0 0 530 116 Z" fill="#d8dde3" stroke="currentColor" stroke-width="3"></path>
+                  <path d="M530 32 A42 42 0 0 1 530 116 Z" fill="#5c6570" stroke="currentColor" stroke-width="3"></path>
+                  <text x="468" y="133" font-size="15" font-weight="800">Aislamiento</text><text x="466" y="149" font-size="15" font-weight="800">reproductivo</text>
+                  <circle cx="724" cy="75" r="28" fill="#d8dde3" stroke="currentColor" stroke-width="3"></circle>
+                  <circle cx="804" cy="75" r="28" fill="#5c6570" stroke="currentColor" stroke-width="3"></circle>
+                  <text x="693" y="133" font-size="15" font-weight="800">Dos especies</text><text x="713" y="149" font-size="15" font-weight="800">de monos</text>
+                </svg>
+              </figure>
+
+              <figure>
+                <figcaption>D.</figcaption>
+                <svg viewBox="0 0 900 150" role="img" aria-label="Modelo D">
+                  <defs><marker id="arrow-evo-d" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z"></path></marker></defs>
+                  <line x1="120" y1="22" x2="820" y2="22" stroke="currentColor" stroke-width="10" marker-end="url(#arrow-evo-d)"></line>
+                  <text x="128" y="18" font-size="18" font-weight="900">Tiempo</text>
+                  <circle cx="115" cy="74" r="42" fill="#d8dde3" stroke="currentColor" stroke-width="3"></circle>
+                  <text x="45" y="133" font-size="15" font-weight="800">Población inicial</text><text x="70" y="149" font-size="15" font-weight="800">de monos</text>
+                  <path d="M325 32 A42 42 0 0 0 325 116 Z" fill="#d8dde3" stroke="currentColor" stroke-width="3"></path>
+                  <path d="M325 32 A42 42 0 0 1 325 116 Z" fill="#5c6570" stroke="currentColor" stroke-width="3"></path>
+                  <text x="270" y="133" font-size="15" font-weight="800">Aparece el río</text>
+                  <circle cx="530" cy="75" r="42" fill="#d8dde3" stroke="currentColor" stroke-width="3"></circle>
+                  <circle cx="530" cy="75" r="22" fill="#5c6570" opacity=".75" stroke="currentColor" stroke-width="2"></circle>
+                  <text x="468" y="133" font-size="15" font-weight="800">Aislamiento</text><text x="466" y="149" font-size="15" font-weight="800">reproductivo</text>
+                  <circle cx="764" cy="75" r="42" fill="#d8dde3" stroke="currentColor" stroke-width="3"></circle>
+                  <circle cx="764" cy="75" r="23" fill="#5c6570" stroke="currentColor" stroke-width="2"></circle>
+                  <text x="721" y="133" font-size="15" font-weight="800">Dos especies</text><text x="742" y="149" font-size="15" font-weight="800">de monos</text>
+                </svg>
+              </figure>
+            </div>
+          </article>
+        `
+      }
+    ],
+    prompt: "De acuerdo con la información anterior, ¿cuál de los siguientes modelos representa el fenómeno?",
+    options: [
+      { letter: "A", text: "Modelo A." },
+      { letter: "B", text: "Modelo B." },
+      { letter: "C", text: "Modelo C." },
+      { letter: "D", text: "Modelo D." }
+    ],
+    correctAnswer: "A",
+    explanation: "El modelo A representa la secuencia descrita: primero hay una sola población; luego aparece el río como barrera geográfica, se produce aislamiento reproductivo entre los grupos separados y, con el tiempo, se originan dos especies diferentes."
+  }
+
+
+
+  ,
+  {
+    uid: "s1-cnat-100",
+    session: 1,
+    block: 4,
+    number: 100,
+    area: "Ciencias Naturales",
+    competencia: "Explicación de fenómenos",
+    componente: "Física: fuerza y movimiento",
+    dificultad: "Básica",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 1 - Ciencias Naturales - Pregunta 100",
+    stem: "En un laboratorio, un estudiante debe transportar los materiales para un experimento utilizando una mesa con ruedas. Para esto, el estudiante ejerce primero una fuerza a la mesa, que aumenta a medida que se desplaza hasta recorrer 4 m; luego, ejerce una fuerza constante hasta finalizar el recorrido a los 6 m.",
+    resources: [
+      {
+        type: "html",
+        html: `
+          <article class="science-graph-card" aria-label="Opciones de gráficas de fuerza contra desplazamiento">
+            <p class="resource-title">Gráficas de fuerza como función del desplazamiento</p>
+            <div class="force-graphs-grid">
+              <figure>
+                <figcaption>A.</figcaption>
+                <svg viewBox="0 0 520 230" role="img" aria-label="Gráfica A: fuerza constante hasta 4 metros y luego aumenta">
+                  <defs><marker id="arr-f100-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z"></path></marker></defs>
+                  <line x1="70" y1="190" x2="485" y2="190" stroke="currentColor" stroke-width="4" marker-end="url(#arr-f100-a)"></line>
+                  <line x1="70" y1="190" x2="70" y2="28" stroke="currentColor" stroke-width="4" marker-end="url(#arr-f100-a)"></line>
+                  <polyline points="70,120 315,120 450,72" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"></polyline>
+                  <line x1="315" y1="190" x2="315" y2="120" stroke="currentColor" stroke-width="2" opacity=".35"></line>
+                  <line x1="450" y1="190" x2="450" y2="72" stroke="currentColor" stroke-width="2" opacity=".25"></line>
+                  <g font-size="17" font-weight="800" text-anchor="middle"><text x="70" y="214">0</text><text x="112" y="214">1</text><text x="154" y="214">2</text><text x="196" y="214">3</text><text x="315" y="214">4</text><text x="383" y="214">5</text><text x="450" y="214">6</text><text x="487" y="214">7</text></g>
+                  <text x="270" y="226" font-size="18" font-weight="900" text-anchor="middle">Desplazamiento (m)</text>
+                  <text x="28" y="115" font-size="18" font-weight="900" transform="rotate(-90 28 115)" text-anchor="middle">Fuerza</text>
+                </svg>
+              </figure>
+
+              <figure>
+                <figcaption>B.</figcaption>
+                <svg viewBox="0 0 520 230" role="img" aria-label="Gráfica B: fuerza constante hasta 4 metros y luego disminuye">
+                  <defs><marker id="arr-f100-b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z"></path></marker></defs>
+                  <line x1="70" y1="190" x2="485" y2="190" stroke="currentColor" stroke-width="4" marker-end="url(#arr-f100-b)"></line>
+                  <line x1="70" y1="190" x2="70" y2="28" stroke="currentColor" stroke-width="4" marker-end="url(#arr-f100-b)"></line>
+                  <polyline points="70,70 315,70 450,115" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"></polyline>
+                  <line x1="315" y1="190" x2="315" y2="70" stroke="currentColor" stroke-width="2" opacity=".35"></line>
+                  <line x1="450" y1="190" x2="450" y2="115" stroke="currentColor" stroke-width="2" opacity=".25"></line>
+                  <g font-size="17" font-weight="800" text-anchor="middle"><text x="70" y="214">0</text><text x="112" y="214">1</text><text x="154" y="214">2</text><text x="196" y="214">3</text><text x="315" y="214">4</text><text x="383" y="214">5</text><text x="450" y="214">6</text><text x="487" y="214">7</text></g>
+                  <text x="270" y="226" font-size="18" font-weight="900" text-anchor="middle">Desplazamiento (m)</text>
+                  <text x="28" y="115" font-size="18" font-weight="900" transform="rotate(-90 28 115)" text-anchor="middle">Fuerza</text>
+                </svg>
+              </figure>
+
+              <figure>
+                <figcaption>C.</figcaption>
+                <svg viewBox="0 0 520 230" role="img" aria-label="Gráfica C: fuerza aumenta hasta 4 metros y luego permanece constante">
+                  <defs><marker id="arr-f100-c" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z"></path></marker></defs>
+                  <line x1="70" y1="190" x2="485" y2="190" stroke="currentColor" stroke-width="4" marker-end="url(#arr-f100-c)"></line>
+                  <line x1="70" y1="190" x2="70" y2="28" stroke="currentColor" stroke-width="4" marker-end="url(#arr-f100-c)"></line>
+                  <polyline points="70,145 315,72 450,72" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"></polyline>
+                  <line x1="315" y1="190" x2="315" y2="72" stroke="currentColor" stroke-width="2" opacity=".35"></line>
+                  <line x1="450" y1="190" x2="450" y2="72" stroke="currentColor" stroke-width="2" opacity=".25"></line>
+                  <g font-size="17" font-weight="800" text-anchor="middle"><text x="70" y="214">0</text><text x="112" y="214">1</text><text x="154" y="214">2</text><text x="196" y="214">3</text><text x="315" y="214">4</text><text x="383" y="214">5</text><text x="450" y="214">6</text><text x="487" y="214">7</text></g>
+                  <text x="270" y="226" font-size="18" font-weight="900" text-anchor="middle">Desplazamiento (m)</text>
+                  <text x="28" y="115" font-size="18" font-weight="900" transform="rotate(-90 28 115)" text-anchor="middle">Fuerza</text>
+                </svg>
+              </figure>
+
+              <figure>
+                <figcaption>D.</figcaption>
+                <svg viewBox="0 0 520 230" role="img" aria-label="Gráfica D: fuerza disminuye hasta 4 metros y luego permanece constante">
+                  <defs><marker id="arr-f100-d" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z"></path></marker></defs>
+                  <line x1="70" y1="190" x2="485" y2="190" stroke="currentColor" stroke-width="4" marker-end="url(#arr-f100-d)"></line>
+                  <line x1="70" y1="190" x2="70" y2="28" stroke="currentColor" stroke-width="4" marker-end="url(#arr-f100-d)"></line>
+                  <polyline points="70,60 315,135 450,135" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"></polyline>
+                  <line x1="315" y1="190" x2="315" y2="135" stroke="currentColor" stroke-width="2" opacity=".35"></line>
+                  <line x1="450" y1="190" x2="450" y2="135" stroke="currentColor" stroke-width="2" opacity=".25"></line>
+                  <g font-size="17" font-weight="800" text-anchor="middle"><text x="70" y="214">0</text><text x="112" y="214">1</text><text x="154" y="214">2</text><text x="196" y="214">3</text><text x="315" y="214">4</text><text x="383" y="214">5</text><text x="450" y="214">6</text><text x="487" y="214">7</text></g>
+                  <text x="270" y="226" font-size="18" font-weight="900" text-anchor="middle">Desplazamiento (m)</text>
+                  <text x="28" y="115" font-size="18" font-weight="900" transform="rotate(-90 28 115)" text-anchor="middle">Fuerza</text>
+                </svg>
+              </figure>
+            </div>
+          </article>
+        `
+      }
+    ],
+    prompt: "Teniendo en cuenta la información anterior, ¿cuál de las siguientes gráficas representa la fuerza como función de la posición en esta situación?",
+    options: [
+      { letter: "A", text: "Gráfica A." },
+      { letter: "B", text: "Gráfica B." },
+      { letter: "C", text: "Gráfica C." },
+      { letter: "D", text: "Gráfica D." }
+    ],
+    correctAnswer: "C",
+    explanation: "La descripción indica que la fuerza primero aumenta mientras la mesa se desplaza hasta los 4 m y después permanece constante hasta los 6 m. Esa relación está representada por la gráfica C."
+  }
+
+
+  ,
+  {
+    uid: "s1-cnat-101",
+    session: 1,
+    block: 4,
+    number: 101,
+    area: "Ciencias Naturales",
+    competencia: "Indagación",
+    componente: "Química: propiedades de materiales",
+    dificultad: "Básica",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 1 - Ciencias Naturales - Pregunta 101",
+    stem: "Una estudiante encuentra en un libro información sobre algunos minerales y sus características.",
+    resources: [
+      {
+        type: "html",
+        html: `
+          <article class="data-card mineral-card" aria-label="Tabla de minerales y sus características">
+            <p class="resource-title">Tabla. Características de algunos minerales</p>
+            <div class="table-wrap">
+              <table class="icfes-table mineral-table">
+                <thead>
+                  <tr>
+                    <th>Mineral</th>
+                    <th>Color</th>
+                    <th>Brillo</th>
+                    <th>Transparencia</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td>1</td><td>Azul</td><td>Metálico</td><td>Sí</td></tr>
+                  <tr><td>2</td><td>Rojo</td><td>No metálico</td><td>No</td></tr>
+                  <tr><td>3</td><td>Azul</td><td>No metálico</td><td>Sí</td></tr>
+                  <tr><td>4</td><td>Verde</td><td>Metálico</td><td>No</td></tr>
+                  <tr><td>5</td><td>Rojo</td><td>Metálico</td><td>No</td></tr>
+                  <tr><td>6</td><td>Azul</td><td>No metálico</td><td>Sí</td></tr>
+                  <tr><td>7</td><td>Rojo</td><td>No metálico</td><td>No</td></tr>
+                  <tr><td>8</td><td>Verde</td><td>Metálico</td><td>Sí</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </article>
+        `
+      }
+    ],
+    prompt: "De acuerdo con la tabla, ¿cuáles minerales tienen las mismas características?",
+    options: [
+      { letter: "A", text: "Los minerales 3 y 6, y los minerales 4 y 8." },
+      { letter: "B", text: "Los minerales 3 y 6, y los minerales 2 y 7." },
+      { letter: "C", text: "Los minerales 2 y 5, y los minerales 4 y 8." },
+      { letter: "D", text: "Los minerales 2 y 7, y los minerales 1 y 6." }
+    ],
+    correctAnswer: "B",
+    explanation: "Los minerales 3 y 6 tienen color azul, brillo no metálico y transparencia sí. Los minerales 2 y 7 tienen color rojo, brillo no metálico y transparencia no. Por eso esas parejas comparten las mismas características."
+  }
+
+  ,
+  {
+    uid: "s1-cnat-102",
+    session: 1,
+    block: 4,
+    number: 102,
+    area: "Ciencias Naturales",
+    competencia: "Uso comprensivo del conocimiento científico",
+    componente: "Biología: división celular y crecimiento",
+    dificultad: "Básica",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 1 - Ciencias Naturales - Pregunta 102",
+    stem: "El cuero cabelludo se compone de una parte fibrosa, formada de queratina (cabello o pelo), y una parte celular. En las células capilares sucede la división celular solamente mediante el proceso de mitosis. Estas células nuevas secretan las fibras de queratina, como se muestra en la figura.",
+    resources: [
+      {
+        type: "html",
+        html: `
+          <article class="data-card scalp-card" aria-label="Figura de cuero cabelludo, folículo y mitosis">
+            <p class="resource-title">Figura. Células capilares y mitosis</p>
+            <div class="scalp-visual-grid">
+              <figure class="svg-panel" aria-label="Estructura del cuero cabelludo">
+                <svg viewBox="0 0 520 360" role="img" aria-label="Diagrama del cuero cabelludo con cabello, folículo, sebo, glándula sebácea y célula capilar">
+                  <defs>
+                    <linearGradient id="skinGrad102" x1="0" x2="0" y1="0" y2="1">
+                      <stop offset="0%" stop-color="#f8fbff"/>
+                      <stop offset="100%" stop-color="#dfe7f0"/>
+                    </linearGradient>
+                    <pattern id="dots102" width="16" height="16" patternUnits="userSpaceOnUse">
+                      <circle cx="4" cy="4" r="2" fill="#253044" opacity=".18"/>
+                    </pattern>
+                  </defs>
+                  <rect x="110" y="65" width="270" height="230" rx="18" fill="url(#skinGrad102)" stroke="#1f2937" stroke-width="3"/>
+                  <path d="M113 120 C145 140, 175 95, 207 118 C242 143, 272 97, 315 123 C342 139, 360 119, 378 132" fill="none" stroke="#1f2937" stroke-width="3" opacity=".65"/>
+                  <rect x="110" y="63" width="270" height="58" rx="16" fill="url(#dots102)" opacity=".7"/>
+                  <path d="M230 58 C246 125, 233 205, 220 294" fill="none" stroke="#111827" stroke-width="14" stroke-linecap="round"/>
+                  <path d="M225 165 C206 205, 213 258, 230 300 C249 256, 264 208, 245 169 Z" fill="#f8fafc" stroke="#111827" stroke-width="4"/>
+                  <ellipse cx="265" cy="230" rx="55" ry="28" fill="#dbeafe" stroke="#111827" stroke-width="3" transform="rotate(-23 265 230)"/>
+                  <path d="M185 175 C206 158, 222 162, 233 176" fill="none" stroke="#111827" stroke-width="4"/>
+                  <path d="M214 255 C190 286, 174 310, 152 332" stroke="#111827" stroke-width="4" fill="none"/>
+                  <path d="M230 260 C214 296, 212 319, 201 342" stroke="#111827" stroke-width="4" fill="none"/>
+                  <path d="M246 260 C262 295, 276 316, 291 340" stroke="#111827" stroke-width="4" fill="none"/>
+                  <g font-size="20" font-weight="900" fill="#111827">
+                    <text x="18" y="44">Cabello</text>
+                    <text x="18" y="104">Superficie</text><text x="18" y="128">de la piel</text>
+                    <text x="18" y="186">Sebo</text>
+                    <text x="18" y="238">Folículo</text>
+                    <text x="18" y="292">Glándula</text><text x="18" y="316">sebácea</text>
+                    <text x="335" y="254">Célula</text><text x="335" y="278">capilar</text>
+                  </g>
+                  <g stroke="#111827" stroke-width="3" marker-end="url(#arrowhead)">
+                    <line x1="105" y1="38" x2="210" y2="76"/>
+                    <line x1="104" y1="110" x2="170" y2="105"/>
+                    <line x1="94" y1="182" x2="187" y2="178"/>
+                    <line x1="102" y1="234" x2="218" y2="214"/>
+                    <line x1="111" y1="296" x2="236" y2="235"/>
+                    <line x1="325" y1="248" x2="250" y2="270"/>
+                  </g>
+                </svg>
+              </figure>
+              <figure class="svg-panel" aria-label="Proceso de mitosis">
+                <svg viewBox="0 0 360 360" role="img" aria-label="Proceso de mitosis: célula madre 2n produce clones 2n">
+                  <defs>
+                    <marker id="arrowhead" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+                      <path d="M0,0 L10,4 L0,8 Z" fill="#111827"/>
+                    </marker>
+                  </defs>
+                  <text x="180" y="42" font-size="27" font-weight="900" text-anchor="middle">Mitosis</text>
+                  <circle cx="180" cy="90" r="40" fill="#e5e7eb" stroke="#111827" stroke-width="4"/>
+                  <text x="180" y="100" font-size="30" font-weight="900" text-anchor="middle">2n</text>
+                  <text x="235" y="83" font-size="21" font-weight="900">Célula</text>
+                  <text x="235" y="108" font-size="21" font-weight="900">madre</text>
+                  <line x1="180" y1="135" x2="180" y2="186" stroke="#111827" stroke-width="4" marker-end="url(#arrowhead)"/>
+                  <text x="205" y="170" font-size="22" font-weight="900">Mitosis</text>
+                  <line x1="170" y1="196" x2="110" y2="235" stroke="#111827" stroke-width="4" marker-end="url(#arrowhead)"/>
+                  <line x1="190" y1="196" x2="250" y2="235" stroke="#111827" stroke-width="4" marker-end="url(#arrowhead)"/>
+                  <circle cx="95" cy="260" r="38" fill="#e5e7eb" stroke="#111827" stroke-width="4"/>
+                  <circle cx="265" cy="260" r="38" fill="#e5e7eb" stroke="#111827" stroke-width="4"/>
+                  <text x="95" y="270" font-size="28" font-weight="900" text-anchor="middle">2n</text>
+                  <text x="265" y="270" font-size="28" font-weight="900" text-anchor="middle">2n</text>
+                  <text x="180" y="324" font-size="20" font-weight="900" text-anchor="middle">Producción de clones</text>
+                  <text x="180" y="348" font-size="20" font-weight="900" text-anchor="middle">de la célula madre</text>
+                </svg>
+              </figure>
+            </div>
+            <p class="formula-note"><strong>n</strong> = número de cromosomas</p>
+          </article>
+        `
+      }
+    ],
+    prompt: "¿Qué papel específico cumple la mitosis en el pelo?",
+    options: [
+      { letter: "A", text: "Permite la variabilidad genética del pelo, mediante la recombinación." },
+      { letter: "B", text: "Produce células madre, a partir de una fibra de queratina." },
+      { letter: "C", text: "Permite el crecimiento del pelo, al aumentar las células del folículo." },
+      { letter: "D", text: "Produce células con diferente número de cromosomas." }
+    ],
+    correctAnswer: "C",
+    explanation: "La mitosis produce células hijas iguales a la célula madre y conserva el número de cromosomas. En el folículo capilar, el aumento de células permite el crecimiento del pelo y la producción de fibras de queratina."
+  }
+
+
+  ,
+  {
+    uid: "s1-cnat-103",
+    session: 1,
+    block: 4,
+    number: 103,
+    area: "Ciencias Naturales",
+    competencia: "Explicación de fenómenos",
+    componente: "Biología: interacciones ecológicas y parasitismo",
+    dificultad: "Media",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 1 - Ciencias Naturales - Pregunta 103",
+    stem: "La malaria aviar es una enfermedad causada por parásitos del género Plasmodium y es transmitida por la picadura de zancudos a las diferentes especies de aves. A continuación, se muestra una parte del ciclo de vida de este parásito:",
+    resources: [
+      {
+        type: "html",
+        html: `
+          <article class="data-card malaria-card" aria-label="Ciclo de vida del parásito Plasmodium en aves y zancudos">
+            <p class="resource-title">Diagrama. Ciclo de vida del parásito de la malaria aviar</p>
+            <figure class="svg-panel wide-svg-panel" aria-label="Ciclo de transmisión del parásito entre ave y zancudo">
+              <svg viewBox="0 0 920 620" role="img" aria-label="Diagrama del ciclo de vida del parásito Plasmodium: transmisión al ave, infección del hígado, daño de glóbulos rojos, zancudo se alimenta de sangre infectada, reproducción en el zancudo y transmisión a otra ave">
+                <defs>
+                  <marker id="arrow103" markerWidth="12" markerHeight="10" refX="10" refY="5" orient="auto">
+                    <path d="M0,0 L12,5 L0,10 Z" fill="#111827"></path>
+                  </marker>
+                  <linearGradient id="bird103" x1="0" x2="1" y1="0" y2="1">
+                    <stop offset="0%" stop-color="#ffffff"></stop>
+                    <stop offset="100%" stop-color="#dbe4ef"></stop>
+                  </linearGradient>
+                  <radialGradient id="blood103" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" stop-color="#fecaca"></stop>
+                    <stop offset="100%" stop-color="#991b1b"></stop>
+                  </radialGradient>
+                </defs>
+
+                <rect x="18" y="18" width="884" height="584" rx="28" fill="#ffffff" stroke="#1f2937" stroke-width="3" opacity=".97"></rect>
+                <text x="460" y="58" text-anchor="middle" font-size="28" font-weight="900" fill="#111827">Parte del ciclo de vida del parásito</text>
+
+                <!-- Flechas circulares del ciclo -->
+                <path d="M245 138 C150 185, 122 306, 180 405" fill="none" stroke="#111827" stroke-width="5" marker-end="url(#arrow103)"></path>
+                <path d="M222 448 C305 530, 450 524, 535 450" fill="none" stroke="#111827" stroke-width="5" marker-end="url(#arrow103)"></path>
+                <path d="M585 405 C655 295, 620 170, 526 125" fill="none" stroke="#111827" stroke-width="5" marker-end="url(#arrow103)"></path>
+                <path d="M555 100 C635 88, 722 118, 770 180" fill="none" stroke="#111827" stroke-width="5" marker-end="url(#arrow103)"></path>
+                <path d="M792 230 C835 335, 785 470, 675 510" fill="none" stroke="#111827" stroke-width="5" marker-end="url(#arrow103)"></path>
+
+                <!-- Ave izquierda -->
+                <g transform="translate(154 155)">
+                  <circle cx="90" cy="92" r="88" fill="#eef2f7" stroke="#111827" stroke-width="4"></circle>
+                  <path d="M74 117 C33 99, 39 54, 79 49 C115 45, 143 74, 142 107 C142 138, 110 153, 74 117 Z" fill="url(#bird103)" stroke="#111827" stroke-width="4"></path>
+                  <path d="M132 92 L169 78 L143 108 Z" fill="#fbbf24" stroke="#111827" stroke-width="3"></path>
+                  <circle cx="112" cy="76" r="6" fill="#111827"></circle>
+                  <path d="M75 116 L54 147 M93 122 L85 153" stroke="#111827" stroke-width="4" stroke-linecap="round"></path>
+                  <path d="M67 84 C87 113, 116 118, 135 106" fill="none" stroke="#94a3b8" stroke-width="5"></path>
+                </g>
+                <text x="125" y="125" font-size="19" font-weight="900" fill="#111827">Reproducción del</text>
+                <text x="125" y="150" font-size="19" font-weight="900" fill="#111827">parásito y desarrollo</text>
+                <text x="125" y="175" font-size="19" font-weight="900" fill="#111827">de los huevos</text>
+                <text x="80" y="362" font-size="19" font-weight="900" fill="#111827">Transmisión</text>
+                <text x="80" y="386" font-size="19" font-weight="900" fill="#111827">del parásito</text>
+                <text x="80" y="410" font-size="19" font-weight="900" fill="#111827">al ave</text>
+
+                <!-- Hígado y sangre -->
+                <g transform="translate(180 405)">
+                  <circle cx="60" cy="55" r="52" fill="#f8fafc" stroke="#111827" stroke-width="4"></circle>
+                  <path d="M40 38 C62 17, 101 30, 96 60 C94 84, 70 93, 44 79 C22 67, 21 51, 40 38 Z" fill="#475569" stroke="#111827" stroke-width="3"></path>
+                  <text x="-35" y="126" font-size="18" font-weight="900" fill="#111827">Infección del</text>
+                  <text x="-35" y="149" font-size="18" font-weight="900" fill="#111827">hígado y daño de</text>
+                  <text x="-35" y="172" font-size="18" font-weight="900" fill="#111827">los glóbulos rojos</text>
+                  <text x="-35" y="195" font-size="18" font-weight="900" fill="#111827">del ave</text>
+                </g>
+
+                <g transform="translate(375 405)">
+                  <circle cx="78" cy="70" r="66" fill="#f8fafc" stroke="#111827" stroke-width="4"></circle>
+                  <circle cx="52" cy="48" r="20" fill="url(#blood103)" stroke="#111827" stroke-width="2"></circle>
+                  <circle cx="95" cy="49" r="17" fill="url(#blood103)" stroke="#111827" stroke-width="2"></circle>
+                  <circle cx="74" cy="93" r="24" fill="url(#blood103)" stroke="#111827" stroke-width="2"></circle>
+                  <circle cx="116" cy="86" r="13" fill="url(#blood103)" stroke="#111827" stroke-width="2"></circle>
+                  <circle cx="35" cy="90" r="12" fill="url(#blood103)" stroke="#111827" stroke-width="2"></circle>
+                </g>
+                <text x="420" y="560" font-size="20" font-weight="900" text-anchor="middle" fill="#111827">El zancudo se alimenta de sangre infectada</text>
+
+                <!-- Zancudo central -->
+                <g transform="translate(555 275)">
+                  <circle cx="0" cy="0" r="62" fill="#f8fafc" stroke="#111827" stroke-width="4"></circle>
+                  <ellipse cx="3" cy="-3" rx="27" ry="13" fill="#111827"></ellipse>
+                  <ellipse cx="-18" cy="-16" rx="24" ry="10" fill="#dbeafe" stroke="#111827" stroke-width="2" transform="rotate(-30 -18 -16)"></ellipse>
+                  <ellipse cx="22" cy="-16" rx="24" ry="10" fill="#dbeafe" stroke="#111827" stroke-width="2" transform="rotate(30 22 -16)"></ellipse>
+                  <line x1="25" y1="-4" x2="58" y2="-22" stroke="#111827" stroke-width="3"></line>
+                  <line x1="-23" y1="5" x2="-50" y2="35" stroke="#111827" stroke-width="3"></line>
+                  <line x1="-4" y1="10" x2="-18" y2="45" stroke="#111827" stroke-width="3"></line>
+                  <line x1="18" y1="8" x2="42" y2="38" stroke="#111827" stroke-width="3"></line>
+                </g>
+                <text x="545" y="210" font-size="20" font-weight="900" text-anchor="middle" fill="#111827">El parásito se reproduce</text>
+                <text x="545" y="235" font-size="20" font-weight="900" text-anchor="middle" fill="#111827">en el intestino</text>
+                <text x="545" y="260" font-size="20" font-weight="900" text-anchor="middle" fill="#111827">del insecto sin afectar</text>
+                <text x="545" y="285" font-size="20" font-weight="900" text-anchor="middle" fill="#111827">su funcionamiento</text>
+
+                <!-- Ave derecha -->
+                <g transform="translate(704 128)">
+                  <circle cx="80" cy="80" r="76" fill="#eef2f7" stroke="#111827" stroke-width="4"></circle>
+                  <path d="M65 105 C31 90, 37 52, 72 49 C104 46, 130 70, 128 98 C126 124, 94 137, 65 105 Z" fill="url(#bird103)" stroke="#111827" stroke-width="4"></path>
+                  <path d="M118 87 L150 75 L128 101 Z" fill="#fbbf24" stroke="#111827" stroke-width="3"></path>
+                  <circle cx="101" cy="73" r="5" fill="#111827"></circle>
+                  <path d="M65 104 L48 132 M82 110 L75 139" stroke="#111827" stroke-width="4" stroke-linecap="round"></path>
+                </g>
+                <text x="737" y="97" font-size="19" font-weight="900" fill="#111827">Transmisión del</text>
+                <text x="737" y="122" font-size="19" font-weight="900" fill="#111827">parásito a otra ave</text>
+
+                <g transform="translate(706 405)">
+                  <circle cx="60" cy="55" r="52" fill="#f8fafc" stroke="#111827" stroke-width="4"></circle>
+                  <path d="M40 38 C62 17, 101 30, 96 60 C94 84, 70 93, 44 79 C22 67, 21 51, 40 38 Z" fill="#475569" stroke="#111827" stroke-width="3"></path>
+                  <text x="5" y="136" font-size="20" font-weight="900" fill="#111827">Reinicio</text>
+                  <text x="5" y="161" font-size="20" font-weight="900" fill="#111827">del ciclo</text>
+                </g>
+              </svg>
+            </figure>
+          </article>
+        `
+      }
+    ],
+    prompt: "Según el anterior diagrama, ¿qué tipo de interacción tiene el parásito con el ave y con el zancudo?",
+    options: [
+      { letter: "A", text: "El parásito interactúa con el ave y con el zancudo de manera negativa, al causar la enfermedad de la malaria que deriva en daños internos en los dos organismos." },
+      { letter: "B", text: "El parásito interactúa con el ave de manera negativa al causar la enfermedad, mientras que con el zancudo interactúa de manera neutral, dado que convive dentro de él sin causar ningún daño." },
+      { letter: "C", text: "El parásito interactúa con el ave y con el zancudo de manera neutral, ya que convive con ellos para cumplir su ciclo de vida sin causar daño a ninguno de los dos." },
+      { letter: "D", text: "El parásito interactúa con el ave de manera neutral, ya que el hígado es el único órgano afectado, mientras que con el zancudo interactúa de manera negativa, dado que se reproduce dentro de él." }
+    ],
+    correctAnswer: "B",
+    explanation: "El diagrama indica que en el ave el parásito causa infección del hígado y daño de los glóbulos rojos; por tanto, la interacción es negativa para el ave. En el zancudo, el parásito se reproduce en el intestino sin afectar su funcionamiento, por lo que la interacción descrita es neutral."
+  }
+
+
+  ,
+  {
+    uid: "s1-cnat-104",
+    session: 1,
+    block: 4,
+    number: 104,
+    area: "Ciencias Naturales",
+    competencia: "Uso comprensivo del conocimiento científico",
+    componente: "Química: estructura atómica e isótopos",
+    dificultad: "Básica",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 1 - Ciencias Naturales - Pregunta 104",
+    stem: "Dos átomos pertenecen al mismo elemento químico cuando tienen la misma cantidad de protones. De esta forma, si dos átomos tienen la misma cantidad de protones, pero distinta cantidad de neutrones, serán isótopos. En la siguiente tabla, se representa el número de protones y neutrones para algunos átomos.",
+    resources: [
+      {
+        type: "table",
+        caption: "Número de protones y neutrones para algunos átomos",
+        headers: ["Átomo", "Protones", "Neutrones"],
+        rows: [
+          ["N", "1", "0"],
+          ["X", "2", "1"],
+          ["Y", "1", "2"],
+          ["Z", "2", "2"]
+        ]
+      }
+    ],
+    prompt: "Según la información suministrada, ¿cuál de las siguientes parejas de átomos son isótopos?",
+    options: [
+      { letter: "A", text: "N y X." },
+      { letter: "B", text: "N y Y." },
+      { letter: "C", text: "Y y X." },
+      { letter: "D", text: "Y y Z." }
+    ],
+    correctAnswer: "B",
+    explanation: "Los isótopos son átomos del mismo elemento, por lo tanto tienen igual número de protones, pero diferente número de neutrones. N y Y tienen 1 protón cada uno, pero N tiene 0 neutrones y Y tiene 2 neutrones. Por eso son isótopos."
+  }
+
+
+
+  ,
+  {
+    uid: "s1-cnat-105",
+    session: 1,
+    block: 4,
+    number: 105,
+    area: "Ciencias Naturales",
+    competencia: "Uso comprensivo del conocimiento científico",
+    componente: "Química: disoluciones y concentración",
+    dificultad: "Básica",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 1 - Ciencias Naturales - Pregunta 105",
+    stem: "Las unidades de concentración de disoluciones indican la cantidad de soluto disuelto en una solución. Por ejemplo tenemos las siguientes unidades:",
+    resources: [
+      {
+        type: "html",
+        html: `
+          <article class="data-card chemistry-card" aria-label="Unidades de concentración de disoluciones">
+            <p class="resource-title">Unidades de concentración</p>
+            <ul class="compact-list">
+              <li><strong>% p/p:</strong> es la cantidad en gramos del soluto presente en 100 gramos de la disolución.</li>
+              <li><strong>% p/v:</strong> indica el número de gramos de soluto que hay en cada 100 mL de disolución.</li>
+              <li><strong>Molaridad (M):</strong> es el número de moles de soluto en 1 L de disolución.</li>
+            </ul>
+          </article>
+        `
+      },
+      {
+        type: "table",
+        caption: "Concentraciones de dos disoluciones del mismo soluto",
+        headers: ["Disolución", "Porcentaje (% p/p)", "Porcentaje (% p/v)", "Molaridad (M)"],
+        rows: [
+          ["1", "12", "12", "2,05"],
+          ["2", "24", "24", "4,10"]
+        ]
+      }
+    ],
+    prompt: "De acuerdo con la información anterior, si se tienen dos volúmenes iguales de las disoluciones, ¿cuál de las disoluciones tiene mayor masa de soluto?",
+    options: [
+      { letter: "A", text: "La disolución 2, porque a mayor masa de soluto mayor es el valor de la molaridad." },
+      { letter: "B", text: "La disolución 1, porque los valores de % p/p y % p/v son mayores que el valor de la molaridad." },
+      { letter: "C", text: "La disolución 1, porque a mayor masa de soluto menor es el valor de la molaridad." },
+      { letter: "D", text: "La disolución 2, porque los valores de % p/p y % p/v son menores que el valor de la molaridad." }
+    ],
+    correctAnswer: "A",
+    explanation: "Para volúmenes iguales, la disolución con mayor concentración contiene más cantidad de soluto. La disolución 2 presenta valores mayores en % p/p, % p/v y molaridad; por eso tiene mayor masa de soluto."
+  }
+
+
+  ,
+  {
+    uid: "s1-cnat-106",
+    session: 1,
+    block: 4,
+    number: 106,
+    area: "Ciencias Naturales",
+    competencia: "Indagación",
+    componente: "Física: magnetismo y propiedades de los materiales",
+    dificultad: "Media",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 1 - Ciencias Naturales - Pregunta 106",
+    stem: "Camila elabora un experimento donde acerca un imán a una jarra que tiene una esfera de hierro en su interior, y mide la velocidad que alcanza la esfera al acercar el imán usando diferentes líquidos, como se muestra en la figura.",
+    resources: [
+      {
+        type: "html",
+        html: `
+          <article class="science-diagram-card" aria-label="Experimento con imán, jarra, líquido y esfera de hierro">
+            <p class="resource-title">Experimento</p>
+            <div style="display:grid;grid-template-columns:minmax(120px,1fr) minmax(180px,1.5fr);gap:18px;align-items:center;max-width:620px;margin:auto">
+              <div style="text-align:center">
+                <div style="font-weight:900;margin-bottom:8px">Imán</div>
+                <svg viewBox="0 0 180 120" role="img" aria-label="Imán acercándose a la jarra" style="width:100%;max-width:190px">
+                  <path d="M28 28 H118 V50 H58 V70 H118 V92 H28 V28 Z" fill="none" stroke="currentColor" stroke-width="12" stroke-linejoin="round"></path>
+                  <path d="M135 42 l28 18 -28 18" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"></path>
+                  <path d="M125 50 l22 10 -22 10" fill="none" stroke="currentColor" stroke-width="4" opacity=".55" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+              </div>
+              <div style="text-align:center">
+                <div style="font-weight:900;margin-bottom:8px">Jarra con líquido y esfera</div>
+                <svg viewBox="0 0 260 210" role="img" aria-label="Jarra con líquido y esfera de hierro" style="width:100%;max-width:280px">
+                  <path d="M72 35 C82 22 178 22 188 35 L174 175 C168 193 92 193 86 175 Z" fill="#eef3f8" stroke="currentColor" stroke-width="5"></path>
+                  <path d="M82 82 C104 92 160 92 180 82 L171 171 C164 184 97 184 89 171 Z" fill="#cfd8e3" stroke="currentColor" stroke-width="3" opacity=".9"></path>
+                  <path d="M188 72 C232 76 236 147 180 148" fill="none" stroke="currentColor" stroke-width="8" stroke-linecap="round"></path>
+                  <circle cx="137" cy="130" r="23" fill="#ffffff" stroke="currentColor" stroke-width="5"></circle>
+                  <line x1="178" y1="94" x2="228" y2="78" stroke="currentColor" stroke-width="3"></line>
+                  <text x="232" y="82" font-size="15" font-weight="900">Líquido</text>
+                  <line x1="155" y1="128" x2="225" y2="138" stroke="currentColor" stroke-width="3"></line>
+                  <text x="230" y="143" font-size="15" font-weight="900">Esfera</text>
+                  <text x="110" y="24" font-size="15" font-weight="900">Jarra</text>
+                </svg>
+              </div>
+            </div>
+          </article>
+        `
+      },
+      {
+        type: "table",
+        caption: "Resultados del experimento",
+        headers: ["Distancia del imán a la esfera (cm)", "Velocidad de la esfera (m/s)"],
+        rows: [
+          ["5", "3,0"],
+          ["5", "2,0"],
+          ["5", "1,0"],
+          ["5", "0,6"]
+        ]
+      },
+      {
+        type: "html",
+        html: `
+          <article class="data-card" aria-label="Conclusión de Camila">
+            <p><strong>Conclusión de Camila:</strong> los resultados de la tabla demuestran que las sustancias viscosas disminuyen la velocidad de la esfera.</p>
+          </article>
+        `
+      }
+    ],
+    prompt: "De acuerdo con la información anterior, ¿qué se debería modificar para apoyar de manera correcta la conclusión de Camila?",
+    options: [
+      { letter: "A", text: "Se deberían variar las distancias entre el imán y la jarra." },
+      { letter: "B", text: "Se debería mantener siempre la misma velocidad de la esfera." },
+      { letter: "C", text: "Se deberían mostrar datos del líquido usado y su viscosidad." },
+      { letter: "D", text: "Se debería mantener constante la fuerza magnética." }
+    ],
+    correctAnswer: "C",
+    explanation: "La conclusión habla de la viscosidad de las sustancias, pero la tabla solo muestra distancia y velocidad. Para apoyar correctamente esa conclusión, se deben incluir datos sobre el líquido usado y su viscosidad, de modo que pueda relacionarse esa propiedad con la velocidad de la esfera."
+  }
+
+
+
+
+  ,
+  {
+    uid: "s1-cnat-107",
+    session: 1,
+    block: 4,
+    number: 107,
+    area: "Ciencias Naturales",
+    competencia: "Uso comprensivo del conocimiento científico",
+    componente: "Biología: nutrición y función digestiva",
+    dificultad: "Básica",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 1 - Ciencias Naturales - Pregunta 107",
+    stem: "Juan asiste al médico porque nota que está teniendo problemas de estreñimiento. El médico le enseña la siguiente tabla sobre algunos tipos de compuestos presentes en los alimentos y su función en el organismo.",
+    resources: [
+      {
+        type: "table",
+        caption: "Tipos de compuestos presentes en los alimentos y su función en el organismo",
+        headers: ["Tipo de compuesto", "Función en el organismo"],
+        rows: [
+          ["Vitaminas", "Mantienen el buen funcionamiento del cuerpo; son esenciales para los huesos, el corazón, el cerebro, las enzimas y las hormonas."],
+          ["Minerales", "Son esenciales para el metabolismo, el desarrollo, el crecimiento y la regulación del funcionamiento de las células."],
+          ["Fibra insoluble", "Absorbe agua y favorece el paso de los alimentos por el tracto digestivo, y regulariza la función del intestino."],
+          ["Fibra soluble", "Reduce el colesterol y la absorción de azúcares en la sangre, retarda la digestión y produce sensación de saciedad."]
+        ]
+      }
+    ],
+    prompt: "De acuerdo con la información de la tabla, ¿qué tipo de alimentos debe consumir Juan para solucionar su problema de estreñimiento?",
+    options: [
+      { letter: "A", text: "Alimentos ricos en vitaminas." },
+      { letter: "B", text: "Alimentos ricos en minerales." },
+      { letter: "C", text: "Alimentos ricos en fibra insoluble." },
+      { letter: "D", text: "Alimentos ricos en fibra soluble." }
+    ],
+    correctAnswer: "C",
+    explanation: "La fibra insoluble absorbe agua, favorece el paso de los alimentos por el tracto digestivo y regulariza la función del intestino. Por eso es la opción relacionada con la solución del estreñimiento."
+  }
+
+
+
+
+  ,
+  {
+    uid: "s1-cnat-108",
+    session: 1,
+    block: 4,
+    number: 108,
+    area: "Ciencias Naturales",
+    competencia: "Indagación",
+    componente: "Química: velocidad de reacción",
+    dificultad: "Básica",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 1 - Ciencias Naturales - Pregunta 108",
+    stem: "Una estudiante tiene la hipótesis de que al hacer reaccionar agua oxigenada con papa criolla, entre más grande sea el trozo de papa, mayor será el tiempo que dure reaccionando con el agua oxigenada.",
+    resources: [],
+    prompt: "Si ella quiere representar gráficamente este fenómeno, ¿cuál de las siguientes gráficas debe elegir?",
+    options: [
+      {
+        letter: "A",
+        isHtml: true,
+        text: `
+          <div class="reaction-option-card" aria-label="Gráfica A">
+            <p class="reaction-option-title">Gráfica A</p>
+            <svg class="reaction-chart-svg" viewBox="0 0 360 260" role="img" aria-label="Gráfica de barras A con tiempos grande 30, mediana 60 y pequeña 30">
+              <line x1="58" y1="205" x2="332" y2="205" stroke="currentColor" stroke-width="3"/>
+              <line x1="58" y1="205" x2="58" y2="28" stroke="currentColor" stroke-width="3"/>
+              <path d="M332 205 l-10 -6 v12 z" fill="currentColor"/>
+              <path d="M58 28 l-6 10 h12 z" fill="currentColor"/>
+              <g class="grid-lines">
+                <line x1="58" y1="180" x2="330" y2="180"/><line x1="58" y1="155" x2="330" y2="155"/>
+                <line x1="58" y1="130" x2="330" y2="130"/><line x1="58" y1="105" x2="330" y2="105"/>
+                <line x1="58" y1="80" x2="330" y2="80"/><line x1="58" y1="55" x2="330" y2="55"/>
+              </g>
+              <g class="axis-labels">
+                <text x="40" y="208">0</text><text x="31" y="183">10</text><text x="31" y="158">20</text><text x="31" y="133">30</text>
+                <text x="31" y="108">40</text><text x="31" y="83">50</text><text x="31" y="58">60</text><text x="31" y="33">70</text>
+              </g>
+              <rect x="88" y="130" width="42" height="75" class="bar-dark"/><rect x="164" y="55" width="42" height="150" class="bar-dark"/><rect x="240" y="130" width="42" height="75" class="bar-dark"/>
+              <text x="109" y="230" text-anchor="middle">Grande</text><text x="185" y="230" text-anchor="middle">Mediana</text><text x="261" y="230" text-anchor="middle">Pequeña</text>
+              <text x="180" y="252" text-anchor="middle" class="chart-axis-title">Tamaño de papa criolla</text>
+              <text x="18" y="130" transform="rotate(-90 18 130)" text-anchor="middle" class="chart-axis-title">Tiempo de reacción (s)</text>
+            </svg>
+          </div>
+        `
+      },
+      {
+        letter: "B",
+        isHtml: true,
+        text: `
+          <div class="reaction-option-card" aria-label="Gráfica B">
+            <p class="reaction-option-title">Gráfica B</p>
+            <svg class="reaction-chart-svg pie" viewBox="0 0 360 240" role="img" aria-label="Gráfica circular B">
+              <text x="180" y="24" text-anchor="middle" class="chart-axis-title">Tiempo de reacción (s)</text>
+              <circle cx="150" cy="112" r="72" class="pie-light"/>
+              <path d="M150 112 L150 40 A72 72 0 0 1 201 163 Z" class="pie-dark"/>
+              <path d="M150 112 L201 163 A72 72 0 0 1 92 152 Z" class="pie-mid"/>
+              <path d="M150 112 L92 152 A72 72 0 0 1 150 40 Z" class="pie-light-stroke"/>
+              <circle cx="250" cy="82" r="7" class="pie-dark"/><text x="266" y="87">Grande</text>
+              <circle cx="250" cy="112" r="7" class="pie-mid"/><text x="266" y="117">Mediana</text>
+              <circle cx="250" cy="142" r="7" class="pie-light"/><text x="266" y="147">Pequeña</text>
+            </svg>
+          </div>
+        `
+      },
+      {
+        letter: "C",
+        isHtml: true,
+        text: `
+          <div class="reaction-option-card" aria-label="Gráfica C">
+            <p class="reaction-option-title">Gráfica C</p>
+            <svg class="reaction-chart-svg" viewBox="0 0 360 260" role="img" aria-label="Gráfica de barras C con mayor tiempo para papa grande, menor para mediana y menor para pequeña">
+              <line x1="58" y1="205" x2="332" y2="205" stroke="currentColor" stroke-width="3"/>
+              <line x1="58" y1="205" x2="58" y2="28" stroke="currentColor" stroke-width="3"/>
+              <path d="M332 205 l-10 -6 v12 z" fill="currentColor"/>
+              <path d="M58 28 l-6 10 h12 z" fill="currentColor"/>
+              <g class="grid-lines">
+                <line x1="58" y1="180" x2="330" y2="180"/><line x1="58" y1="155" x2="330" y2="155"/>
+                <line x1="58" y1="130" x2="330" y2="130"/><line x1="58" y1="105" x2="330" y2="105"/>
+                <line x1="58" y1="80" x2="330" y2="80"/><line x1="58" y1="55" x2="330" y2="55"/>
+              </g>
+              <g class="axis-labels">
+                <text x="40" y="208">0</text><text x="31" y="183">20</text><text x="31" y="158">40</text><text x="31" y="133">60</text>
+                <text x="31" y="108">80</text><text x="25" y="83">100</text><text x="25" y="58">120</text><text x="25" y="33">140</text>
+              </g>
+              <rect x="88" y="55" width="42" height="150" class="bar-dark"/><rect x="164" y="130" width="42" height="75" class="bar-mid"/><rect x="240" y="168" width="42" height="37" class="bar-light"/>
+              <text x="109" y="230" text-anchor="middle">Grande</text><text x="185" y="230" text-anchor="middle">Mediana</text><text x="261" y="230" text-anchor="middle">Pequeña</text>
+              <text x="180" y="252" text-anchor="middle" class="chart-axis-title">Tamaño de papa criolla</text>
+              <text x="18" y="130" transform="rotate(-90 18 130)" text-anchor="middle" class="chart-axis-title">Tiempo de reacción (s)</text>
+            </svg>
+          </div>
+        `
+      },
+      {
+        letter: "D",
+        isHtml: true,
+        text: `
+          <div class="reaction-option-card" aria-label="Gráfica D">
+            <p class="reaction-option-title">Gráfica D</p>
+            <svg class="reaction-chart-svg pie" viewBox="0 0 360 240" role="img" aria-label="Gráfica circular D">
+              <text x="180" y="24" text-anchor="middle" class="chart-axis-title">Tiempo de reacción (s)</text>
+              <circle cx="150" cy="112" r="72" class="pie-light"/>
+              <path d="M150 112 L150 40 A72 72 0 0 1 222 112 Z" class="pie-dark"/>
+              <path d="M150 112 L222 112 A72 72 0 0 1 150 184 L78 112 Z" class="pie-mid"/>
+              <path d="M150 112 L78 112 A72 72 0 0 1 150 40 Z" class="pie-light-stroke"/>
+              <circle cx="250" cy="82" r="7" class="pie-dark"/><text x="266" y="87">Grande</text>
+              <circle cx="250" cy="112" r="7" class="pie-mid"/><text x="266" y="117">Mediana</text>
+              <circle cx="250" cy="142" r="7" class="pie-light"/><text x="266" y="147">Pequeña</text>
+            </svg>
+          </div>
+        `
+      }
+    ],
+    correctAnswer: "C",
+    explanation: "La hipótesis plantea una relación directa: a mayor tamaño del trozo de papa criolla, mayor tiempo de reacción. La gráfica C representa esa tendencia, porque el tiempo es mayor para el trozo grande, intermedio para el mediano y menor para el pequeño."
+  }
+
+  ,
+  {
+    uid: "s1-cn-109",
+    session: 1,
+    block: 4,
+    number: 109,
+    area: "Ciencias Naturales",
+    competencia: "Explicación de fenómenos",
+    componente: "Física: transferencia de energía y propiedades de materiales",
+    dificultad: "Media",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 1 - Ciencias Naturales - Pregunta 109",
+    stem: `Para el reciclaje de los neumáticos usados, se está implementando un proceso llamado “trituración criogénica”. Este proceso consiste en depositar trozos de neumáticos en un recipiente; posteriormente, se hacen pasar por un túnel de enfriamiento, donde el caucho se pone en contacto con nitrógeno líquido, que está a una temperatura aproximada de -200 °C. Al extraer energía del caucho y llevarlo a temperaturas menores a -70 °C, este se vuelve muy frágil y susceptible de quebrarse con golpes. En último lugar, el caucho se pasa por un molino de martillos en el que se tritura y se pulveriza.`,
+    resources: [
+      {
+        type: "html",
+        html: `
+          <article class="reading-card prose-reading science-reading cryo-card">
+            <div class="reading-instruction">RESPONDA LAS PREGUNTAS 109 A 111 DE ACUERDO CON LA SIGUIENTE INFORMACIÓN</div>
+            <p>Para reciclar neumáticos usados se emplea un proceso llamado <strong>trituración criogénica</strong>. Primero, los trozos de neumático se depositan en un recipiente. Luego pasan por un túnel de enfriamiento donde entran en contacto con <strong>nitrógeno líquido</strong>, a una temperatura aproximada de <strong>-200 °C</strong>.</p>
+            <p>El enfriamiento extrae energía del caucho hasta llevarlo a temperaturas menores a <strong>-70 °C</strong>. En estas condiciones, el caucho se vuelve frágil y puede quebrarse con golpes. Finalmente, pasa por un molino de martillos, donde se tritura y se pulveriza.</p>
+            <svg viewBox="0 0 920 390" class="diagram-svg cryo-diagram" role="img" aria-label="Proceso de trituración criogénica de neumáticos">
+              <defs>
+                <marker id="arrow-cryo-109" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="currentColor"></path></marker>
+                <linearGradient id="cryo-tank" x1="0" x2="1"><stop offset="0" stop-color="currentColor" stop-opacity=".10"></stop><stop offset=".5" stop-color="currentColor" stop-opacity=".35"></stop><stop offset="1" stop-color="currentColor" stop-opacity=".10"></stop></linearGradient>
+              </defs>
+              <text x="30" y="36" font-size="18" font-weight="900">1. Recipiente de neumáticos</text>
+              <path d="M70 70 L190 70 L165 210 L95 210 Z" fill="rgba(0,0,0,.08)" stroke="currentColor" stroke-width="3"></path>
+              <g fill="currentColor" opacity=".75">
+                <circle cx="94" cy="62" r="10"></circle><circle cx="118" cy="58" r="11"></circle><circle cx="144" cy="60" r="10"></circle><circle cx="166" cy="62" r="9"></circle><circle cx="132" cy="43" r="9"></circle>
+              </g>
+              <rect x="85" y="210" width="95" height="24" rx="6" fill="rgba(0,0,0,.08)" stroke="currentColor" stroke-width="3"></rect>
+              <text x="88" y="256" font-size="15" font-weight="800">Trozos de caucho</text>
+
+              <text x="310" y="36" font-size="18" font-weight="900">2. Túnel de enfriamiento</text>
+              <rect x="260" y="105" width="350" height="105" rx="12" fill="rgba(0,0,0,.06)" stroke="currentColor" stroke-width="4"></rect>
+              <line x1="280" y1="157" x2="588" y2="157" stroke="currentColor" stroke-width="12" opacity=".18"></line>
+              <g stroke="currentColor" stroke-width="4" opacity=".85">
+                <line x1="292" y1="118" x2="318" y2="196"></line><line x1="330" y1="118" x2="356" y2="196"></line><line x1="368" y1="118" x2="394" y2="196"></line><line x1="406" y1="118" x2="432" y2="196"></line><line x1="444" y1="118" x2="470" y2="196"></line><line x1="482" y1="118" x2="508" y2="196"></line><line x1="520" y1="118" x2="546" y2="196"></line><line x1="558" y1="118" x2="584" y2="196"></line>
+              </g>
+              <path d="M185 222 C214 226 230 170 258 165" fill="none" stroke="currentColor" stroke-width="5" marker-end="url(#arrow-cryo-109)"></path>
+              <path d="M285 88 C392 62 500 62 608 88" fill="none" stroke="currentColor" stroke-width="4" marker-end="url(#arrow-cryo-109)"></path>
+              <text x="350" y="83" font-size="15" font-weight="800">Contacto con nitrógeno líquido</text>
+
+              <text x="682" y="36" font-size="18" font-weight="900">3. Nitrógeno líquido</text>
+              <rect x="700" y="65" width="115" height="190" rx="50" fill="url(#cryo-tank)" stroke="currentColor" stroke-width="4"></rect>
+              <text x="713" y="168" font-size="17" font-weight="900">Nitrógeno</text>
+              <text x="735" y="190" font-size="17" font-weight="900">líquido</text>
+              <path d="M700 225 C650 226 642 186 612 174" fill="none" stroke="currentColor" stroke-width="5" marker-end="url(#arrow-cryo-109)"></path>
+              <path d="M610 120 C652 122 660 90 700 88" fill="none" stroke="currentColor" stroke-width="4" marker-end="url(#arrow-cryo-109)"></path>
+
+              <text x="442" y="296" font-size="18" font-weight="900">4. Molino de martillos</text>
+              <path d="M530 210 C532 240 524 252 500 270" fill="none" stroke="currentColor" stroke-width="5" marker-end="url(#arrow-cryo-109)"></path>
+              <rect x="440" y="270" width="140" height="76" rx="12" fill="rgba(0,0,0,.08)" stroke="currentColor" stroke-width="4"></rect>
+              <rect x="475" y="292" width="18" height="38" fill="currentColor" opacity=".35"></rect><rect x="520" y="292" width="18" height="38" fill="currentColor" opacity=".35"></rect>
+              <text x="472" y="360" font-size="15" font-weight="800">Tritura y pulveriza</text>
+              <g fill="currentColor" opacity=".8">
+                <circle cx="608" cy="300" r="4"></circle><circle cx="620" cy="310" r="3"></circle><circle cx="632" cy="319" r="4"></circle><circle cx="645" cy="306" r="3"></circle><circle cx="658" cy="314" r="3"></circle>
+              </g>
+              <path d="M590 310 C640 318 675 318 720 300" fill="none" stroke="currentColor" stroke-width="3" stroke-dasharray="4 6" marker-end="url(#arrow-cryo-109)"></path>
+              <path d="M720 305 L820 305 L800 355 L740 355 Z" fill="rgba(0,0,0,.12)" stroke="currentColor" stroke-width="3"></path>
+              <text x="724" y="378" font-size="15" font-weight="900">Caucho pulverizado</text>
+            </svg>
+          </article>
+        `
+      }
+    ],
+    prompt: "Se supone que si el túnel de enfriamiento deja de funcionar se puede continuar con el proceso de trituración. Sin embargo, se debe considerar que el caucho a temperatura ambiente requiere de otras condiciones para ser triturado. ¿Qué puede cambiarse en el proceso para continuar con la trituración?",
+    options: [
+      { letter: "A", text: "Emplear recipientes de mayor volumen para contener el caucho." },
+      { letter: "B", text: "Utilizar agua a temperatura ambiente en lugar de nitrógeno." },
+      { letter: "C", text: "Utilizar un molino con mayor fuerza de trituración." },
+      { letter: "D", text: "Emplear mayor cantidad de nitrógeno en estado líquido." }
+    ],
+    correctAnswer: "C",
+    explanation: "En el proceso criogénico, el enfriamiento vuelve frágil el caucho y facilita que se quiebre. Si el túnel de enfriamiento no funciona, el caucho permanece menos frágil a temperatura ambiente; por tanto, se necesitaría aumentar la fuerza mecánica de trituración. La respuesta correcta es C."
+  }
+
+  ,
+  {
+    uid: "s1-cn-110",
+    session: 1,
+    block: 4,
+    number: 110,
+    area: "Ciencias Naturales",
+    competencia: "Uso comprensivo del conocimiento científico",
+    componente: "Propiedades de materiales y procesos industriales",
+    dificultad: "Básica",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 1 - Ciencias Naturales - Pregunta 110",
+    stem: `La trituración simple es otro proceso que muele los neumáticos utilizando únicamente molinos; sin embargo, si se desean granos del tamaño de la trituración criogénica, se debe pasar el caucho varias veces por los molinos.`,
+    resources: [
+      {
+        type: "html",
+        html: `
+          <article class="reading-card prose-reading science-reading">
+            <div class="reading-instruction">Contexto: trituración criogénica</div>
+            <p>En la trituración criogénica, el caucho se enfría con nitrógeno líquido hasta temperaturas menores a -70 °C. Así se vuelve frágil y se rompe con mayor facilidad al pasar por el molino de martillos.</p>
+            <p>En la trituración simple, que usa solo molinos, el caucho debe pasar varias veces por los molinos para alcanzar granos del mismo tamaño.</p>
+          </article>
+        `
+      }
+    ],
+    prompt: "Al respecto, ¿qué beneficio presenta la trituración criogénica con relación a la trituración simple?",
+    options: [
+      { letter: "A", text: "Tritura con mayor rapidez a bajas temperaturas." },
+      { letter: "B", text: "Tritura sin generar gastos energéticos." },
+      { letter: "C", text: "Tritura con mayor fuerza que a temperatura ambiente." },
+      { letter: "D", text: "Tritura sin generar ningún impacto ambiental." }
+    ],
+    correctAnswer: "A",
+    explanation: "Al enfriar el caucho, este se vuelve frágil y se rompe con facilidad. Por eso la trituración criogénica permite obtener granos pequeños con mayor rapidez que la trituración simple. La respuesta correcta es A."
+  }
+
+  ,
+  {
+    uid: "s1-cn-111",
+    session: 1,
+    block: 4,
+    number: 111,
+    area: "Ciencias Naturales",
+    competencia: "Explicación de fenómenos",
+    componente: "Termodinámica: transferencia de energía térmica",
+    dificultad: "Media",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 1 - Ciencias Naturales - Pregunta 111",
+    stem: `En el túnel de enfriamiento de la trituración criogénica, el caucho entra en contacto con nitrógeno líquido a una temperatura aproximada de -200 °C. Este contacto permite que el caucho alcance temperaturas menores a -70 °C.`,
+    resources: [
+      {
+        type: "html",
+        html: `
+          <article class="reading-card prose-reading science-reading">
+            <div class="reading-instruction">Contexto: transferencia de energía</div>
+            <p>El nitrógeno líquido está a una temperatura mucho menor que la del caucho. Al entrar en contacto, el caucho pierde energía térmica, se enfría y se vuelve frágil.</p>
+          </article>
+        `
+      }
+    ],
+    prompt: "¿Qué ocurre con la energía interna del caucho en el túnel de enfriamiento?",
+    options: [
+      { letter: "A", text: "Se convierte en química al contacto con el nitrógeno." },
+      { letter: "B", text: "Permanece sin cambios hasta que llega al molino." },
+      { letter: "C", text: "Se transfiere al nitrógeno en forma de calor." },
+      { letter: "D", text: "Se convierte en mecánica para mover el molino." }
+    ],
+    correctAnswer: "C",
+    explanation: "Como el nitrógeno líquido está mucho más frío que el caucho, el caucho pierde energía térmica durante el enfriamiento. Esa energía se transfiere al nitrógeno en forma de calor. La respuesta correcta es C."
+  }
+
+
+
+
+
+  ,
+  {
+    uid: "s1-cn-112",
+    session: 1,
+    block: 4,
+    number: 112,
+    area: "Ciencias Naturales",
+    competencia: "Explicación de fenómenos",
+    componente: "Termodinámica: gases ideales",
+    dificultad: "Básica",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 1 - Ciencias Naturales - Pregunta 112",
+    stem: `La siguiente gráfica muestra cómo varía la temperatura y el volumen de un gas ideal a presión constante.`,
+    resources: [
+      {
+        type: "html",
+        html: `
+          <article class="reading-card science-reading">
+            <div class="reading-instruction">Con presión constante</div>
+            <svg viewBox="0 0 520 330" role="img" aria-label="Gráfica de volumen contra temperatura con presión constante" style="width:100%;max-width:560px;display:block;margin:0 auto;overflow:visible">
+              <defs>
+                <marker id="arrow-gas-112" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+                  <path d="M0,0 L0,6 L9,3 z" fill="currentColor"></path>
+                </marker>
+              </defs>
+              <rect x="24" y="18" width="472" height="286" rx="22" fill="rgba(0,0,0,.035)" stroke="currentColor" opacity=".12"></rect>
+              <text x="260" y="48" text-anchor="middle" font-size="25" font-weight="900">Con presión constante</text>
+              <line x1="105" y1="260" x2="430" y2="260" stroke="currentColor" stroke-width="4" marker-end="url(#arrow-gas-112)"></line>
+              <line x1="105" y1="260" x2="105" y2="78" stroke="currentColor" stroke-width="4" marker-end="url(#arrow-gas-112)"></line>
+              <line x1="112" y1="252" x2="372" y2="92" stroke="currentColor" stroke-width="6" stroke-linecap="round"></line>
+              <line x1="120" y1="185" x2="265" y2="185" stroke="currentColor" stroke-width="2" stroke-dasharray="7 8" opacity=".28"></line>
+              <line x1="265" y1="185" x2="265" y2="255" stroke="currentColor" stroke-width="2" stroke-dasharray="7 8" opacity=".28"></line>
+              <text x="265" y="308" text-anchor="middle" font-size="18" font-weight="900">Temperatura</text>
+              <text x="54" y="174" text-anchor="middle" transform="rotate(-90 54 174)" font-size="18" font-weight="900">Volumen</text>
+            </svg>
+            <p>Un estudiante tiene un gas ideal en un recipiente cerrado de paredes flexibles sobre el cual se aplica una presión externa constante de 1 atm.</p>
+          </article>
+        `
+      }
+    ],
+    prompt: "¿Qué pasará si hay un aumento en su temperatura?",
+    options: [
+      { letter: "A", text: "Aumentará la presión del gas, ya que se eleva la presión externa." },
+      { letter: "B", text: "Disminuirá la presión del gas, ya que se eleva la cantidad de choques entre sus partículas." },
+      { letter: "C", text: "Aumentará el volumen del gas, ya que se eleva la cantidad de choques entre sus partículas." },
+      { letter: "D", text: "Disminuirá el volumen del gas, ya que se eleva la presión externa." }
+    ],
+    correctAnswer: "C",
+    explanation: "A presión constante, un aumento de temperatura hace que las partículas del gas se muevan con mayor energía y choquen más. Como el recipiente tiene paredes flexibles, el gas puede expandirse; por eso aumenta su volumen y la presión se mantiene constante. La respuesta correcta es C."
+  }
+
+
+  ,
+  {
+    uid: "s1-cn-113",
+    session: 1,
+    block: 4,
+    number: 113,
+    area: "Ciencias Naturales",
+    competencia: "Uso comprensivo del conocimiento científico",
+    componente: "Procesos biológicos: ciclo de vida y metamorfosis",
+    dificultad: "Básica",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 1 - Ciencias Naturales - Pregunta 113",
+    stem: `La metamorfosis en los insectos puede seguir uno de los dos modelos descritos a continuación:`,
+    resources: [
+      {
+        type: "html",
+        html: `
+          <article class="reading-card prose-reading science-reading metamorphosis-card">
+            <div class="reading-instruction">Modelos de metamorfosis en insectos</div>
+            <ul>
+              <li><strong>Modelo 1 de crecimiento gradual:</strong> el insecto, en sus primeras etapas de vida, es muy similar a los adultos.</li>
+              <li><strong>Modelo 2 con transformaciones bruscas:</strong> las larvas son diferentes a los adultos y existe una fase intermedia o pupa entre la larva y el adulto.</li>
+            </ul>
+
+            <div class="model-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;margin-top:16px">
+              <section class="mini-model" style="border:1px solid rgba(15,23,42,.15);border-radius:18px;padding:14px;background:rgba(255,255,255,.7)">
+                <h4 style="margin:0 0 10px;text-align:center">Modelo 1</h4>
+                <svg viewBox="0 0 260 330" role="img" aria-label="Modelo 1 de metamorfosis gradual" style="width:100%;height:auto;display:block">
+                  <defs>
+                    <marker id="arrow-m113-a" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+                      <path d="M0,0 L0,6 L9,3 z" fill="currentColor"></path>
+                    </marker>
+                  </defs>
+                  <rect x="14" y="12" width="232" height="300" rx="20" fill="rgba(34,197,94,.08)" stroke="currentColor" opacity=".18"></rect>
+                  <ellipse cx="130" cy="50" rx="32" ry="13" fill="none" stroke="currentColor" stroke-width="4"></ellipse>
+                  <text x="130" y="84" text-anchor="middle" font-size="16" font-weight="800">Huevo</text>
+                  <line x1="130" y1="96" x2="130" y2="126" stroke="currentColor" stroke-width="3" marker-end="url(#arrow-m113-a)"></line>
+                  <g transform="translate(70 132)">
+                    <ellipse cx="46" cy="38" rx="44" ry="20" fill="rgba(15,23,42,.14)" stroke="currentColor" stroke-width="3"></ellipse>
+                    <line x1="4" y1="45" x2="-22" y2="62" stroke="currentColor" stroke-width="3"></line>
+                    <line x1="28" y1="54" x2="14" y2="75" stroke="currentColor" stroke-width="3"></line>
+                    <line x1="70" y1="54" x2="84" y2="75" stroke="currentColor" stroke-width="3"></line>
+                    <line x1="90" y1="45" x2="116" y2="62" stroke="currentColor" stroke-width="3"></line>
+                    <circle cx="92" cy="31" r="10" fill="rgba(15,23,42,.18)" stroke="currentColor" stroke-width="3"></circle>
+                  </g>
+                  <text x="194" y="163" font-size="14" font-weight="800">Ausencia</text>
+                  <text x="194" y="181" font-size="14" font-weight="800">de alas</text>
+                  <line x1="130" y1="214" x2="130" y2="238" stroke="currentColor" stroke-width="3" marker-end="url(#arrow-m113-a)"></line>
+                  <g transform="translate(62 242)">
+                    <ellipse cx="52" cy="32" rx="48" ry="18" fill="rgba(15,23,42,.14)" stroke="currentColor" stroke-width="3"></ellipse>
+                    <path d="M42 20 C22 -2 2 0 -2 26 C15 24 32 25 47 33" fill="rgba(15,23,42,.10)" stroke="currentColor" stroke-width="3"></path>
+                    <path d="M58 20 C82 -2 108 3 112 31 C93 27 75 27 58 34" fill="rgba(15,23,42,.10)" stroke="currentColor" stroke-width="3"></path>
+                    <line x1="10" y1="40" x2="-10" y2="62" stroke="currentColor" stroke-width="3"></line>
+                    <line x1="48" y1="48" x2="36" y2="71" stroke="currentColor" stroke-width="3"></line>
+                    <line x1="80" y1="48" x2="94" y2="71" stroke="currentColor" stroke-width="3"></line>
+                    <circle cx="100" cy="26" r="10" fill="rgba(15,23,42,.18)" stroke="currentColor" stroke-width="3"></circle>
+                  </g>
+                  <text x="194" y="260" font-size="14" font-weight="800">Presencia</text>
+                  <text x="194" y="278" font-size="14" font-weight="800">de alas</text>
+                </svg>
+              </section>
+
+              <section class="mini-model" style="border:1px solid rgba(15,23,42,.15);border-radius:18px;padding:14px;background:rgba(255,255,255,.7)">
+                <h4 style="margin:0 0 10px;text-align:center">Modelo 2</h4>
+                <svg viewBox="0 0 260 330" role="img" aria-label="Modelo 2 con huevo, larva, pupa y adulto" style="width:100%;height:auto;display:block">
+                  <defs>
+                    <marker id="arrow-m113-b" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+                      <path d="M0,0 L0,6 L9,3 z" fill="currentColor"></path>
+                    </marker>
+                  </defs>
+                  <rect x="14" y="12" width="232" height="300" rx="20" fill="rgba(59,130,246,.08)" stroke="currentColor" opacity=".18"></rect>
+                  <ellipse cx="130" cy="42" rx="24" ry="12" fill="none" stroke="currentColor" stroke-width="4"></ellipse>
+                  <text x="130" y="70" text-anchor="middle" font-size="16" font-weight="800">Huevo</text>
+                  <line x1="130" y1="82" x2="130" y2="107" stroke="currentColor" stroke-width="3" marker-end="url(#arrow-m113-b)"></line>
+                  <g transform="translate(70 112)">
+                    <path d="M10 40 C24 10, 55 12, 72 35 C91 59, 116 48, 125 28" fill="none" stroke="currentColor" stroke-width="9" stroke-linecap="round"></path>
+                    <circle cx="29" cy="28" r="4" fill="currentColor"></circle>
+                    <circle cx="49" cy="27" r="4" fill="currentColor"></circle>
+                    <circle cx="68" cy="36" r="4" fill="currentColor"></circle>
+                  </g>
+                  <text x="190" y="144" font-size="16" font-weight="800">Larva</text>
+                  <line x1="130" y1="168" x2="130" y2="193" stroke="currentColor" stroke-width="3" marker-end="url(#arrow-m113-b)"></line>
+                  <g transform="translate(98 198)">
+                    <path d="M32 5 C62 28, 55 70, 28 88 C8 67, 5 30, 32 5Z" fill="rgba(15,23,42,.16)" stroke="currentColor" stroke-width="4"></path>
+                    <line x1="32" y1="16" x2="28" y2="78" stroke="currentColor" stroke-width="3" opacity=".45"></line>
+                  </g>
+                  <text x="188" y="236" font-size="16" font-weight="800">Pupa</text>
+                  <line x1="130" y1="290" x2="130" y2="303" stroke="currentColor" stroke-width="3" marker-end="url(#arrow-m113-b)"></line>
+                </svg>
+              </section>
+            </div>
+
+            <div class="reading-instruction" style="margin-top:18px">Ciclo de vida observado: mariposa</div>
+            <svg viewBox="0 0 760 250" role="img" aria-label="Ciclo de vida de la mariposa: huevo, larva, pupa y adulto" style="width:100%;max-width:820px;display:block;margin:0 auto;overflow:visible">
+              <defs>
+                <marker id="arrow-cycle-113" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+                  <path d="M0,0 L0,6 L9,3 z" fill="currentColor"></path>
+                </marker>
+              </defs>
+              <path d="M60 50 C200 20 390 20 700 52" stroke="currentColor" stroke-width="8" stroke-linecap="round" fill="none" opacity=".65"></path>
+              <g transform="translate(80 92)">
+                <ellipse cx="0" cy="0" rx="18" ry="11" fill="rgba(15,23,42,.12)" stroke="currentColor" stroke-width="3"></ellipse>
+                <ellipse cx="28" cy="-3" rx="18" ry="11" fill="rgba(15,23,42,.12)" stroke="currentColor" stroke-width="3"></ellipse>
+                <text x="14" y="52" text-anchor="middle" font-size="18" font-weight="900">Huevos</text>
+              </g>
+              <line x1="145" y1="100" x2="220" y2="100" stroke="currentColor" stroke-width="3" marker-end="url(#arrow-cycle-113)"></line>
+              <g transform="translate(232 82)">
+                <path d="M0 45 C28 0, 82 10, 108 45 C85 66, 25 70, 0 45Z" fill="rgba(15,23,42,.12)" stroke="currentColor" stroke-width="4"></path>
+                <circle cx="25" cy="38" r="5" fill="currentColor"></circle><circle cx="48" cy="34" r="5" fill="currentColor"></circle><circle cx="70" cy="38" r="5" fill="currentColor"></circle>
+                <text x="54" y="96" text-anchor="middle" font-size="18" font-weight="900">Larva</text>
+              </g>
+              <line x1="360" y1="100" x2="435" y2="100" stroke="currentColor" stroke-width="3" marker-end="url(#arrow-cycle-113)"></line>
+              <g transform="translate(455 64)">
+                <path d="M36 10 C78 40, 68 104, 30 128 C-5 96,-6 36,36 10Z" fill="rgba(15,23,42,.16)" stroke="currentColor" stroke-width="5"></path>
+                <line x1="36" y1="24" x2="30" y2="112" stroke="currentColor" stroke-width="3" opacity=".45"></line>
+                <text x="35" y="166" text-anchor="middle" font-size="18" font-weight="900">Pupa</text>
+              </g>
+              <line x1="545" y1="100" x2="610" y2="100" stroke="currentColor" stroke-width="3" marker-end="url(#arrow-cycle-113)"></line>
+              <g transform="translate(635 92)">
+                <ellipse cx="-32" cy="0" rx="40" ry="58" fill="rgba(15,23,42,.12)" stroke="currentColor" stroke-width="4" transform="rotate(-28 -32 0)"></ellipse>
+                <ellipse cx="32" cy="0" rx="40" ry="58" fill="rgba(15,23,42,.12)" stroke="currentColor" stroke-width="4" transform="rotate(28 32 0)"></ellipse>
+                <rect x="-6" y="-45" width="12" height="92" rx="6" fill="currentColor" opacity=".72"></rect>
+                <line x1="-4" y1="-48" x2="-34" y2="-72" stroke="currentColor" stroke-width="4" stroke-linecap="round"></line>
+                <line x1="4" y1="-48" x2="34" y2="-72" stroke="currentColor" stroke-width="4" stroke-linecap="round"></line>
+                <text x="0" y="92" text-anchor="middle" font-size="18" font-weight="900">Adulto</text>
+              </g>
+            </svg>
+          </article>
+        `
+      }
+    ],
+    prompt: "¿A qué modelo pertenece el tipo de metamorfosis que tienen las mariposas?",
+    options: [
+      { letter: "A", text: "Al modelo 1, porque la mariposa mantiene su forma en todas las etapas del ciclo de vida." },
+      { letter: "B", text: "Al modelo 2, porque en el ciclo de vida de la mariposa existen transformaciones drásticas." },
+      { letter: "C", text: "Al modelo 1, porque las alas de la mariposa aparecen en estadios intermedios." },
+      { letter: "D", text: "Al modelo 2, porque el ciclo de vida de la mariposa inicia con la fase de huevo." }
+    ],
+    correctAnswer: "B",
+    explanation: "La mariposa pasa por huevo, larva, pupa y adulto. Como la larva es muy diferente al adulto y existe una fase intermedia de pupa, corresponde al modelo 2 de transformaciones bruscas. La respuesta correcta es B."
+  }
+
+
+  ,
+  {
+    uid: "s1-cn-114",
+    session: 1,
+    block: 4,
+    number: 114,
+    area: "Ciencias Naturales",
+    competencia: "Uso comprensivo del conocimiento científico",
+    componente: "Ecología: rangos de tolerancia en condiciones ambientales",
+    dificultad: "Básica",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 1 - Ciencias Naturales - Pregunta 114",
+    stem: `El tetra cardenal (Paracheirodon axelrodi) es un pez común en los acuarios de las casas, muy llamativo por su cuerpo colorido y alargado. Estos peces requieren acuarios con condiciones de temperatura, pH y concentraciones de amoníaco y nitritos muy específicas.`,
+    resources: [
+      {
+        type: "html",
+        html: `
+          <article class="reading-card science-reading">
+            <div class="reading-instruction">Tolerancia del tetra cardenal: niveles máximos y mínimos</div>
+            <div class="table-wrap">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Temperatura mínima</th>
+                    <th>Temperatura máxima</th>
+                    <th>pH ácido</th>
+                    <th>pH alcalino</th>
+                    <th>Amoníaco máximo</th>
+                    <th>Nitrito máximo</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>19,6 °C</td>
+                    <td>33,7 °C</td>
+                    <td>2,9</td>
+                    <td>8,8</td>
+                    <td>23,7 mg/L</td>
+                    <td>1,1 mg/L</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p>Mario tiene en su casa un acuario con varios peces y, al limpiarlo, no enjuagó bien el detergente y dejó residuos. Las condiciones del agua del acuario se afectaron y se llegó a una temperatura de <strong>22,4 °C</strong>, un <strong>pH de 10,4</strong> y concentraciones de <strong>25,8 mg/L</strong> y <strong>0,9 mg/L</strong> de amoníaco y nitritos, respectivamente.</p>
+          </article>
+        `
+      }
+    ],
+    prompt: "En consecuencia, ¿qué le sucederá a los peces en estas nuevas condiciones?",
+    options: [
+      { letter: "A", text: "Los peces sobrevivirán porque la temperatura y el nivel de nitritos no superan los rangos de tolerancia de esta especie." },
+      { letter: "B", text: "Los peces no sobrevivirán, porque los niveles de pH y nitritos superan los rangos de tolerancia de esta especie." },
+      { letter: "C", text: "Los peces sobrevivirán, porque la temperatura y el nivel de amoníaco no superan los rangos de tolerancia de esta especie." },
+      { letter: "D", text: "Los peces no sobrevivirán, porque los niveles de pH y amoníaco superan los rangos de tolerancia de esta especie." }
+    ],
+    correctAnswer: "D",
+    explanation: "La temperatura de 22,4 °C está dentro del rango permitido y los nitritos, con 0,9 mg/L, no superan el máximo de 1,1 mg/L. Sin embargo, el pH de 10,4 supera el máximo alcalino de 8,8 y el amoníaco de 25,8 mg/L supera el máximo de 23,7 mg/L. Por eso los peces no sobrevivirán. La respuesta correcta es D."
+  }
+
+
+  ,
+  {
+    uid: "s1-cn-115",
+    session: 1,
+    block: 4,
+    number: 115,
+    area: "Ciencias Naturales",
+    competencia: "Uso comprensivo del conocimiento científico",
+    componente: "Física: propagación e intensidad con la distancia",
+    dificultad: "Básica",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 1 - Ciencias Naturales - Pregunta 115",
+    stem: `Un jardinero utiliza un rociador y observa que, a medida que aumenta la distancia, la intensidad de gotas de agua que llega a los cuerpos disminuye. Por ejemplo, a los 2 m de distancia la intensidad será de 1/4 mm, como se muestra en la imagen.`,
+    resources: [
+      {
+        type: "html",
+        html: `
+          <article class="reading-card science-reading">
+            <div class="reading-instruction">Disminución de la intensidad de gotas con la distancia</div>
+            <div class="science-figure-scroll">
+              <svg viewBox="0 0 760 330" role="img" aria-label="Rociador que dispersa gotas en arcos de 1 a 5 metros">
+                <defs>
+                  <marker id="arrow115" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+                    <path d="M0,0 L0,6 L9,3 z" fill="currentColor"></path>
+                  </marker>
+                  <linearGradient id="spray115" x1="0" x2="1">
+                    <stop offset="0" stop-color="#7dd3fc" stop-opacity=".38"></stop>
+                    <stop offset="1" stop-color="#7dd3fc" stop-opacity=".05"></stop>
+                  </linearGradient>
+                </defs>
+                <rect x="14" y="18" width="110" height="145" rx="20" fill="#e5e7eb" stroke="currentColor" stroke-width="4"></rect>
+                <rect x="42" y="42" width="54" height="72" rx="12" fill="#f8fafc" stroke="currentColor" stroke-width="3"></rect>
+                <text x="69" y="196" text-anchor="middle" font-size="20" font-weight="900">Rociador</text>
+                <path d="M116 88 C270 18 485 18 735 78 L735 250 C485 310 270 310 116 240 Z" fill="url(#spray115)" stroke="currentColor" stroke-width="3"></path>
+                <line x1="116" y1="88" x2="735" y2="78" stroke="currentColor" stroke-width="4"></line>
+                <line x1="116" y1="240" x2="735" y2="250" stroke="currentColor" stroke-width="4"></line>
+                <path d="M220 70 C200 120 200 208 220 258" fill="none" stroke="currentColor" stroke-width="4"></path>
+                <path d="M340 53 C310 120 310 211 340 278" fill="none" stroke="currentColor" stroke-width="4"></path>
+                <path d="M475 44 C440 118 440 214 475 288" fill="none" stroke="currentColor" stroke-width="4"></path>
+                <path d="M625 48 C585 116 585 216 625 285" fill="none" stroke="currentColor" stroke-width="4"></path>
+                <path d="M116 165 L220 166" stroke="currentColor" stroke-width="2" stroke-dasharray="7 8" marker-end="url(#arrow115)"></path>
+                <path d="M116 151 L340 138" stroke="currentColor" stroke-width="2" stroke-dasharray="7 8" marker-end="url(#arrow115)"></path>
+                <path d="M116 179 L475 215" stroke="currentColor" stroke-width="2" stroke-dasharray="7 8" marker-end="url(#arrow115)"></path>
+                <path d="M116 200 L625 264" stroke="currentColor" stroke-width="2" stroke-dasharray="7 8" marker-end="url(#arrow115)"></path>
+                <text x="176" y="142" font-size="22" font-weight="900">1 m</text>
+                <text x="270" y="112" font-size="22" font-weight="900">2 m</text>
+                <text x="382" y="198" font-size="22" font-weight="900">3 m</text>
+                <text x="530" y="249" font-size="22" font-weight="900">4 m</text>
+                <text x="665" y="285" font-size="22" font-weight="900">5 m</text>
+                <g fill="currentColor" opacity=".72">
+                  <circle cx="225" cy="135" r="7"></circle><circle cx="229" cy="170" r="6"></circle><circle cx="222" cy="208" r="7"></circle>
+                  <circle cx="345" cy="122" r="5"></circle><circle cx="350" cy="165" r="5"></circle><circle cx="344" cy="211" r="5"></circle>
+                  <circle cx="482" cy="132" r="4"></circle><circle cx="488" cy="180" r="4"></circle><circle cx="480" cy="226" r="4"></circle>
+                  <circle cx="630" cy="132" r="3"></circle><circle cx="636" cy="179" r="3"></circle><circle cx="628" cy="231" r="3"></circle>
+                  <circle cx="708" cy="156" r="2.5"></circle><circle cx="712" cy="214" r="2.5"></circle>
+                </g>
+              </svg>
+            </div>
+            <p class="footer-note">La intensidad disminuye al alejarse del rociador; a 2 m se indica una intensidad de 1/4 mm.</p>
+          </article>
+        `
+      }
+    ],
+    prompt: "Teniendo en cuenta la información anterior, ¿cómo debe ser la intensidad de gotas a los 5 m de distancia?",
+    options: [
+      { letter: "A", text: "Menor, porque la cantidad de gotas de agua siempre es igual al aumentar la distancia." },
+      { letter: "B", text: "Mayor, porque las gotas de agua al aumentar la distancia son cada vez más grandes." },
+      { letter: "C", text: "Menor, porque la intensidad es inversamente proporcional al cuadrado de la distancia." },
+      { letter: "D", text: "Mayor, porque la intensidad es directamente proporcional al cuadrado de la distancia." }
+    ],
+    correctAnswer: "C",
+    explanation: "Al aumentar la distancia al rociador, la misma cantidad de agua se distribuye sobre una región cada vez mayor. Por eso la intensidad que llega a un punto disminuye; según el modelo planteado, disminuye de forma inversamente proporcional al cuadrado de la distancia. A 5 m debe ser menor. La respuesta correcta es C."
+  }
+
+
+  ,
+  {
+    uid: "s1-cn-116",
+    session: 1,
+    block: 4,
+    number: 116,
+    area: "Ciencias Naturales",
+    competencia: "Indagación",
+    componente: "Química: solubilidad y mezclas",
+    dificultad: "Básica",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 1 - Ciencias Naturales - Pregunta 116",
+    stem: `En una práctica de laboratorio, el profesor afirma que el agua y el aceite no se mezclan y pregunta: ¿el alcohol y el aceite se mezclan? Para responder la pregunta solicita que mezclen las dos sustancias. Un estudiante escribe como hipótesis que estos dos líquidos se mezclan formando una solución homogénea; luego, vierte los dos líquidos en un recipiente, los agita y, pasados unos minutos, observa que se forman dos capas: en el fondo se encuentra el aceite y en la capa superior está el alcohol.`,
+    prompt: "Al analizar los resultados, ¿será válida la hipótesis del estudiante y qué conclusión se puede dar?",
+    options: [
+      { letter: "A", text: "La hipótesis es válida y se concluye que los resultados obtenidos se dieron debido a que estas sustancias no se mezclaron." },
+      { letter: "B", text: "La hipótesis es válida y se concluye que el alcohol tiene enlaces que impiden que se forme una mezcla heterogénea con el aceite." },
+      { letter: "C", text: "La hipótesis es falsa y se concluye que la mezcla obtenida luego de agitar las dos sustancias es de carácter homogéneo." },
+      { letter: "D", text: "La hipótesis es falsa y se concluye que el alcohol no se disuelve en el aceite, por lo que se obtiene una mezcla heterogénea." }
+    ],
+    correctAnswer: "D",
+    explanation: "La hipótesis del estudiante indicaba que el alcohol y el aceite formarían una solución homogénea. Sin embargo, al observar dos capas separadas, se evidencia que las sustancias no se mezclaron de manera uniforme. Por tanto, la hipótesis es falsa y la mezcla obtenida es heterogénea. La respuesta correcta es D."
+  }
+
+
+
+  ,
+  {
+    uid: "s1-cnat-117",
+    session: 1,
+    block: 4,
+    number: 117,
+    area: "Ciencias Naturales",
+    competencia: "Indagación",
+    componente: "Biología: crecimiento bacteriano y representación de datos",
+    dificultad: "Media",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 1 - Ciencias Naturales - Pregunta 117",
+    stem: `Un estudiante realizó un experimento para analizar el crecimiento de un grupo de bacterias durante un periodo de 14 horas. Los datos que obtuvo le permitieron identificar cuatro etapas diferentes, que se presentaron en el siguiente orden:<br><br><strong>Etapa 1:</strong> las bacterias se adaptan al nuevo medio, comienzan a madurar y no pueden dividirse; no hay crecimiento.<br><strong>Etapa 2:</strong> se caracteriza por la duplicación de las bacterias; su crecimiento es exponencial.<br><strong>Etapa 3:</strong> los nutrientes empiezan a agotarse y se acumulan toxinas; el número de bacterias permanece constante.<br><strong>Etapa 4:</strong> los nutrientes se terminan y el nivel de toxinas es muy alto, por lo que las bacterias terminan muriendo progresivamente.`,
+    resources: [],
+    prompt: "¿Cuál de los siguientes formatos representa los datos obtenidos por el estudiante sobre el crecimiento del grupo bacteriano?",
+    options: [
+      {
+        letter: "A",
+        isHtml: true,
+        text: `
+          <div class="reaction-option-card" aria-label="Formato A">
+            <p class="reaction-option-title">A. Curva de crecimiento bacteriano</p>
+            <svg class="reaction-chart-svg" viewBox="0 0 420 260" role="img" aria-label="Gráfica A: crecimiento inmediato, fase constante y muerte progresiva">
+              <defs><marker id="arr-g117-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="currentColor"></path></marker></defs>
+              <line x1="58" y1="215" x2="390" y2="215" stroke="currentColor" stroke-width="3" marker-end="url(#arr-g117-a)"></line>
+              <line x1="58" y1="215" x2="58" y2="28" stroke="currentColor" stroke-width="3" marker-end="url(#arr-g117-a)"></line>
+              <g opacity=".25" stroke="currentColor"><line x1="58" y1="185" x2="382" y2="185"></line><line x1="58" y1="155" x2="382" y2="155"></line><line x1="58" y1="125" x2="382" y2="125"></line><line x1="58" y1="95" x2="382" y2="95"></line><line x1="58" y1="65" x2="382" y2="65"></line></g>
+              <polyline points="58,215 95,170 132,125 169,80 206,80 243,80 280,80 317,125 354,170 382,215" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"></polyline>
+              <g font-size="13" font-weight="800"><text x="32" y="219">0</text><text x="32" y="189">1</text><text x="32" y="159">2</text><text x="32" y="129">3</text><text x="32" y="99">4</text><text x="32" y="69">5</text><text x="32" y="39">6</text></g>
+              <g font-size="13" font-weight="800" text-anchor="middle"><text x="58" y="238">0</text><text x="132" y="238">4</text><text x="206" y="238">8</text><text x="280" y="238">10</text><text x="354" y="238">12</text><text x="382" y="238">14</text></g>
+              <text x="220" y="255" text-anchor="middle" font-size="14" font-weight="900">Tiempo (h)</text>
+              <text x="17" y="124" transform="rotate(-90 17 124)" text-anchor="middle" font-size="14" font-weight="900">Número de bacterias (log)</text>
+            </svg>
+          </div>
+        `
+      },
+      {
+        letter: "B",
+        isHtml: true,
+        text: `
+          <div class="reaction-option-card" aria-label="Formato B">
+            <p class="reaction-option-title">B. Tabla de datos</p>
+            <div class="science-table-wrap">
+              <table class="mini-table">
+                <tbody>
+                  <tr><th>Crecimiento bacteriano</th><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td><td>11</td><td>12</td><td>13</td></tr>
+                  <tr><th>Tiempo (h)</th><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td><td>11</td><td>12</td><td>13</td><td>14</td></tr>
+                  <tr><th>Número de bacterias (log)</th><td>0</td><td>1</td><td>1</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>5</td><td>4</td><td>3</td><td>2</td><td>1</td><td>0</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        `
+      },
+      {
+        letter: "C",
+        isHtml: true,
+        text: `
+          <div class="reaction-option-card" aria-label="Formato C">
+            <p class="reaction-option-title">C. Curva de crecimiento bacteriano</p>
+            <svg class="reaction-chart-svg" viewBox="0 0 420 260" role="img" aria-label="Gráfica C: fase de adaptación sin crecimiento, crecimiento, fase constante y muerte progresiva">
+              <defs><marker id="arr-g117-c" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="currentColor"></path></marker></defs>
+              <line x1="58" y1="215" x2="390" y2="215" stroke="currentColor" stroke-width="3" marker-end="url(#arr-g117-c)"></line>
+              <line x1="58" y1="215" x2="58" y2="28" stroke="currentColor" stroke-width="3" marker-end="url(#arr-g117-c)"></line>
+              <g opacity=".25" stroke="currentColor"><line x1="58" y1="185" x2="382" y2="185"></line><line x1="58" y1="155" x2="382" y2="155"></line><line x1="58" y1="125" x2="382" y2="125"></line><line x1="58" y1="95" x2="382" y2="95"></line><line x1="58" y1="65" x2="382" y2="65"></line></g>
+              <polyline points="58,185 95,185 132,185 169,155 206,125 243,95 280,65 317,65 354,125 382,215" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"></polyline>
+              <g font-size="13" font-weight="800"><text x="32" y="219">0</text><text x="32" y="189">1</text><text x="32" y="159">2</text><text x="32" y="129">3</text><text x="32" y="99">4</text><text x="32" y="69">5</text><text x="32" y="39">6</text></g>
+              <g font-size="13" font-weight="800" text-anchor="middle"><text x="58" y="238">0</text><text x="132" y="238">4</text><text x="206" y="238">6</text><text x="280" y="238">8</text><text x="354" y="238">12</text><text x="382" y="238">14</text></g>
+              <text x="220" y="255" text-anchor="middle" font-size="14" font-weight="900">Tiempo (h)</text>
+              <text x="17" y="124" transform="rotate(-90 17 124)" text-anchor="middle" font-size="14" font-weight="900">Número de bacterias (log)</text>
+            </svg>
+          </div>
+        `
+      },
+      {
+        letter: "D",
+        isHtml: true,
+        text: `
+          <div class="reaction-option-card" aria-label="Formato D">
+            <p class="reaction-option-title">D. Tabla de datos</p>
+            <div class="science-table-wrap">
+              <table class="mini-table">
+                <thead><tr><th>Crecimiento bacteriano</th><th>Número de bacterias (log)</th></tr></thead>
+                <tbody>
+                  <tr><td>0</td><td>1</td></tr><tr><td>1</td><td>1</td></tr><tr><td>2</td><td>1</td></tr><tr><td>3</td><td>1</td></tr><tr><td>4</td><td>2</td></tr><tr><td>5</td><td>3</td></tr><tr><td>6</td><td>4</td></tr><tr><td>7</td><td>5</td></tr><tr><td>8</td><td>5</td></tr><tr><td>9</td><td>5</td></tr><tr><td>10</td><td>4</td></tr><tr><td>11</td><td>3</td></tr><tr><td>12</td><td>2</td></tr><tr><td>13</td><td>1</td></tr><tr><td>14</td><td>0</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        `
+      }
+    ],
+    correctAnswer: "C",
+    explanation: "El formato C representa las cuatro etapas descritas: primero una fase de adaptación sin crecimiento, luego un aumento del número de bacterias, después una fase constante por agotamiento de nutrientes y acumulación de toxinas, y finalmente una disminución progresiva por muerte bacteriana. La respuesta correcta es C."
+  }
+
+
+
+  ,
+  {
+    uid: "s1-cnat-118",
+    session: 1,
+    block: 4,
+    number: 118,
+    area: "Ciencias Naturales",
+    competencia: "Uso comprensivo del conocimiento científico",
+    componente: "Biología: genética, alelos y herencia",
+    dificultad: "Básica",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 1 - Ciencias Naturales - Pregunta 118",
+    stem: `En un laboratorio se usan los cromosomas de dos individuos de una especie de mosca para hacer el siguiente cruce:`,
+    resources: [
+      {
+        type: "html",
+        html: `
+          <div class="reaction-option-card" aria-label="Cruce genético de moscas" style="max-width:760px;margin:auto">
+            <p class="reaction-option-title">Cruce de cromosomas para el gen del color de ojos</p>
+            <svg class="reaction-chart-svg" viewBox="0 0 760 360" role="img" aria-label="Mosca de ojos rojos con alelos G y G cruzada con mosca de ojos blancos con alelos g y g produce una mosca de ojos rojos con alelos G y g">
+              <defs>
+                <marker id="arr-g118" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="currentColor"></path></marker>
+              </defs>
+              <g font-family="system-ui, sans-serif" fill="currentColor">
+                <text x="116" y="36" text-anchor="middle" font-size="18" font-weight="900">Mosca de ojos rojos</text>
+                <text x="644" y="36" text-anchor="middle" font-size="18" font-weight="900">Mosca de ojos blancos</text>
+                <text x="380" y="330" text-anchor="middle" font-size="18" font-weight="900">Mosca resultante de ojos rojos</text>
+
+                <g transform="translate(44 70)">
+                  <ellipse cx="42" cy="32" rx="32" ry="22" fill="none" stroke="currentColor" stroke-width="4"></ellipse>
+                  <ellipse cx="92" cy="32" rx="42" ry="28" fill="none" stroke="currentColor" stroke-width="4"></ellipse>
+                  <circle cx="20" cy="18" r="5" fill="currentColor"></circle><circle cx="20" cy="46" r="5" fill="currentColor"></circle>
+                  <line x1="123" y1="20" x2="150" y2="3" stroke="currentColor" stroke-width="3"></line><line x1="123" y1="44" x2="150" y2="62" stroke="currentColor" stroke-width="3"></line>
+                  <line x1="58" y1="55" x2="44" y2="80" stroke="currentColor" stroke-width="3"></line><line x1="82" y1="60" x2="72" y2="88" stroke="currentColor" stroke-width="3"></line><line x1="105" y1="58" x2="116" y2="86" stroke="currentColor" stroke-width="3"></line>
+                </g>
+
+                <g transform="translate(574 70)">
+                  <ellipse cx="42" cy="32" rx="32" ry="22" fill="none" stroke="currentColor" stroke-width="4"></ellipse>
+                  <ellipse cx="92" cy="32" rx="42" ry="28" fill="none" stroke="currentColor" stroke-width="4"></ellipse>
+                  <circle cx="20" cy="18" r="5" fill="currentColor"></circle><circle cx="20" cy="46" r="5" fill="currentColor"></circle>
+                  <line x1="123" y1="20" x2="150" y2="3" stroke="currentColor" stroke-width="3"></line><line x1="123" y1="44" x2="150" y2="62" stroke="currentColor" stroke-width="3"></line>
+                  <line x1="58" y1="55" x2="44" y2="80" stroke="currentColor" stroke-width="3"></line><line x1="82" y1="60" x2="72" y2="88" stroke="currentColor" stroke-width="3"></line><line x1="105" y1="58" x2="116" y2="86" stroke="currentColor" stroke-width="3"></line>
+                </g>
+
+                <g transform="translate(236 62)">
+                  <path d="M18 10 C0 50, 0 112, 20 152" fill="none" stroke="currentColor" stroke-width="12" stroke-linecap="round"></path>
+                  <path d="M78 10 C96 50, 96 112, 76 152" fill="none" stroke="currentColor" stroke-width="12" stroke-linecap="round"></path>
+                  <text x="18" y="180" text-anchor="middle" font-size="30" font-weight="900">G</text>
+                  <text x="78" y="180" text-anchor="middle" font-size="30" font-weight="900">G</text>
+                </g>
+                <g transform="translate(448 62)">
+                  <path d="M18 10 C0 50, 0 112, 20 152" fill="none" stroke="currentColor" stroke-width="12" stroke-linecap="round"></path>
+                  <path d="M78 10 C96 50, 96 112, 76 152" fill="none" stroke="currentColor" stroke-width="12" stroke-linecap="round"></path>
+                  <rect x="7" y="79" width="24" height="12" fill="white" stroke="currentColor" stroke-width="2"></rect>
+                  <rect x="66" y="79" width="24" height="12" fill="white" stroke="currentColor" stroke-width="2"></rect>
+                  <text x="18" y="180" text-anchor="middle" font-size="30" font-weight="900">g</text>
+                  <text x="78" y="180" text-anchor="middle" font-size="30" font-weight="900">g</text>
+                </g>
+
+                <line x1="310" y1="220" x2="364" y2="260" stroke="currentColor" stroke-width="5" marker-end="url(#arr-g118)"></line>
+                <line x1="516" y1="220" x2="396" y2="260" stroke="currentColor" stroke-width="5" marker-end="url(#arr-g118)"></line>
+
+                <g transform="translate(308 204)">
+                  <path d="M18 10 C0 50, 0 112, 20 152" fill="none" stroke="currentColor" stroke-width="12" stroke-linecap="round"></path>
+                  <path d="M98 10 C116 50, 116 112, 96 152" fill="none" stroke="currentColor" stroke-width="12" stroke-linecap="round"></path>
+                  <rect x="86" y="79" width="24" height="12" fill="white" stroke="currentColor" stroke-width="2"></rect>
+                  <text x="18" y="180" text-anchor="middle" font-size="30" font-weight="900">G</text>
+                  <text x="98" y="180" text-anchor="middle" font-size="30" font-weight="900">g</text>
+                </g>
+              </g>
+            </svg>
+          </div>
+        `
+      }
+    ],
+    prompt: "De acuerdo con la información del cruce, ¿el individuo resultante es homocigoto o heterocigoto para este gen?",
+    options: [
+      { letter: "A", text: "Homocigoto, porque tiene dos alelos." },
+      { letter: "B", text: "Heterocigoto, porque tiene un solo alelo." },
+      { letter: "C", text: "Homocigoto, porque tiene el alelo G y el alelo g." },
+      { letter: "D", text: "Heterocigoto, porque tiene el alelo G y el alelo g." }
+    ],
+    correctAnswer: "D",
+    explanation: "Un individuo es heterocigoto cuando posee dos alelos diferentes para un mismo gen. En el cruce mostrado, el individuo resultante tiene un alelo G y un alelo g; por eso es heterocigoto. La respuesta correcta es D."
+  }
+  ,
+  {
+    uid: "s1-cn-119",
+    session: 1,
+    block: 1,
+    number: 119,
+    area: "Ciencias Naturales",
+    competencia: "Uso comprensivo del conocimiento científico",
+    componente: "Propiedades de las sustancias",
+    dificultad: "Básica",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 1 - Ciencias Naturales - Pregunta 119",
+    stem: "Para efectuar un procedimiento, un estudiante tiene las sustancias que se relacionan en la tabla.",
+    resources: [
+      {
+        type: "table",
+        caption: "Propiedades de las sustancias",
+        headers: ["Propiedad", "Sustancia 1", "Sustancia 2", "Sustancia 3", "Sustancia 4"],
+        rows: [
+          ["Punto de ebullición (°C)", "-196", "59", "-189", "-34"],
+          ["¿Es soluble en agua?", "Sí", "Sí", "No", "Sí"],
+          ["¿Es conductor?", "Sí", "Sí", "No", "No"]
+        ]
+      }
+    ],
+    prompt: "Si el estudiante debe usar una sustancia cuyo punto de ebullición sea menor que 130 °C, soluble en agua y que no conduzca la electricidad, ¿cuál sustancia debería elegir?",
+    options: [
+      { letter: "A", text: "La sustancia 1." },
+      { letter: "B", text: "La sustancia 2." },
+      { letter: "C", text: "La sustancia 3." },
+      { letter: "D", text: "La sustancia 4." }
+    ],
+    correctAnswer: "D",
+    explanation: "La sustancia elegida debe cumplir tres condiciones: punto de ebullición menor que 130 °C, ser soluble en agua y no conducir la electricidad. La sustancia 4 tiene punto de ebullición de -34 °C, es soluble en agua y no es conductora. Por tanto, la respuesta correcta es D."
+  }
+  ,
+  {
+    uid: "s1-cn-120",
+    session: 1,
+    block: 4,
+    number: 120,
+    area: "Ciencias Naturales",
+    competencia: "Uso comprensivo del conocimiento científico",
+    componente: "Química y física: cambios de estado y curvas de calentamiento",
+    dificultad: "Básica",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 1 - Ciencias Naturales - Pregunta 120",
+    stem: `Un investigador realizó un experimento en el que sometió un bloque de hierro a temperaturas muy altas. Él descubrió que la temperatura del hierro no cambia mientras cambia su fase. La siguiente tabla muestra los registros que hizo el investigador de temperatura, fase y cambios de fase del hierro durante su experimento.`,
+    resources: [
+      {
+        type: "table",
+        caption: "Registros de temperatura y estado del hierro",
+        headers: ["Temperatura (°C)", "Estado del hierro"],
+        rows: [
+          ["0", "Sólido"],
+          ["750", "Sólido"],
+          ["1.535", "Cambio de sólido a líquido"],
+          ["2.255", "Líquido"],
+          ["2.750", "Cambio de líquido a gaseoso"],
+          ["3.000", "Gaseoso"]
+        ]
+      }
+    ],
+    prompt: "¿Cuál de las siguientes gráficas corresponde a los datos de temperatura en el tiempo registrados por el investigador?",
+    options: [
+      {
+        letter: "A",
+        isHtml: true,
+        text: `
+          <div class="reaction-option-card" aria-label="Gráfica A">
+            <p class="reaction-option-title">Gráfica A</p>
+            <svg class="reaction-chart-svg" viewBox="0 0 420 270" role="img" aria-label="Gráfica A con aumento continuo de temperatura sin mesetas de cambio de fase">
+              <defs><marker id="arr-g120-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="currentColor"></path></marker></defs>
+              <line x1="62" y1="218" x2="386" y2="218" stroke="currentColor" stroke-width="3" marker-end="url(#arr-g120-a)"></line>
+              <line x1="62" y1="218" x2="62" y2="28" stroke="currentColor" stroke-width="3" marker-end="url(#arr-g120-a)"></line>
+              <g opacity=".25" stroke="currentColor"><line x1="62" y1="171" x2="378" y2="171"></line><line x1="62" y1="124" x2="378" y2="124"></line><line x1="62" y1="77" x2="378" y2="77"></line></g>
+              <polyline points="62,218 150,126 250,88 350,38" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"></polyline>
+              <circle cx="150" cy="126" r="5" fill="currentColor"></circle><circle cx="250" cy="88" r="5" fill="currentColor"></circle><circle cx="350" cy="38" r="5" fill="currentColor"></circle>
+              <g font-size="13" font-weight="800"><text x="40" y="222">0</text><text x="28" y="175">750</text><text x="18" y="128">1.500</text><text x="18" y="81">2.250</text><text x="18" y="34">3.000</text></g>
+              <text x="206" y="252" text-anchor="middle" font-size="14" font-weight="900">Tiempo</text>
+              <text x="18" y="124" transform="rotate(-90 18 124)" text-anchor="middle" font-size="14" font-weight="900">Temperatura (°C)</text>
+              <text x="125" y="150" font-size="15" font-weight="900">Sólido</text><text x="236" y="116" font-size="15" font-weight="900">Líquido</text><text x="315" y="61" font-size="15" font-weight="900">Gaseoso</text>
+            </svg>
+          </div>
+        `
+      },
+      {
+        letter: "B",
+        isHtml: true,
+        text: `
+          <div class="reaction-option-card" aria-label="Gráfica B">
+            <p class="reaction-option-title">Gráfica B</p>
+            <svg class="reaction-chart-svg" viewBox="0 0 420 270" role="img" aria-label="Gráfica B con una línea recta ascendente">
+              <defs><marker id="arr-g120-b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="currentColor"></path></marker></defs>
+              <line x1="62" y1="218" x2="386" y2="218" stroke="currentColor" stroke-width="3" marker-end="url(#arr-g120-b)"></line>
+              <line x1="62" y1="218" x2="62" y2="28" stroke="currentColor" stroke-width="3" marker-end="url(#arr-g120-b)"></line>
+              <g opacity=".25" stroke="currentColor"><line x1="62" y1="171" x2="378" y2="171"></line><line x1="62" y1="124" x2="378" y2="124"></line><line x1="62" y1="77" x2="378" y2="77"></line></g>
+              <line x1="62" y1="218" x2="350" y2="38" stroke="currentColor" stroke-width="5" stroke-linecap="round"></line>
+              <circle cx="350" cy="38" r="5" fill="currentColor"></circle>
+              <g font-size="13" font-weight="800"><text x="40" y="222">0</text><text x="28" y="175">750</text><text x="18" y="128">1.500</text><text x="18" y="81">2.250</text><text x="18" y="34">3.000</text></g>
+              <text x="206" y="252" text-anchor="middle" font-size="14" font-weight="900">Tiempo</text>
+              <text x="18" y="124" transform="rotate(-90 18 124)" text-anchor="middle" font-size="14" font-weight="900">Temperatura (°C)</text>
+              <text x="118" y="170" font-size="15" font-weight="900">Sólido</text><text x="225" y="106" font-size="15" font-weight="900">Líquido</text><text x="313" y="57" font-size="15" font-weight="900">Gaseoso</text>
+            </svg>
+          </div>
+        `
+      },
+      {
+        letter: "C",
+        isHtml: true,
+        text: `
+          <div class="reaction-option-card" aria-label="Gráfica C">
+            <p class="reaction-option-title">Gráfica C</p>
+            <svg class="reaction-chart-svg" viewBox="0 0 420 270" role="img" aria-label="Gráfica C con mesetas durante los cambios de fase del hierro">
+              <defs><marker id="arr-g120-c" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="currentColor"></path></marker></defs>
+              <line x1="62" y1="218" x2="386" y2="218" stroke="currentColor" stroke-width="3" marker-end="url(#arr-g120-c)"></line>
+              <line x1="62" y1="218" x2="62" y2="28" stroke="currentColor" stroke-width="3" marker-end="url(#arr-g120-c)"></line>
+              <g opacity=".25" stroke="currentColor"><line x1="62" y1="171" x2="378" y2="171"></line><line x1="62" y1="124" x2="378" y2="124"></line><line x1="62" y1="77" x2="378" y2="77"></line></g>
+              <polyline points="62,218 132,121 185,121 252,62 320,62 350,38" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"></polyline>
+              <circle cx="132" cy="121" r="5" fill="currentColor"></circle><circle cx="185" cy="121" r="5" fill="currentColor"></circle><circle cx="252" cy="62" r="5" fill="currentColor"></circle><circle cx="320" cy="62" r="5" fill="currentColor"></circle><circle cx="350" cy="38" r="5" fill="currentColor"></circle>
+              <g font-size="13" font-weight="800"><text x="40" y="222">0</text><text x="28" y="175">750</text><text x="18" y="128">1.500</text><text x="18" y="81">2.250</text><text x="18" y="34">3.000</text></g>
+              <text x="206" y="252" text-anchor="middle" font-size="14" font-weight="900">Tiempo</text>
+              <text x="18" y="124" transform="rotate(-90 18 124)" text-anchor="middle" font-size="14" font-weight="900">Temperatura (°C)</text>
+              <text x="102" y="151" font-size="15" font-weight="900">Sólido</text><text x="221" y="93" font-size="15" font-weight="900">Líquido</text><text x="320" y="60" font-size="15" font-weight="900">Gaseoso</text>
+            </svg>
+          </div>
+        `
+      },
+      {
+        letter: "D",
+        isHtml: true,
+        text: `
+          <div class="reaction-option-card" aria-label="Gráfica D">
+            <p class="reaction-option-title">Gráfica D</p>
+            <svg class="reaction-chart-svg" viewBox="0 0 420 270" role="img" aria-label="Gráfica D con varias mesetas adicionales no registradas en la tabla">
+              <defs><marker id="arr-g120-d" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="currentColor"></path></marker></defs>
+              <line x1="62" y1="218" x2="386" y2="218" stroke="currentColor" stroke-width="3" marker-end="url(#arr-g120-d)"></line>
+              <line x1="62" y1="218" x2="62" y2="28" stroke="currentColor" stroke-width="3" marker-end="url(#arr-g120-d)"></line>
+              <g opacity=".25" stroke="currentColor"><line x1="62" y1="171" x2="378" y2="171"></line><line x1="62" y1="124" x2="378" y2="124"></line><line x1="62" y1="77" x2="378" y2="77"></line></g>
+              <polyline points="62,218 100,218 132,171 170,171 205,124 238,124 270,92 305,92 334,62 350,38" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"></polyline>
+              <g font-size="13" font-weight="800"><text x="40" y="222">0</text><text x="28" y="175">750</text><text x="18" y="128">1.500</text><text x="18" y="81">2.250</text><text x="18" y="34">3.000</text></g>
+              <text x="206" y="252" text-anchor="middle" font-size="14" font-weight="900">Tiempo</text>
+              <text x="18" y="124" transform="rotate(-90 18 124)" text-anchor="middle" font-size="14" font-weight="900">Temperatura (°C)</text>
+              <text x="105" y="202" font-size="15" font-weight="900">Sólido</text><text x="225" y="114" font-size="15" font-weight="900">Líquido</text><text x="320" y="61" font-size="15" font-weight="900">Gaseoso</text>
+            </svg>
+          </div>
+        `
+      }
+    ],
+    correctAnswer: "C",
+    explanation: "Durante un cambio de fase la temperatura del hierro permanece constante, aunque se siga suministrando energía. Por eso la gráfica correcta debe mostrar tramos horizontales en los cambios de sólido a líquido y de líquido a gaseoso. La opción C representa esas mesetas y luego el aumento de temperatura en cada fase. La respuesta correcta es C."
+  }
+
+
 ];
