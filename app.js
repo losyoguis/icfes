@@ -35,6 +35,7 @@ const HISTORY_KEY = "simulador_icfes_saber11_historial_v2";
 const app = document.getElementById("app");
 const homeBtn = document.getElementById("homeBtn");
 const themeBtn = document.getElementById("themeBtn");
+const tipsBtn = document.getElementById("tipsBtn");
 
 let timerInterval = null;
 let state = {
@@ -96,6 +97,7 @@ function init() {
 
 function bindGlobalEvents() {
   homeBtn.addEventListener("click", handleHomeNavigation);
+  if (tipsBtn) tipsBtn.addEventListener("click", openTipsModal);
 
   themeBtn.addEventListener("click", () => {
     const current = document.documentElement.dataset.theme === "dark" ? "dark" : "light";
@@ -168,56 +170,19 @@ function closeActionDialog() {
   if (current) current.remove();
 }
 
-function focusApp() {
-  if (app && typeof app.focus === "function") {
-    requestAnimationFrame(() => app.focus({ preventScroll: true }));
-  }
-}
+function openTipsModal() {
+  closeActionDialog();
 
-function renderHome() {
-  clearTimer();
-  state.screen = "home";
-  homeBtn.classList.add("hidden");
-  app.innerHTML = `
-    <section class="hero">
-      <p class="eyebrow">Estructura del material</p>
-      <h2>Simulador ICFES Saber 11° por sesiones, bloques y áreas</h2>
-      <p>
-        Selecciona una sesión completa o un bloque específico. El sistema conserva la estructura académica del material:
-        Primera sesión con 120 preguntas y Segunda sesión con 134 preguntas. Por ahora están cargadas las preguntas 1 a 25 de Matemáticas, 26 a 66 de Lectura Crítica y 67 a 91 de Sociales y Ciudadanas en la Sección 1.
-      </p>
-      <div class="hero-grid">
-        <div class="stat"><strong>2</strong><span>sesiones configuradas</span></div>
-        <div class="stat"><strong>270 min</strong><span>por sesión completa</span></div>
-        <div class="stat"><strong>${EXAM_STRUCTURE.reduce((sum, session) => sum + session.totalQuestions, 0)}</strong><span>preguntas estructuradas</span></div>
-        <div class="stat"><strong>${QUESTION_BANK.length}</strong><span>preguntas cargadas</span></div>
-      </div>
-    </section>
-
-    <section class="config-bar" aria-label="Configuración del simulador">
-      <div>
-        <p class="eyebrow">Modo de trabajo</p>
-        <div class="mode-control">
-          <label class="mode-option"><input type="radio" name="mode" value="simulacro" ${state.mode === "simulacro" ? "checked" : ""}> Simulacro</label>
-          <label class="mode-option"><input type="radio" name="mode" value="practica" ${state.mode === "practica" ? "checked" : ""}> Práctica con retroalimentación</label>
-          <label class="mode-option"><input type="radio" name="mode" value="entrenamiento" ${state.mode === "entrenamiento" ? "checked" : ""}> Entrenamiento sin tiempo</label>
-        </div>
-      </div>
-      <button class="secondary-btn" id="resumeBtn" type="button">Continuar intento guardado</button>
-    </section>
-
-
-    <section class="tips-section" id="tips">
-      <div class="tips-header">
-        <div>
-          <p class="eyebrow">Guía rápida</p>
-          <h2>TIPS</h2>
-        </div>
-        <span class="pill success">Estructura + tipos de pregunta</span>
-      </div>
-
-      <div class="tips-content">
-        <article class="tip-card tip-card--wide">
+  const overlay = document.createElement("div");
+  overlay.className = "dialog-overlay tips-modal-overlay";
+  overlay.setAttribute("role", "presentation");
+  overlay.innerHTML = `
+    <section class="dialog-card tips-dialog-card" role="dialog" aria-modal="true" aria-labelledby="tipsDialogTitle">
+      <button class="dialog-close" type="button" aria-label="Cerrar">×</button>
+      <p class="eyebrow">Guía rápida del simulador</p>
+      <h2 id="tipsDialogTitle">Tips</h2>
+      <div class="tips-modal-content">
+        <article class="tip-card">
           <h3>1. Estructura general del material</h3>
           <h4>Sección 1: Primera sesión</h4>
           <p>En la portada se identifican las áreas:</p>
@@ -227,13 +192,11 @@ function renderHome() {
             <li>Sociales y Ciudadanas</li>
             <li>Ciencias Naturales</li>
           </ul>
-          <p>También aparece una duración de <strong>4 horas y 30 minutos</strong>. En esta versión del simulador se trabajan las preguntas académicas de la sesión: <strong>1 a 120</strong>.</p>
+          <p><strong>Duración:</strong> 4 horas y 30 minutos.</p>
           <p>La distribución visible es aproximadamente:</p>
-          <div class="table-wrap tips-table-wrap">
-            <table class="structure-table">
-              <thead>
-                <tr><th>Bloque</th><th>Preguntas</th><th>Área</th></tr>
-              </thead>
+          <div class="tips-table-scroll">
+            <table class="tips-table">
+              <thead><tr><th>Bloque</th><th>Preguntas</th><th>Área</th></tr></thead>
               <tbody>
                 <tr><td>1</td><td>1 a 25</td><td>Matemáticas</td></tr>
                 <tr><td>2</td><td>26 a 66</td><td>Lectura Crítica</td></tr>
@@ -253,11 +216,9 @@ function renderHome() {
           </ul>
           <p>También aparece una duración de <strong>4 horas y 30 minutos</strong>. En esta versión del simulador se trabajan las preguntas académicas visibles: <strong>1 a 134</strong>.</p>
           <p>En el archivo visible se observa esta distribución:</p>
-          <div class="table-wrap tips-table-wrap">
-            <table class="structure-table">
-              <thead>
-                <tr><th>Bloque</th><th>Preguntas</th><th>Área</th></tr>
-              </thead>
+          <div class="tips-table-scroll">
+            <table class="tips-table">
+              <thead><tr><th>Bloque</th><th>Preguntas</th><th>Área</th></tr></thead>
               <tbody>
                 <tr><td>1</td><td>1 a 28</td><td>Sociales y Ciudadanas</td></tr>
                 <tr><td>2</td><td>29 a 50</td><td>Matemáticas</td></tr>
@@ -268,7 +229,7 @@ function renderHome() {
           </div>
         </article>
 
-        <article class="tip-card tip-card--wide">
+        <article class="tip-card">
           <h3>2. Tipos de preguntas identificadas</h3>
           <p>El material no se limita a preguntas memorísticas. La mayoría son preguntas contextualizadas, con situaciones reales, tablas, gráficos, textos, imágenes o casos.</p>
 
@@ -358,7 +319,61 @@ function renderHome() {
           </div>
         </article>
       </div>
+      <div class="dialog-actions tips-modal-actions">
+        <button class="primary-btn" type="button" data-dialog-cancel>Cerrar tips</button>
+      </div>
     </section>
+  `;
+
+  overlay.addEventListener("click", event => {
+    if (event.target === overlay || event.target.closest("[data-dialog-cancel]") || event.target.closest(".dialog-close")) {
+      closeActionDialog();
+    }
+  });
+
+  document.body.appendChild(overlay);
+  const closeBtn = overlay.querySelector(".dialog-close");
+  if (closeBtn) closeBtn.focus({ preventScroll: true });
+}
+
+function focusApp() {
+  if (app && typeof app.focus === "function") {
+    requestAnimationFrame(() => app.focus({ preventScroll: true }));
+  }
+}
+
+function renderHome() {
+  clearTimer();
+  state.screen = "home";
+  homeBtn.classList.add("hidden");
+  app.innerHTML = `
+    <section class="hero">
+      <p class="eyebrow">Estructura del material</p>
+      <h2>Simulador ICFES Saber 11° por sesiones, bloques y áreas</h2>
+      <p>
+        Selecciona una sesión completa o un bloque específico. El sistema conserva la estructura académica del material:
+        Primera sesión con 120 preguntas y Segunda sesión con 134 preguntas. Por ahora están cargadas las preguntas 1 a 25 de Matemáticas, 26 a 66 de Lectura Crítica, 67 a 91 de Sociales y Ciudadanas y 92 a 120 de Ciencias Naturales en la Sección 1.
+      </p>
+      <div class="hero-grid">
+        <div class="stat"><strong>2</strong><span>sesiones configuradas</span></div>
+        <div class="stat"><strong>270 min</strong><span>por sesión completa</span></div>
+        <div class="stat"><strong>${EXAM_STRUCTURE.reduce((sum, session) => sum + session.totalQuestions, 0)}</strong><span>preguntas estructuradas</span></div>
+        <div class="stat"><strong>${QUESTION_BANK.length}</strong><span>preguntas cargadas</span></div>
+      </div>
+    </section>
+
+    <section class="config-bar" aria-label="Configuración del simulador">
+      <div>
+        <p class="eyebrow">Modo de trabajo</p>
+        <div class="mode-control">
+          <label class="mode-option"><input type="radio" name="mode" value="simulacro" ${state.mode === "simulacro" ? "checked" : ""}> Simulacro</label>
+          <label class="mode-option"><input type="radio" name="mode" value="practica" ${state.mode === "practica" ? "checked" : ""}> Práctica con retroalimentación</label>
+          <label class="mode-option"><input type="radio" name="mode" value="entrenamiento" ${state.mode === "entrenamiento" ? "checked" : ""}> Entrenamiento sin tiempo</label>
+        </div>
+      </div>
+      <button class="secondary-btn" id="resumeBtn" type="button">Continuar intento guardado</button>
+    </section>
+
 
     <section class="session-grid" id="sessionGrid"></section>
   `;

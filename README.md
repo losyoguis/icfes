@@ -33,15 +33,13 @@ Duración: 4 horas y 30 minutos. Total académico configurado: 134 preguntas.
 - Se eliminaron los botones de “Ver estructura”.
 - Se rediseñó la interfaz responsive para móviles: tarjetas, botones táctiles, tablas convertidas en tarjetas, encabezado tipo app, mejor navegación y estética visual renovada.
 
-## Sección TIPS
-
-El inicio del simulador incluye una sección llamada **TIPS**, con la estructura académica de las dos sesiones y los tipos de preguntas identificadas por área: Matemáticas, Lectura Crítica, Sociales y Ciudadanas, Ciencias Naturales e Inglés.
 
 ## Preguntas cargadas
 
 - Sección 1 - Matemáticas - Preguntas 1 a 25.
 - Sección 1 - Lectura Crítica - Preguntas 26 a 66.
 - Sección 1 - Sociales y Ciudadanas - Preguntas 67 a 91.
+- Sección 1 - Ciencias Naturales - Preguntas 92 a 120.
 
 ## Cómo probar
 
