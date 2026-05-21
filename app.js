@@ -596,7 +596,7 @@ function renderQuestion(question) {
   const selected = state.answers[key] || "";
   const showFeedback = state.mode === "practica" && selected;
   const card = document.getElementById("questionCard");
-  const resources = renderResources(question.resources || []);
+  const resources = renderResources([...(question.resources || []), ...(question.context || [])]);
   const options = question.options.map(option => {
     const isSelected = selected === option.letter;
     const isCorrect = showFeedback && option.letter === question.correctAnswer;
@@ -679,7 +679,7 @@ function renderResources(resources) {
         </figure>
       `;
     }
-    if (resource.type === "html") return `<div class="question-resource">${resource.html}</div>`;
+    if (resource.type === "html") return `<div class="question-resource">${resource.html || resource.content || ""}</div>`;
     return "";
   }).join("");
 }
