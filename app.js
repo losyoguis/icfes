@@ -342,6 +342,23 @@ function focusApp() {
   }
 }
 
+function scrollToTimerBox() {
+  requestAnimationFrame(() => {
+    const target = document.querySelector(".exam-layout") || app;
+    const header = document.querySelector(".app-header");
+    if (target && typeof window.scrollTo === "function") {
+      const headerHeight = header ? header.offsetHeight : 0;
+      const top = Math.max(target.getBoundingClientRect().top + window.pageYOffset - headerHeight - 10, 0);
+      window.scrollTo({ top, behavior: "smooth" });
+    } else if (target && typeof target.scrollIntoView === "function") {
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+    if (app && typeof app.focus === "function") {
+      app.focus({ preventScroll: true });
+    }
+  });
+}
+
 function renderHome() {
   clearTimer();
   state.screen = "home";
@@ -351,14 +368,13 @@ function renderHome() {
       <p class="eyebrow">Estructura del material</p>
       <h2>Simulador ICFES Saber 11° por sesiones, bloques y áreas</h2>
       <p>
-        Selecciona una sesión completa o un bloque específico. El sistema conserva la estructura académica del material:
-        Primera sesión con 120 preguntas y Segunda sesión con 134 preguntas. Por ahora están cargadas las preguntas 1 a 25 de Matemáticas, 26 a 66 de Lectura Crítica, 67 a 91 de Sociales y Ciudadanas y 92 a 120 de Ciencias Naturales en la Sección 1.
+        Selecciona una sesión completa o un bloque específico para iniciar el simulacro, practicar con retroalimentación o entrenar sin límite de tiempo.
       </p>
       <div class="hero-grid">
         <div class="stat"><strong>2</strong><span>sesiones configuradas</span></div>
         <div class="stat"><strong>270 min</strong><span>por sesión completa</span></div>
         <div class="stat"><strong>${EXAM_STRUCTURE.reduce((sum, session) => sum + session.totalQuestions, 0)}</strong><span>preguntas estructuradas</span></div>
-        <div class="stat"><strong>${QUESTION_BANK.length}</strong><span>preguntas cargadas</span></div>
+        <div class="stat"><strong>${QUESTION_BANK.length}</strong><span>preguntas disponibles</span></div>
       </div>
     </section>
 
@@ -404,7 +420,7 @@ function renderSessionCards() {
     const loadedTotal = getLoadedQuestionsForSession(session.id).length;
     node.querySelector(".session-stats").innerHTML = `
       <span class="pill">Total: ${session.totalQuestions}</span>
-      <span class="pill success">Cargadas: ${loadedTotal}</span>
+      <span class="pill success">Disponibles: ${loadedTotal}</span>
       <span class="pill muted">Pendientes: ${session.totalQuestions - loadedTotal}</span>
     `;
 
@@ -479,7 +495,7 @@ function showStructure(sessionId) {
       <div class="table-wrap">
         <table class="structure-table">
           <thead>
-            <tr><th>Bloque</th><th>Preguntas</th><th>Área</th><th>Calificable</th><th>Cargadas</th></tr>
+            <tr><th>Bloque</th><th>Preguntas</th><th>Área</th><th>Calificable</th><th>Disponibles</th></tr>
           </thead>
           <tbody>${rows}</tbody>
         </table>
@@ -519,11 +535,11 @@ function startScope(scope) {
 
   homeBtn.classList.remove("hidden");
   saveState();
-  renderExam();
+  renderExam({ scrollToTimer: true });
   if (state.mode !== "entrenamiento") startTimer();
 }
 
-function renderExam() {
+function renderExam({ scrollToTimer = false } = {}) {
   const session = getSession(state.sessionId);
   const loaded = state.availableNumbers.length;
 
@@ -532,7 +548,7 @@ function renderExam() {
     app.innerHTML = `
       <section class="empty-state">
         <p class="eyebrow">${session.label} · ${state.scope.label}</p>
-        <h2>Este bloque todavía no tiene preguntas cargadas</h2>
+        <h2>Este bloque todavía no tiene preguntas disponibles</h2>
         <p>La estructura ya está preparada para este rango de preguntas (${state.scope.from} a ${state.scope.to}). Cuando envíes las preguntas, se irán incorporando al banco interno del simulador.</p>
         <button class="primary-btn" type="button" id="backHomeEmpty">Volver al inicio</button>
       </section>
@@ -556,18 +572,18 @@ function renderExam() {
             <h2 class="exam-title">${state.scope.label}</h2>
             <div class="exam-meta">
               <span class="pill">Modo: ${getModeLabel(state.mode)}</span>
-              <span class="pill success">Cargadas: ${loaded}</span>
+              <span class="pill success">Disponibles: ${loaded}</span>
               <span class="pill muted">Rango: ${state.scope.from}-${state.scope.to}</span>
             </div>
           </div>
-          <div class="timer-box">
+          <div class="timer-box" id="timerBox" tabindex="-1">
             <div class="timer" id="timerText">${state.mode === "entrenamiento" ? "Sin tiempo" : formatSeconds(state.remainingSeconds)}</div>
             <span class="timer-label">${state.mode === "entrenamiento" ? "Entrenamiento" : "Tiempo restante"}</span>
           </div>
         </div>
         <div class="progress-wrap">
-          <div class="progress-text"><span>Respondidas: ${answeredCount}/${loaded}</span><span>${progress}%</span></div>
-          <div class="progress-bar"><span style="width:${progress}%"></span></div>
+          <div class="progress-text"><span id="answeredCounter">Respondidas: ${answeredCount}/${loaded}</span><span id="progressPercent">${progress}%</span></div>
+          <div class="progress-bar"><span id="progressBar" style="width:${progress}%"></span></div>
         </div>
         <div class="question-card" id="questionCard"></div>
       </article>
@@ -577,8 +593,8 @@ function renderExam() {
         <div class="legend">
           <span class="answered"><i></i>Respondida</span>
           <span class="marked"><i></i>Marcada para revisar</span>
-          <span class="pending"><i></i>Cargada pendiente</span>
-          <span class="missing"><i></i>No cargada todavía</span>
+          <span class="pending"><i></i>Pendiente</span>
+          <span class="missing"><i></i>No disponible todavía</span>
         </div>
         <div class="question-grid" id="questionGrid"></div>
         <p class="side-note">El panel conserva la numeración oficial del bloque. Las preguntas rayadas están reservadas para cuando sean adicionadas.</p>
@@ -588,7 +604,8 @@ function renderExam() {
 
   renderQuestion(question);
   renderQuestionGrid();
-  app.focus();
+  if (scrollToTimer) scrollToTimerBox();
+  else app.focus();
 }
 
 function renderQuestion(question) {
@@ -625,8 +642,8 @@ function renderQuestion(question) {
     <div class="question-actions">
       <button class="secondary-btn" type="button" id="markBtn">${state.marked[key] ? "Quitar marca" : "Marcar para revisar"}</button>
       <div class="nav-group">
-        <button class="nav-btn secondary-btn" type="button" id="prevBtn">Anterior cargada</button>
-        <button class="nav-btn secondary-btn" type="button" id="nextBtn">Siguiente cargada</button>
+        <button class="nav-btn secondary-btn" type="button" id="prevBtn">Anterior</button>
+        <button class="nav-btn secondary-btn" type="button" id="nextBtn">Siguiente</button>
       </div>
     </div>
     <div class="bottom-actions" style="margin-top:18px">
@@ -639,14 +656,20 @@ function renderQuestion(question) {
     button.addEventListener("click", () => {
       state.answers[key] = button.dataset.answer;
       saveState();
-      renderExam();
+
+      // Al seleccionar una respuesta, el simulador permanece en la misma zona de lectura.
+      // La navegación solo cambia de pregunta con Anterior, Siguiente o el panel numérico.
+      renderQuestion(question);
+      renderQuestionGrid();
+      updateProgressUI();
     });
   });
 
   document.getElementById("markBtn").addEventListener("click", () => {
     state.marked[key] = !state.marked[key];
     saveState();
-    renderExam();
+    renderQuestion(question);
+    renderQuestionGrid();
   });
 
   document.getElementById("prevBtn").addEventListener("click", () => moveLoadedQuestion(-1));
@@ -684,6 +707,20 @@ function renderResources(resources) {
   }).join("");
 }
 
+function updateProgressUI() {
+  const loaded = state.availableNumbers.length;
+  const answeredCount = state.availableNumbers.filter(number => state.answers[getAnswerKey(number)]).length;
+  const progress = loaded ? Math.round((answeredCount / loaded) * 100) : 0;
+
+  const answeredCounter = document.getElementById("answeredCounter");
+  const progressPercent = document.getElementById("progressPercent");
+  const progressBar = document.getElementById("progressBar");
+
+  if (answeredCounter) answeredCounter.textContent = `Respondidas: ${answeredCount}/${loaded}`;
+  if (progressPercent) progressPercent.textContent = `${progress}%`;
+  if (progressBar) progressBar.style.width = `${progress}%`;
+}
+
 function renderFeedback(question, selected) {
   const ok = selected === question.correctAnswer;
   return `
@@ -711,7 +748,7 @@ function renderQuestionGrid() {
     button.addEventListener("click", () => {
       state.currentNumber = Number(button.dataset.number);
       saveState();
-      renderExam();
+      renderExam({ scrollToTimer: true });
     });
   });
 }
@@ -724,7 +761,7 @@ function moveLoadedQuestion(direction) {
   if (nextIndex >= state.availableNumbers.length) nextIndex = 0;
   state.currentNumber = state.availableNumbers[nextIndex];
   saveState();
-  renderExam();
+  renderExam({ scrollToTimer: true });
 }
 
 function finishAttempt() {
@@ -733,8 +770,8 @@ function finishAttempt() {
   const answered = state.availableNumbers.filter(number => state.answers[getAnswerKey(number)]).length;
   const pending = Math.max(loaded - answered, 0);
   const message = pending > 0
-    ? `Has respondido ${answered} de ${loaded} preguntas cargadas. Quedan ${pending} sin responder. ¿Deseas finalizar el intento y ver los resultados?`
-    : "Has respondido todas las preguntas cargadas. ¿Deseas finalizar el intento y ver los resultados?";
+    ? `Has respondido ${answered} de ${loaded} preguntas disponibles. Quedan ${pending} sin responder. ¿Deseas finalizar el intento y ver los resultados?`
+    : "Has respondido todas las preguntas disponibles. ¿Deseas finalizar el intento y ver los resultados?";
 
   openActionDialog({
     title: "Finalizar intento",
@@ -803,8 +840,8 @@ function renderResults() {
 
       <div class="table-wrap">
         <table class="structure-table">
-          <thead><tr><th>Área</th><th>Preguntas cargadas</th><th>Correctas</th><th>Resultado</th></tr></thead>
-          <tbody>${areaRows || `<tr><td colspan="4">No hay preguntas calificables cargadas.</td></tr>`}</tbody>
+          <thead><tr><th>Área</th><th>Preguntas disponibles</th><th>Correctas</th><th>Resultado</th></tr></thead>
+          <tbody>${areaRows || `<tr><td colspan="4">No hay preguntas calificables disponibles.</td></tr>`}</tbody>
         </table>
       </div>
 
@@ -934,7 +971,7 @@ function resumeSavedAttempt() {
     if (!session) throw new Error("Sesión no encontrada");
     state = { ...state, ...saved, finished: false };
     homeBtn.classList.remove("hidden");
-    renderExam();
+    renderExam({ scrollToTimer: true });
     if (state.mode !== "entrenamiento") startTimer();
   } catch (error) {
     alert("No fue posible recuperar el intento guardado.");
@@ -978,7 +1015,7 @@ function downloadTxtReport() {
     `Sección: ${state.sessionId}`,
     `Bloque: ${state.scope.label}`,
     `Modo: ${getModeLabel(state.mode)}`,
-    `Preguntas cargadas: ${questions.length}`,
+    `Preguntas disponibles: ${questions.length}`,
     `Resultado: ${scored.length ? Math.round((correct / scored.length) * 100) : 0}%`,
     "",
     "DETALLE",

@@ -1,6 +1,18 @@
 # Simulador ICFES — Sección 2
 
-Versión actualizada con banco de datos incorporado hasta **Ciencias Naturales 79**.
+Versión actualizada con banco de datos incorporado hasta **Inglés 134**.
+
+## Actualización realizada
+- Al seleccionar una respuesta, la pantalla permanece en la misma zona; no avanza automáticamente.
+- La navegación entre preguntas se realiza únicamente con Anterior, Siguiente o el panel numérico.
+- Los botones de navegación ahora dicen “Anterior” y “Siguiente”.
+- Al cambiar de pregunta, la vista se ubica al inicio del contenido de la página.
+- Se mantienen las preguntas previamente disponibles de la Sección 2.
+- Se conserva la tanda de Inglés 108 a 114: comprensión de lectura “I’ll Be a Nurse”.
+- Se conserva la tanda de Inglés 115 a 119: Parte 6.A, texto sobre el valor de “doing nothing”.
+- Se conserva la tanda de Inglés 120 a 124: Parte 6.B, texto sobre gimnasia y desarrollo personal.
+- Se agregan las preguntas **125 a 134** de Inglés, Parte 7, texto cloze sobre **Jamaica Kincaid**.
+- Respuestas integradas: 125 B, 126 B, 127 A, 128 D, 129 B, 130 C, 131 D, 132 A, 133 B, 134 D.
 
 ## Uso en GitHub Pages
 1. Suba todos los archivos a un repositorio.
@@ -8,11 +20,3 @@ Versión actualizada con banco de datos incorporado hasta **Ciencias Naturales 7
 3. Abra `index.html`.
 
 Incluye `.nojekyll` para publicación directa e incrustación en Google Sites.
-
-Actualización: incluye Sección 2 - Ciencias Naturales hasta la pregunta 59.
-
-
-Actualización: banco de datos con Sección 2 — Ciencias Naturales hasta la pregunta 73.
-
-
-Actualización: se agregó Sección 2 — Ciencias Naturales, pregunta 74, respuesta correcta C.

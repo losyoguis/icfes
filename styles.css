@@ -1927,7 +1927,7 @@ h3 { font-size: 1.08rem; }
   .structure-table td:nth-child(1)::before { content: "Bloque"; }
   .structure-table td:nth-child(2)::before { content: "Preguntas"; }
   .structure-table td:nth-child(3)::before { content: "Área"; }
-  .structure-table td:nth-child(4)::before { content: "Cargadas"; }
+  .structure-table td:nth-child(4)::before { content: "Disponibles"; }
   .structure-table td:nth-child(5)::before { content: "Acción"; }
 
   .row-actions,
