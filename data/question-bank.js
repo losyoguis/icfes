@@ -8858,4 +8858,1262 @@ Sin embargo, al buscar apoyo para promover su ley, los jóvenes se dan cuenta de
     explanation: "La tabla indica los cinco valores principales de la gráfica de cajas: mínimo 155, Q1 = 162, Q2 = 165, Q3 = 170 y máximo 172. La única gráfica que ubica esos valores en esas posiciones es la opción C. Por tanto, la respuesta correcta es C."
   }
 
+,
+  {
+    uid: "s2-cnat-051",
+    session: 2,
+    block: 3,
+    number: 51,
+    area: "Ciencias Naturales",
+    competencia: "Uso comprensivo del conocimiento científico",
+    componente: "Ecología: polinización y equilibrio ecosistémico",
+    dificultad: "Básica",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 2 - Ciencias Naturales - Pregunta 51",
+    stem: "Soacha es un municipio en el departamento de Cundinamarca que cuenta con una gran diversidad ecológica, debido a su ubicación geográfica y a su variedad de ecosistemas. La extinción de especies en este municipio tendría impactos significativos en el ecosistema local, como es el caso del colibrí rutilante (Colibri coruscans), única ave polinizadora en algunas regiones del municipio, la cual se encuentra en vía de extinción local.",
+    resources: [],
+    prompt: "Dada la situación anterior, ¿por qué la extinción de los colibríes rutilantes afectaría el ecosistema de Soacha?",
+    options: [
+      { letter: "A", text: "Porque su extinción llevaría a un aumento en algunas plantas invasoras, ya que la especie no se alimentaría de ellas." },
+      { letter: "B", text: "Porque, sin los colibríes, otras especies de aves polinizadoras podrían reproducirse en exceso y sobrepoblar el ecosistema." },
+      { letter: "C", text: "Porque los colibríes son conocidos por su capacidad para eliminar insectos, por lo que su extinción resultaría en un incremento en la población de plagas." },
+      { letter: "D", text: "Porque los colibríes son polinizadores y su desaparición llevaría a la disminución de la capacidad reproductiva de las plantas que polinizan." }
+    ],
+    correctAnswer: "D",
+    explanation: "El texto indica que el colibrí rutilante es una ave polinizadora y que, en algunas regiones, cumple un papel único. Si desaparece, las plantas que dependen de su polinización tendrían menor capacidad de reproducirse, afectando el equilibrio del ecosistema local. Por tanto, la respuesta correcta es D."
+  }
+
+
+,
+  {
+    uid: "s2-cnat-052",
+    session: 2,
+    block: 3,
+    number: 52,
+    area: "Ciencias Naturales",
+    competencia: "Uso comprensivo del conocimiento científico",
+    componente: "Física: fuerzas en movimiento",
+    dificultad: "Básica",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 2 - Ciencias Naturales - Pregunta 52",
+    stem: "Juan está haciendo clavados desde el borde de una piscina, como se muestra en la figura.",
+    resources: [
+      {
+        type: "html",
+        html: `
+          <figure class="dive-figure" aria-label="Secuencia de un clavadista desde el borde de una piscina hasta el agua">
+            <svg viewBox="0 0 760 270" role="img" aria-labelledby="diveTitle diveDesc" style="width:100%;max-width:760px;display:block;margin:auto;border:1px solid var(--line);border-radius:18px;background:linear-gradient(180deg,#f8fafc 0%,#f8fafc 44%,#dbeafe 44%,#dbeafe 100%);">
+              <title id="diveTitle">Clavado desde el borde de una piscina</title>
+              <desc id="diveDesc">Secuencia simplificada de Juan saltando desde una plataforma y desplazándose por el aire hasta entrar al agua.</desc>
+              <rect x="38" y="78" width="82" height="158" rx="4" fill="#94a3b8" stroke="#475569" stroke-width="2"/>
+              <rect x="120" y="112" width="600" height="124" fill="#bfdbfe" stroke="#60a5fa" stroke-width="2" opacity="0.65"/>
+              <line x1="120" y1="112" x2="720" y2="112" stroke="#2563eb" stroke-width="3" opacity="0.45"/>
+              <g stroke="#0f172a" stroke-width="5" stroke-linecap="round" fill="none">
+                <circle cx="82" cy="45" r="12" fill="#0f172a" stroke="none"/>
+                <path d="M76 58 C70 78 70 92 84 108"/>
+                <path d="M76 72 L58 94"/>
+                <path d="M82 74 L102 96"/>
+                <path d="M84 108 L65 132"/>
+                <path d="M86 108 L108 132"/>
+              </g>
+              <g stroke="#0f172a" stroke-width="5" stroke-linecap="round" fill="none" transform="translate(222,36) rotate(8)">
+                <circle cx="0" cy="10" r="11" fill="#0f172a" stroke="none"/>
+                <path d="M14 14 C44 18 82 22 122 15"/>
+                <path d="M50 18 L46 50"/>
+                <path d="M88 18 L100 48"/>
+              </g>
+              <g stroke="#0f172a" stroke-width="5" stroke-linecap="round" fill="none" transform="translate(415,90) rotate(15)">
+                <circle cx="0" cy="12" r="11" fill="#0f172a" stroke="none"/>
+                <path d="M14 14 C48 18 92 22 138 14"/>
+                <path d="M54 18 L44 50"/>
+                <path d="M92 18 L113 44"/>
+              </g>
+              <g stroke="#0f172a" stroke-width="5" stroke-linecap="round" fill="none" transform="translate(585,145) rotate(5)">
+                <circle cx="0" cy="12" r="10" fill="#0f172a" stroke="none"/>
+                <path d="M13 14 C50 18 96 18 142 12"/>
+                <path d="M55 18 L42 42"/>
+                <path d="M98 16 L122 36"/>
+              </g>
+              <text x="42" y="255" fill="#475569" font-size="15" font-family="Arial, sans-serif">Piscina</text>
+            </svg>
+          </figure>
+        `
+      }
+    ],
+    prompt: "De acuerdo con la información anterior, ¿cuál de las siguientes fuerzas permanece constante durante todo el recorrido de Juan?",
+    options: [
+      { letter: "A", text: "La fuerza normal." },
+      { letter: "B", text: "La fuerza centrípeta." },
+      { letter: "C", text: "La fuerza gravitacional." },
+      { letter: "D", text: "La fuerza de flotación." }
+    ],
+    correctAnswer: "C",
+    explanation: "Durante el clavado, la fuerza que permanece actuando de manera constante sobre Juan es su peso o fuerza gravitacional, dirigida hacia abajo. La fuerza normal solo aparece cuando hay contacto con una superficie; la flotación aparece al estar dentro del agua, y la fuerza centrípeta no corresponde al movimiento descrito. Por tanto, la respuesta correcta es C."
+  }
+
+
+
+
+,
+  {
+    uid: "s2-cnat-053",
+    session: 2,
+    block: 3,
+    number: 53,
+    area: "Ciencias Naturales",
+    competencia: "Uso comprensivo del conocimiento científico",
+    componente: "Química: escala de pH y clasificación de sustancias",
+    dificultad: "Básica",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 2 - Ciencias Naturales - Pregunta 53",
+    stem: "Juanita investigó que las sustancias ácidas liberan iones H⁺, las sustancias básicas liberan iones OH⁻ y las soluciones neutras presentan un equilibrio entre los iones H⁺ y OH⁻. Con esta información, Juanita decidió medir el pH de algunas sustancias, para clasificarlas en la escala de pH, y registró sus datos en la siguiente tabla.",
+    resources: [
+      {
+        type: "html",
+        html: `
+          <div class="table-wrap icfes-table-wrap">
+            <table class="data-table" aria-label="pH de sustancias comunes">
+              <thead>
+                <tr>
+                  <th>Sustancia</th>
+                  <th>Jugo de limón</th>
+                  <th>Jugo de tomate</th>
+                  <th>Agua</th>
+                  <th>Jabón</th>
+                  <th>Blanqueador</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th>pH</th>
+                  <td>2</td>
+                  <td>4</td>
+                  <td>7</td>
+                  <td>11</td>
+                  <td>13</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="ph-scale-card" style="margin-top:18px;padding:16px;border:1px solid var(--line);border-radius:18px;background:var(--card-soft);">
+            <p style="margin:0 0 10px;font-weight:800;text-align:center;">Escala de pH</p>
+            <div style="display:grid;grid-template-columns:repeat(15,1fr);gap:2px;align-items:end;">
+              ${Array.from({ length: 15 }, (_, i) => `<div style="text-align:center;font-size:12px;font-weight:700;color:var(--muted);">${i}</div>`).join("")}
+              ${Array.from({ length: 15 }, (_, i) => `<div style="height:18px;border-radius:5px;background:${i < 7 ? 'linear-gradient(90deg,#fed7aa,#fb923c)' : i === 7 ? '#e2e8f0' : 'linear-gradient(90deg,#86efac,#22c55e)'};"></div>`).join("")}
+            </div>
+            <div style="display:flex;justify-content:space-between;margin-top:8px;font-size:13px;font-weight:700;color:var(--muted);">
+              <span>pH ácido</span><span>pH neutro</span><span>pH básico</span>
+            </div>
+          </div>
+        `
+      }
+    ],
+    prompt: "De acuerdo con la información anterior, ¿qué característica comparten el jugo de limón y el jugo de tomate?",
+    options: [
+      { letter: "A", text: "Son sustancias ácidas." },
+      { letter: "B", text: "Tienen el mismo pH." },
+      { letter: "C", text: "Tienen equilibrio de iones." },
+      { letter: "D", text: "Liberan iones OH⁻." }
+    ],
+    correctAnswer: "A",
+    explanation: "El jugo de limón tiene pH 2 y el jugo de tomate tiene pH 4. Ambos valores son menores que 7, por lo que corresponden a sustancias ácidas. Por tanto, la respuesta correcta es A."
+  }
+
+
+,
+  {
+    uid: "s2-cnat-054",
+    session: 2,
+    block: 3,
+    number: 54,
+    area: "Ciencias Naturales",
+    competencia: "Explicación de fenómenos",
+    componente: "Física: relación presión-volumen en gases",
+    dificultad: "Media",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 2 - Ciencias Naturales - Pregunta 54",
+    stem: "Los alvéolos son bolsas en donde se produce el intercambio de O₂ y CO₂ entre el pulmón y la sangre durante la respiración. En ellos se da la neumonía, una infección que inflama los alvéolos al llenarlos de líquido o pus, lo que dificulta la respiración.",
+    resources: [
+      {
+        type: "html",
+        html: `
+          <figure class="question-resource" aria-label="Alvéolos normales y alvéolos con neumonía">
+            <svg viewBox="0 0 820 330" role="img" style="width:100%;max-width:820px;display:block;margin:auto;border:1px solid var(--line);border-radius:18px;background:linear-gradient(180deg,#ffffff,#f8fafc);">
+              <text x="26" y="34" font-size="22" font-weight="800" fill="#0f172a">Intercambio gaseoso en los alvéolos</text>
+              <text x="26" y="62" font-size="14" fill="#475569">Los alvéolos normales tienen espacio para el aire; en la neumonía pueden llenarse de líquido o pus.</text>
+              <g transform="translate(70 105)">
+                <text x="0" y="-20" font-size="18" font-weight="800" fill="#166534">Alvéolos normales</text>
+                <circle cx="55" cy="70" r="44" fill="#dcfce7" stroke="#16a34a" stroke-width="3"/>
+                <circle cx="126" cy="72" r="42" fill="#dcfce7" stroke="#16a34a" stroke-width="3"/>
+                <circle cx="92" cy="132" r="42" fill="#dcfce7" stroke="#16a34a" stroke-width="3"/>
+                <path d="M92 48 V10" stroke="#64748b" stroke-width="8" stroke-linecap="round"/>
+                <text x="39" y="78" font-size="15" font-weight="700" fill="#166534">aire</text>
+                <text x="110" y="80" font-size="15" font-weight="700" fill="#166534">O₂</text>
+                <text x="76" y="139" font-size="15" font-weight="700" fill="#166534">CO₂</text>
+              </g>
+              <g transform="translate(490 105)">
+                <text x="0" y="-20" font-size="18" font-weight="800" fill="#991b1b">Neumonía</text>
+                <circle cx="55" cy="70" r="44" fill="#fee2e2" stroke="#ef4444" stroke-width="3"/>
+                <circle cx="126" cy="72" r="42" fill="#fee2e2" stroke="#ef4444" stroke-width="3"/>
+                <circle cx="92" cy="132" r="42" fill="#fee2e2" stroke="#ef4444" stroke-width="3"/>
+                <path d="M92 48 V10" stroke="#64748b" stroke-width="8" stroke-linecap="round"/>
+                <circle cx="55" cy="76" r="24" fill="#7f1d1d" opacity="0.55"/>
+                <circle cx="125" cy="77" r="23" fill="#7f1d1d" opacity="0.55"/>
+                <circle cx="92" cy="135" r="22" fill="#7f1d1d" opacity="0.55"/>
+                <text x="41" y="78" font-size="13" font-weight="800" fill="#7f1d1d">pus</text>
+                <text x="101" y="80" font-size="13" font-weight="800" fill="#7f1d1d">líquido</text>
+              </g>
+              <path d="M315 175 C365 130, 415 130, 460 175" fill="none" stroke="#94a3b8" stroke-width="3" marker-end="url(#arrow)"/>
+              <defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#94a3b8" /></marker></defs>
+              <text x="306" y="217" font-size="15" font-weight="700" fill="#475569">reducción del volumen disponible para aire</text>
+            </svg>
+          </figure>
+        `
+      }
+    ],
+    prompt: "De acuerdo con la figura, al padecer neumonía hay una reducción del volumen alveolar y, necesariamente, del volumen disponible para el aire dentro de ellos. En una situación extrema, algunos alvéolos pueden quedar bloqueados por líquido o pus. En esta situación, ¿una reducción del volumen alveolar implica necesariamente un aumento de la presión del aire dentro de ellos?",
+    options: [
+      { letter: "A", text: "No, porque la presión de aire dentro de los alvéolos debe ser similar a la presión atmosférica." },
+      { letter: "B", text: "No, porque la presión debe disminuir, ya que el CO₂ no tiene por dónde salir del cuerpo." },
+      { letter: "C", text: "Sí, porque habrá más O₂ en el aire, lo que hace que aumente la presión." },
+      { letter: "D", text: "Sí, porque la presión es inversamente proporcional al volumen al comprimir el aire." }
+    ],
+    correctAnswer: "D",
+    explanation: "Si una misma cantidad de aire se comprime en un volumen menor, la presión aumenta. Esto corresponde a una relación inversa entre presión y volumen. Por tanto, la respuesta correcta es D."
+  },
+  {
+    uid: "s2-cnat-055",
+    session: 2,
+    block: 3,
+    number: 55,
+    area: "Ciencias Naturales",
+    competencia: "Indagación",
+    componente: "Interpretación de gráficas científicas",
+    dificultad: "Básica",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 2 - Ciencias Naturales - Pregunta 55",
+    stem: "Un grupo de investigadoras encuentra que, para controlar la neumonía, el uso de las vacunas PPSV23 y PCV13 reduce aproximadamente un 60 % la posibilidad de ingresar al hospital por causa de esta enfermedad. La vacuna PPSV23 protege contra 23 cepas de bacterias neumocócicas y la vacuna PCV13 protege contra 13 cepas.",
+    resources: [
+      {
+        type: "html",
+        html: `
+          <div class="table-wrap icfes-table-wrap" style="max-width:520px;margin:auto;">
+            <table class="data-table" aria-label="Número de cepas protegidas por vacuna">
+              <thead><tr><th>Vacuna</th><th>Número de cepas neumocócicas</th></tr></thead>
+              <tbody><tr><td>PPSV23</td><td>23</td></tr><tr><td>PCV13</td><td>13</td></tr></tbody>
+            </table>
+          </div>
+        `
+      }
+    ],
+    prompt: "De acuerdo con la información anterior, ¿cuál de las siguientes gráficas representa correctamente el número de cepas de bacterias neumocócicas para las que protege cada vacuna?",
+    options: [
+      { letter: "A", isHtml: true, text: `<div class="mini-chart"><strong>Vacuna PPSV23: 23</strong><br><strong>Vacuna PCV13: 13</strong><div style="display:flex;gap:30px;align-items:end;height:90px;margin-top:8px"><span style="height:74px;width:45px;background:#334155;border-radius:6px 6px 0 0"></span><span style="height:42px;width:45px;background:#64748b;border-radius:6px 6px 0 0"></span></div></div>` },
+      { letter: "B", isHtml: true, text: `<div class="mini-chart"><strong>Vacuna PPSV23: 13</strong><br><strong>Vacuna PCV13: 23</strong><div style="display:flex;gap:30px;align-items:end;height:90px;margin-top:8px"><span style="height:42px;width:45px;background:#64748b;border-radius:6px 6px 0 0"></span><span style="height:74px;width:45px;background:#334155;border-radius:6px 6px 0 0"></span></div></div>` },
+      { letter: "C", isHtml: true, text: `<div class="mini-chart"><strong>Vacuna PPSV23: 60</strong><br><strong>Vacuna PCV13: 40</strong><div style="display:flex;gap:30px;align-items:end;height:90px;margin-top:8px"><span style="height:82px;width:45px;background:#334155;border-radius:6px 6px 0 0"></span><span style="height:55px;width:45px;background:#64748b;border-radius:6px 6px 0 0"></span></div></div>` },
+      { letter: "D", isHtml: true, text: `<div class="mini-chart"><strong>Vacuna PPSV23: 90</strong><br><strong>Vacuna PCV13: 10</strong><div style="display:flex;gap:30px;align-items:end;height:90px;margin-top:8px"><span style="height:86px;width:45px;background:#334155;border-radius:6px 6px 0 0"></span><span style="height:12px;width:45px;background:#64748b;border-radius:6px 6px 0 0"></span></div></div>` }
+    ],
+    correctAnswer: "A",
+    explanation: "La información indica que PPSV23 protege contra 23 cepas y PCV13 contra 13 cepas. La gráfica correcta debe mostrar una barra mayor para PPSV23 con valor 23 y una menor para PCV13 con valor 13. Por tanto, la respuesta correcta es A."
+  },
+  {
+    uid: "s2-cnat-056",
+    session: 2,
+    block: 3,
+    number: 56,
+    area: "Ciencias Naturales",
+    competencia: "Uso comprensivo del conocimiento científico",
+    componente: "Biología: vacunas y prevención de enfermedades",
+    dificultad: "Básica",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 2 - Ciencias Naturales - Pregunta 56",
+    stem: "Un grupo de investigadoras encuentra que, para controlar la neumonía, el uso de las vacunas PPSV23 y PCV13 reduce aproximadamente un 60 % la posibilidad de ingresar al hospital por causa de esta enfermedad. Estas vacunas protegen contra cepas de bacterias neumocócicas que pueden causar neumonía.",
+    prompt: "De acuerdo con la información anterior, ¿por qué se deben usar vacunas para reducir la posibilidad de ingresar al hospital a causa de la neumonía?",
+    options: [
+      { letter: "A", text: "Porque las vacunas aumentan el contagio de las cepas de bacterias en un 60 %." },
+      { letter: "B", text: "Porque las vacunas disminuyen el contagio de cepas de bacterias que producen neumonía." },
+      { letter: "C", text: "Porque las vacunas aumentan en un 90 % el volumen de los alvéolos pulmonares." },
+      { letter: "D", text: "Porque las vacunas ayudan a aumentar el volumen de sangre dentro de los alvéolos pulmonares." }
+    ],
+    correctAnswer: "B",
+    explanation: "Las vacunas ayudan al organismo a prevenir infecciones causadas por cepas bacterianas asociadas con la neumonía. Por eso reducen la posibilidad de enfermar gravemente o requerir hospitalización. Por tanto, la respuesta correcta es B."
+  }
+
+
+,
+  {
+    uid: "s2-cnat-057",
+    session: 2,
+    block: 3,
+    number: 57,
+    area: "Ciencias Naturales",
+    competencia: "Uso comprensivo del conocimiento científico",
+    componente: "Biología: transporte a través de la membrana celular",
+    dificultad: "Media",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 2 - Ciencias Naturales - Pregunta 57",
+    stem: "La siguiente imagen muestra algunos de los tipos de transporte a través de la membrana celular. Las células mantienen siempre una baja concentración de glucosa en comparación con el medio exterior. En el proceso de absorción de glucosa por parte de la célula, esta no requiere energía y el transporte de dicha molécula a través de la membrana celular se realiza a favor del gradiente de concentración por medio de proteínas transportadoras.",
+    resources: [
+      {
+        type: "html",
+        html: `
+          <figure class="question-resource" aria-label="Tipos de transporte a través de la membrana celular">
+            <svg viewBox="0 0 920 360" role="img" style="width:100%;max-width:920px;display:block;margin:auto;border:1px solid var(--line);border-radius:18px;background:linear-gradient(180deg,#ffffff,#f8fafc);">
+              <text x="30" y="34" font-size="22" font-weight="800" fill="#0f172a">Transporte a través de la membrana celular</text>
+              <text x="30" y="62" font-size="14" fill="#475569">La glucosa entra a favor del gradiente y sin gasto de energía mediante proteínas transportadoras.</text>
+              <text x="30" y="104" font-size="15" font-weight="700" fill="#475569">Espacio extracelular</text>
+              <text x="30" y="318" font-size="15" font-weight="700" fill="#475569">Citoplasma</text>
+              <g transform="translate(120 150)">
+                <rect x="0" y="0" width="700" height="26" rx="13" fill="#cbd5e1"/>
+                <rect x="0" y="45" width="700" height="26" rx="13" fill="#cbd5e1"/>
+                <g fill="#64748b">
+                  <circle cx="22" cy="13" r="9"/><circle cx="58" cy="13" r="9"/><circle cx="94" cy="13" r="9"/><circle cx="130" cy="13" r="9"/><circle cx="166" cy="13" r="9"/><circle cx="202" cy="13" r="9"/><circle cx="238" cy="13" r="9"/><circle cx="274" cy="13" r="9"/><circle cx="310" cy="13" r="9"/><circle cx="346" cy="13" r="9"/><circle cx="382" cy="13" r="9"/><circle cx="418" cy="13" r="9"/><circle cx="454" cy="13" r="9"/><circle cx="490" cy="13" r="9"/><circle cx="526" cy="13" r="9"/><circle cx="562" cy="13" r="9"/><circle cx="598" cy="13" r="9"/><circle cx="634" cy="13" r="9"/><circle cx="670" cy="13" r="9"/>
+                  <circle cx="22" cy="58" r="9"/><circle cx="58" cy="58" r="9"/><circle cx="94" cy="58" r="9"/><circle cx="130" cy="58" r="9"/><circle cx="166" cy="58" r="9"/><circle cx="202" cy="58" r="9"/><circle cx="238" cy="58" r="9"/><circle cx="274" cy="58" r="9"/><circle cx="310" cy="58" r="9"/><circle cx="346" cy="58" r="9"/><circle cx="382" cy="58" r="9"/><circle cx="418" cy="58" r="9"/><circle cx="454" cy="58" r="9"/><circle cx="490" cy="58" r="9"/><circle cx="526" cy="58" r="9"/><circle cx="562" cy="58" r="9"/><circle cx="598" cy="58" r="9"/><circle cx="634" cy="58" r="9"/><circle cx="670" cy="58" r="9"/>
+                </g>
+                <g transform="translate(70 -55)">
+                  <text x="0" y="0" font-size="15" font-weight="800" fill="#0f172a">Difusión simple</text>
+                  <line x1="45" y1="25" x2="45" y2="145" stroke="#0f172a" stroke-width="6" marker-end="url(#arrowDown)"/>
+                  <circle cx="45" cy="15" r="8" fill="#22c55e"/>
+                </g>
+                <g transform="translate(255 -55)">
+                  <text x="-10" y="0" font-size="15" font-weight="800" fill="#0f172a">Difusión facilitada</text>
+                  <text x="0" y="22" font-size="13" font-weight="700" fill="#64748b">proteína transportadora</text>
+                  <path d="M45 50 C25 72,25 100,45 122 C65 100,65 72,45 50 Z" fill="#94a3b8" stroke="#334155" stroke-width="2"/>
+                  <line x1="45" y1="25" x2="45" y2="145" stroke="#0f172a" stroke-width="6" marker-end="url(#arrowDown)"/>
+                  <circle cx="45" cy="15" r="8" fill="#22c55e"/>
+                </g>
+                <g transform="translate(500 -55)">
+                  <text x="0" y="0" font-size="15" font-weight="800" fill="#0f172a">Transporte activo</text>
+                  <text x="8" y="22" font-size="13" font-weight="700" fill="#64748b">requiere energía</text>
+                  <path d="M55 50 C30 70,30 102,55 122 C80 102,80 70,55 50 Z" fill="#94a3b8" stroke="#334155" stroke-width="2"/>
+                  <line x1="55" y1="145" x2="55" y2="25" stroke="#0f172a" stroke-width="6" marker-end="url(#arrowUp)"/>
+                  <text x="92" y="88" font-size="14" font-weight="800" fill="#dc2626">Energía</text>
+                </g>
+              </g>
+              <defs>
+                <marker id="arrowDown" markerWidth="9" markerHeight="9" refX="4" refY="7" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L8,0 L4,8 z" fill="#0f172a" /></marker>
+                <marker id="arrowUp" markerWidth="9" markerHeight="9" refX="4" refY="1" orient="auto" markerUnits="strokeWidth"><path d="M0,8 L8,8 L4,0 z" fill="#0f172a" /></marker>
+              </defs>
+            </svg>
+          </figure>
+        `
+      }
+    ],
+    prompt: "De acuerdo con la anterior información, ¿qué tipo de transporte celular se lleva a cabo para el ingreso de la glucosa a la célula?",
+    options: [
+      { letter: "A", text: "Transporte activo." },
+      { letter: "B", text: "Transporte pasivo por difusión facilitada mediada por transportadores." },
+      { letter: "C", text: "Transporte pasivo por difusión simple." },
+      { letter: "D", text: "Transporte pasivo por difusión facilitada mediada por canales." }
+    ],
+    correctAnswer: "B",
+    explanation: "La situación indica tres condiciones: la glucosa entra a favor del gradiente de concentración, no requiere energía y utiliza proteínas transportadoras. Esto corresponde a transporte pasivo por difusión facilitada mediada por transportadores. Por tanto, la respuesta correcta es B."
+  }
+
+
+,
+  {
+    uid: "s2-cnat-058",
+    session: 2,
+    block: 3,
+    number: 58,
+    area: "Ciencias Naturales",
+    competencia: "Uso comprensivo del conocimiento científico",
+    componente: "Biología: evolución, mutaciones y selección natural",
+    dificultad: "Media",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 2 - Ciencias Naturales - Pregunta 58",
+    stem: "La evolución es un fenómeno natural que favorece las mutaciones más aptas para un entorno determinado. En 1802, Lamarck teorizó que estos cambios se daban por un mecanismo que les permitía a los seres trasladar a su descendencia las características que adquirieron en vida. En la actualidad esta teoría fue reevaluada, pues si un organismo en vida estira mucho su cuello para comer de árboles altos, su descendencia no nacerá con el cuello largo, ya que no se presenta una mutación en sus genes, solo es una adaptación individual. El siguiente experimento muestra las mutaciones en los colores de una especie de escarabajos que les permitió adaptarse a su entorno.",
+    resources: [
+      {
+        type: "html",
+        html: `
+          <figure class="question-resource" aria-label="Mutaciones, selección natural y adaptación en escarabajos">
+            <svg viewBox="0 0 920 360" role="img" style="width:100%;max-width:920px;display:block;margin:auto;border:1px solid var(--line);border-radius:18px;background:linear-gradient(180deg,#ffffff,#f8fafc);">
+              <text x="30" y="34" font-size="22" font-weight="800" fill="#0f172a">Mutaciones y selección natural</text>
+              <text x="30" y="62" font-size="14" fill="#475569">Las mutaciones generan variación; el ambiente favorece las variantes más aptas.</text>
+              <g transform="translate(80 105)">
+                <text x="0" y="-18" font-size="16" font-weight="800" fill="#0f172a">1. Variación genética</text>
+                <circle cx="75" cy="55" r="34" fill="#dbeafe" stroke="#2563eb" stroke-width="3"/>
+                <circle cx="155" cy="55" r="34" fill="#93c5fd" stroke="#2563eb" stroke-width="3"/>
+                <circle cx="235" cy="55" r="34" fill="#1d4ed8" stroke="#1e3a8a" stroke-width="3"/>
+                <text x="20" y="120" font-size="14" font-weight="700" fill="#475569">colores distintos por mutación</text>
+              </g>
+              <g transform="translate(405 105)">
+                <text x="0" y="-18" font-size="16" font-weight="800" fill="#0f172a">2. El ambiente selecciona</text>
+                <rect x="0" y="15" width="250" height="105" rx="18" fill="#dcfce7" stroke="#16a34a" stroke-width="3"/>
+                <path d="M25 100 C55 40,95 130,130 65 S195 40,225 105" fill="none" stroke="#166534" stroke-width="5" opacity="0.6"/>
+                <circle cx="60" cy="72" r="18" fill="#dbeafe" stroke="#2563eb" stroke-width="3" opacity="0.4"/>
+                <circle cx="122" cy="74" r="18" fill="#1d4ed8" stroke="#1e3a8a" stroke-width="3"/>
+                <circle cx="182" cy="73" r="18" fill="#1d4ed8" stroke="#1e3a8a" stroke-width="3"/>
+                <text x="28" y="148" font-size="14" font-weight="700" fill="#475569">mutaciones desfavorables se reducen</text>
+              </g>
+              <g transform="translate(710 105)">
+                <text x="0" y="-18" font-size="16" font-weight="800" fill="#0f172a">3. Más descendencia</text>
+                <circle cx="32" cy="55" r="24" fill="#1d4ed8" stroke="#1e3a8a" stroke-width="3"/>
+                <circle cx="92" cy="55" r="24" fill="#1d4ed8" stroke="#1e3a8a" stroke-width="3"/>
+                <circle cx="62" cy="112" r="24" fill="#1d4ed8" stroke="#1e3a8a" stroke-width="3"/>
+                <text x="-4" y="165" font-size="14" font-weight="700" fill="#475569">la variante favorable se hereda</text>
+              </g>
+              <path d="M340 160 L385 160" stroke="#94a3b8" stroke-width="5" marker-end="url(#arrow58)"/>
+              <path d="M665 160 L700 160" stroke="#94a3b8" stroke-width="5" marker-end="url(#arrow58)"/>
+              <defs><marker id="arrow58" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#94a3b8" /></marker></defs>
+            </svg>
+          </figure>
+        `
+      }
+    ],
+    prompt: "Según este experimento, ¿cuál es la razón por la que se reevaluó la teoría de Lamarck?",
+    options: [
+      { letter: "A", text: "Porque los escarabajos pueden cambiar de color dependiendo del tipo de suelo." },
+      { letter: "B", text: "Porque el experimento muestra que son las mutaciones las que se transmiten." },
+      { letter: "C", text: "Porque las aves también pueden evolucionar y lograr cazar a todos los insectos." },
+      { letter: "D", text: "Porque en la actualidad los estudios científicos más antiguos son rechazados." }
+    ],
+    correctAnswer: "B",
+    explanation: "La teoría de Lamarck proponía que se heredaban características adquiridas durante la vida. El experimento muestra, en cambio, que la variación heredable proviene de mutaciones genéticas y que el ambiente favorece las mutaciones más aptas. Por tanto, la respuesta correcta es B."
+  }
+
+
+
+,
+  {
+    uid: "s2-cnat-059",
+    session: 2,
+    block: 3,
+    number: 59,
+    area: "Ciencias Naturales",
+    competencia: "Indagación",
+    componente: "Ecología: hipótesis, variables ambientales y contaminación",
+    dificultad: "Media",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 2 - Ciencias Naturales - Pregunta 59",
+    stem: "Durante los últimos diez años, una población costera ha notado un aumento en la aparición de corales albinos. Un investigador de la región propone como hipótesis que el aumento se debe al incremento en la temperatura promedio anual en este lugar. Sin embargo, al recolectar más información del área, se da cuenta de que la temperatura promedio anual no ha cambiado y que desde hace doce años una fábrica de productos de cuero vierte sus desechos en la costa y contamina las aguas donde crecen los corales.",
+    resources: [],
+    prompt: "Teniendo en cuenta la nueva información, ¿la hipótesis explica el aumento de corales albinos?",
+    options: [
+      { letter: "A", text: "No, porque los corales albinos pueden afectarse por otros factores, como aguas residuales de fábricas de cuero." },
+      { letter: "B", text: "Sí, porque la temperatura es el principal responsable de la formación de corales albinos." },
+      { letter: "C", text: "No, porque no se indica cuánto varía la temperatura en la zona de mayor crecimiento de los corales albinos." },
+      { letter: "D", text: "Sí, porque la contaminación de otras fábricas no influye en la aparición de corales albinos." }
+    ],
+    correctAnswer: "A",
+    explanation: "La hipótesis inicial relacionaba el aumento de corales albinos con un incremento de temperatura. La nueva información muestra que la temperatura promedio anual no cambió y que existe otro factor ambiental relevante: la contaminación por desechos de una fábrica de cuero. Por eso, la hipótesis inicial no explica adecuadamente el fenómeno observado. La respuesta correcta es A."
+  }
+
+
+
+,
+  {
+    uid: "s2-cnat-060",
+    session: 2,
+    block: 3,
+    number: 60,
+    area: "Ciencias Naturales",
+    competencia: "Uso comprensivo del conocimiento científico",
+    componente: "Evolución: selección natural, adaptación y camuflaje",
+    dificultad: "Media",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 2 - Ciencias Naturales - Pregunta 60",
+    stem: "La polilla inglesa del abedul presenta alguna de estas dos coloraciones: tono claro y tono oscuro. Antes de la Revolución Industrial, las polillas de tonos claros eran las más abundantes, pues podían camuflarse sobre la corteza de los abedules, que era de tono claro, y evitar así los depredadores. Durante la Revolución Industrial, la corteza de los abedules se oscureció producto del excesivo hollín liberado por la combustión del carbón, y entonces las polillas de tonos oscuros fueron más comunes que las de tonos claros. En la actualidad, más de un siglo después de finalizada la Revolución Industrial, cuando las lluvias de todos estos años lavaron el hollín, ¿cuál es el tono más común en esta especie de polilla?",
+    resources: [],
+    prompt: "Seleccione la opción que explica el tono más común esperado en la actualidad.",
+    options: [
+      { letter: "A", text: "Ambos son igual de comunes, porque las polillas podrán camuflarse sobre las cortezas de tonos claros y las de tonos oscuros." },
+      { letter: "B", text: "El tono intermedio, porque las polillas podrán camuflarse sobre las cortezas de tonos claros y de tonos oscuros." },
+      { letter: "C", text: "El tono claro, porque las polillas podrán camuflarse sobre la corteza de tono claro de los abedules." },
+      { letter: "D", text: "El tono oscuro, porque las polillas podrán camuflarse sobre la corteza de tonos oscuros de los abedules." }
+    ],
+    correctAnswer: "C",
+    explanation: "Si el hollín fue lavado y la corteza de los abedules volvió a ser clara, las polillas claras tienen mayor camuflaje frente a depredadores. Por selección natural, ese tono tendría mayor probabilidad de ser común. La respuesta correcta es C."
+  }
+
+
+
+,
+  {
+    uid: "s2-cnat-061",
+    session: 2,
+    block: 3,
+    number: 61,
+    area: "Ciencias Naturales",
+    competencia: "Uso comprensivo del conocimiento científico",
+    componente: "Química y ciencias de la Tierra: combustibles fósiles y materia orgánica",
+    dificultad: "Básica",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 2 - Ciencias Naturales - Pregunta 61",
+    stem: "El carbón y el petróleo son combustibles fósiles que se formaron hace millones de años. El petróleo se formó a partir de restos vegetales y animales marinos que se transformaron por acción bacteriana, incremento de temperatura y presión. El carbón, por su parte, se formó a partir de la acumulación de restos vegetales y esporas que se comprimieron en pantanos poco profundos y ciénagas, en ausencia de oxígeno.",
+    resources: [],
+    prompt: "Teniendo en cuenta la información anterior, ¿cuál de las siguientes afirmaciones indica una similitud existente entre el carbón y el petróleo?",
+    options: [
+      { letter: "A", text: "El petróleo y el carbón son combustibles fósiles a base de carbono e hidrógeno que solo se presentan en estado sólido." },
+      { letter: "B", text: "El petróleo y el carbón se formaron a partir de materia orgánica que se transformó por condiciones físicas específicas." },
+      { letter: "C", text: "El petróleo y el carbón son combustibles a base de carbono e hidrógeno que presentan estado tanto sólido como líquido." },
+      { letter: "D", text: "El petróleo y el carbón se formaron a partir de la materia inorgánica en descomposición desde hace millones de años." }
+    ],
+    correctAnswer: "B",
+    explanation: "La información indica que tanto el petróleo como el carbón se originaron a partir de restos de seres vivos, es decir, materia orgánica, y que su formación dependió de condiciones físicas específicas, como presión, temperatura, compresión o ausencia de oxígeno. Por tanto, la respuesta correcta es B."
+  }
+
+
+
+,
+  {
+    uid: "s2-cnat-062",
+    session: 2,
+    block: 3,
+    number: 62,
+    area: "Ciencias Naturales",
+    competencia: "Indagación",
+    componente: "Física: ondas, sonido y diseño experimental",
+    dificultad: "Media",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 2 - Ciencias Naturales - Pregunta 62",
+    stem: "Un estudiante construye un teléfono de juguete uniendo dos vasos plásticos a los extremos de una cuerda. Cuando la cuerda se tensiona se puede hablar en un vaso y escuchar el mensaje en el vaso al otro extremo de la cuerda. El estudiante tiene la siguiente hipótesis: si se emite el mismo sonido y la tensión de la cuerda es la misma, la calidad del sonido siempre es igual, sin importar el grueso de la cuerda que se use. Para probar esta hipótesis, el estudiante construye varios teléfonos con cuerdas del mismo material, pero de diferente grosor, y las tensiona con la misma fuerza. Obtiene los resultados que se muestran en la tabla.",
+    resources: [
+      {
+        type: "table",
+        caption: "Resultados del experimento",
+        headers: ["Grosor de la cuerda (mm)", "Longitud (m)", "Calidad del sonido escuchado"],
+        rows: [
+          ["2", "5", "Buena"],
+          ["6", "5", "Regular"],
+          ["10", "5", "Mala"]
+        ]
+      }
+    ],
+    prompt: "Luego de analizar los resultados del experimento, ¿qué debe concluir el estudiante sobre su hipótesis?",
+    options: [
+      { letter: "A", text: "Que es verdadera, porque el sonido únicamente depende del material de la cuerda." },
+      { letter: "B", text: "Que es falsa, porque a medida que el grosor de la cuerda aumenta mejora la calidad del sonido." },
+      { letter: "C", text: "Que es verdadera, porque la calidad del sonido mejora cuando la longitud de la cuerda aumenta." },
+      { letter: "D", text: "Que es falsa, porque a medida que el grosor de la cuerda aumenta desmejora la calidad del sonido." }
+    ],
+    correctAnswer: "D",
+    explanation: "La hipótesis afirmaba que la calidad del sonido sería siempre igual si el sonido emitido y la tensión de la cuerda eran los mismos. Sin embargo, la tabla muestra que, manteniendo la longitud en 5 m y usando el mismo material, al aumentar el grosor de la cuerda de 2 mm a 10 mm la calidad pasa de buena a mala. Por tanto, la hipótesis es falsa y la respuesta correcta es D."
+  }
+
+,
+  {
+    uid: "s2-cnat-063",
+    session: 2,
+    block: 3,
+    number: 63,
+    area: "Ciencias Naturales",
+    competencia: "Explicación de fenómenos",
+    componente: "Química: reacciones ácido-base y neutralización",
+    dificultad: "Media",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 2 - Ciencias Naturales - Pregunta 63",
+    stem: "Una reacción de neutralización puede resultar a partir de la interacción de un ácido y una base, como se muestra en la siguiente fórmula general.",
+    resources: [
+      {
+        type: "html",
+        content: `<div class="formula-card" style="text-align:center;font-weight:900;font-size:1.25rem;line-height:1.7;padding:16px;border:1px solid var(--line);border-radius:18px;background:var(--soft)">
+          <div>HA + B(OH) → BA + H<sub>2</sub>O</div>
+          <div style="font-size:.88rem;font-weight:700;margin-top:6px">Ácido + Base → Sal + Agua</div>
+          <div style="font-size:.82rem;font-weight:700;margin-top:6px">A: no metal &nbsp;&nbsp; | &nbsp;&nbsp; B: metal</div>
+        </div>`
+      }
+    ],
+    prompt: "De acuerdo con la información anterior, ¿cuál de las siguientes reacciones corresponde a una neutralización?",
+    options: [
+      { letter: "A", text: "6HCl + 2Fe → 2FeCl₃ + 3H₂" },
+      { letter: "B", text: "8HNO₃ + 2Al → 2Al(NO₃)₃ + 2NO + 4H₂O" },
+      { letter: "C", text: "CaO + H₂O → Ca(OH)₂" },
+      { letter: "D", text: "HCl + NaOH → NaCl + H₂O" }
+    ],
+    correctAnswer: "D",
+    explanation: "Una neutralización ocurre cuando un ácido reacciona con una base y se forman una sal y agua. En la opción D, el HCl es un ácido y el NaOH es una base; sus productos son NaCl, una sal, y H₂O, agua. Por tanto, la respuesta correcta es D."
+  }
+
+,
+  {
+    uid: "s2-cnat-064",
+    session: 2,
+    block: 3,
+    number: 64,
+    area: "Ciencias Naturales",
+    competencia: "Uso comprensivo del conocimiento científico",
+    componente: "Química: métodos de separación de mezclas",
+    dificultad: "Media",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 2 - Ciencias Naturales - Pregunta 64",
+    stem: "Los perfumes se crean a partir de la extracción de las esencias de flores, semillas, hierbas y cáscaras, que han sido sumergidas en agua por horas. Después, por acción del calor, se separan los componentes que han cambiado a estado gaseoso en la mezcla, para luego enfriar y obtener un líquido que posteriormente se envasa para su comercialización. Para realizar el proceso de separación y obtener el perfume se cuenta con varios métodos de separación de mezclas.",
+    resources: [
+      {
+        type: "html",
+        content: `<div class="info-card"><strong>Métodos de separación de mezclas</strong><ul><li><strong>Destilación:</strong> consiste en aplicar calor a la mezcla para evaporar un componente y luego condensarlo para separarlo de la mezcla.</li><li><strong>Evaporación:</strong> consiste en aplicar calor a la mezcla hasta que llegue a su punto de ebullición para evaporar algunos componentes y así obtener el componente sólido de la mezcla.</li><li><strong>Cristalización:</strong> consiste en disminuir la temperatura para obtener cristales de algún componente y separarlo de los otros componentes de la mezcla.</li><li><strong>Decantación:</strong> consiste en separar a simple vista los componentes de la mezcla por la diferencia de densidades entre estos.</li></ul></div>`
+      }
+    ],
+    prompt: "Teniendo en cuenta la información anterior, ¿cuál es el método de separación que se utiliza en la producción de perfumes?",
+    options: [
+      { letter: "A", text: "La destilación, ya que separa las esencias de la mezcla de líquidos gracias a los cambios de temperatura." },
+      { letter: "B", text: "La evaporación, ya que obtienen las sustancias sólidas del perfume y las separa de la mezcla inicial." },
+      { letter: "C", text: "La cristalización, ya que se obtienen sólidos cristalinos del perfume gracias a cambios de temperatura." },
+      { letter: "D", text: "La decantación, ya que separa el perfume de otras sustancias según la densidad de cada componente." }
+    ],
+    correctAnswer: "A",
+    explanation: "El proceso descrito consiste en calentar la mezcla para que algunos componentes pasen a estado gaseoso y luego enfriarlos para obtener nuevamente un líquido. Ese procedimiento corresponde a la destilación, porque combina evaporación y condensación para separar componentes de una mezcla. Por tanto, la respuesta correcta es A."
+  }
+
+
+
+,
+  {
+    uid: "s2-cnat-065",
+    session: 2,
+    block: 3,
+    number: 65,
+    area: "Ciencias Naturales",
+    competencia: "Indagación",
+    componente: "Química: concentración y equilibrio químico",
+    dificultad: "Media",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 2 - Ciencias Naturales - Pregunta 65",
+    stem: "Un grupo de estudiantes desea saber cómo varía la concentración de ciertas sustancias en una reacción química. Para ello, su docente les muestra los resultados de esa reacción a través de una gráfica.",
+    resources: [
+      {
+        type: "html",
+        content: `<div class="info-card" style="text-align:center">
+          <div style="font-size:1.2rem;font-weight:900;margin-bottom:10px"><em>M</em> + <em>L</em> → <em>N</em> + <em>Q</em></div>
+          <svg viewBox="0 0 520 260" role="img" aria-label="Gráfica de concentración contra tiempo" style="width:100%;max-width:560px;background:#fff;border:1px solid var(--line);border-radius:18px;padding:10px">
+            <defs>
+              <marker id="arrow65" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L6,3 z" fill="currentColor"></path></marker>
+            </defs>
+            <line x1="55" y1="210" x2="475" y2="210" stroke="#0f172a" stroke-width="3" marker-end="url(#arrow65)"></line>
+            <line x1="55" y1="210" x2="55" y2="35" stroke="#0f172a" stroke-width="3" marker-end="url(#arrow65)"></line>
+            <text x="430" y="238" font-size="16" font-weight="700">Tiempo</text>
+            <text x="18" y="120" font-size="16" font-weight="700" transform="rotate(-90 18 120)">Concentración</text>
+            <path d="M58 196 C105 120, 155 70, 230 62 C300 58, 385 58, 468 58" fill="none" stroke="#111827" stroke-width="5" stroke-linecap="round"></path>
+            <path d="M58 52 C105 120, 155 160, 230 168 C300 172, 385 172, 468 172" fill="none" stroke="#111827" stroke-width="5" stroke-linecap="round"></path>
+            <text x="250" y="50" font-size="18" font-weight="900">[N] [Q]</text>
+            <text x="250" y="195" font-size="18" font-weight="900">[M] [L]</text>
+          </svg>
+        </div>`
+      }
+    ],
+    prompt: "Uno de los estudiantes concluye de forma errónea que M y L tienen la misma concentración que N y Q desde el tiempo 0. En consecuencia, ¿cuál de las siguientes conclusiones es correcta según las tendencias observadas en la gráfica?",
+    options: [
+      { letter: "A", text: "Para el tiempo 0, las concentraciones de M, L, N y Q son diferentes entre sí, pero después de un tiempo todas las concentraciones se igualan, hasta llegar al equilibrio." },
+      { letter: "B", text: "Una vez el proceso inicia, las concentraciones de M y L disminuyen, mientras que las concentraciones de N y Q aumentan a través del tiempo, hasta llegar al equilibrio." },
+      { letter: "C", text: "Una vez el proceso inicia, las concentraciones de M y L aumentan, mientras que las concentraciones de N y Q disminuyen a través del tiempo, hasta llegar al equilibrio." },
+      { letter: "D", text: "Para el tiempo 0, las concentraciones de M, L, N y Q son iguales entre sí, pero después de un tiempo todas las concentraciones varían, hasta llegar al equilibrio." }
+    ],
+    correctAnswer: "B",
+    explanation: "La gráfica muestra que los reactivos M y L empiezan con mayor concentración y disminuyen con el tiempo, mientras que los productos N y Q empiezan con menor concentración y aumentan. Luego, las curvas se estabilizan al llegar al equilibrio. Por tanto, la conclusión correcta es B."
+  }
+
+,
+  {
+    uid: "s2-cnat-066",
+    session: 2,
+    block: 3,
+    number: 66,
+    area: "Ciencias Naturales",
+    competencia: "Uso comprensivo del conocimiento científico",
+    componente: "Física: masa, peso y gravedad",
+    dificultad: "Media",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 2 - Ciencias Naturales - Pregunta 66",
+    stem: "De no ser por la fuerza de fricción, todos los cuerpos que caen cerca de la superficie terrestre lo harían con la misma aceleración gravitacional, g = 10 m/s² aproximadamente. En este aspecto, la aceleración gravitacional en la Luna es aproximadamente una sexta parte de la de la Tierra. Por esto, un objeto que tiene 6 kg de masa y que en la Tierra pesa 60 N, en la Luna solamente pesa 10 N.",
+    resources: [],
+    prompt: "Teniendo en cuenta la información anterior, ¿qué masa tendrá un objeto que pesa 50 N en la Luna?",
+    options: [
+      { letter: "A", text: "50/6 kg." },
+      { letter: "B", text: "50 kg." },
+      { letter: "C", text: "30 kg." },
+      { letter: "D", text: "30/6 kg." }
+    ],
+    correctAnswer: "C",
+    explanation: "En la Luna, la gravedad es una sexta parte de la terrestre: g_Luna = 10/6 m/s². Como el peso se calcula con P = m × g, entonces m = P/g = 50 ÷ (10/6) = 50 × 6/10 = 30 kg. Por tanto, la respuesta correcta es C."
+  }
+,
+  {
+    uid: "s2-cnat-067",
+    session: 2,
+    block: 3,
+    number: 67,
+    area: "Ciencias Naturales",
+    competencia: "Indagación",
+    componente: "Ciencias ambientales: interpretación de gráficas de emisiones",
+    dificultad: "Media",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 2 - Ciencias Naturales - Pregunta 67",
+    stem: "Las actividades agrícolas y ganaderas, así como la industria alimentaria, producen gran cantidad de residuos orgánicos que, al descomponerse, contribuyen al aumento de las emisiones de gases de efecto invernadero, como vapor de agua, óxido nitroso, dióxido de carbono y metano. El metano (CH₄) preocupa porque puede tener un efecto contaminante mayor que el CO₂. Un grupo de científicos consultó el comportamiento de las emisiones anuales de CH₄ entre 2000 y 2020.",
+    resources: [
+      {
+        type: "html",
+        html: `<figure class="question-resource science-graph-card" aria-label="Emisiones anuales de metano entre 2000 y 2020">
+          <div class="resource-title"><strong>Emisiones de CH₄ entre 2000 y 2020</strong></div>
+          <svg viewBox="0 0 760 360" role="img" style="width:100%;max-width:760px;display:block;margin:auto;border:1px solid var(--line);border-radius:18px;background:#ffffff;">
+            <defs><marker id="arrow67" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L6,3 z" fill="#0f172a"></path></marker></defs>
+            <line x1="70" y1="305" x2="710" y2="305" stroke="#0f172a" stroke-width="3" marker-end="url(#arrow67)"></line>
+            <line x1="70" y1="305" x2="70" y2="35" stroke="#0f172a" stroke-width="3" marker-end="url(#arrow67)"></line>
+            <text x="340" y="345" font-size="16" font-weight="700">Año</text>
+            <text x="22" y="180" font-size="16" font-weight="700" transform="rotate(-90 22 180)">Emisiones de CH₄ (toneladas)</text>
+            <g stroke="#e2e8f0" stroke-width="1">
+              <line x1="70" y1="260" x2="700" y2="260"></line><line x1="70" y1="215" x2="700" y2="215"></line><line x1="70" y1="170" x2="700" y2="170"></line><line x1="70" y1="125" x2="700" y2="125"></line><line x1="70" y1="80" x2="700" y2="80"></line>
+            </g>
+            <g font-size="12" fill="#475569" text-anchor="end"><text x="62" y="309">0</text><text x="62" y="264">4.000</text><text x="62" y="219">8.000</text><text x="62" y="174">10.000</text><text x="62" y="129">12.000</text><text x="62" y="84">16.000</text></g>
+            <polyline fill="none" stroke="#111827" stroke-width="4" points="88,205 118,198 148,190 178,180 208,171 238,165 268,154 298,148 328,126 358,116 388,111 418,106 448,100 478,74 508,69 538,63 568,60 598,55 628,50 658,45 688,42"></polyline>
+            <g fill="#111827">
+              <circle cx="88" cy="205" r="5"/><circle cx="118" cy="198" r="5"/><circle cx="148" cy="190" r="5"/><circle cx="178" cy="180" r="5"/><circle cx="208" cy="171" r="5"/><circle cx="238" cy="165" r="5"/><circle cx="268" cy="154" r="5"/><circle cx="298" cy="148" r="5"/><circle cx="328" cy="126" r="5"/><circle cx="358" cy="116" r="5"/><circle cx="388" cy="111" r="5"/><circle cx="418" cy="106" r="5"/><circle cx="448" cy="100" r="5"/><circle cx="478" cy="74" r="5"/><circle cx="508" cy="69" r="5"/><circle cx="538" cy="63" r="5"/><circle cx="568" cy="60" r="5"/><circle cx="598" cy="55" r="5"/><circle cx="628" cy="50" r="5"/><circle cx="658" cy="45" r="5"/><circle cx="688" cy="42" r="5"/>
+            </g>
+            <g font-size="11" fill="#475569" text-anchor="middle"><text x="88" y="323">2000</text><text x="238" y="323">2005</text><text x="388" y="323">2010</text><text x="538" y="323">2015</text><text x="688" y="323">2020</text></g>
+          </svg>
+        </figure>`
+      }
+    ],
+    prompt: "De acuerdo con los datos reportados en la gráfica, ¿cuál de las siguientes conclusiones responde adecuadamente la pregunta de los científicos?",
+    options: [
+      { letter: "A", text: "Las emisiones de gas metano aumentaron a más del doble entre el 2000 y el 2020." },
+      { letter: "B", text: "Las emisiones de gas metano se duplicaron entre el 2009 y el 2011." },
+      { letter: "C", text: "Las emisiones de gas metano se triplicaron entre el 2016 y el 2020." },
+      { letter: "D", text: "Las emisiones de gas metano se mantuvieron constantes entre el 2000 y el 2020." }
+    ],
+    correctAnswer: "A",
+    explanation: "La gráfica muestra que en el año 2000 las emisiones estaban cerca de 6.000 toneladas y en 2020 se acercaban a 14.500 toneladas. Ese valor es más del doble del inicial. Por tanto, la respuesta correcta es A."
+  },
+  {
+    uid: "s2-cnat-068",
+    session: 2,
+    block: 3,
+    number: 68,
+    area: "Ciencias Naturales",
+    competencia: "Uso comprensivo del conocimiento científico",
+    componente: "Química: clasificación de mezclas",
+    dificultad: "Básica",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 2 - Ciencias Naturales - Pregunta 68",
+    stem: "Luego de analizar los resultados, los científicos proponen implementar biodigestores a pequeña escala en poblaciones rurales que generan grandes cantidades de residuos orgánicos. Los biodigestores aprovechan la digestión anaerobia, en ausencia de oxígeno, que realizan bacterias para transformar desechos orgánicos mezclados con agua en biogás y fertilizantes.",
+    resources: [
+      {
+        type: "html",
+        html: `<figure class="question-resource" aria-label="Modelo de biodigestor">
+          <div class="resource-title"><strong>Modelo simplificado de biodigestor</strong></div>
+          <svg viewBox="0 0 820 330" role="img" style="width:100%;max-width:820px;display:block;margin:auto;border:1px solid var(--line);border-radius:18px;background:linear-gradient(180deg,#ffffff,#f8fafc);">
+            <defs><marker id="arrow68" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L6,3 z" fill="#0f172a"></path></marker></defs>
+            <text x="26" y="34" font-size="18" font-weight="800" fill="#0f172a">Entrada, digestión anaerobia y salida de productos</text>
+            <path d="M145 110 Q410 30 675 110 L650 250 Q410 300 170 250 Z" fill="#e0f2fe" stroke="#0f172a" stroke-width="3"></path>
+            <path d="M170 190 Q410 235 650 190 L650 250 Q410 300 170 250 Z" fill="#bfdbfe" stroke="#64748b" stroke-width="2"></path>
+            <text x="250" y="225" font-size="15" font-weight="800" fill="#1e3a8a">1. Agua + residuos orgánicos + bacterias anaerobias</text>
+            <text x="285" y="128" font-size="15" font-weight="800" fill="#334155">2. Volumen gaseoso: CO₂ + CH₄</text>
+            <line x1="45" y1="135" x2="160" y2="155" stroke="#0f172a" stroke-width="4" marker-end="url(#arrow68)"></line><text x="30" y="118" font-size="14" font-weight="800">Entrada de residuos</text>
+            <line x1="410" y1="80" x2="410" y2="28" stroke="#0f172a" stroke-width="4" marker-end="url(#arrow68)"></line><text x="430" y="45" font-size="14" font-weight="800">Salida de biogás</text>
+            <line x1="660" y1="220" x2="775" y2="220" stroke="#0f172a" stroke-width="4" marker-end="url(#arrow68)"></line><text x="585" y="287" font-size="14" font-weight="800">Salida de fertilizante producido</text>
+            <rect x="486" y="72" width="16" height="70" fill="#94a3b8" stroke="#0f172a"/><text x="515" y="110" font-size="14" font-weight="800">Válvula de seguridad</text>
+          </svg>
+        </figure>`
+      }
+    ],
+    prompt: "Se desea clasificar la mezcla inicial que se forma al agregar los residuos orgánicos en el biodigestor. Si una mezcla se clasifica en homogénea cuando no se pueden diferenciar a simple vista sus partes y heterogénea cuando se pueden diferenciar sus partes, ¿qué tipo de mezcla se tiene al inicio del proceso?",
+    options: [
+      { letter: "A", text: "Una mezcla heterogénea de biogás y fertilizantes como productos iniciales del proceso." },
+      { letter: "B", text: "Una mezcla homogénea de dióxido de carbono como único producto del proceso." },
+      { letter: "C", text: "Una mezcla heterogénea de estiércol de animales, residuos de alimentos y agua." },
+      { letter: "D", text: "Una mezcla homogénea de bacterias aerobias, biogás y estiércol de animales." }
+    ],
+    correctAnswer: "C",
+    explanation: "Al inicio del proceso se agregan agua y residuos orgánicos, como estiércol o residuos de alimentos. Como estas partes pueden diferenciarse a simple vista, se trata de una mezcla heterogénea. Por tanto, la respuesta correcta es C."
+  },
+  {
+    uid: "s2-cnat-069",
+    session: 2,
+    block: 3,
+    number: 69,
+    area: "Ciencias Naturales",
+    competencia: "Uso comprensivo del conocimiento científico",
+    componente: "Tecnología y ambiente: seguridad en biodigestores",
+    dificultad: "Básica",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 2 - Ciencias Naturales - Pregunta 69",
+    stem: "En el biodigestor, los residuos orgánicos se transforman en biogás y fertilizante. Como durante el proceso se acumulan gases como CO₂ y CH₄ en el volumen gaseoso, el modelo incluye una válvula de seguridad y una conducción de biogás hacia la cocina.",
+    resources: [
+      {
+        type: "html",
+        content: `<div class="info-card"><strong>Elementos del biodigestor</strong><ul><li><strong>Entrada:</strong> residuos orgánicos mezclados con agua.</li><li><strong>Volumen gaseoso:</strong> acumulación de biogás, principalmente CO₂ y CH₄.</li><li><strong>Válvula de seguridad:</strong> permite controlar la presión interna.</li><li><strong>Salida:</strong> conducción de biogás y fertilizante producido.</li></ul></div>`
+      }
+    ],
+    prompt: "De acuerdo con el modelo, ¿cuál es el manejo apropiado que se debe hacer para evitar la acumulación de gases y el aumento en la presión al interior del biodigestor?",
+    options: [
+      { letter: "A", text: "Depositar en el biodigestor diariamente todo tipo de residuos orgánicos e inorgánicos generados por los habitantes de la zona." },
+      { letter: "B", text: "Aumentar drásticamente la temperatura del biodigestor para acelerar el proceso de descomposición de los residuos orgánicos." },
+      { letter: "C", text: "Revisar constantemente la válvula de seguridad para evitar la acumulación de gases que puedan ocasionar la explosión del biodigestor." },
+      { letter: "D", text: "Retirar la válvula de seguridad para acelerar el proceso de descomposición de los residuos sólidos e incrementar la producción de biogás." }
+    ],
+    correctAnswer: "C",
+    explanation: "La válvula de seguridad permite controlar la presión interna del biodigestor. Revisarla constantemente ayuda a evitar acumulación peligrosa de gases y reduce el riesgo de explosión. Por tanto, la respuesta correcta es C."
+  }
+
+
+,
+  {
+    uid: "s2-cnat-070",
+    session: 2,
+    block: 3,
+    number: 70,
+    area: "Ciencias Naturales",
+    competencia: "Indagación",
+    componente: "Biología molecular: organización y representación de datos",
+    dificultad: "Media",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 2 - Ciencias Naturales - Pregunta 70",
+    stem: "En una investigación se analizó el número de bases nitrogenadas presentes en una de las hebras del ADN mitocondrial de cuatro especies de caracoles. Las bases nitrogenadas son adenina (A), citosina (C), guanina (G) y timina (T).",
+    resources: [
+      {
+        type: "html",
+        html: `<figure class="question-resource" aria-label="Tabla de bases nitrogenadas en caracoles">
+          <div class="resource-title"><strong>Bases nitrogenadas en cuatro especies de caracoles</strong></div>
+          <div class="table-wrap">
+            <table class="data-table compact">
+              <thead><tr><th>Especie de caracol</th><th>A</th><th>C</th><th>G</th><th>T</th></tr></thead>
+              <tbody>
+                <tr><td><em>Haliotis rubra</em></td><td>5.844</td><td>4.515</td><td>2.398</td><td>4.150</td></tr>
+                <tr><td><em>Haliotis tuberculata</em></td><td>5.746</td><td>4.265</td><td>2.224</td><td>4.286</td></tr>
+                <tr><td><em>Haliotis discus</em></td><td>5.605</td><td>4.105</td><td>2.163</td><td>3.911</td></tr>
+                <tr><td><em>Haliotis diversicolor</em></td><td>5.720</td><td>4.258</td><td>2.224</td><td>3.974</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="resource-note">La opción correcta debe representar que A es la base más abundante, C es la segunda, T es cercana a C pero menor, y G es la menor en las cuatro especies.</p>
+        </figure>`
+      }
+    ],
+    prompt: "De acuerdo con la información presentada, ¿cuál de las siguientes gráficas muestra de forma correcta la tabulación de los datos?",
+    options: [
+      { letter: "A", text: "Una gráfica en la que la base C aparece alrededor de 2.000 y la base G alrededor de 4.000 para las especies, intercambiando los valores de C y G." },
+      { letter: "B", text: "Una gráfica en la que la base T aparece como la menor y la base G con valores cercanos a 4.000." },
+      { letter: "C", text: "Una gráfica en la que A se mantiene cerca de 5.600 a 5.800, C cerca de 4.100 a 4.500, G cerca de 2.100 a 2.400 y T cerca de 3.900 a 4.300." },
+      { letter: "D", text: "Una gráfica en la que C aparece como la base más abundante y A con valores cercanos a 4.000." }
+    ],
+    correctAnswer: "C",
+    explanation: "En la tabla, para las cuatro especies, la adenina (A) tiene los valores más altos; la citosina (C) está alrededor de 4.100 a 4.500; la timina (T) está cerca de 3.900 a 4.300, y la guanina (G) tiene los valores más bajos, alrededor de 2.100 a 2.400. La gráfica que conserva esta organización es la opción C."
+  }
+
+,
+  {
+    uid: "s2-cnat-071",
+    session: 2,
+    block: 3,
+    number: 71,
+    area: "Ciencias Naturales",
+    competencia: "Uso comprensivo del conocimiento científico",
+    componente: "Biología vegetal: transporte de sustancias en plantas",
+    dificultad: "Básica",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 2 - Ciencias Naturales - Pregunta 71",
+    stem: "La selva tropical se caracteriza por sus altas temperaturas y densa vegetación, donde las plantas luchan por alcanzar la luz del sol, uno de los recursos esenciales para la fotosíntesis. En este ecosistema, la savia juega un papel muy importante, pues es como la sangre de las plantas, y transporta los nutrientes y el agua desde las raíces hasta las partes superiores de los árboles gigantes, donde las hojas pueden capturar fácilmente la luz del sol para la fotosíntesis.",
+    resources: [
+      {
+        type: "html",
+        html: `<div class="info-card"><strong>Idea clave</strong><p>La savia permite distribuir agua y nutrientes dentro de la planta. Este transporte es fundamental para que las hojas, especialmente en plantas altas, puedan realizar procesos como la fotosíntesis.</p></div>`
+      }
+    ],
+    prompt: "Teniendo en cuenta lo descrito anteriormente, ¿por qué el movimiento de la savia es crucial para el funcionamiento de las plantas en la selva tropical?",
+    options: [
+      { letter: "A", text: "Porque mantiene una temperatura adecuada en todas las estructuras del cuerpo de la planta, evitando el sobrecalentamiento causado por la temperatura tropical." },
+      { letter: "B", text: "Porque proporciona altura a los árboles para alcanzar fácilmente la luz del sol." },
+      { letter: "C", text: "Porque transporta los nutrientes y el agua desde las raíces hasta las partes superiores de las plantas, permitiendo la distribución de estos recursos en toda la planta." },
+      { letter: "D", text: "Porque repele a los insectos y a los herbívoros que pueden dañar las plantas en la selva." }
+    ],
+    correctAnswer: "C",
+    explanation: "La savia cumple la función de transportar agua y nutrientes desde las raíces hacia otras partes de la planta. En árboles altos de la selva tropical, este transporte permite que las hojas reciban los recursos necesarios para procesos como la fotosíntesis. Por tanto, la respuesta correcta es C."
+  }
+
+
+,
+  {
+    uid: "s2-cnat-072",
+    session: 2,
+    block: 3,
+    number: 72,
+    area: "Ciencias Naturales",
+    competencia: "Uso comprensivo del conocimiento científico",
+    componente: "Ciencias de la Tierra: instrumentos meteorológicos y energía eólica",
+    dificultad: "Básica",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 2 - Ciencias Naturales - Pregunta 72",
+    stem: "En la construcción de un parque eólico que aprovecha la energía del viento para producir electricidad, se miden diferentes propiedades del aire usando distintos instrumentos.",
+    resources: [
+      {
+        type: "html",
+        html: `<div class="table-wrap">
+            <table>
+              <thead>
+                <tr><th>Instrumento</th><th>Propiedad que mide</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Barómetro</td><td>Presión atmosférica</td></tr>
+                <tr><td>Termómetro</td><td>Temperatura del aire</td></tr>
+                <tr><td>Anemómetro</td><td>Dirección y velocidad del viento</td></tr>
+                <tr><td>Higrómetro</td><td>Contenido de humedad del aire</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="resource-note">Para aprovechar la energía eólica, el aire debe viajar entre 3 m/s y 25 m/s.</p>`
+      }
+    ],
+    prompt: "¿Cuál instrumento de medida se debe revisar para verificar que se cumpla este requisito?",
+    options: [
+      { letter: "A", text: "El barómetro." },
+      { letter: "B", text: "El termómetro." },
+      { letter: "C", text: "El anemómetro." },
+      { letter: "D", text: "El higrómetro." }
+    ],
+    correctAnswer: "C",
+    explanation: "El requisito está expresado en metros por segundo (m/s), una unidad de velocidad. Según la tabla, el instrumento que mide la dirección y la velocidad del viento es el anemómetro. Por eso, la respuesta correcta es C."
+  }
+
+
+
+,
+  {
+    uid: "s2-cnat-073",
+    session: 2,
+    block: 3,
+    number: 73,
+    area: "Ciencias Naturales",
+    competencia: "Uso comprensivo del conocimiento científico",
+    componente: "Ecología: interacciones y equilibrio de ecosistemas",
+    dificultad: "Básica",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 2 - Ciencias Naturales - Pregunta 73",
+    stem: "Preocupados por la extracción masiva de musgo para hacer decoraciones navideñas, un grupo de estudiantes investigó las interacciones que tienen estos organismos en un bosque cercano a su escuela. Encontraron que el musgo es usado como material de construcción de nidos por varias aves; es refugio de insectos, arañas y ranas; el agua permite su reproducción; y el musgo retiene el agua como una esponja y la libera lentamente.",
+    resources: [
+      {
+        type: "html",
+        html: `<div class="info-card"><strong>Interacciones del musgo en el bosque</strong><ul><li>Sirve como material para nidos de varias aves.</li><li>Funciona como refugio para insectos, arañas y ranas.</li><li>Depende del agua para reproducirse.</li><li>Retiene agua y la libera lentamente, ayudando a conservar la humedad.</li></ul></div>`
+      }
+    ],
+    prompt: "Según la información anterior, ¿de qué manera estas interacciones intervienen en el equilibrio del bosque?",
+    options: [
+      { letter: "A", text: "Permiten que el musgo sea usado para decoraciones navideñas." },
+      { letter: "B", text: "Disminuyen el agua proveniente de la lluvia y de la atmósfera." },
+      { letter: "C", text: "Contribuyen a la humedad del bosque y a la presencia de especies." },
+      { letter: "D", text: "Permiten la proliferación de plagas como insectos, arañas y ranas." }
+    ],
+    correctAnswer: "C",
+    explanation: "El musgo contribuye al equilibrio del bosque porque retiene y libera agua lentamente, lo que ayuda a mantener la humedad, y además proporciona refugio o material de nido para diferentes especies. Por tanto, la respuesta correcta es C."
+  }
+
+,
+  {
+    uid: "s2-cnat-074",
+    session: 2,
+    block: 3,
+    number: 74,
+    area: "Ciencias Naturales",
+    competencia: "Indagación",
+    componente: "Ciencia, tecnología y sociedad: interpretación de datos nutricionales",
+    dificultad: "Media",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 2 - Ciencias Naturales - Pregunta 74",
+    stem: "Un grupo de investigadores quiere saber cuáles son los contenidos nutricionales, en relación con la concentración de azúcares (grados Brix) y el contenido de fibra (%), de tres variedades de manzanas. Después de los análisis, obtuvieron los resultados que se muestran en la tabla.",
+    resources: [
+      {
+        type: "html",
+        html: `<div class="table-wrap">
+            <table>
+              <thead>
+                <tr><th>Variedad</th><th>Concentración de azúcar (grados Brix)</th><th>Contenido de fibra (%)</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>1</td><td>15,8</td><td>2,7</td></tr>
+                <tr><td>2</td><td>7,3</td><td>2,5</td></tr>
+                <tr><td>3</td><td>11,3</td><td>1,7</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="resource-note">Los investigadores concluyeron que la variedad de manzana 1, al tener el mayor tamaño, almacenaba mayor cantidad de azúcares y fibra que las variedades 2 y 3, siendo así la mejor para la alimentación humana.</p>`
+      }
+    ],
+    prompt: "Teniendo en cuenta lo anterior, ¿la conclusión dada por los investigadores es correcta?",
+    options: [
+      { letter: "A", text: "Sí, porque, a mayor tamaño del fruto, mayor porcentaje nutricional de los frutos." },
+      { letter: "B", text: "No, porque las tres variedades de manzana aportan igual cantidad de nutrientes." },
+      { letter: "C", text: "No, porque no se evaluó el tamaño del fruto ni su relación con las variables." },
+      { letter: "D", text: "Sí, porque, a mayor contenido de azúcares, mayor contenido de fibra en los frutos." }
+    ],
+    correctAnswer: "C",
+    explanation: "La tabla solo presenta concentración de azúcares y contenido de fibra; no incluye datos sobre el tamaño del fruto. Por eso, no es válido concluir que la variedad 1 almacena más azúcares y fibra por tener mayor tamaño, ni afirmar que sea la mejor con base en una variable no evaluada. La respuesta correcta es C."
+  }
+
+
+,
+  {
+    uid: "s2-cnat-075",
+    session: 2,
+    block: 3,
+    number: 75,
+    area: "Ciencias Naturales",
+    competencia: "Explicación de fenómenos",
+    componente: "Física: cantidad de movimiento y choques",
+    dificultad: "Media",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 2 - Ciencias Naturales - Pregunta 75",
+    stem: "En un experimento, un carro de juguete choca con otro de la misma masa, que se encuentra inicialmente en reposo, y ambos quedan unidos por un trozo de plastilina. Después del choque, los dos carros se mueven con una velocidad que es la mitad de la velocidad inicial que tenía el carro 1 antes del choque. Una estudiante analiza una situación similar, pero con tres carros de la misma masa: el carro 1 se mueve y choca contra los carros 2 y 3, que inicialmente están en reposo, y los tres quedan unidos después del choque.",
+    resources: [
+      {
+        type: "html",
+        html: `<div class="info-card"><strong>Choque con carros de juguete</strong><p><strong>Situación base:</strong> si un carro en movimiento choca con otro carro de igual masa en reposo y ambos quedan unidos, la velocidad final del conjunto es la mitad de la velocidad inicial del carro 1.</p><p><strong>Nueva situación:</strong> el carro 1 choca con dos carros de igual masa en reposo; después del choque, los tres carros quedan unidos y se mueven en la misma dirección.</p></div>`
+      }
+    ],
+    prompt: "En este caso, ¿cómo será la velocidad de los tres carros después del choque?",
+    options: [
+      { letter: "A", text: "Un tercio de la velocidad inicial del carro 1, porque la plastilina también adquiere cantidad de movimiento después del choque." },
+      { letter: "B", text: "Un tercio de la velocidad inicial del carro 1, porque se distribuye en el número de carros que se unen después del choque." },
+      { letter: "C", text: "Igual a la velocidad inicial del carro 1, porque todos deben tener la misma velocidad después de quedar unidos." },
+      { letter: "D", text: "Igual a la velocidad inicial del carro 1, porque los tres carros tienen la misma masa y por lo tanto la misma velocidad." }
+    ],
+    correctAnswer: "B",
+    explanation: "Como los carros tienen la misma masa y quedan unidos, la cantidad de movimiento inicial del carro 1 se reparte entre los tres carros que forman el conjunto final. Por eso, la velocidad final corresponde a un tercio de la velocidad inicial del carro 1. La respuesta correcta es B."
+  }
+
+,
+  {
+    uid: "s2-cnat-076",
+    session: 2,
+    block: 3,
+    number: 76,
+    area: "Ciencias Naturales",
+    competencia: "Uso comprensivo del conocimiento científico",
+    componente: "Química: propiedades de los materiales",
+    dificultad: "Media",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 2 - Ciencias Naturales - Pregunta 76",
+    stem: "En la industria automotriz se buscan metales que tengan baja densidad, que sean maleables y que presenten alta resistencia a la corrosión. La siguiente tabla presenta algunos metales y sus propiedades.",
+    resources: [
+      {
+        type: "html",
+        html: `<div class="table-wrap">
+            <table>
+              <thead>
+                <tr><th>Metal</th><th>Sufre corrosión</th><th>Densidad (g/mL)</th><th>Es maleable</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Cobre</td><td>No</td><td>8,96</td><td>Sí</td></tr>
+                <tr><td>Cromo</td><td>No</td><td>7,2</td><td>Sí</td></tr>
+                <tr><td>Escandio</td><td>No</td><td>3,0</td><td>Sí</td></tr>
+                <tr><td>Hierro</td><td>Sí</td><td>7,87</td><td>Sí</td></tr>
+                <tr><td>Titanio</td><td>No</td><td>4,5</td><td>No</td></tr>
+              </tbody>
+            </table>
+          </div>`
+      }
+    ],
+    prompt: "Con base en las propiedades reportadas en la tabla, si la industria automotriz necesita dos metales que no sufran corrosión por el agua, que sean maleables y cuya densidad no supere los 7,5 g/mL, ¿qué metales se deben elegir?",
+    options: [
+      { letter: "A", text: "Escandio y titanio." },
+      { letter: "B", text: "Hierro y cobre." },
+      { letter: "C", text: "Cromo y escandio." },
+      { letter: "D", text: "Cromo y titanio." }
+    ],
+    correctAnswer: "C",
+    explanation: "Los metales deben cumplir tres condiciones: no sufrir corrosión, ser maleables y tener densidad menor o igual a 7,5 g/mL. El cromo cumple con densidad 7,2, no corrosión y maleabilidad; el escandio cumple con densidad 3,0, no corrosión y maleabilidad. El titanio no es maleable, el cobre supera 7,5 g/mL y el hierro sufre corrosión. Por tanto, la respuesta correcta es C."
+  }
+
+,
+  {
+    uid: "s2-cnat-077",
+    session: 2,
+    block: 3,
+    number: 77,
+    area: "Ciencias Naturales",
+    competencia: "Explicación de fenómenos",
+    componente: "Física: temperatura, presión y cambios de estado",
+    dificultad: "Media",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 2 - Ciencias Naturales - Pregunta 77",
+    stem: "Se tienen dos ollas con la misma cantidad de agua, pero se calientan en dos ciudades diferentes. Las ciudades tienen la misma temperatura ambiental; una se encuentra a 500 m sobre el nivel del mar y la otra a 1.500 m. Se sabe que a mayor altura sobre el nivel del mar, menor es la temperatura de ebullición del agua.",
+    resources: [
+      {
+        type: "html",
+        html: `<div class="table-wrap" style="max-width:980px;margin:auto">
+          <div class="mini-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;align-items:stretch">
+            <div class="graph-card" style="border:1px solid var(--line);border-radius:16px;padding:12px;background:rgba(255,255,255,.72)">
+              <strong>A.</strong>
+              <svg viewBox="0 0 240 160" role="img" aria-label="Gráfica A" style="width:100%;height:auto">
+                <line x1="34" y1="130" x2="220" y2="130" stroke="currentColor" stroke-width="2"/><line x1="34" y1="130" x2="34" y2="18" stroke="currentColor" stroke-width="2"/>
+                <text x="14" y="18" font-size="11">Temperatura</text><text x="188" y="150" font-size="11">Tiempo</text>
+                <line x1="44" y1="55" x2="210" y2="55" stroke="currentColor" stroke-width="3" stroke-dasharray="8 5"/>
+                <line x1="44" y1="92" x2="210" y2="92" stroke="currentColor" stroke-width="3"/>
+                <text x="158" y="49" font-size="11">Ciudad a 500 m</text><text x="155" y="88" font-size="11">Ciudad a 1.500 m</text>
+              </svg>
+            </div>
+            <div class="graph-card" style="border:1px solid var(--line);border-radius:16px;padding:12px;background:rgba(255,255,255,.72)">
+              <strong>B.</strong>
+              <svg viewBox="0 0 240 160" role="img" aria-label="Gráfica B" style="width:100%;height:auto">
+                <line x1="34" y1="130" x2="220" y2="130" stroke="currentColor" stroke-width="2"/><line x1="34" y1="130" x2="34" y2="18" stroke="currentColor" stroke-width="2"/>
+                <text x="14" y="18" font-size="11">Temperatura</text><text x="188" y="150" font-size="11">Tiempo</text>
+                <line x1="44" y1="118" x2="202" y2="30" stroke="currentColor" stroke-width="3"/>
+                <line x1="44" y1="118" x2="202" y2="76" stroke="currentColor" stroke-width="3" stroke-dasharray="8 5"/>
+                <text x="160" y="36" font-size="11">Ciudad a 1.500 m</text><text x="155" y="72" font-size="11">Ciudad a 500 m</text>
+              </svg>
+            </div>
+            <div class="graph-card" style="border:1px solid var(--line);border-radius:16px;padding:12px;background:rgba(255,255,255,.72)">
+              <strong>C.</strong>
+              <svg viewBox="0 0 240 160" role="img" aria-label="Gráfica C" style="width:100%;height:auto">
+                <line x1="34" y1="130" x2="220" y2="130" stroke="currentColor" stroke-width="2"/><line x1="34" y1="130" x2="34" y2="18" stroke="currentColor" stroke-width="2"/>
+                <text x="14" y="18" font-size="11">Temperatura</text><text x="188" y="150" font-size="11">Tiempo</text>
+                <polyline points="44,85 112,55 150,48 210,48" fill="none" stroke="currentColor" stroke-width="3" stroke-dasharray="8 5"/>
+                <polyline points="44,118 118,82 154,67 210,67" fill="none" stroke="currentColor" stroke-width="3"/>
+                <text x="132" y="42" font-size="11">Ciudad a 500 m</text><text x="132" y="62" font-size="11">Ciudad a 1.500 m</text>
+              </svg>
+            </div>
+            <div class="graph-card" style="border:1px solid var(--line);border-radius:16px;padding:12px;background:rgba(255,255,255,.72)">
+              <strong>D.</strong>
+              <svg viewBox="0 0 240 160" role="img" aria-label="Gráfica D" style="width:100%;height:auto">
+                <line x1="34" y1="130" x2="220" y2="130" stroke="currentColor" stroke-width="2"/><line x1="34" y1="130" x2="34" y2="18" stroke="currentColor" stroke-width="2"/>
+                <text x="14" y="18" font-size="11">Temperatura</text><text x="188" y="150" font-size="11">Tiempo</text>
+                <polyline points="44,118 112,84 148,52 210,52" fill="none" stroke="currentColor" stroke-width="3" stroke-dasharray="8 5"/>
+                <polyline points="44,118 106,86 132,72 210,72" fill="none" stroke="currentColor" stroke-width="3"/>
+                <text x="140" y="45" font-size="11">Ciudad a 500 m</text><text x="132" y="68" font-size="11">Ciudad a 1.500 m</text>
+              </svg>
+            </div>
+          </div>
+        </div>`
+      }
+    ],
+    prompt: "¿Cuál de las siguientes gráficas de temperatura en función del tiempo representa el proceso para alcanzar la temperatura de ebullición en las ciudades de distintas alturas?",
+    options: [
+      { letter: "A", text: "Gráfica A." },
+      { letter: "B", text: "Gráfica B." },
+      { letter: "C", text: "Gráfica C." },
+      { letter: "D", text: "Gráfica D." }
+    ],
+    correctAnswer: "D",
+    explanation: "Las dos ollas inician a la misma temperatura ambiental y, al calentarse, la temperatura aumenta hasta llegar a la ebullición. Como la ciudad ubicada a 1.500 m está a mayor altura, el agua alcanza una temperatura de ebullición menor que en la ciudad ubicada a 500 m. Por eso, la gráfica correcta debe mostrar una meseta más baja para 1.500 m y una meseta más alta para 500 m. La respuesta correcta es D."
+  }
+
+
+,
+  {
+    uid: "s2-cnat-078",
+    session: 2,
+    block: 3,
+    number: 78,
+    area: "Ciencias Naturales",
+    competencia: "Explicación de fenómenos",
+    componente: "Física: ondas y sonido",
+    dificultad: "Media",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 2 - Ciencias Naturales - Pregunta 78",
+    stem: "Un músico está tocando su trompeta cerca de un lago en el que un buzo hace sus prácticas cotidianas. El buzo percibe el sonido como si proviniera de otro lugar debido al fenómeno de la refracción, como se modela en la imagen.",
+    resources: [
+      {
+        type: "html",
+        html: `<div class="concept-card" style="max-width:860px;margin:auto">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;align-items:end;min-height:220px;border:1px solid var(--line);border-radius:18px;padding:18px;background:linear-gradient(180deg,rgba(255,255,255,.85),rgba(226,246,255,.65))">
+            <div style="align-self:start;font-weight:700">Aire</div>
+            <div style="text-align:right;font-weight:700">Sonido refractado</div>
+            <div style="grid-column:1 / -1;border-top:4px solid rgba(40,90,120,.45);position:relative;height:120px;background:rgba(58,146,180,.12);border-radius:0 0 14px 14px">
+              <span style="position:absolute;left:18px;top:-84px;font-size:46px" aria-hidden="true">🎺</span>
+              <span style="position:absolute;right:52px;bottom:18px;font-size:46px" aria-hidden="true">🤿</span>
+              <svg viewBox="0 0 700 160" role="img" aria-label="Modelo de refracción del sonido al pasar del aire al agua" style="width:100%;height:100%;position:absolute;left:0;top:0">
+                <path d="M80 12 C180 18, 230 38, 315 64 C410 94, 500 112, 620 132" fill="none" stroke="currentColor" stroke-width="4" stroke-dasharray="10 8"/>
+                <path d="M90 22 C145 20, 185 32, 235 50" fill="none" stroke="currentColor" stroke-width="2" opacity=".55"/>
+                <path d="M295 76 C360 92, 420 106, 485 116" fill="none" stroke="currentColor" stroke-width="2" opacity=".55"/>
+                <text x="20" y="145" font-size="16">Agua</text>
+              </svg>
+            </div>
+          </div>
+        </div>`
+      }
+    ],
+    prompt: "¿Cuál de las siguientes opciones es una característica del sonido que se altera al cambiar del aire al agua?",
+    options: [
+      { letter: "A", text: "La velocidad." },
+      { letter: "B", text: "La fuente." },
+      { letter: "C", text: "La profundidad." },
+      { letter: "D", text: "La densidad." }
+    ],
+    correctAnswer: "A",
+    explanation: "La refracción ocurre cuando una onda cambia de medio de propagación. Al pasar del aire al agua, el sonido cambia su velocidad de propagación y por eso cambia la dirección con la que se percibe. La fuente del sonido no cambia, y la profundidad o la densidad no son características propias del sonido. Por tanto, la respuesta correcta es A."
+  }
+
+
+,
+  {
+    uid: "s2-cnat-079",
+    session: 2,
+    block: 3,
+    number: 79,
+    area: "Ciencias Naturales",
+    competencia: "Explicación de fenómenos",
+    componente: "Química: cambios de estado de la materia",
+    dificultad: "Básica",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 2 - Ciencias Naturales - Pregunta 79",
+    stem: "El CO₂, también conocido como hielo seco, se presenta en estado sólido y, a temperatura ambiente, cambia a estado gaseoso; a este proceso se le conoce como sublimación, mientras que el proceso contrario se denomina sublimación inversa.",
+    resources: [
+      {
+        type: "html",
+        html: `<div class="concept-card" style="max-width:760px;margin:auto;text-align:center">
+          <h4 style="margin:0 0 12px">Cambio de estado del CO₂</h4>
+          <svg viewBox="0 0 760 280" role="img" aria-label="Sublimación del dióxido de carbono: de sólido a gaseoso" style="width:100%;height:auto">
+            <defs>
+              <marker id="arrow79" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+                <path d="M0,0 L0,6 L9,3 z" fill="currentColor"></path>
+              </marker>
+            </defs>
+            <rect x="70" y="95" width="120" height="120" rx="12" fill="rgba(20,70,110,.14)" stroke="currentColor" stroke-width="3"></rect>
+            <path d="M70 95 L105 62 L225 62 L190 95 Z" fill="rgba(20,70,110,.08)" stroke="currentColor" stroke-width="3"></path>
+            <path d="M190 95 L225 62 L225 180 L190 215 Z" fill="rgba(20,70,110,.10)" stroke="currentColor" stroke-width="3"></path>
+            <text x="102" y="160" font-size="22" font-weight="700">Sólido</text>
+            <path d="M278 86 C360 18, 488 18, 575 86" fill="none" stroke="currentColor" stroke-width="6" marker-end="url(#arrow79)"></path>
+            <text x="380" y="42" font-size="24" font-weight="700">Sublimación</text>
+            <path d="M575 202 C488 260, 360 260, 278 202" fill="none" stroke="currentColor" stroke-width="6" marker-end="url(#arrow79)"></path>
+            <text x="342" y="255" font-size="22" font-weight="700">Sublimación inversa</text>
+            <g transform="translate(545 100)">
+              <ellipse cx="42" cy="60" rx="58" ry="34" fill="rgba(20,70,110,.08)" stroke="currentColor" stroke-width="3"></ellipse>
+              <ellipse cx="88" cy="72" rx="62" ry="38" fill="rgba(20,70,110,.08)" stroke="currentColor" stroke-width="3"></ellipse>
+              <ellipse cx="132" cy="58" rx="54" ry="34" fill="rgba(20,70,110,.08)" stroke="currentColor" stroke-width="3"></ellipse>
+              <text x="70" y="68" font-size="22" font-weight="700">Gaseoso</text>
+            </g>
+          </svg>
+        </div>`
+      }
+    ],
+    prompt: "Según la información anterior, ¿qué propiedad del CO₂ cambia durante el proceso de sublimación?",
+    options: [
+      { letter: "A", text: "La densidad, porque la masa de sus moléculas disminuye cuando se sublima a la inversa." },
+      { letter: "B", text: "El tamaño de las moléculas, porque en estado sólido su diámetro es menor." },
+      { letter: "C", text: "El volumen, porque en estado gaseoso sus moléculas ocupan todo el espacio del recipiente." },
+      { letter: "D", text: "La masa, porque durante la sublimación sus moléculas son más pequeñas." }
+    ],
+    correctAnswer: "C",
+    explanation: "En la sublimación, el CO₂ pasa de sólido a gas. La masa y el tamaño de las moléculas no cambian; lo que cambia es la forma en que están distribuidas. En estado gaseoso, las moléculas se separan y ocupan el volumen disponible del recipiente. Por eso, la respuesta correcta es C."
+  }
+
+
 ];
