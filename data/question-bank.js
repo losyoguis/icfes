@@ -6883,4 +6883,914 @@ Sin embargo, al buscar apoyo para promover su ley, los jóvenes se dan cuenta de
   }
 
 
+  ,
+  {
+    uid: "s2-soc-001",
+    session: 2,
+    block: 1,
+    number: 1,
+    area: "Sociales y Ciudadanas",
+    competencia: "Pensamiento social",
+    componente: "Desarrollo sostenible y cambio climático",
+    dificultad: "Media",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 2 - Sociales y Ciudadanas - Pregunta 1",
+    stem: "En 2019, una joven de 16 años pronunció un discurso ante el Parlamento Británico sobre el desarrollo sostenible y la urgencia de actuar decididamente para frenar el cambio climático.",
+    resources: [
+      {
+        type: "html",
+        html: `
+          <div class="reading-card">
+            <div class="reading-instruction">Sociales y Ciudadanas</div>
+            <h3>Discurso sobre crisis climática</h3>
+            <p>“La crisis climática es, a la vez, el conflicto más fácil y el más difícil al que nos hemos enfrentado. El más fácil porque sabemos lo que tenemos que hacer y el más difícil porque nuestra economía depende de la destrucción de los ecosistemas [...]. Alrededor del 2030, habremos desatado una reacción en cadena irreversible [...] que, seguramente, pondrá fin a nuestra civilización tal como la conocemos. Eso es lo que sucederá, a menos que se tomen medidas sin precedentes”.</p>
+            <p>“Y tengan en cuenta que estos cálculos dependen de inventos que todavía no se han hecho a esa escala, inventos que se supone que limpiarán la atmósfera de cantidades astronómicas de dióxido de carbono [...]. Pero quizá la idea más equivocada sobre la crisis climática es que tenemos que ‘reducir’ las emisiones [...]. Sin embargo, eso es solo el comienzo de un proceso rápido que debe llevar al fin de las emisiones en un par de décadas o menos. Y cuando digo ‘fin’ quiero decir cero y, luego, pasar rápidamente a cifras negativas. Eso descarta automáticamente la mayoría de las políticas actuales”.</p>
+            <p class="reading-source">Tomado y adaptado de: Thunberg, G. (2019). El discurso completo de Greta Thunberg ante el Parlamento británico: “Volveremos a clase cuando escuchéis a la ciencia”. El País.</p>
+          </div>
+        `
+      }
+    ],
+    prompt: "¿Cuál de los siguientes hechos permite sustentar el reclamo de la joven por políticas concretas contra el cambio climático?",
+    options: [
+      { letter: "A", text: "Durante 2022, la venta de carros eléctricos en América Latina aumentó un 21,7 % frente al año anterior, aunque la mayoría de estos son importados, pues las empresas que se encargan de ensamblar vehículos en la región todavía no los producen." },
+      { letter: "B", text: "Si bien las tasas de pobreza en el mundo se han reducido a más de la mitad desde el 2000, la pandemia de la COVID-19 podría aumentar la pobreza a nivel mundial hasta llegar a afectar a 500 millones de personas más o a un 8 % más de la población mundial." },
+      { letter: "C", text: "Desde 1990, Reino Unido ha reducido en un 37 % la expulsión de dióxido de carbono al ambiente, gracias al cierre de sus viejas plantas de carbón, aunque todavía no ha conseguido eliminar completamente la generación de estos gases contaminantes." },
+      { letter: "D", text: "El crecimiento continuo y sostenido de la capacidad instalada de producción de energía eólica a nivel mundial en los últimos 10 años ha tenido un repunte reciente, gracias al desarrollo de máquinas cada vez más potentes y adaptadas a distintos entornos." }
+    ],
+    correctAnswer: "C",
+    explanation: "El reclamo pide políticas concretas que reduzcan emisiones. La opción C muestra una medida verificable —el cierre de plantas de carbón— asociada con una reducción del dióxido de carbono, aunque todavía insuficiente para eliminar completamente las emisiones. Por eso sustenta mejor el reclamo. La respuesta correcta es C."
+  }
+
+
+
+
+  ,
+  {
+    uid: "s2-soc-002",
+    session: 2,
+    block: 1,
+    number: 2,
+    area: "Sociales y Ciudadanas",
+    competencia: "Pensamiento social",
+    componente: "Constitución Política de Colombia de 1991 y diversidad étnica",
+    dificultad: "Media",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 2 - Sociales y Ciudadanas - Pregunta 2",
+    stem: "Una ley en Colombia establecía lo siguiente: \"Artículo 1.°- Para atender a la reducción y civilización de las tribus indígenas en el territorio colombiano, se divide este en seis corregimientos [...]\".",
+    prompt: "¿Cuál de los siguientes argumentos permite afirmar que esta ley es anterior a la Constitución política de 1991?",
+    options: [
+      { letter: "A", text: "Antes de la Constitución de 1991 existía un mayor número de asentamientos indígenas en el país." },
+      { letter: "B", text: "Las expresiones del artículo son contrarias a la protección de la diversidad étnica establecida en la Constitución de 1991." },
+      { letter: "C", text: "A partir de la Constitución de 1991, se potenció un cambio hacia un Estado más descentralizado." },
+      { letter: "D", text: "A partir de la Constitución de 1991, es necesario agotar la consulta previa para aprobar ese tipo de leyes." }
+    ],
+    correctAnswer: "B",
+    explanation: "La Constitución de 1991 reconoce y protege la diversidad étnica y cultural. Por eso, expresiones como ‘reducción y civilización de las tribus indígenas’ resultan incompatibles con ese enfoque de reconocimiento y protección. Esto permite inferir que la ley pertenece a un periodo anterior. La respuesta correcta es B."
+  }
+
+
+  ,
+  {
+    uid: "s2-soc-003",
+    session: 2,
+    block: 1,
+    number: 3,
+    area: "Sociales y Ciudadanas",
+    competencia: "Pensamiento social",
+    componente: "Prejuicios, roles de género y socialización familiar",
+    dificultad: "Media",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 2 - Sociales y Ciudadanas - Pregunta 3",
+    stem: "Un análisis del comportamiento de setenta niños en edad preescolar le permitió a un grupo de investigadores de una universidad concluir que los niños, desde los dos años y medio, pueden discriminar a personas con diferencias sociales y culturales.",
+    resources: [
+      {
+        type: "html",
+        html: `
+          <div class="reading-card">
+            <div class="reading-instruction">Sociales y Ciudadanas</div>
+            <h3>Investigación sobre comportamiento infantil</h3>
+            <p>Al respecto, los investigadores afirman que:</p>
+            <blockquote>“Para el estudio, nos basamos en las actitudes y comportamientos de las madres, debido a que ellas son las que cumplen el papel de formar a sus hijos e hijas en valores”.</blockquote>
+          </div>
+        `
+      }
+    ],
+    prompt: "¿La afirmación de los investigadores contiene algún prejuicio?",
+    options: [
+      { letter: "A", text: "No, porque en la infancia quienes realmente asumen el cuidado y formación de los hijos son las madres." },
+      { letter: "B", text: "Sí, porque está afirmando que las madres son las únicas responsables de la formación de los hijos." },
+      { letter: "C", text: "No, porque las madres siempre cuidan con afecto a sus hijos enseñándoles todos los valores." },
+      { letter: "D", text: "Sí, porque supone que las madres no tienen el papel de sostener económicamente a los hijos." }
+    ],
+    correctAnswer: "B",
+    explanation: "La afirmación atribuye exclusivamente a las madres la responsabilidad de formar en valores a los hijos e hijas. Esa generalización desconoce la participación de otros cuidadores, padres, familias e instituciones, por lo que contiene un prejuicio sobre el rol materno. La respuesta correcta es B."
+  }
+
+
+
+  ,
+  {
+    uid: "s2-soc-004",
+    session: 2,
+    block: 1,
+    number: 4,
+    area: "Sociales y Ciudadanas",
+    competencia: "Pensamiento social",
+    componente: "Movimientos sociales, diversidad sexual y transformación cultural",
+    dificultad: "Media",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 2 - Sociales y Ciudadanas - Pregunta 4",
+    stem: "Un periodista se aproxima a un grupo de personas que está llevando a cabo una manifestación. Al preguntarle a una de ellas sobre sus motivos para manifestarse, esta contesta lo siguiente:",
+    resources: [
+      {
+        type: "html",
+        html: `
+          <div class="reading-card">
+            <div class="reading-instruction">Sociales y Ciudadanas</div>
+            <h3>Manifestación por diversidad y educación sexual</h3>
+            <blockquote>“Buscamos promover el conocimiento y el respeto hacia la diversidad sexual, la educación sexual científica y sin prejuicios morales, y las relaciones interpersonales libres de toda forma de violencia de género”.</blockquote>
+          </div>
+        `
+      }
+    ],
+    prompt: "¿Cuál de las siguientes sería una postura que esta persona probablemente adoptaría?",
+    options: [
+      { letter: "A", text: "El respeto hacia el otro en una relación de pareja depende de la adopción de valores familiares tradicionales." },
+      { letter: "B", text: "Las manifestaciones son la única ruta que tienen los ciudadanos para lograr los cambios que la sociedad necesita." },
+      { letter: "C", text: "Las personas tienen el poder para transformar las condiciones sociales aun cuando estas están fuertemente arraigadas." },
+      { letter: "D", text: "La ausencia de sesgos morales en la educación sexual ha hecho que la diversidad sexual sea ampliamente valorada en nuestra sociedad." }
+    ],
+    correctAnswer: "C",
+    explanation: "La persona participa en una manifestación para promover cambios relacionados con el respeto a la diversidad sexual, la educación sexual científica y la eliminación de la violencia de género. Esto supone que las condiciones sociales pueden transformarse mediante la acción ciudadana, incluso si están arraigadas. La respuesta correcta es C."
+  }
+
+
+
+
+  ,
+  {
+    uid: "s2-soc-005",
+    session: 2,
+    block: 1,
+    number: 5,
+    area: "Sociales y Ciudadanas",
+    competencia: "Pensamiento social",
+    componente: "Inclusión laboral, discapacidad y prejuicios",
+    dificultad: "Media",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 2 - Sociales y Ciudadanas - Pregunta 5",
+    stem: "En respuesta a la solicitud de adaptar la infraestructura de una empresa para hacerla más accesible a los trabajadores con discapacidad, el jefe de la empresa contestó lo siguiente:",
+    resources: [
+      {
+        type: "html",
+        html: `
+          <div class="reading-card">
+            <div class="reading-instruction">Sociales y Ciudadanas</div>
+            <h3>Accesibilidad laboral y discapacidad</h3>
+            <blockquote>“Es cierto que existen muchas barreras para que las personas con discapacidad se integren al mercado laboral. El Estado, en principio, debería asumir un papel más activo frente a esta población, pues los ajustes a la infraestructura no son una responsabilidad que deba asumir exclusivamente una empresa. Además, no se debe pensar que la discapacidad radica en la limitación, ya que el problema de la discapacidad radica en las actitudes personales que impiden superarla de forma efectiva”.</blockquote>
+          </div>
+        `
+      }
+    ],
+    prompt: "¿Cuál de los siguientes enunciados del jefe de la empresa contiene un prejuicio cuestionable?",
+    options: [
+      { letter: "A", text: "Existen muchas barreras para que las personas con discapacidad se integren al mercado laboral." },
+      { letter: "B", text: "El Estado, en principio, debería asumir un papel más activo frente a la población con discapacidad." },
+      { letter: "C", text: "El problema de la discapacidad radica en las actitudes personales que impiden superarla de forma efectiva." },
+      { letter: "D", text: "Los ajustes a la infraestructura no son una responsabilidad que deba asumir exclusivamente una empresa." }
+    ],
+    correctAnswer: "C",
+    explanation: "El enunciado C es cuestionable porque desplaza el problema hacia las actitudes personales de quienes tienen discapacidad, como si la superación dependiera principalmente de ellos. Esto ignora las barreras físicas, sociales e institucionales que limitan la inclusión. La respuesta correcta es C."
+  }
+
+
+
+  ,
+  {
+    uid: "s2-soc-006",
+    session: 2,
+    block: 1,
+    number: 6,
+    area: "Sociales y Ciudadanas",
+    competencia: "Pensamiento sistémico y reflexión crítica",
+    componente: "Conflictos socioambientales, pesca industrial y economía local",
+    dificultad: "Media",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 2 - Sociales y Ciudadanas - Pregunta 6",
+    stem: "En un pueblo panameño, la comunidad se encuentra molesta debido a la presencia de buques industriales que realizan pesca a gran escala en su territorio.",
+    resources: [
+      {
+        type: "html",
+        html: `
+          <div class="reading-card">
+            <div class="reading-instruction">Sociales y Ciudadanas</div>
+            <h3>Pesca industrial y conflicto comunitario</h3>
+            <p>Según los habitantes, la presencia de buques industriales conduce a tres problemas:</p>
+            <ol>
+              <li>Las especies nativas se están extinguiendo, lo cual afecta el ecosistema marino de la región y, por ende, el turismo asociado a prácticas como el avistamiento de ballenas.</li>
+              <li>Los pescadores artesanales no obtienen el pescado necesario para subsistir.</li>
+              <li>Las herramientas de pesca de los nativos son arrastradas por los buques de pesca industrial extranjeros.</li>
+            </ol>
+            <p>Para resolver el conflicto, se propone generar franjas de tiempo específicas para que los buques industriales pesquen a lo largo del año y brindar asesoramiento científico a los habitantes para que puedan comprobar si la pesca industrial está destruyendo el ecosistema marino.</p>
+            <p class="source-note">Tomado y adaptado de: Paz, A. (12 de marzo de 2019). El área protegida que resolvió conflictos entre pescadores artesanales e industriales en Colombia. Mongabay.</p>
+          </div>
+        `
+      }
+    ],
+    prompt: "De las siguientes circunstancias, ¿cuál podría dificultar que la solución propuesta tenga éxito?",
+    options: [
+      { letter: "A", text: "Que varias organizaciones científicas se involucren en el proceso de verificación del impacto ecológico de la pesca industrial." },
+      { letter: "B", text: "Que se aprovechen al máximo las franjas de tiempo acordadas, incrementando el número de buques industriales en la zona." },
+      { letter: "C", text: "Que los pescadores se dediquen a actividades alternativas durante las franjas acordadas para asegurar su subsistencia." },
+      { letter: "D", text: "Que la alcaldía del pueblo les brinde a los pescadores un subsidio que les permita recuperar las herramientas perdidas." }
+    ],
+    correctAnswer: "B",
+    explanation: "La solución busca regular la pesca industrial mediante franjas de tiempo y comprobar científicamente sus impactos. Si esas franjas se aprovechan al máximo aumentando el número de buques, la presión sobre el ecosistema y sobre los pescadores artesanales podría crecer, dificultando el éxito de la medida. La respuesta correcta es B."
+  }
+
+
+  ,
+  {
+    uid: "s2-soc-007",
+    session: 2,
+    block: 1,
+    number: 7,
+    area: "Sociales y Ciudadanas",
+    competencia: "Pensamiento social",
+    componente: "Participación política, partidos y democracia representativa",
+    dificultad: "Básica",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 2 - Sociales y Ciudadanas - Pregunta 7",
+    stem: "En la Constitución Política de Colombia se establece que todos los ciudadanos tienen el derecho a fundar, organizar y desarrollar partidos y movimientos políticos. También se hace mención a la libertad que tienen las personas para afiliarse o retirarse de los partidos.",
+    prompt: "¿Por qué en la Constitución se da importancia a los partidos políticos?",
+    options: [
+      { letter: "A", text: "Porque contribuyen a que los ciudadanos incidan en las decisiones del país a través de la participación." },
+      { letter: "B", text: "Porque favorecen la descentralización política territorial, mediante estrategias de acuerdo clientelistas." },
+      { letter: "C", text: "Porque garantizan la gobernabilidad del presidente, promoviendo la censura a las iniciativas de la oposición." },
+      { letter: "D", text: "Porque cuentan con las facultades para administrar justicia entre los ciudadanos y los funcionarios del Estado." }
+    ],
+    correctAnswer: "A",
+    explanation: "Los partidos y movimientos políticos son mecanismos de participación democrática: permiten que la ciudadanía se organice, exprese intereses colectivos, proponga ideas y participe en las decisiones públicas. Por eso la Constitución reconoce su importancia. La respuesta correcta es A."
+  }
+
+
+  ,
+  {
+    uid: "s2-soc-008",
+    session: 2,
+    block: 1,
+    number: 8,
+    area: "Sociales y Ciudadanas",
+    competencia: "Pensamiento social",
+    componente: "Derechos, servicios públicos y acceso al agua potable",
+    dificultad: "Básica",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 2 - Sociales y Ciudadanas - Pregunta 8",
+    stem: "Un municipio en Colombia es rico en vegetación y recursos hídricos, dentro de los cuales se encuentra uno de los embalses más grandes del país. Sin embargo, sus habitantes no cuentan con acceso universal al agua potable, porque una empresa de acueducto y alcantarillado es dueña de una parte del terreno en el que está localizado el embalse y destina este recurso a otras regiones, entre estas, a la capital del país; además, el acueducto local es bastante obsoleto, por lo que el agua potable llega a pocas personas. Por todo esto, les toca conformarse con aprovechar el agua de dos quebradas cercanas y construir acueductos artesanales, cuya capacidad es mínima y poco confiable, para potabilizarla y acceder a ella.",
+    prompt: "De acuerdo con la Constitución Política de Colombia, en la situación descrita está vulnerándose el derecho",
+    options: [
+      { letter: "A", text: "a un medio ambiente sano." },
+      { letter: "B", text: "a participar en las decisiones sobre el uso de los recursos naturales." },
+      { letter: "C", text: "al acceso al agua potable." },
+      { letter: "D", text: "al enriquecimiento por la explotación de los recursos naturales." }
+    ],
+    correctAnswer: "C",
+    explanation: "La situación muestra que la población no tiene acceso universal, suficiente y confiable al agua potable, pese a vivir en un municipio con abundantes recursos hídricos. Por eso el derecho vulnerado es el acceso al agua potable. La respuesta correcta es C."
+  }
+
+
+  ,
+  {
+    uid: "s2-soc-009",
+    session: 2,
+    block: 1,
+    number: 9,
+    area: "Sociales y Ciudadanas",
+    competencia: "Pensamiento social",
+    componente: "Historia política de Colombia, orden público y estado de sitio",
+    dificultad: "Media",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 2 - Sociales y Ciudadanas - Pregunta 9",
+    stem: "Las elecciones presidenciales del país en 1970 fueron altamente controversiales, debido a dos motivos. Por un lado, hubo diversas denuncias de que se había realizado un fraude electoral y, por otro lado, como consecuencia del descontento de la población, hubo un incremento en la violencia en el país, lo cual llevó a la formación de grupos armados ilegales.",
+    resources: [
+      {
+        type: "html",
+        html: `
+          <div class="reading-card">
+            <div class="reading-instruction">Sociales y Ciudadanas</div>
+            <h3>Discurso presidencial y estado de sitio</h3>
+            <p>Ahora bien, el presidente en funciones de la época pronunció un discurso la noche de las elecciones, en el que declaró el estado de sitio:</p>
+            <blockquote>“La obligación del Gobierno es la de adoptar todas las medidas que sean necesarias para mantener la paz y el orden, porque si las prédicas no bastan, si los llamamientos a la cordialidad no bastan, si la seguridad de que se cumplirán todas las formalidades legales no basta, habrá que emplear los instrumentos que prevé la Constitución, y yo, de eso pueden estar seguros todos, no vacilaré en emplearlos. Mi deber como mandatario de la República es usar esos instrumentos oportunamente y, si es necesario, con la máxima severidad y la máxima energía, y yo, Dios mediante, no habré de faltar a él [...] los datos que estamos recibiendo hora por hora nos confirman que avanza aceleradamente la promoción de un levantamiento general en el país. Por consiguiente, no puedo demorar un momento más las necesarias medidas de prevención y se acaba de numerar y expedir el decreto que declara turbado el orden público y ordena el estado de sitio”.</blockquote>
+            <p class="source-note">Tomado y adaptado de: Redacción Política. (2008, 11 de abril). A las 9 no debe haber gente en las calles. El Espectador.</p>
+          </div>
+        `
+      }
+    ],
+    prompt: "De acuerdo con lo anterior, ¿con qué intención el presidente en funciones declaró el estado de sitio?",
+    options: [
+      { letter: "A", text: "Ejercer su poder para realizar nuevas elecciones en todo el país." },
+      { letter: "B", text: "Ejercer su autoridad para mantenerse en el poder durante otro mandato." },
+      { letter: "C", text: "Ejercer su poder para castigar a los culpables de realizar el fraude electoral." },
+      { letter: "D", text: "Ejercer su autoridad para evitar alzamientos armados en el país." }
+    ],
+    correctAnswer: "D",
+    explanation: "En el discurso se afirma que el Gobierno debía tomar medidas para mantener la paz y el orden, porque supuestamente avanzaba la promoción de un levantamiento general. Por eso, la intención declarada del estado de sitio era prevenir alzamientos armados y preservar el orden público. La respuesta correcta es D."
+  }
+
+
+
+
+  ,
+  {
+    uid: "s2-soc-010",
+    session: 2,
+    block: 1,
+    number: 10,
+    area: "Sociales y Ciudadanas",
+    competencia: "Pensamiento social",
+    componente: "Reforma tributaria, oposición y gobierno",
+    dificultad: "Media",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 2 - Sociales y Ciudadanas - Pregunta 10",
+    stem: "Desde hace una década, en un país se viene afirmando que se necesita una reforma tributaria que permita mejorar sustancialmente la situación fiscal del Estado. Ante esta situación, un congresista, que se fue volviendo cada vez más popular con los años, afirmó lo siguiente en diferentes momentos:",
+    resources: [
+      {
+        type: "html",
+        html: `
+          <div class="reading-card">
+            <div class="reading-instruction">Sociales y Ciudadanas</div>
+            <h3>Dos posiciones frente a una reforma tributaria</h3>
+            <blockquote>“Un Congreso que se atrevió a hacer una reforma tributaria en plena crisis económica, gravando la canasta familiar, que afecta a las clases menos favorecidas, no tiene perdón. Se vienen protestas y los congresistas de la oposición estaremos con los manifestantes”. <strong>(2012)</strong></blockquote>
+            <blockquote>“El Ministro de Hacienda y los congresistas de los partidos de Gobierno, luego de debatir cinco horas en el Palacio, apoyamos la reforma tributaria porque grava solo a las clases altas. Por ello, eliminamos varios impuestos que generaban preocupación en los sectores empobrecidos del país”. <strong>(2017)</strong></blockquote>
+          </div>
+        `
+      }
+    ],
+    prompt: "¿Cuál de las siguientes razones permitiría explicar la diferencia entre ambas posiciones del congresista?",
+    options: [
+      { letter: "A", text: "La diferencia de popularidad entre un congresista poco conocido y un congresista que se convirtió en figura pública nacional." },
+      { letter: "B", text: "Las diferencias económicas fiscales que tiene el país entre los años mencionados." },
+      { letter: "C", text: "La diferencia en la posición política que ocupa el congresista en los años señalados y en el enfoque propuesto para la reforma." },
+      { letter: "D", text: "La obligación de los congresistas de cambiar de posición durante Gobiernos distintos." }
+    ],
+    correctAnswer: "C",
+    explanation: "En 2012 el congresista habla desde la oposición y rechaza una reforma que, según él, afecta a las clases menos favorecidas. En 2017 habla junto al Gobierno y apoya una reforma con un enfoque diferente: gravar a las clases altas y eliminar impuestos preocupantes para sectores empobrecidos. Por eso la diferencia se explica por el cambio de posición política y por el enfoque de la reforma. La respuesta correcta es C."
+  }
+
+
+  ,
+  {
+    uid: "s2-soc-011",
+    session: 2,
+    block: 1,
+    number: 11,
+    area: "Sociales y Ciudadanas",
+    competencia: "Pensamiento social",
+    componente: "Políticas públicas, educación superior y equidad",
+    dificultad: "Media",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 2 - Sociales y Ciudadanas - Pregunta 11",
+    stem: "Con el fin de mejorar el acceso a la educación superior, en el Plan Nacional de Desarrollo 2014-2018 para Colombia, se proponía lo siguiente:",
+    resources: [
+      {
+        type: "html",
+        html: `
+          <div class="reading-card">
+            <div class="reading-instruction">Sociales y Ciudadanas</div>
+            <h3>Financiación de la demanda en educación superior</h3>
+            <blockquote><strong>“Financiación de la demanda en un contexto de alta calidad y equidad:</strong> se fomentará el acceso a la educación superior de los estudiantes con condiciones socioeconómicas menos favorables y buen desempeño académico, mediante el otorgamiento de créditos-becas para cursar sus estudios en instituciones o programas con acreditación de alta calidad”.</blockquote>
+            <p class="source-note">Tomado de: Presidencia de la República de Colombia. (2014). <em>Plan Nacional de Desarrollo “Todos por un nuevo país” 2014-2018</em>, p. 97. Imprenta Nacional de Colombia.</p>
+          </div>
+        `
+      }
+    ],
+    prompt: "De acuerdo con lo anterior, ¿qué factor se está pasando por alto en el programa para la selección de los estudiantes beneficiarios?",
+    options: [
+      { letter: "A", text: "El impacto del nivel socioeconómico de los estudiantes y sus familias en sus posibilidades de acceso a la educación superior." },
+      { letter: "B", text: "La calidad de los programas de educación superior a los que ingresarían los estudiantes que resulten beneficiados con el crédito-beca." },
+      { letter: "C", text: "El impacto de la calidad de la educación primaria y secundaria en el rendimiento académico de los estudiantes que aspiran al beneficio." },
+      { letter: "D", text: "El buen desempeño académico en su formación primaria y secundaria que deben tener los estudiantes beneficiados con el crédito-beca." }
+    ],
+    correctAnswer: "C",
+    explanation: "El programa considera las condiciones socioeconómicas, el buen desempeño académico y la acreditación de alta calidad de las instituciones o programas. Sin embargo, al exigir buen desempeño académico, pasa por alto que la calidad de la educación primaria y secundaria puede afectar ese rendimiento y, por tanto, las posibilidades de acceder al beneficio. La respuesta correcta es C."
+  }
+
+
+
+
+  ,
+  {
+    uid: "s2-soc-012",
+    session: 2,
+    block: 1,
+    number: 12,
+    area: "Sociales y Ciudadanas",
+    competencia: "Pensamiento social",
+    componente: "Segregación, exclusión y genocidio",
+    dificultad: "Básica",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 2 - Sociales y Ciudadanas - Pregunta 12",
+    stem: "Durante la Segunda Guerra Mundial, la Alemania nazi fue responsable de un genocidio contra la población judía, con el que se perseguía la eliminación de todos los judíos de Europa. A este genocidio le precedió la exclusión de dicha población del resto de la población europea en los países que fueron invadidos por Alemania. Los judíos fueron confinados a barrios especiales, denominados ‘guetos’, donde se los separaba de sus compatriotas para, luego, ser enviados a campos de concentración y trabajo forzado.",
+    prompt: "De acuerdo con lo anterior, ¿con cuál de los siguientes conceptos se puede relacionar el concepto de ‘genocidio’?",
+    options: [
+      { letter: "A", text: "Emigración." },
+      { letter: "B", text: "Inmigración." },
+      { letter: "C", text: "Segregación." },
+      { letter: "D", text: "Inclusión." }
+    ],
+    correctAnswer: "C",
+    explanation: "El texto describe que antes del genocidio los judíos fueron excluidos y separados del resto de la población mediante guetos. Esa separación sistemática de un grupo social se relaciona con la segregación. Por eso, la respuesta correcta es C."
+  }
+
+
+
+
+
+  ,
+  {
+    uid: "s2-soc-013",
+    session: 2,
+    block: 1,
+    number: 13,
+    area: "Sociales y Ciudadanas",
+    competencia: "Pensamiento social",
+    componente: "Cultura, tradición, tecnología apropiada y solución de problemas sociales",
+    dificultad: "Media",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 2 - Sociales y Ciudadanas - Pregunta 13",
+    stem: "Los habitantes de una aldea de África están pasando por una terrible hambruna. La agricultura ha sido la principal fuente de alimento de esta población; sin embargo, debido al calentamiento global, las políticas ineficaces del presidente y la época de sequía, no hay agua suficiente para regar los cultivos.",
+    resources: [
+      {
+        type: "html",
+        html: `
+          <div class="reading-card">
+            <div class="reading-instruction">Sociales y Ciudadanas</div>
+            <h3>Hambruna, tradición y solución tecnológica</h3>
+            <p>Ante esta situación, los líderes de la aldea han decidido dejar su suerte a “los designios de Dios”. Ellos confían en que, como en épocas de sequía pasadas, la lluvia llegará, siempre y cuando mantengan las mismas técnicas de siembra, cultivo y riego por lluvia. Ellos aseguran que la comunidad sobrevivirá de la misma forma en que sobrevivieron sus antecesores.</p>
+            <p>Por otro lado, para resolver el problema, en una aldea, un grupo de estudiantes propone diseñar un molino de viento que permite extraer agua de los pozos del lugar. El molino, que no es muy complejo, sería construido con materiales reciclados de la aldea y, de esta forma, se contaría con una técnica alternativa para el riego de los cultivos.</p>
+          </div>
+        `
+      }
+    ],
+    prompt: "En la situación anterior, ¿cuál de las siguientes condiciones obstaculiza la implementación de la solución propuesta por los estudiantes?",
+    options: [
+      { letter: "A", text: "El calentamiento global." },
+      { letter: "B", text: "La falta de sustento económico." },
+      { letter: "C", text: "La tradición cultural de siembra." },
+      { letter: "D", text: "La falta de apoyo del Gobierno." }
+    ],
+    correctAnswer: "C",
+    explanation: "La solución de los estudiantes propone una técnica alternativa de riego mediante un molino de viento. El obstáculo descrito es que los líderes desean mantener las mismas técnicas tradicionales de siembra, cultivo y riego por lluvia, confiando en que la comunidad sobrevivirá como sus antecesores. Por eso, la condición que dificulta la implementación es la tradición cultural de siembra. La respuesta correcta es C."
+  }
+
+
+
+  ,
+  {
+    uid: "s2-soc-014",
+    session: 2,
+    block: 1,
+    number: 14,
+    area: "Sociales y Ciudadanas",
+    competencia: "Pensamiento social",
+    componente: "Modelos económicos e intervención del Estado",
+    dificultad: "Básica",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 2 - Sociales y Ciudadanas - Pregunta 14",
+    stem: "Cuando en un país existen, simultáneamente, prácticas que permiten la actividad libre y legal de las empresas particulares y la intervención del Estado, decimos que en ese país predomina un modelo de economía dual o de economía mixta de mercado, ya que los medios de producción están siendo compartidos por el sector público y el privado tanto en la producción de bienes como en la prestación de servicios.",
+    prompt: "¿Cuál de las siguientes acciones representa un rasgo de intervención estatal en un modelo de economía mixta?",
+    options: [
+      { letter: "A", text: "Una alcaldía decide terminar un contrato de construcción de alcantarillado por incumplimiento del contratista." },
+      { letter: "B", text: "Un jefe de recursos humanos de una multinacional llama a varios empleados para negociar un incremento salarial por sus buenos resultados." },
+      { letter: "C", text: "Los empleadores y los trabajadores se reúnen para negociar un incremento en el salario mínimo para el siguiente año." },
+      { letter: "D", text: "Dos empresas compiten en una convocatoria para saber cuál de ellas ofrece mejor precio para la realización de un contrato." }
+    ],
+    correctAnswer: "A",
+    explanation: "La economía mixta combina la actividad privada con la intervención del Estado. La opción A muestra a una alcaldía, es decir, una entidad estatal, actuando sobre un contrato de obra pública. Las demás opciones se centran principalmente en relaciones entre actores privados o laborales. Por eso, la respuesta correcta es A."
+  }
+
+
+  ,
+  {
+    uid: "s2-soc-015",
+    session: 2,
+    block: 1,
+    number: 15,
+    area: "Sociales y Ciudadanas",
+    competencia: "Interpretación y análisis de perspectivas",
+    componente: "Censura, medios de comunicación y videojuegos",
+    dificultad: "Media",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 2 - Sociales y Ciudadanas - Pregunta 15",
+    stem: "En los últimos años, algunos periodistas han promovido la censura a los videojuegos con contenidos violentos, debido a que varias personas han confesado que habían jugado este tipo de videojuegos antes de cometer un delito. No obstante, según algunos expertos, estas razones no son adecuadas para justificar la censura porque, además de tratarse de casos aislados, el mismo razonamiento permitiría censurar otros medios de la industria del entretenimiento, como el cine o la televisión, que también pueden incidir negativamente en el comportamiento de las personas.",
+    prompt: "Ahora bien, ¿cuál de las siguientes razones podría utilizarse para cuestionar la posición de los expertos?",
+    options: [
+      { letter: "A", text: "Tanto los videojuegos como el cine y la televisión pueden tener un impacto importante en el comportamiento social de las personas." },
+      { letter: "B", text: "Únicamente se han presentado casos aislados de delitos cometidos como resultado de la influencia de contenidos televisivos violentos." },
+      { letter: "C", text: "Como la interacción del jugador es más activa que la del televidente, la influencia de los videojuegos sobre el comportamiento es mayor." },
+      { letter: "D", text: "No es posible afirmar que el cine y los videojuegos tengan un impacto diferente en las personas, pues en ambos casos la relación con el contenido es similar." }
+    ],
+    correctAnswer: "C",
+    explanation: "Los expertos sostienen que censurar videojuegos por posibles efectos negativos permitiría censurar también cine o televisión, porque todos serían medios de entretenimiento con posibles efectos similares. La opción C cuestiona esa comparación, pues señala una diferencia relevante: en los videojuegos el usuario interactúa activamente, por lo que su influencia podría ser mayor que la de otros medios. Por eso, la respuesta correcta es C."
+  }
+
+
+  ,
+  {
+    uid: "s2-soc-016",
+    session: 2,
+    block: 1,
+    number: 16,
+    area: "Sociales y Ciudadanas",
+    competencia: "Interpretación y análisis de perspectivas",
+    componente: "Discriminación laboral y diversidad",
+    dificultad: "Media",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 2 - Sociales y Ciudadanas - Pregunta 16",
+    stem: "Una investigación realizada por una universidad reveló que, en tres ciudades principales, el 40 % de la población LGBTIQ+ es víctima de exclusión laboral por razones de identidad de género y orientación sexual. Frente a estos resultados, voceros del Ministerio del Trabajo afirmaron que, si bien eran alarmantes, la investigación no consideraba los distintos panoramas y contextos laborales en donde se generaba la exclusión, pues, en muchos casos, el rechazo a ciertos postulantes dependía de otras razones, como los perfiles de las vacantes.",
+    prompt: "¿Se puede afirmar que los voceros del Ministerio del Trabajo están contradiciendo lo expuesto en los resultados de la investigación?",
+    options: [
+      { letter: "A", text: "No, pues reconocen que hay altas cifras de exclusión laboral por razones de identidad de género y orientación sexual." },
+      { letter: "B", text: "No, porque reconocen que deben realizarse estudios e investigaciones de este estilo para poder crear nuevas rutas en contra de la discriminación." },
+      { letter: "C", text: "Sí, porque sugieren que la investigación se limita a describir la situación de exclusión laboral sin tener en cuenta otras variables que hacen parte del proceso." },
+      { letter: "D", text: "Sí, porque consideran que hay variables más relevantes para evaluar un fenómeno relacionado con los procesos de contratación que no tienen que ver con la identidad de género y la orientación sexual." }
+    ],
+    correctAnswer: "C",
+    explanation: "La investigación atribuye la exclusión laboral a razones de identidad de género y orientación sexual. Los voceros no niegan que las cifras sean alarmantes, pero sí cuestionan el alcance del estudio al afirmar que no tuvo en cuenta distintos contextos laborales y otras variables, como los perfiles de las vacantes. Por eso, contradicen parcialmente la interpretación de los resultados. La respuesta correcta es C."
+  }
+
+
+  ,
+  {
+    uid: "s2-soc-017",
+    session: 2,
+    block: 1,
+    number: 17,
+    area: "Sociales y Ciudadanas",
+    competencia: "Interpretación y análisis de perspectivas",
+    componente: "Derechos, libertad de creencias y normas institucionales",
+    dificultad: "Media",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 2 - Sociales y Ciudadanas - Pregunta 17",
+    stem: "En una institución educativa se le niega la posibilidad a una estudiante de hacer lectura del tarot a sus compañeros de clase y, frente a sus peticiones, las directivas argumentan que esta práctica no puede ser realizada, en cuanto no existe ningún sustento científico que le dé validez. Por el contrario, manifiestan que puede resultar perjudicial para aquellas personas que son fácilmente influenciables o débiles en sus creencias. Frente a la situación, la estudiante afectada dice: ‘La actitud de las directivas es irracional e injusta, el tarot hace parte de mis creencias. Es una práctica de tradición familiar y, por ello, puedo ejercerla libremente’.",
+    prompt: "¿Cuál puede ser la intención de la estudiante al asegurar que está siendo discriminada?",
+    options: [
+      { letter: "A", text: "Desatender lo que se indica en los lineamientos institucionales." },
+      { letter: "B", text: "Poner en tela de juicio el conocimiento que tienen las directivas." },
+      { letter: "C", text: "Conseguir a largo plazo algún tipo de remuneración económica." },
+      { letter: "D", text: "Evidenciar la vulneración que se está haciendo a sus derechos." }
+    ],
+    correctAnswer: "D",
+    explanation: "La estudiante afirma que la lectura del tarot hace parte de sus creencias y de una tradición familiar. Al decir que está siendo discriminada, busca mostrar que la decisión institucional estaría afectando su libertad de creencias y su derecho a ejercerlas. Por eso, la respuesta correcta es D."
+  }
+
+
+  ,
+  {
+    uid: "s2-soc-018",
+    session: 2,
+    block: 1,
+    number: 18,
+    area: "Sociales y Ciudadanas",
+    competencia: "Pensamiento social",
+    componente: "Derechos, convivencia escolar y libre desarrollo de la personalidad",
+    dificultad: "Media",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 2 - Sociales y Ciudadanas - Pregunta 18",
+    stem: "En un colegio, la comunidad educativa ha hecho un ejercicio participativo de revisión y actualización del manual de convivencia escolar. En el marco de este ejercicio, los directivos han abierto una serie de diálogos entre los distintos actores del colegio —estudiantes, docentes, padres y madres, y coordinadores—, con el fin de acordar entre todos cuáles son los derechos y los deberes de los diferentes miembros de la institución.",
+    prompt: "Los estudiantes proponen ajustar el manual para promover acciones que respeten su derecho al libre desarrollo de la personalidad, ¿cuál de las siguientes opciones es un ejemplo de esta propuesta?",
+    options: [
+      { letter: "A", text: "La posibilidad de que los estudiantes puedan elegir al docente que imparta las distintas asignaturas." },
+      { letter: "B", text: "La prohibición de impartir un solo culto religioso para respetar la diversidad de creencias en el colegio." },
+      { letter: "C", text: "La autorización para que las estudiantes en estado de embarazo continúen con sus estudios si así lo desean." },
+      { letter: "D", text: "La apertura de un programa de alimentación escolar que garantice la adecuada nutrición de los estudiantes." }
+    ],
+    correctAnswer: "B",
+    explanation: "La propuesta busca proteger el libre desarrollo de la personalidad dentro del manual de convivencia. La opción B reconoce la diversidad de creencias y evita imponer un único culto religioso, lo cual favorece la autonomía y la expresión de distintas convicciones personales. Por eso, la respuesta correcta es B."
+  }
+
+
+
+
+  ,
+  {
+    uid: "s2-soc-019",
+    session: 2,
+    block: 1,
+    number: 19,
+    area: "Sociales y Ciudadanas",
+    competencia: "Pensamiento social",
+    componente: "Pueblos indígenas, biodiversidad y responsabilidad ambiental",
+    dificultad: "Media",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 2 - Sociales y Ciudadanas - Pregunta 19",
+    stem: "Diversos estudios han encontrado que la biodiversidad en territorios habitados por indígenas de diferentes países está igual o mejor preservada que la que se encuentra en áreas naturales protegidas por el Estado; por ello, hay un creciente reconocimiento del liderazgo que deben tener los pueblos indígenas en la conservación y cuidado del planeta. Teniendo en cuenta lo anterior, en un congreso internacional en el que se analizan los efectos del cambio climático y la pérdida de biodiversidad, se ha propuesto que cada país incluya en sus programas de gobierno la obligación de consultar a los pueblos indígenas de su territorio para formular las políticas ambientales.",
+    prompt: "Si la propuesta se implementa, ¿qué efecto NO deseado podría tener esta solución?",
+    options: [
+      { letter: "A", text: "Que se disminuya la participación de los pueblos indígenas en la formulación de políticas dirigidas a otros ámbitos como el de la salud, la cultura, el comercio o el trabajo." },
+      { letter: "B", text: "Que se fortalezca una mirada colonialista sobre el medio ambiente que se basa en la necesidad de separar al ser humano de la naturaleza para poder preservarla." },
+      { letter: "C", text: "Que se fortalezca la articulación entre los conocimientos, saberes y prácticas de los pueblos indígenas y la definición de los programas gubernamentales de protección ambiental." },
+      { letter: "D", text: "Que se disminuya la responsabilidad que tienen las personas pertenecientes a otras poblaciones frente a los deberes de cuidado, preservación y compromiso con la protección de la naturaleza." }
+    ],
+    correctAnswer: "D",
+    explanation: "La propuesta reconoce el liderazgo de los pueblos indígenas en la protección ambiental. Sin embargo, un efecto no deseado podría ser que otros grupos sociales interpreten que el cuidado de la naturaleza es responsabilidad exclusiva de los pueblos indígenas y reduzcan su propio compromiso ambiental. Por eso, la respuesta correcta es D."
+  }
+
+
+  ,
+  {
+    uid: "s2-soc-020",
+    session: 2,
+    block: 1,
+    number: 20,
+    area: "Sociales y Ciudadanas",
+    competencia: "Pensamiento social",
+    componente: "Conflictos socioambientales y manejo de especies invasoras",
+    dificultad: "Media",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 2 - Sociales y Ciudadanas - Pregunta 20",
+    stem: "El pez león es una especie marina invasora que no tiene depredadores en las costas colombianas y que se ha convertido en una amenaza para los ecosistemas marinos. Por esta razón, se han propuesto dos soluciones para combatir su acelerado crecimiento: 1) promover la caza intensiva del pez león, lo cual impedirá que deprede la fauna y la flora en las zonas marinas; y 2) promover el consumo del pez león, lo cual permitirá el crecimiento económico de las zonas pesqueras.",
+    prompt: "De acuerdo con lo anterior, ¿las dos propuestas descritas son compatibles entre sí?",
+    options: [
+      { letter: "A", text: "Sí, porque el crecimiento económico de las zonas pesqueras permitirá un mejor cuidado de los ecosistemas marinos." },
+      { letter: "B", text: "No, porque la caza intensiva busca erradicar al pez león para evitar cualquier impacto en los ecosistemas marinos." },
+      { letter: "C", text: "Sí, porque se puede promover el consumo de los peces león que sean cazados para evitar su propagación." },
+      { letter: "D", text: "No, porque el cultivo de peces león para su consumo impedirá controlar su impacto en los ecosistemas." }
+    ],
+    correctAnswer: "C",
+    explanation: "Las dos propuestas son compatibles: la caza intensiva ayuda a controlar la propagación del pez león y, al mismo tiempo, los ejemplares cazados pueden destinarse al consumo para beneficiar económicamente a las comunidades pesqueras. Por eso, la respuesta correcta es C."
+  }
+
+
+
+  ,
+  {
+    uid: "s2-soc-021",
+    session: 2,
+    block: 1,
+    number: 21,
+    area: "Sociales y Ciudadanas",
+    competencia: "Pensamiento social",
+    componente: "Constitución Política y reformas constitucionales",
+    dificultad: "Media",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 2 - Sociales y Ciudadanas - Pregunta 21",
+    stem: "Ante los alarmantes casos de feminicidio en el país, un candidato a la Presidencia de la República, durante una rueda de prensa, aseguró que, en caso de ser elegido, su primera medida sería realizar una reforma constitucional que permita condenar a cadena perpetua a quienes cometan este tipo de delitos contra las mujeres.",
+    prompt: "De acuerdo con la Constitución Política de Colombia, en caso de ser elegido el candidato, ¿podría implementar su propuesta?",
+    options: [
+      { letter: "A", text: "No, porque el poder judicial es el encargado de dictar las sentencias sobre los casos de feminicidio, no el presidente." },
+      { letter: "B", text: "Sí, porque el presidente de la República tiene la facultad de realizar reformas constitucionales cuando lo considere necesario." },
+      { letter: "C", text: "No, porque el Congreso es el único órgano que cuenta con las facultades para llevar a cabo reformas constitucionales." },
+      { letter: "D", text: "Sí, porque todos los colombianos rechazan el feminicidio y el presidente está en la obligación de cumplir la voluntad del pueblo." }
+    ],
+    correctAnswer: "C",
+    explanation: "La propuesta exige modificar la Constitución, y un presidente no puede implementar una reforma constitucional de manera unilateral. En el contexto de la pregunta, la opción que mejor contradice la afirmación del candidato es que dicha facultad no corresponde directamente al presidente. Por eso, la respuesta correcta es C."
+  }
+
+
+
+  ,
+  {
+    uid: "s2-soc-022",
+    session: 2,
+    block: 1,
+    number: 22,
+    area: "Sociales y Ciudadanas",
+    competencia: "Pensamiento social",
+    componente: "Historia política de Colombia, liderazgo popular y crítica a las élites",
+    dificultad: "Media",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 2 - Sociales y Ciudadanas - Pregunta 22",
+    stem: "Lea con atención el siguiente discurso de un político colombiano, pronunciado en Bogotá en 1946:",
+    resources: [
+      {
+        type: "html",
+        html: `
+          <div class="reading-card">
+            <div class="reading-instruction">Sociales y Ciudadanas</div>
+            <h3>Discurso en Bogotá, 1946</h3>
+            <blockquote>“Ante el agrietamiento de la oligarquía, ante el hecho de no haber podido imponer los candidatos contra la opinión pública, ante el hecho de haber fracasado con la intransigencia y haber fracasado con la transigencia, ante el hecho de haber puesto al Partido Conservador a decidir de la suerte del candidato liberal y no haberlo logrado, hemos llegado ya, entonces, ante el peligro de esta avalancha humana, que no es mi nombre sino la restauración moral y democrática de la república, ¡libra una batalla, librará una batalla!, ¡vencerá a la oligarquía liberal y aplastará a la oligarquía conservadora!”.</blockquote>
+            <p class="reading-source">Tomado y adaptado de: Wikisource. (s. f.). <em>Discurso en el Teatro Municipal de 1946</em>.</p>
+          </div>
+        `
+      }
+    ],
+    prompt: "¿Cuál es la evidencia para afirmar que el anterior discurso fue pronunciado por Jorge Eliécer Gaitán?",
+    options: [
+      { letter: "A", text: "Su discurso caudillista con el que advierte lo perjudicial de un levantamiento popular para la estabilidad del país." },
+      { letter: "B", text: "Su intención de criticar a los políticos tradicionales como estrategia para posicionar sus intereses electorales." },
+      { letter: "C", text: "Su propósito de construir alianzas partidistas para garantizar la paz y el respeto por la democracia en el país." },
+      { letter: "D", text: "Su crítica a la concentración del poder entre los partidos Liberal y Conservador en el marco del Frente Nacional." }
+    ],
+    correctAnswer: "B",
+    explanation: "El discurso critica directamente a las élites u oligarquías liberal y conservadora, rasgo asociado al lenguaje político de Jorge Eliécer Gaitán y a su estrategia de disputar el apoyo popular frente a los políticos tradicionales. Por eso, la respuesta correcta es B."
+  }
+
+
+  ,
+  {
+    uid: "s2-soc-023",
+    session: 2,
+    block: 1,
+    number: 23,
+    area: "Sociales y Ciudadanas",
+    competencia: "Pensamiento social",
+    componente: "Discriminación, diversidad sexual y derechos humanos",
+    dificultad: "Básica",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 2 - Sociales y Ciudadanas - Pregunta 23",
+    stem: "Lee la siguiente noticia:",
+    resources: [
+      {
+        type: "html",
+        html: `
+          <div class="reading-card">
+            <div class="reading-instruction">Sociales y Ciudadanas</div>
+            <h3>Noticia</h3>
+            <p>“Un presunto caso de discriminación se presentó en contra de un congresista cuando se encontraba debatiendo un proyecto de ley para eliminar las terapias de conversión, una terapia que busca cambiar por la fuerza la orientación sexual de las personas homosexuales, por medio de ritos y prácticas cuestionables. El congresista fue acusado por dos colegas suyos de tener un conflicto de interés, debido a que la ley lo beneficiaba a él directamente, por hacer parte de la comunidad homosexual. Así lo denunció el mismo congresista a los medios de comunicación”.</p>
+            <p class="reading-source">Tomado y adaptado de: Saavedra, L. (8 de junio de 2022). <em>Caracol Radio</em>.</p>
+          </div>
+        `
+      }
+    ],
+    prompt: "¿Qué concepto social podría definir la situación enunciada en la noticia?",
+    options: [
+      { letter: "A", text: "Transfobia." },
+      { letter: "B", text: "Homofobia." },
+      { letter: "C", text: "Xenofobia." },
+      { letter: "D", text: "Misoginia." }
+    ],
+    correctAnswer: "B",
+    explanation: "La situación se relaciona con discriminación hacia una persona por su orientación sexual homosexual. Este tipo de rechazo o prejuicio se denomina homofobia. Por eso, la respuesta correcta es B."
+  }
+
+
+  ,
+  {
+    uid: "s2-soc-024",
+    session: 2,
+    block: 1,
+    number: 24,
+    area: "Sociales y Ciudadanas",
+    competencia: "Pensamiento social",
+    componente: "Geografía histórica, manejo del agua y adaptación al territorio",
+    dificultad: "Básica",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 2 - Sociales y Ciudadanas - Pregunta 24",
+    stem: "El pueblo maya se asentó en la península de Yucatán, en donde desarrolló sistemas sofisticados de recolección y almacenamiento de aguas lluvias y subterráneas.",
+    resources: [],
+    prompt: "¿Cuál de las siguientes características es un factor geográfico de la península de Yucatán que explica el desarrollo de dichos sistemas?",
+    options: [
+      { letter: "A", text: "El intercambio comercial que los mayas pudieron establecer con las poblaciones asentadas en las islas del Caribe, porque así pudieron aprender nuevas técnicas de construcción." },
+      { letter: "B", text: "Las intensas lluvias durante todo el año, porque esto obligó a los mayas a construir edificios resistentes para resguardarse y asegurar la supervivencia de la población." },
+      { letter: "C", text: "Las guerras permanentes con otras civilizaciones en América como los incas, porque gracias a las elaboradas técnicas de construcción maya sus enemigos no destruyeron sus acueductos." },
+      { letter: "D", text: "La ausencia de ríos o fuentes hídricas superficiales, situación que obligó a los mayas a organizarse y hacer construcciones para garantizar el abastecimiento permanente de agua." }
+    ],
+    correctAnswer: "D",
+    explanation: "La península de Yucatán se caracteriza por la escasez de ríos superficiales, lo que hizo necesario desarrollar sistemas de captación y almacenamiento de agua lluvia y subterránea. Por eso, la respuesta correcta es D."
+  }
+
+
+
+  ,
+  {
+    uid: "s2-soc-025",
+    session: 2,
+    block: 1,
+    number: 25,
+    area: "Sociales y Ciudadanas",
+    competencia: "Pensamiento social",
+    componente: "Desarrollo sostenible, equidad y protección de recursos naturales",
+    dificultad: "Media",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 2 - Sociales y Ciudadanas - Pregunta 25",
+    stem: "Considere el siguiente fragmento:",
+    resources: [
+      {
+        type: "html",
+        html: `
+          <div class="reading-card">
+            <div class="reading-instruction">Sociales y Ciudadanas</div>
+            <h3>Desarrollo sostenible</h3>
+            <blockquote>“No podemos apoyar un modelo de desarrollo que agota nuestros recursos naturales y destruye el ambiente en el que coexistimos y del que dependemos para sobrevivir; por lo tanto, no llegaremos muy lejos con un desarrollo desequilibrado que, desproporcionadamente, beneficia a los pocos ricos y deja atrás a los pobres extremos. El desarrollo sostenible es un modelo de desarrollo que podemos mantener y apoyar. Queremos crecer juntos, transformándonos en una sociedad más justa y equitativa; queremos también prosperar en el presente, pero sin comprometer los recursos del futuro”.</blockquote>
+            <p class="reading-source">Tomado y adaptado de: ONU México. <em>¿Qué es el desarrollo sostenible y por qué es importante?</em></p>
+          </div>
+        `
+      }
+    ],
+    prompt: "De acuerdo con el texto anterior, ¿cuál de las siguientes afirmaciones apoya el desarrollo sostenible?",
+    options: [
+      { letter: "A", text: "Una protección de la naturaleza que no ponga en riesgo la distribución actual de la riqueza." },
+      { letter: "B", text: "Un crecimiento económico que aproveche en el presente todos los recursos naturales." },
+      { letter: "C", text: "Una explotación ilimitada de recursos naturales que beneficie a pobres y ricos por igual." },
+      { letter: "D", text: "Un crecimiento económico que asegure la preservación de los recursos naturales." }
+    ],
+    correctAnswer: "D",
+    explanation: "El desarrollo sostenible busca satisfacer las necesidades del presente sin comprometer los recursos del futuro. Por eso, la afirmación que mejor apoya esta idea es promover el crecimiento económico asegurando la preservación de los recursos naturales. La respuesta correcta es D."
+  }
+
+
+  ,
+  {
+    uid: "s2-soc-026",
+    session: 2,
+    block: 1,
+    number: 26,
+    area: "Sociales y Ciudadanas",
+    competencia: "Pensamiento social",
+    componente: "Ambiente, desarrollo sostenible y derechos colectivos",
+    dificultad: "Media",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 2 - Sociales y Ciudadanas - Pregunta 26",
+    stem: "En un municipio se propone construir una carretera que atravesaría una zona de páramo. Según la alcaldía, la obra permitiría mejorar el transporte de productos agrícolas y fortalecer la economía local. Sin embargo, varias organizaciones ambientales advierten que el páramo abastece de agua a diferentes comunidades y que la construcción podría afectar gravemente este ecosistema. Algunos comerciantes apoyan la obra porque consideran que generará empleo y aumentará sus ingresos. Por su parte, varios habitantes rurales afirman que el acceso al agua debe protegerse por encima de los beneficios económicos inmediatos.",
+    resources: [],
+    prompt: "De acuerdo con la situación anterior, ¿cuál de los siguientes argumentos permite defender mejor la protección del páramo?",
+    options: [
+      { letter: "A", text: "La construcción de la carretera debe realizarse porque el crecimiento económico del municipio beneficia a todos sus habitantes." },
+      { letter: "B", text: "La decisión debe dejarse únicamente en manos de los comerciantes, porque ellos serían los principales beneficiados por la obra." },
+      { letter: "C", text: "La protección del páramo es prioritaria, porque de este ecosistema depende el acceso al agua y el equilibrio ambiental de varias comunidades." },
+      { letter: "D", text: "La carretera debe construirse si la mayoría de los habitantes vota a favor, sin considerar los posibles impactos ambientales." }
+    ],
+    correctAnswer: "C",
+    explanation: "La opción C reconoce la importancia del páramo como ecosistema estratégico y relaciona su protección con derechos colectivos, como el acceso al agua y el ambiente sano. Por eso, la respuesta correcta es C."
+  }
+
+  ,
+  {
+    uid: "s2-soc-027",
+    session: 2,
+    block: 1,
+    number: 27,
+    area: "Sociales y Ciudadanas",
+    competencia: "Convivencia y paz",
+    componente: "Inclusión, migración y diversidad cultural",
+    dificultad: "Media",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 2 - Sociales y Ciudadanas - Pregunta 27",
+    stem: "En una institución educativa, algunos estudiantes migrantes han manifestado sentirse excluidos porque sus compañeros hacen burlas sobre su acento y sus costumbres. Ante esta situación, un docente propone realizar actividades pedagógicas para que los estudiantes conozcan diferentes tradiciones culturales y reflexionen sobre la importancia del respeto a la diversidad. Sin embargo, algunos padres de familia se oponen a la propuesta, argumentando que ‘los estudiantes extranjeros deberían adaptarse completamente a las costumbres del país donde ahora viven’.",
+    resources: [],
+    prompt: "¿Cuál de las siguientes afirmaciones cuestiona mejor la postura de los padres de familia?",
+    options: [
+      { letter: "A", text: "Los estudiantes migrantes deben abandonar sus costumbres para evitar conflictos dentro de la institución educativa." },
+      { letter: "B", text: "La convivencia escolar exige reconocer y respetar la diversidad cultural, sin obligar a los estudiantes a renunciar a su identidad." },
+      { letter: "C", text: "Las instituciones educativas deben evitar tratar temas culturales porque estos pertenecen únicamente al ámbito familiar." },
+      { letter: "D", text: "Los estudiantes nacionales deben recibir un trato preferencial porque pertenecen a la cultura mayoritaria del país." }
+    ],
+    correctAnswer: "B",
+    explanation: "La opción B defiende el respeto por la diversidad cultural y rechaza una postura discriminatoria o asimilacionista frente a los estudiantes migrantes. Por eso, la respuesta correcta es B."
+  }
+
+  ,
+  {
+    uid: "s2-soc-028",
+    session: 2,
+    block: 1,
+    number: 28,
+    area: "Sociales y Ciudadanas",
+    competencia: "Pensamiento social",
+    componente: "Equidad, política pública y brecha digital",
+    dificultad: "Media",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 2 - Sociales y Ciudadanas - Pregunta 28",
+    stem: "El Gobierno nacional creó un programa de apoyo económico para mujeres emprendedoras. Para acceder al beneficio, las interesadas deben inscribirse únicamente por internet y cargar varios documentos en una plataforma digital. No obstante, varias mujeres de zonas rurales no han podido postularse porque en sus veredas no hay conexión estable a internet y muchas de ellas no cuentan con equipos tecnológicos. Ante esta situación, algunas organizaciones sociales afirman que el programa, aunque busca promover la equidad, no está llegando a todas las mujeres que lo necesitan.",
+    resources: [],
+    prompt: "¿Qué factor se está pasando por alto en el diseño de este programa?",
+    options: [
+      { letter: "A", text: "La necesidad de exigir mayores requisitos digitales para garantizar que solo participen personas con experiencia empresarial." },
+      { letter: "B", text: "La importancia de priorizar exclusivamente a las mujeres que viven en ciudades, porque tienen más posibilidades de crear empresas." },
+      { letter: "C", text: "La desigualdad en el acceso a internet y a herramientas tecnológicas entre mujeres urbanas y rurales." },
+      { letter: "D", text: "La obligación de reemplazar todos los programas económicos por capacitaciones presenciales." }
+    ],
+    correctAnswer: "C",
+    explanation: "La opción C identifica una barrera de acceso relacionada con la brecha digital y la desigualdad territorial, lo cual puede impedir que el programa cumpla su propósito de equidad. Por eso, la respuesta correcta es C."
+  }
+
 ];
