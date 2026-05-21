@@ -10116,4 +10116,2202 @@ Sin embargo, al buscar apoyo para promover su ley, los jóvenes se dan cuenta de
   }
 
 
+,
+  {
+    uid: "s2-ing-080",
+    session: 2,
+    block: 4,
+    number: 80,
+    area: "Inglés",
+    competencia: "Comprensión de lectura literal",
+    componente: "Vocabulario en contexto",
+    dificultad: "Básica",
+    type: "single-choice",
+    interaction: "matching",
+    matchingGroup: "s2-ing-at-a-picnic-80-84",
+    scored: true,
+    sourceLabel: "Sección 2 - Inglés - Pregunta 80",
+    stem: "Part 1.A. Read the descriptions and choose the word that matches each description. Topic: At a picnic.",
+    resources: [
+      {
+        type: "html",
+        html: `<div class="concept-card" style="max-width:920px;margin:auto">
+          <h4 style="margin:0 0 10px">Part 1.A · At a Picnic</h4>
+          <p style="margin:0 0 12px">Match each description with the correct word. Two words are extra. The example uses <strong>H. table</strong>.</p>
+          <div class="table-wrap icfes-table-wrap">
+            <table class="data-table" aria-label="Words for the picnic matching exercise">
+              <thead>
+                <tr><th>Letter</th><th>Word</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>A</td><td>blanket</td></tr>
+                <tr><td>B</td><td>glass</td></tr>
+                <tr><td>C</td><td>grass</td></tr>
+                <tr><td>D</td><td>hat</td></tr>
+                <tr><td>E</td><td>park</td></tr>
+                <tr><td>F</td><td>salad</td></tr>
+                <tr><td>G</td><td>sandwich</td></tr>
+                <tr><td>H</td><td>table <em>(example)</em></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>`
+      }
+    ],
+    prompt: "80. You find this plant on the ground of fields and the countryside.",
+    options: [
+      { letter: "A", text: "blanket" },
+      { letter: "B", text: "glass" },
+      { letter: "C", text: "grass" },
+      { letter: "D", text: "hat" },
+      { letter: "E", text: "park" },
+      { letter: "F", text: "salad" },
+      { letter: "G", text: "sandwich" }
+    ],
+    correctAnswer: "C",
+    explanation: "The description refers to a plant found on the ground in fields and the countryside. The matching word is 'grass'. Therefore, the correct answer is C."
+  },
+  {
+    uid: "s2-ing-081",
+    session: 2,
+    block: 4,
+    number: 81,
+    area: "Inglés",
+    competencia: "Comprensión de lectura literal",
+    componente: "Vocabulario en contexto",
+    dificultad: "Básica",
+    type: "single-choice",
+    interaction: "matching",
+    matchingGroup: "s2-ing-at-a-picnic-80-84",
+    scored: true,
+    sourceLabel: "Sección 2 - Inglés - Pregunta 81",
+    stem: "Part 1.A. Read the descriptions and choose the word that matches each description. Topic: At a picnic.",
+    resources: [
+      {
+        type: "html",
+        html: `<div class="concept-card" style="max-width:920px;margin:auto">
+          <h4 style="margin:0 0 10px">Part 1.A · At a Picnic</h4>
+          <p style="margin:0 0 12px">Match each description with the correct word. Two words are extra. The example uses <strong>H. table</strong>.</p>
+          <div class="table-wrap icfes-table-wrap">
+            <table class="data-table" aria-label="Words for the picnic matching exercise">
+              <thead>
+                <tr><th>Letter</th><th>Word</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>A</td><td>blanket</td></tr>
+                <tr><td>B</td><td>glass</td></tr>
+                <tr><td>C</td><td>grass</td></tr>
+                <tr><td>D</td><td>hat</td></tr>
+                <tr><td>E</td><td>park</td></tr>
+                <tr><td>F</td><td>salad</td></tr>
+                <tr><td>G</td><td>sandwich</td></tr>
+                <tr><td>H</td><td>table <em>(example)</em></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>`
+      }
+    ],
+    prompt: "81. It has many vegetables and you can eat it in a bowl.",
+    options: [
+      { letter: "A", text: "blanket" },
+      { letter: "B", text: "glass" },
+      { letter: "C", text: "grass" },
+      { letter: "D", text: "hat" },
+      { letter: "E", text: "park" },
+      { letter: "F", text: "salad" },
+      { letter: "G", text: "sandwich" }
+    ],
+    correctAnswer: "F",
+    explanation: "The description refers to food with many vegetables that can be eaten in a bowl. The matching word is 'salad'. Therefore, the correct answer is F."
+  },
+  {
+    uid: "s2-ing-082",
+    session: 2,
+    block: 4,
+    number: 82,
+    area: "Inglés",
+    competencia: "Comprensión de lectura literal",
+    componente: "Vocabulario en contexto",
+    dificultad: "Básica",
+    type: "single-choice",
+    interaction: "matching",
+    matchingGroup: "s2-ing-at-a-picnic-80-84",
+    scored: true,
+    sourceLabel: "Sección 2 - Inglés - Pregunta 82",
+    stem: "Part 1.A. Read the descriptions and choose the word that matches each description. Topic: At a picnic.",
+    resources: [
+      {
+        type: "html",
+        html: `<div class="concept-card" style="max-width:920px;margin:auto">
+          <h4 style="margin:0 0 10px">Part 1.A · At a Picnic</h4>
+          <p style="margin:0 0 12px">Match each description with the correct word. Two words are extra. The example uses <strong>H. table</strong>.</p>
+          <div class="table-wrap icfes-table-wrap">
+            <table class="data-table" aria-label="Words for the picnic matching exercise">
+              <thead>
+                <tr><th>Letter</th><th>Word</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>A</td><td>blanket</td></tr>
+                <tr><td>B</td><td>glass</td></tr>
+                <tr><td>C</td><td>grass</td></tr>
+                <tr><td>D</td><td>hat</td></tr>
+                <tr><td>E</td><td>park</td></tr>
+                <tr><td>F</td><td>salad</td></tr>
+                <tr><td>G</td><td>sandwich</td></tr>
+                <tr><td>H</td><td>table <em>(example)</em></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>`
+      }
+    ],
+    prompt: "82. This place has trees and children can play there.",
+    options: [
+      { letter: "A", text: "blanket" },
+      { letter: "B", text: "glass" },
+      { letter: "C", text: "grass" },
+      { letter: "D", text: "hat" },
+      { letter: "E", text: "park" },
+      { letter: "F", text: "salad" },
+      { letter: "G", text: "sandwich" }
+    ],
+    correctAnswer: "E",
+    explanation: "The description refers to a place with trees where children can play. The matching word is 'park'. Therefore, the correct answer is E."
+  },
+  {
+    uid: "s2-ing-083",
+    session: 2,
+    block: 4,
+    number: 83,
+    area: "Inglés",
+    competencia: "Comprensión de lectura literal",
+    componente: "Vocabulario en contexto",
+    dificultad: "Básica",
+    type: "single-choice",
+    interaction: "matching",
+    matchingGroup: "s2-ing-at-a-picnic-80-84",
+    scored: true,
+    sourceLabel: "Sección 2 - Inglés - Pregunta 83",
+    stem: "Part 1.A. Read the descriptions and choose the word that matches each description. Topic: At a picnic.",
+    resources: [
+      {
+        type: "html",
+        html: `<div class="concept-card" style="max-width:920px;margin:auto">
+          <h4 style="margin:0 0 10px">Part 1.A · At a Picnic</h4>
+          <p style="margin:0 0 12px">Match each description with the correct word. Two words are extra. The example uses <strong>H. table</strong>.</p>
+          <div class="table-wrap icfes-table-wrap">
+            <table class="data-table" aria-label="Words for the picnic matching exercise">
+              <thead>
+                <tr><th>Letter</th><th>Word</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>A</td><td>blanket</td></tr>
+                <tr><td>B</td><td>glass</td></tr>
+                <tr><td>C</td><td>grass</td></tr>
+                <tr><td>D</td><td>hat</td></tr>
+                <tr><td>E</td><td>park</td></tr>
+                <tr><td>F</td><td>salad</td></tr>
+                <tr><td>G</td><td>sandwich</td></tr>
+                <tr><td>H</td><td>table <em>(example)</em></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>`
+      }
+    ],
+    prompt: "83. You need this to drink lemonade when you are thirsty.",
+    options: [
+      { letter: "A", text: "blanket" },
+      { letter: "B", text: "glass" },
+      { letter: "C", text: "grass" },
+      { letter: "D", text: "hat" },
+      { letter: "E", text: "park" },
+      { letter: "F", text: "salad" },
+      { letter: "G", text: "sandwich" }
+    ],
+    correctAnswer: "B",
+    explanation: "The description refers to an object used to drink lemonade. The matching word is 'glass'. Therefore, the correct answer is B."
+  },
+  {
+    uid: "s2-ing-084",
+    session: 2,
+    block: 4,
+    number: 84,
+    area: "Inglés",
+    competencia: "Comprensión de lectura literal",
+    componente: "Vocabulario en contexto",
+    dificultad: "Básica",
+    type: "single-choice",
+    interaction: "matching",
+    matchingGroup: "s2-ing-at-a-picnic-80-84",
+    scored: true,
+    sourceLabel: "Sección 2 - Inglés - Pregunta 84",
+    stem: "Part 1.A. Read the descriptions and choose the word that matches each description. Topic: At a picnic.",
+    resources: [
+      {
+        type: "html",
+        html: `<div class="concept-card" style="max-width:920px;margin:auto">
+          <h4 style="margin:0 0 10px">Part 1.A · At a Picnic</h4>
+          <p style="margin:0 0 12px">Match each description with the correct word. Two words are extra. The example uses <strong>H. table</strong>.</p>
+          <div class="table-wrap icfes-table-wrap">
+            <table class="data-table" aria-label="Words for the picnic matching exercise">
+              <thead>
+                <tr><th>Letter</th><th>Word</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>A</td><td>blanket</td></tr>
+                <tr><td>B</td><td>glass</td></tr>
+                <tr><td>C</td><td>grass</td></tr>
+                <tr><td>D</td><td>hat</td></tr>
+                <tr><td>E</td><td>park</td></tr>
+                <tr><td>F</td><td>salad</td></tr>
+                <tr><td>G</td><td>sandwich</td></tr>
+                <tr><td>H</td><td>table <em>(example)</em></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>`
+      }
+    ],
+    prompt: "84. You wear this on your head for the sun.",
+    options: [
+      { letter: "A", text: "blanket" },
+      { letter: "B", text: "glass" },
+      { letter: "C", text: "grass" },
+      { letter: "D", text: "hat" },
+      { letter: "E", text: "park" },
+      { letter: "F", text: "salad" },
+      { letter: "G", text: "sandwich" }
+    ],
+    correctAnswer: "D",
+    explanation: "The description refers to something worn on the head to protect from the sun. The matching word is 'hat'. Therefore, the correct answer is D."
+  }
+
+,
+  {
+    uid: "s2-ing-085",
+    session: 2,
+    block: 4,
+    number: 85,
+    area: "Inglés",
+    competencia: "Comprensión de lectura literal",
+    componente: "Vocabulario en contexto",
+    dificultad: "Básica",
+    type: "single-choice",
+    interaction: "matching",
+    matchingGroup: "s2-ing-tourist-85-89",
+    scored: true,
+    sourceLabel: "Sección 2 - Inglés - Pregunta 85",
+    stem: "Part 1.B. Read the descriptions and choose the word that matches each description. Topic: Tourist.",
+    resources: [
+      {
+        type: "html",
+        html: `<div class="concept-card" style="max-width:920px;margin:auto">
+          <h4 style="margin:0 0 10px">Part 1.B · Tourist</h4>
+          <p style="margin:0 0 12px">Match each description with the correct word. Two words are extra. The example uses <strong>H. station</strong>.</p>
+          <div class="table-wrap icfes-table-wrap">
+            <table class="data-table" aria-label="Words for the tourist matching exercise">
+              <thead>
+                <tr><th>Letter</th><th>Word</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>A</td><td>airport</td></tr>
+                <tr><td>B</td><td>bus</td></tr>
+                <tr><td>C</td><td>camera</td></tr>
+                <tr><td>D</td><td>car</td></tr>
+                <tr><td>E</td><td>hotel</td></tr>
+                <tr><td>F</td><td>map</td></tr>
+                <tr><td>G</td><td>ship</td></tr>
+                <tr><td>H</td><td>station <em>(example)</em></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>`
+      }
+    ],
+    prompt: "85. Tourists use this drawing to look for famous places to visit.",
+    options: [
+      { letter: "A", text: "airport" },
+      { letter: "B", text: "bus" },
+      { letter: "C", text: "camera" },
+      { letter: "D", text: "car" },
+      { letter: "E", text: "hotel" },
+      { letter: "F", text: "map" },
+      { letter: "G", text: "ship" }
+    ],
+    correctAnswer: "F",
+    explanation: "Tourists use a map to find famous places to visit. Therefore, the correct answer is F."
+  },
+  {
+    uid: "s2-ing-086",
+    session: 2,
+    block: 4,
+    number: 86,
+    area: "Inglés",
+    competencia: "Comprensión de lectura literal",
+    componente: "Vocabulario en contexto",
+    dificultad: "Básica",
+    type: "single-choice",
+    interaction: "matching",
+    matchingGroup: "s2-ing-tourist-85-89",
+    scored: true,
+    sourceLabel: "Sección 2 - Inglés - Pregunta 86",
+    stem: "Part 1.B. Read the descriptions and choose the word that matches each description. Topic: Tourist.",
+    resources: [
+      {
+        type: "html",
+        html: `<div class="concept-card" style="max-width:920px;margin:auto">
+          <h4 style="margin:0 0 10px">Part 1.B · Tourist</h4>
+          <p style="margin:0 0 12px">Match each description with the correct word. Two words are extra. The example uses <strong>H. station</strong>.</p>
+          <div class="table-wrap icfes-table-wrap">
+            <table class="data-table" aria-label="Words for the tourist matching exercise">
+              <thead>
+                <tr><th>Letter</th><th>Word</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>A</td><td>airport</td></tr>
+                <tr><td>B</td><td>bus</td></tr>
+                <tr><td>C</td><td>camera</td></tr>
+                <tr><td>D</td><td>car</td></tr>
+                <tr><td>E</td><td>hotel</td></tr>
+                <tr><td>F</td><td>map</td></tr>
+                <tr><td>G</td><td>ship</td></tr>
+                <tr><td>H</td><td>station <em>(example)</em></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>`
+      }
+    ],
+    prompt: "86. You can take photos with this.",
+    options: [
+      { letter: "A", text: "airport" },
+      { letter: "B", text: "bus" },
+      { letter: "C", text: "camera" },
+      { letter: "D", text: "car" },
+      { letter: "E", text: "hotel" },
+      { letter: "F", text: "map" },
+      { letter: "G", text: "ship" }
+    ],
+    correctAnswer: "C",
+    explanation: "A camera is used to take photos. Therefore, the correct answer is C."
+  },
+  {
+    uid: "s2-ing-087",
+    session: 2,
+    block: 4,
+    number: 87,
+    area: "Inglés",
+    competencia: "Comprensión de lectura literal",
+    componente: "Vocabulario en contexto",
+    dificultad: "Básica",
+    type: "single-choice",
+    interaction: "matching",
+    matchingGroup: "s2-ing-tourist-85-89",
+    scored: true,
+    sourceLabel: "Sección 2 - Inglés - Pregunta 87",
+    stem: "Part 1.B. Read the descriptions and choose the word that matches each description. Topic: Tourist.",
+    resources: [
+      {
+        type: "html",
+        html: `<div class="concept-card" style="max-width:920px;margin:auto">
+          <h4 style="margin:0 0 10px">Part 1.B · Tourist</h4>
+          <p style="margin:0 0 12px">Match each description with the correct word. Two words are extra. The example uses <strong>H. station</strong>.</p>
+          <div class="table-wrap icfes-table-wrap">
+            <table class="data-table" aria-label="Words for the tourist matching exercise">
+              <thead>
+                <tr><th>Letter</th><th>Word</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>A</td><td>airport</td></tr>
+                <tr><td>B</td><td>bus</td></tr>
+                <tr><td>C</td><td>camera</td></tr>
+                <tr><td>D</td><td>car</td></tr>
+                <tr><td>E</td><td>hotel</td></tr>
+                <tr><td>F</td><td>map</td></tr>
+                <tr><td>G</td><td>ship</td></tr>
+                <tr><td>H</td><td>station <em>(example)</em></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>`
+      }
+    ],
+    prompt: "87. It's small and you drive it to go to new places.",
+    options: [
+      { letter: "A", text: "airport" },
+      { letter: "B", text: "bus" },
+      { letter: "C", text: "camera" },
+      { letter: "D", text: "car" },
+      { letter: "E", text: "hotel" },
+      { letter: "F", text: "map" },
+      { letter: "G", text: "ship" }
+    ],
+    correctAnswer: "D",
+    explanation: "A car is a vehicle people drive to go to new places. Therefore, the correct answer is D."
+  },
+  {
+    uid: "s2-ing-088",
+    session: 2,
+    block: 4,
+    number: 88,
+    area: "Inglés",
+    competencia: "Comprensión de lectura literal",
+    componente: "Vocabulario en contexto",
+    dificultad: "Básica",
+    type: "single-choice",
+    interaction: "matching",
+    matchingGroup: "s2-ing-tourist-85-89",
+    scored: true,
+    sourceLabel: "Sección 2 - Inglés - Pregunta 88",
+    stem: "Part 1.B. Read the descriptions and choose the word that matches each description. Topic: Tourist.",
+    resources: [
+      {
+        type: "html",
+        html: `<div class="concept-card" style="max-width:920px;margin:auto">
+          <h4 style="margin:0 0 10px">Part 1.B · Tourist</h4>
+          <p style="margin:0 0 12px">Match each description with the correct word. Two words are extra. The example uses <strong>H. station</strong>.</p>
+          <div class="table-wrap icfes-table-wrap">
+            <table class="data-table" aria-label="Words for the tourist matching exercise">
+              <thead>
+                <tr><th>Letter</th><th>Word</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>A</td><td>airport</td></tr>
+                <tr><td>B</td><td>bus</td></tr>
+                <tr><td>C</td><td>camera</td></tr>
+                <tr><td>D</td><td>car</td></tr>
+                <tr><td>E</td><td>hotel</td></tr>
+                <tr><td>F</td><td>map</td></tr>
+                <tr><td>G</td><td>ship</td></tr>
+                <tr><td>H</td><td>station <em>(example)</em></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>`
+      }
+    ],
+    prompt: "88. On this, you can go from a beach to the sea.",
+    options: [
+      { letter: "A", text: "airport" },
+      { letter: "B", text: "bus" },
+      { letter: "C", text: "camera" },
+      { letter: "D", text: "car" },
+      { letter: "E", text: "hotel" },
+      { letter: "F", text: "map" },
+      { letter: "G", text: "ship" }
+    ],
+    correctAnswer: "G",
+    explanation: "A ship is used to travel on water. Therefore, the correct answer is G."
+  },
+  {
+    uid: "s2-ing-089",
+    session: 2,
+    block: 4,
+    number: 89,
+    area: "Inglés",
+    competencia: "Comprensión de lectura literal",
+    componente: "Vocabulario en contexto",
+    dificultad: "Básica",
+    type: "single-choice",
+    interaction: "matching",
+    matchingGroup: "s2-ing-tourist-85-89",
+    scored: true,
+    sourceLabel: "Sección 2 - Inglés - Pregunta 89",
+    stem: "Part 1.B. Read the descriptions and choose the word that matches each description. Topic: Tourist.",
+    resources: [
+      {
+        type: "html",
+        html: `<div class="concept-card" style="max-width:920px;margin:auto">
+          <h4 style="margin:0 0 10px">Part 1.B · Tourist</h4>
+          <p style="margin:0 0 12px">Match each description with the correct word. Two words are extra. The example uses <strong>H. station</strong>.</p>
+          <div class="table-wrap icfes-table-wrap">
+            <table class="data-table" aria-label="Words for the tourist matching exercise">
+              <thead>
+                <tr><th>Letter</th><th>Word</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>A</td><td>airport</td></tr>
+                <tr><td>B</td><td>bus</td></tr>
+                <tr><td>C</td><td>camera</td></tr>
+                <tr><td>D</td><td>car</td></tr>
+                <tr><td>E</td><td>hotel</td></tr>
+                <tr><td>F</td><td>map</td></tr>
+                <tr><td>G</td><td>ship</td></tr>
+                <tr><td>H</td><td>station <em>(example)</em></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>`
+      }
+    ],
+    prompt: "89. Here tourists take planes to visit different places around the world.",
+    options: [
+      { letter: "A", text: "airport" },
+      { letter: "B", text: "bus" },
+      { letter: "C", text: "camera" },
+      { letter: "D", text: "car" },
+      { letter: "E", text: "hotel" },
+      { letter: "F", text: "map" },
+      { letter: "G", text: "ship" }
+    ],
+    correctAnswer: "A",
+    explanation: "Tourists take planes at an airport. Therefore, the correct answer is A."
+  }
+
+,
+  {
+    uid: "s2-ing-090",
+    session: 2,
+    block: 4,
+    number: 90,
+    area: "Inglés",
+    competencia: "Comprensión de avisos y señales",
+    componente: "Identificación de contexto comunicativo",
+    dificultad: "Básica",
+    type: "single-choice",
+    interaction: "notice-location",
+    scored: true,
+    sourceLabel: "Sección 2 - Inglés - Pregunta 90",
+    stem: "Part 2. Read the notice and choose where you can see it.",
+    resources: [
+      {
+        type: "html",
+        html: `<div class="concept-card" style="max-width:760px;margin:auto">
+          <h4 style="margin:0 0 10px">Part 2 · Notices</h4>
+          <p style="margin:0 0 12px">Where can you see this notice?</p>
+          <div style="border:2px solid rgba(30,60,90,.35);border-radius:12px;padding:22px;text-align:center;font-size:1.45rem;font-weight:800;background:rgba(30,60,90,.06)">Fantastic apple pies for birthdays!</div>
+        </div>`
+      }
+    ],
+    prompt: "90. Where can you see this notice?",
+    options: [
+      { letter: "A", text: "in a cake shop" },
+      { letter: "B", text: "in a fruit shop" },
+      { letter: "C", text: "in a candy shop" }
+    ],
+    correctAnswer: "A",
+    explanation: "The notice offers apple pies for birthdays. This is most likely seen in a cake shop. Therefore, the correct answer is A."
+  },
+  {
+    uid: "s2-ing-091",
+    session: 2,
+    block: 4,
+    number: 91,
+    area: "Inglés",
+    competencia: "Comprensión de avisos y señales",
+    componente: "Identificación de contexto comunicativo",
+    dificultad: "Básica",
+    type: "single-choice",
+    interaction: "notice-location",
+    scored: true,
+    sourceLabel: "Sección 2 - Inglés - Pregunta 91",
+    stem: "Part 2. Read the notice and choose where you can see it.",
+    resources: [
+      {
+        type: "html",
+        html: `<div class="concept-card" style="max-width:760px;margin:auto">
+          <h4 style="margin:0 0 10px">Part 2 · Notices</h4>
+          <p style="margin:0 0 12px">Where can you see this notice?</p>
+          <div style="border:2px solid rgba(30,60,90,.35);border-radius:12px;padding:22px;text-align:center;background:rgba(30,60,90,.06)">
+            <div style="font-size:1.55rem;font-weight:800">Play with me!</div>
+            <div style="margin-top:6px;font-size:1.05rem">Children 2+</div>
+          </div>
+        </div>`
+      }
+    ],
+    prompt: "91. Where can you see this notice?",
+    options: [
+      { letter: "A", text: "on a doll box" },
+      { letter: "B", text: "on a milk box" },
+      { letter: "C", text: "on a shoe box" }
+    ],
+    correctAnswer: "A",
+    explanation: "The words 'Play with me!' and 'Children 2+' suggest a toy. This notice can be seen on a doll box. Therefore, the correct answer is A."
+  },
+  {
+    uid: "s2-ing-092",
+    session: 2,
+    block: 4,
+    number: 92,
+    area: "Inglés",
+    competencia: "Comprensión de avisos y señales",
+    componente: "Identificación de contexto comunicativo",
+    dificultad: "Básica",
+    type: "single-choice",
+    interaction: "notice-location",
+    scored: true,
+    sourceLabel: "Sección 2 - Inglés - Pregunta 92",
+    stem: "Part 2. Read the notice and choose where you can see it.",
+    resources: [
+      {
+        type: "html",
+        html: `<div class="concept-card" style="max-width:760px;margin:auto">
+          <h4 style="margin:0 0 10px">Part 2 · Notices</h4>
+          <p style="margin:0 0 12px">Where can you see this notice?</p>
+          <div style="border:2px solid rgba(30,60,90,.35);border-radius:12px;padding:18px;background:rgba(30,60,90,.06);font-size:1.15rem">
+            <strong>GET ONE FOR YOUR BIRTHDAY!</strong><br>
+            Chocolate and banana for $20<br>
+            Chocolate and coconut for $25
+          </div>
+        </div>`
+      }
+    ],
+    prompt: "92. Where can you see this notice?",
+    options: [
+      { letter: "A", text: "in a cake store" },
+      { letter: "B", text: "in a flower store" },
+      { letter: "C", text: "in a drug store" }
+    ],
+    correctAnswer: "A",
+    explanation: "The notice mentions birthday products with chocolate, banana, and coconut. This is most likely seen in a cake store. Therefore, the correct answer is A."
+  },
+  {
+    uid: "s2-ing-093",
+    session: 2,
+    block: 4,
+    number: 93,
+    area: "Inglés",
+    competencia: "Comprensión de avisos y señales",
+    componente: "Identificación de contexto comunicativo",
+    dificultad: "Básica",
+    type: "single-choice",
+    interaction: "notice-location",
+    scored: true,
+    sourceLabel: "Sección 2 - Inglés - Pregunta 93",
+    stem: "Part 2. Read the notice and choose where you can see it.",
+    resources: [
+      {
+        type: "html",
+        html: `<div class="concept-card" style="max-width:760px;margin:auto">
+          <h4 style="margin:0 0 10px">Part 2 · Notices</h4>
+          <p style="margin:0 0 12px">Where can you see this notice?</p>
+          <div style="border:2px solid rgba(30,60,90,.35);border-radius:12px;padding:22px;text-align:center;background:rgba(30,60,90,.06)">
+            <div style="font-size:1.45rem;font-weight:800">Pick up food here.</div>
+            <div style="margin-top:8px;font-size:1.25rem">Enjoy!</div>
+          </div>
+        </div>`
+      }
+    ],
+    prompt: "93. Where can you see this notice?",
+    options: [
+      { letter: "A", text: "at a playground" },
+      { letter: "B", text: "in a cafeteria" },
+      { letter: "C", text: "on a bus" }
+    ],
+    correctAnswer: "B",
+    explanation: "The notice tells people where to pick up food. This is most likely seen in a cafeteria. Therefore, the correct answer is B."
+  },
+  {
+    uid: "s2-ing-094",
+    session: 2,
+    block: 4,
+    number: 94,
+    area: "Inglés",
+    competencia: "Comprensión de avisos y señales",
+    componente: "Identificación de contexto comunicativo",
+    dificultad: "Básica",
+    type: "single-choice",
+    interaction: "notice-location",
+    scored: true,
+    sourceLabel: "Sección 2 - Inglés - Pregunta 94",
+    stem: "Part 2. Read the notice and choose where you can see it.",
+    resources: [
+      {
+        type: "html",
+        html: `<div class="concept-card" style="max-width:760px;margin:auto">
+          <h4 style="margin:0 0 10px">Part 2 · Notices</h4>
+          <p style="margin:0 0 12px">Where can you see this notice?</p>
+          <div style="border:2px solid rgba(30,60,90,.35);border-radius:12px;padding:22px;text-align:center;background:rgba(30,60,90,.06)">
+            <div style="font-size:1.25rem;font-weight:800">Today</div>
+            <div style="font-size:1.45rem;font-weight:800">2x3 on balls and games</div>
+            <div style="font-size:1.15rem;font-weight:700">for children</div>
+          </div>
+        </div>`
+      }
+    ],
+    prompt: "94. Where can you see this notice?",
+    options: [
+      { letter: "A", text: "in a playground" },
+      { letter: "B", text: "in a classroom" },
+      { letter: "C", text: "in a sports store" }
+    ],
+    correctAnswer: "C",
+    explanation: "The notice announces a 2x3 promotion on balls and games for children. A sales promotion like this is most likely seen in a sports store. Therefore, the correct answer is C."
+  }
+
+,
+  {
+    uid: "s2-ing-095",
+    session: 2,
+    block: 4,
+    number: 95,
+    area: "Inglés",
+    competencia: "Comprensión de conversaciones cortas",
+    componente: "Respuesta adecuada según contexto comunicativo",
+    dificultad: "Básica",
+    type: "single-choice",
+    interaction: "conversation-completion",
+    scored: true,
+    sourceLabel: "Sección 2 - Inglés - Pregunta 95",
+    stem: "Part 3. Complete the conversation with the most appropriate response.",
+    resources: [
+      {
+        type: "html",
+        html: `<div class="concept-card" style="max-width:760px;margin:auto">
+          <h4 style="margin:0 0 10px">Part 3 · Short conversations</h4>
+          <p style="margin:0 0 12px">Choose the best answer to complete the conversation.</p>
+          <div style="border-left:4px solid rgba(30,60,90,.35);padding:14px 18px;background:rgba(30,60,90,.06);border-radius:10px;font-size:1.15rem">
+            <strong>Question:</strong> Why didn't you put your new coat on yesterday?
+          </div>
+        </div>`
+      }
+    ],
+    prompt: "95. Choose the correct answer.",
+    options: [
+      { letter: "A", text: "I liked jeans." },
+      { letter: "B", text: "Let's dress up." },
+      { letter: "C", text: "It was too warm." }
+    ],
+    correctAnswer: "C",
+    explanation: "The question asks why the person did not wear a new coat. 'It was too warm' gives a logical reason for not wearing a coat. Therefore, the correct answer is C."
+  },
+  {
+    uid: "s2-ing-096",
+    session: 2,
+    block: 4,
+    number: 96,
+    area: "Inglés",
+    competencia: "Comprensión de conversaciones cortas",
+    componente: "Respuesta adecuada según contexto comunicativo",
+    dificultad: "Básica",
+    type: "single-choice",
+    interaction: "conversation-completion",
+    scored: true,
+    sourceLabel: "Sección 2 - Inglés - Pregunta 96",
+    stem: "Part 3. Complete the conversation with the most appropriate response.",
+    resources: [
+      {
+        type: "html",
+        html: `<div class="concept-card" style="max-width:760px;margin:auto">
+          <h4 style="margin:0 0 10px">Part 3 · Short conversations</h4>
+          <p style="margin:0 0 12px">Choose the best answer to complete the conversation.</p>
+          <div style="border-left:4px solid rgba(30,60,90,.35);padding:14px 18px;background:rgba(30,60,90,.06);border-radius:10px;font-size:1.15rem">
+            <strong>Statement:</strong> This movie is about a really big family.
+          </div>
+        </div>`
+      }
+    ],
+    prompt: "96. Choose the correct answer.",
+    options: [
+      { letter: "A", text: "Is it good?" },
+      { letter: "B", text: "Is that a lot?" },
+      { letter: "C", text: "Is your mom OK?" }
+    ],
+    correctAnswer: "A",
+    explanation: "The statement talks about a movie. Asking 'Is it good?' is a natural response in a conversation about a movie. Therefore, the correct answer is A."
+  },
+  {
+    uid: "s2-ing-097",
+    session: 2,
+    block: 4,
+    number: 97,
+    area: "Inglés",
+    competencia: "Comprensión de conversaciones cortas",
+    componente: "Respuesta adecuada según contexto comunicativo",
+    dificultad: "Básica",
+    type: "single-choice",
+    interaction: "conversation-completion",
+    scored: true,
+    sourceLabel: "Sección 2 - Inglés - Pregunta 97",
+    stem: "Part 3. Complete the conversation with the most appropriate response.",
+    resources: [
+      {
+        type: "html",
+        html: `<div class="concept-card" style="max-width:760px;margin:auto">
+          <h4 style="margin:0 0 10px">Part 3 · Short conversations</h4>
+          <p style="margin:0 0 12px">Choose the best answer to complete the conversation.</p>
+          <div style="border-left:4px solid rgba(30,60,90,.35);padding:14px 18px;background:rgba(30,60,90,.06);border-radius:10px;font-size:1.15rem">
+            <strong>Question:</strong> Why are they hiding?
+          </div>
+        </div>`
+      }
+    ],
+    prompt: "97. Choose the correct answer.",
+    options: [
+      { letter: "A", text: "Come here now!" },
+      { letter: "B", text: "I've got no idea." },
+      { letter: "C", text: "Is it near?" }
+    ],
+    correctAnswer: "B",
+    explanation: "The question asks for a reason. 'I've got no idea' is an appropriate response when the speaker does not know the reason. Therefore, the correct answer is B."
+  },
+  {
+    uid: "s2-ing-098",
+    session: 2,
+    block: 4,
+    number: 98,
+    area: "Inglés",
+    competencia: "Comprensión de conversaciones cortas",
+    componente: "Respuesta adecuada según contexto comunicativo",
+    dificultad: "Básica",
+    type: "single-choice",
+    interaction: "conversation-completion",
+    scored: true,
+    sourceLabel: "Sección 2 - Inglés - Pregunta 98",
+    stem: "Part 3. Complete the conversation with the most appropriate response.",
+    resources: [
+      {
+        type: "html",
+        html: `<div class="concept-card" style="max-width:760px;margin:auto">
+          <h4 style="margin:0 0 10px">Part 3 · Short conversations</h4>
+          <p style="margin:0 0 12px">Choose the best answer to complete the conversation.</p>
+          <div style="border-left:4px solid rgba(30,60,90,.35);padding:14px 18px;background:rgba(30,60,90,.06);border-radius:10px;font-size:1.15rem">
+            <strong>Statement:</strong> Everyone bought tickets for the rock concert.
+          </div>
+        </div>`
+      }
+    ],
+    prompt: "98. Choose the correct answer.",
+    options: [
+      { letter: "A", text: "Is it on Saturday?" },
+      { letter: "B", text: "There was noise." },
+      { letter: "C", text: "It is fair!" }
+    ],
+    correctAnswer: "A",
+    explanation: "The statement talks about a concert. Asking whether it is on Saturday is a natural follow-up question about the event. Therefore, the correct answer is A."
+  },
+  {
+    uid: "s2-ing-099",
+    session: 2,
+    block: 4,
+    number: 99,
+    area: "Inglés",
+    competencia: "Comprensión de conversaciones cortas",
+    componente: "Respuesta adecuada según contexto comunicativo",
+    dificultad: "Básica",
+    type: "single-choice",
+    interaction: "conversation-completion",
+    scored: true,
+    sourceLabel: "Sección 2 - Inglés - Pregunta 99",
+    stem: "Part 3. Complete the conversation with the most appropriate response.",
+    resources: [
+      {
+        type: "html",
+        html: `<div class="concept-card" style="max-width:760px;margin:auto">
+          <h4 style="margin:0 0 10px">Part 3 · Short conversations</h4>
+          <p style="margin:0 0 12px">Choose the best answer to complete the conversation.</p>
+          <div style="border-left:4px solid rgba(30,60,90,.35);padding:14px 18px;background:rgba(30,60,90,.06);border-radius:10px;font-size:1.15rem">
+            <strong>Statement:</strong> It seems I'll be the new boss of the business department.
+          </div>
+        </div>`
+      }
+    ],
+    prompt: "99. Choose the correct answer.",
+    options: [
+      { letter: "A", text: "Excuse me!" },
+      { letter: "B", text: "It's ready!" },
+      { letter: "C", text: "Congratulations!" }
+    ],
+    correctAnswer: "C",
+    explanation: "The statement suggests good news about a new position. 'Congratulations!' is the most appropriate response. Therefore, the correct answer is C."
+  }
+  ,
+  {
+    uid: "s2-ing-100",
+    session: 2,
+    block: 4,
+    number: 100,
+    area: "Inglés",
+    competencia: "Uso del lenguaje en contexto",
+    componente: "Completar texto con preposiciones y conectores básicos",
+    dificultad: "Básica",
+    type: "single-choice",
+    interaction: "cloze-text",
+    scored: true,
+    sourceLabel: "Sección 2 - Inglés - Pregunta 100",
+    stem: "Part 4. Read the text and choose the correct word for each space.",
+    resources: [
+      {
+        type: "html",
+        html: `<div class="concept-card" style="max-width:850px;margin:auto">
+          <h4 style="margin:0 0 10px">Part 4 · Cloze text</h4>
+          <h3 style="margin:0 0 14px;text-align:center">Taj Mahal</h3>
+          <p style="line-height:1.65">Taj Mahal, one of the greatest monuments of India, was built <strong>(100) ____</strong> emperor Jahan to remember his wife, Mahal. Most people say Taj Mahal is an important expression of Indian art because of the beautiful way its different materials and shapes were used.</p>
+          <p style="line-height:1.65">Plans to build Taj Mahal started in 1623. At that moment, its design process was the idea of architect Ahmad Lahawri, who decided to include a lake at the entrance. More than 20,000 workers took several years to complete the building, and it was finished by 1638. Some buildings in the area were later completed by 1643. In total, building Taj Mahal and the other buildings around took 22 years. While other monuments could be more famous, Taj Mahal will always be the only one built in the name of love.</p>
+        </div>`
+      }
+    ],
+    prompt: "100. Choose the correct word to complete the space.",
+    options: [
+      { letter: "A", text: "off" },
+      { letter: "B", text: "as" },
+      { letter: "C", text: "by" }
+    ],
+    correctAnswer: "C",
+    explanation: "The passive construction is 'was built by emperor Jahan'. Therefore, the correct answer is C."
+  },
+  {
+    uid: "s2-ing-101",
+    session: 2,
+    block: 4,
+    number: 101,
+    area: "Inglés",
+    competencia: "Uso del lenguaje en contexto",
+    componente: "Completar texto con formas verbales en voz pasiva",
+    dificultad: "Básica",
+    type: "single-choice",
+    interaction: "cloze-text",
+    scored: true,
+    sourceLabel: "Sección 2 - Inglés - Pregunta 101",
+    stem: "Part 4. Read the text and choose the correct word for each space.",
+    resources: [
+      {
+        type: "html",
+        html: `<div class="concept-card" style="max-width:850px;margin:auto">
+          <h4 style="margin:0 0 10px">Part 4 · Cloze text</h4>
+          <h3 style="margin:0 0 14px;text-align:center">Taj Mahal</h3>
+          <p style="line-height:1.65">Taj Mahal, one of the greatest monuments of India, was built by emperor Jahan to remember his wife, Mahal. Most people say Taj Mahal is an important expression of Indian art because of the beautiful way its different materials and shapes were <strong>(101) ____</strong>.</p>
+          <p style="line-height:1.65">Plans to build Taj Mahal started in 1623. At that moment, its design process was the idea of architect Ahmad Lahawri, who decided to include a lake at the entrance. More than 20,000 workers took several years to complete the building, and it was finished by 1638. Some buildings in the area were later completed by 1643. In total, building Taj Mahal and the other buildings around took 22 years. While other monuments could be more famous, Taj Mahal will always be the only one built in the name of love.</p>
+        </div>`
+      }
+    ],
+    prompt: "101. Choose the correct word to complete the space.",
+    options: [
+      { letter: "A", text: "use" },
+      { letter: "B", text: "used" },
+      { letter: "C", text: "using" }
+    ],
+    correctAnswer: "B",
+    explanation: "After 'were', the passive voice needs the past participle: 'were used'. Therefore, the correct answer is B."
+  },
+  {
+    uid: "s2-ing-102",
+    session: 2,
+    block: 4,
+    number: 102,
+    area: "Inglés",
+    competencia: "Uso del lenguaje en contexto",
+    componente: "Completar texto con preposiciones de tiempo",
+    dificultad: "Básica",
+    type: "single-choice",
+    interaction: "cloze-text",
+    scored: true,
+    sourceLabel: "Sección 2 - Inglés - Pregunta 102",
+    stem: "Part 4. Read the text and choose the correct word for each space.",
+    resources: [
+      {
+        type: "html",
+        html: `<div class="concept-card" style="max-width:850px;margin:auto">
+          <h4 style="margin:0 0 10px">Part 4 · Cloze text</h4>
+          <h3 style="margin:0 0 14px;text-align:center">Taj Mahal</h3>
+          <p style="line-height:1.65">Taj Mahal, one of the greatest monuments of India, was built by emperor Jahan to remember his wife, Mahal. Most people say Taj Mahal is an important expression of Indian art because of the beautiful way its different materials and shapes were used.</p>
+          <p style="line-height:1.65">Plans to build Taj Mahal started in 1623. <strong>(102) ____</strong> that moment, its design process was the idea of architect Ahmad Lahawri, who decided to include a lake at the entrance. More than 20,000 workers took several years to complete the building, and it was finished by 1638. Some buildings in the area were later completed by 1643. In total, building Taj Mahal and the other buildings around took 22 years. While other monuments could be more famous, Taj Mahal will always be the only one built in the name of love.</p>
+        </div>`
+      }
+    ],
+    prompt: "102. Choose the correct word to complete the space.",
+    options: [
+      { letter: "A", text: "At" },
+      { letter: "B", text: "To" },
+      { letter: "C", text: "Up" }
+    ],
+    correctAnswer: "A",
+    explanation: "The correct expression is 'At that moment'. Therefore, the correct answer is A."
+  },
+  {
+    uid: "s2-ing-103",
+    session: 2,
+    block: 4,
+    number: 103,
+    area: "Inglés",
+    competencia: "Uso del lenguaje en contexto",
+    componente: "Completar texto con pronombres relativos",
+    dificultad: "Básica",
+    type: "single-choice",
+    interaction: "cloze-text",
+    scored: true,
+    sourceLabel: "Sección 2 - Inglés - Pregunta 103",
+    stem: "Part 4. Read the text and choose the correct word for each space.",
+    resources: [
+      {
+        type: "html",
+        html: `<div class="concept-card" style="max-width:850px;margin:auto">
+          <h4 style="margin:0 0 10px">Part 4 · Cloze text</h4>
+          <h3 style="margin:0 0 14px;text-align:center">Taj Mahal</h3>
+          <p style="line-height:1.65">Taj Mahal, one of the greatest monuments of India, was built by emperor Jahan to remember his wife, Mahal. Most people say Taj Mahal is an important expression of Indian art because of the beautiful way its different materials and shapes were used.</p>
+          <p style="line-height:1.65">Plans to build Taj Mahal started in 1623. At that moment, its design process was the idea of architect Ahmad Lahawri, <strong>(103) ____</strong> decided to include a lake at the entrance. More than 20,000 workers took several years to complete the building, and it was finished by 1638. Some buildings in the area were later completed by 1643. In total, building Taj Mahal and the other buildings around took 22 years. While other monuments could be more famous, Taj Mahal will always be the only one built in the name of love.</p>
+        </div>`
+      }
+    ],
+    prompt: "103. Choose the correct word to complete the space.",
+    options: [
+      { letter: "A", text: "which" },
+      { letter: "B", text: "where" },
+      { letter: "C", text: "who" }
+    ],
+    correctAnswer: "C",
+    explanation: "The blank refers to architect Ahmad Lahawri, a person. The relative pronoun for a person is 'who'. Therefore, the correct answer is C."
+  },
+  {
+    uid: "s2-ing-104",
+    session: 2,
+    block: 4,
+    number: 104,
+    area: "Inglés",
+    competencia: "Uso del lenguaje en contexto",
+    componente: "Completar texto con determinantes cuantificadores",
+    dificultad: "Básica",
+    type: "single-choice",
+    interaction: "cloze-text",
+    scored: true,
+    sourceLabel: "Sección 2 - Inglés - Pregunta 104",
+    stem: "Part 4. Read the text and choose the correct word for each space.",
+    resources: [
+      {
+        type: "html",
+        html: `<div class="concept-card" style="max-width:850px;margin:auto">
+          <h4 style="margin:0 0 10px">Part 4 · Cloze text</h4>
+          <h3 style="margin:0 0 14px;text-align:center">Taj Mahal</h3>
+          <p style="line-height:1.65">Taj Mahal, one of the greatest monuments of India, was built by emperor Jahan to remember his wife, Mahal. Most people say Taj Mahal is an important expression of Indian art because of the beautiful way its different materials and shapes were used.</p>
+          <p style="line-height:1.65">Plans to build Taj Mahal started in 1623. At that moment, its design process was the idea of architect Ahmad Lahawri, who decided to include a lake at the entrance. More than 20,000 workers took <strong>(104) ____</strong> years to complete the building, and it was finished by 1638. Some buildings in the area were later completed by 1643. In total, building Taj Mahal and the other buildings around took 22 years. While other monuments could be more famous, Taj Mahal will always be the only one built in the name of love.</p>
+        </div>`
+      }
+    ],
+    prompt: "104. Choose the correct word to complete the space.",
+    options: [
+      { letter: "A", text: "each" },
+      { letter: "B", text: "several" },
+      { letter: "C", text: "much" }
+    ],
+    correctAnswer: "B",
+    explanation: "'Several years' means more than two years and fits the context. Therefore, the correct answer is B."
+  },
+  {
+    uid: "s2-ing-105",
+    session: 2,
+    block: 4,
+    number: 105,
+    area: "Inglés",
+    competencia: "Uso del lenguaje en contexto",
+    componente: "Completar texto con adverbios de tiempo",
+    dificultad: "Básica",
+    type: "single-choice",
+    interaction: "cloze-text",
+    scored: true,
+    sourceLabel: "Sección 2 - Inglés - Pregunta 105",
+    stem: "Part 4. Read the text and choose the correct word for each space.",
+    resources: [
+      {
+        type: "html",
+        html: `<div class="concept-card" style="max-width:850px;margin:auto">
+          <h4 style="margin:0 0 10px">Part 4 · Cloze text</h4>
+          <h3 style="margin:0 0 14px;text-align:center">Taj Mahal</h3>
+          <p style="line-height:1.65">Taj Mahal, one of the greatest monuments of India, was built by emperor Jahan to remember his wife, Mahal. Most people say Taj Mahal is an important expression of Indian art because of the beautiful way its different materials and shapes were used.</p>
+          <p style="line-height:1.65">Plans to build Taj Mahal started in 1623. At that moment, its design process was the idea of architect Ahmad Lahawri, who decided to include a lake at the entrance. More than 20,000 workers took several years to complete the building, and it was finished by 1638. Some buildings in the area were <strong>(105) ____</strong> completed by 1643. In total, building Taj Mahal and the other buildings around took 22 years. While other monuments could be more famous, Taj Mahal will always be the only one built in the name of love.</p>
+        </div>`
+      }
+    ],
+    prompt: "105. Choose the correct word to complete the space.",
+    options: [
+      { letter: "A", text: "still" },
+      { letter: "B", text: "over" },
+      { letter: "C", text: "later" }
+    ],
+    correctAnswer: "C",
+    explanation: "The main building was finished by 1638, and some other buildings were completed after that, by 1643. The word 'later' fits this time sequence. Therefore, the correct answer is C."
+  },
+  {
+    uid: "s2-ing-106",
+    session: 2,
+    block: 4,
+    number: 106,
+    area: "Inglés",
+    competencia: "Uso del lenguaje en contexto",
+    componente: "Completar texto con preposiciones y expresiones de cantidad aproximada",
+    dificultad: "Básica",
+    type: "single-choice",
+    interaction: "cloze-text",
+    scored: true,
+    sourceLabel: "Sección 2 - Inglés - Pregunta 106",
+    stem: "Part 4. Read the text and choose the correct word for each space.",
+    resources: [
+      {
+        type: "html",
+        html: `<div class="concept-card" style="max-width:850px;margin:auto">
+          <h4 style="margin:0 0 10px">Part 4 · Cloze text</h4>
+          <h3 style="margin:0 0 14px;text-align:center">Taj Mahal</h3>
+          <p style="line-height:1.65">Taj Mahal, one of the greatest monuments of India, was built by emperor Jahan to remember his wife, Mahal. Most people say Taj Mahal is an important expression of Indian art because of the beautiful way its different materials and shapes were used.</p>
+          <p style="line-height:1.65">Plans to build Taj Mahal started in 1623. At that moment, its design process was the idea of architect Ahmad Lahawri, who decided to include a lake at the entrance. More than 20,000 workers took several years to complete the building, and it was finished by 1638. Some buildings in the area were later completed by 1643. In total, building Taj Mahal and the other buildings <strong>(106) ____</strong> took 22 years. While other monuments could be more famous, Taj Mahal will always be the only one built in the name of love.</p>
+        </div>`
+      }
+    ],
+    prompt: "106. Choose the correct word to complete the space.",
+    options: [
+      { letter: "A", text: "around" },
+      { letter: "B", text: "off" },
+      { letter: "C", text: "out" }
+    ],
+    correctAnswer: "A",
+    explanation: "'The other buildings around' means the other buildings located near the Taj Mahal. Therefore, the correct answer is A."
+  },
+  {
+    uid: "s2-ing-107",
+    session: 2,
+    block: 4,
+    number: 107,
+    area: "Inglés",
+    competencia: "Uso del lenguaje en contexto",
+    componente: "Completar texto con conectores de contraste",
+    dificultad: "Básica",
+    type: "single-choice",
+    interaction: "cloze-text",
+    scored: true,
+    sourceLabel: "Sección 2 - Inglés - Pregunta 107",
+    stem: "Part 4. Read the text and choose the correct word for each space.",
+    resources: [
+      {
+        type: "html",
+        html: `<div class="concept-card" style="max-width:850px;margin:auto">
+          <h4 style="margin:0 0 10px">Part 4 · Cloze text</h4>
+          <h3 style="margin:0 0 14px;text-align:center">Taj Mahal</h3>
+          <p style="line-height:1.65">Taj Mahal, one of the greatest monuments of India, was built by emperor Jahan to remember his wife, Mahal. Most people say Taj Mahal is an important expression of Indian art because of the beautiful way its different materials and shapes were used.</p>
+          <p style="line-height:1.65">Plans to build Taj Mahal started in 1623. At that moment, its design process was the idea of architect Ahmad Lahawri, who decided to include a lake at the entrance. More than 20,000 workers took several years to complete the building, and it was finished by 1638. Some buildings in the area were later completed by 1643. In total, building Taj Mahal and the other buildings around took 22 years. <strong>(107) ____</strong> other monuments could be more famous, Taj Mahal will always be the only one built in the name of love.</p>
+        </div>`
+      }
+    ],
+    prompt: "107. Choose the correct word to complete the space.",
+    options: [
+      { letter: "A", text: "If" },
+      { letter: "B", text: "While" },
+      { letter: "C", text: "Except" }
+    ],
+    correctAnswer: "B",
+    explanation: "The sentence contrasts the fame of other monuments with the special meaning of the Taj Mahal. 'While' works as a connector of contrast. Therefore, the correct answer is B."
+  }
+,
+  {
+    uid: "s2-ing-108",
+    session: 2,
+    block: 5,
+    number: 108,
+    area: "Inglés",
+    competencia: "Comprensión de lectura",
+    componente: "Identificación de información explícita e inferencias básicas en texto narrativo/descriptivo",
+    dificultad: "Básica",
+    type: "single-choice",
+    interaction: "reading-comprehension",
+    scored: true,
+    sourceLabel: "Sección 2 - Inglés - Pregunta 108",
+    stem: "Part 5. Read the text and answer the question.",
+    resources: [
+      {
+        type: "html",
+        html: `<div class="concept-card" style="max-width:850px;margin:auto">
+  <h4 style="margin:0 0 10px">Part 5 · Reading comprehension</h4>
+  <h3 style="margin:0 0 14px;text-align:center">I’ll Be a Nurse</h3>
+  <p style="line-height:1.65">I'm Alexa Smith and I've done lots of things, but I always dreamed of being a nurse. Nurses should be quite kind, brave, and really nice with people. They must be careful with everything around them. I’m like this, so I will be able to be the best nurse when I finish my studies and in a short time I will earn money by doing something I like!</p>
+  <p style="line-height:1.65">My wish to become a nurse comes from an experience as a teenager. When I was going to visit a friend, who I met through Facebook, I got sick at the airport. Thank God, they found an ambulance and took me to the hospital. A group of fantastic nurses looked after me and I soon got better. Then, I only had to go to the drugstore for a few days. This awesome time at the hospital encouraged me to become a nurse.</p>
+  <p style="line-height:1.65">At university, we study hospital vocabulary, lots of health subjects and practice at local hospitals. My classmates and I can easily see how nurses help people feel less pain. These people are always glad and thanking them for their excellent job. Nurses work all the time and spend, even their free time, learning how to improve people's lives. Soon, I hope to be ready to start my career in this wonderful occupation.</p>
+</div>`
+      }
+    ],
+    prompt: "108. It’s good if a nurse is",
+    options: [
+      { letter: "A", text: "excited." },
+      { letter: "B", text: "attractive." },
+      { letter: "C", text: "friendly." }
+    ],
+    correctAnswer: "C",
+    explanation: "El texto dice que las enfermeras deben ser amables y agradables con las personas; por eso, la opción correcta es C."
+  },
+  {
+    uid: "s2-ing-109",
+    session: 2,
+    block: 5,
+    number: 109,
+    area: "Inglés",
+    competencia: "Comprensión de lectura",
+    componente: "Identificación de información explícita e inferencias básicas en texto narrativo/descriptivo",
+    dificultad: "Básica",
+    type: "single-choice",
+    interaction: "reading-comprehension",
+    scored: true,
+    sourceLabel: "Sección 2 - Inglés - Pregunta 109",
+    stem: "Part 5. Read the text and answer the question.",
+    resources: [
+      {
+        type: "html",
+        html: `<div class="concept-card" style="max-width:850px;margin:auto">
+  <h4 style="margin:0 0 10px">Part 5 · Reading comprehension</h4>
+  <h3 style="margin:0 0 14px;text-align:center">I’ll Be a Nurse</h3>
+  <p style="line-height:1.65">I'm Alexa Smith and I've done lots of things, but I always dreamed of being a nurse. Nurses should be quite kind, brave, and really nice with people. They must be careful with everything around them. I’m like this, so I will be able to be the best nurse when I finish my studies and in a short time I will earn money by doing something I like!</p>
+  <p style="line-height:1.65">My wish to become a nurse comes from an experience as a teenager. When I was going to visit a friend, who I met through Facebook, I got sick at the airport. Thank God, they found an ambulance and took me to the hospital. A group of fantastic nurses looked after me and I soon got better. Then, I only had to go to the drugstore for a few days. This awesome time at the hospital encouraged me to become a nurse.</p>
+  <p style="line-height:1.65">At university, we study hospital vocabulary, lots of health subjects and practice at local hospitals. My classmates and I can easily see how nurses help people feel less pain. These people are always glad and thanking them for their excellent job. Nurses work all the time and spend, even their free time, learning how to improve people's lives. Soon, I hope to be ready to start my career in this wonderful occupation.</p>
+</div>`
+      }
+    ],
+    prompt: "109. Alexa thinks that soon she will be",
+    options: [
+      { letter: "A", text: "working at a hospital." },
+      { letter: "B", text: "going to the airport." },
+      { letter: "C", text: "feeling better." }
+    ],
+    correctAnswer: "A",
+    explanation: "Alexa espera iniciar pronto su carrera como enfermera, es decir, comenzar a trabajar en el campo hospitalario. La opción correcta es A."
+  },
+  {
+    uid: "s2-ing-110",
+    session: 2,
+    block: 5,
+    number: 110,
+    area: "Inglés",
+    competencia: "Comprensión de lectura",
+    componente: "Identificación de información explícita e inferencias básicas en texto narrativo/descriptivo",
+    dificultad: "Básica",
+    type: "single-choice",
+    interaction: "reading-comprehension",
+    scored: true,
+    sourceLabel: "Sección 2 - Inglés - Pregunta 110",
+    stem: "Part 5. Read the text and answer the question.",
+    resources: [
+      {
+        type: "html",
+        html: `<div class="concept-card" style="max-width:850px;margin:auto">
+  <h4 style="margin:0 0 10px">Part 5 · Reading comprehension</h4>
+  <h3 style="margin:0 0 14px;text-align:center">I’ll Be a Nurse</h3>
+  <p style="line-height:1.65">I'm Alexa Smith and I've done lots of things, but I always dreamed of being a nurse. Nurses should be quite kind, brave, and really nice with people. They must be careful with everything around them. I’m like this, so I will be able to be the best nurse when I finish my studies and in a short time I will earn money by doing something I like!</p>
+  <p style="line-height:1.65">My wish to become a nurse comes from an experience as a teenager. When I was going to visit a friend, who I met through Facebook, I got sick at the airport. Thank God, they found an ambulance and took me to the hospital. A group of fantastic nurses looked after me and I soon got better. Then, I only had to go to the drugstore for a few days. This awesome time at the hospital encouraged me to become a nurse.</p>
+  <p style="line-height:1.65">At university, we study hospital vocabulary, lots of health subjects and practice at local hospitals. My classmates and I can easily see how nurses help people feel less pain. These people are always glad and thanking them for their excellent job. Nurses work all the time and spend, even their free time, learning how to improve people's lives. Soon, I hope to be ready to start my career in this wonderful occupation.</p>
+</div>`
+      }
+    ],
+    prompt: "110. At the airport, Alexa",
+    options: [
+      { letter: "A", text: "suddenly felt ill." },
+      { letter: "B", text: "had a terrible accident." },
+      { letter: "C", text: "took the wrong medicine." }
+    ],
+    correctAnswer: "A",
+    explanation: "El texto indica que Alexa se enfermó en el aeropuerto. Por eso, la respuesta correcta es A."
+  },
+  {
+    uid: "s2-ing-111",
+    session: 2,
+    block: 5,
+    number: 111,
+    area: "Inglés",
+    competencia: "Comprensión de lectura",
+    componente: "Identificación de información explícita e inferencias básicas en texto narrativo/descriptivo",
+    dificultad: "Básica",
+    type: "single-choice",
+    interaction: "reading-comprehension",
+    scored: true,
+    sourceLabel: "Sección 2 - Inglés - Pregunta 111",
+    stem: "Part 5. Read the text and answer the question.",
+    resources: [
+      {
+        type: "html",
+        html: `<div class="concept-card" style="max-width:850px;margin:auto">
+  <h4 style="margin:0 0 10px">Part 5 · Reading comprehension</h4>
+  <h3 style="margin:0 0 14px;text-align:center">I’ll Be a Nurse</h3>
+  <p style="line-height:1.65">I'm Alexa Smith and I've done lots of things, but I always dreamed of being a nurse. Nurses should be quite kind, brave, and really nice with people. They must be careful with everything around them. I’m like this, so I will be able to be the best nurse when I finish my studies and in a short time I will earn money by doing something I like!</p>
+  <p style="line-height:1.65">My wish to become a nurse comes from an experience as a teenager. When I was going to visit a friend, who I met through Facebook, I got sick at the airport. Thank God, they found an ambulance and took me to the hospital. A group of fantastic nurses looked after me and I soon got better. Then, I only had to go to the drugstore for a few days. This awesome time at the hospital encouraged me to become a nurse.</p>
+  <p style="line-height:1.65">At university, we study hospital vocabulary, lots of health subjects and practice at local hospitals. My classmates and I can easily see how nurses help people feel less pain. These people are always glad and thanking them for their excellent job. Nurses work all the time and spend, even their free time, learning how to improve people's lives. Soon, I hope to be ready to start my career in this wonderful occupation.</p>
+</div>`
+      }
+    ],
+    prompt: "111. In Alexa’s opinion, the nurses who helped her were",
+    options: [
+      { letter: "A", text: "interesting." },
+      { letter: "B", text: "amazing." },
+      { letter: "C", text: "lucky." }
+    ],
+    correctAnswer: "B",
+    explanation: "Alexa describe a las enfermeras como fantásticas y relaciona esa experiencia con su deseo de ser enfermera. La opción correcta es B."
+  },
+  {
+    uid: "s2-ing-112",
+    session: 2,
+    block: 5,
+    number: 112,
+    area: "Inglés",
+    competencia: "Comprensión de lectura",
+    componente: "Identificación de información explícita e inferencias básicas en texto narrativo/descriptivo",
+    dificultad: "Básica",
+    type: "single-choice",
+    interaction: "reading-comprehension",
+    scored: true,
+    sourceLabel: "Sección 2 - Inglés - Pregunta 112",
+    stem: "Part 5. Read the text and answer the question.",
+    resources: [
+      {
+        type: "html",
+        html: `<div class="concept-card" style="max-width:850px;margin:auto">
+  <h4 style="margin:0 0 10px">Part 5 · Reading comprehension</h4>
+  <h3 style="margin:0 0 14px;text-align:center">I’ll Be a Nurse</h3>
+  <p style="line-height:1.65">I'm Alexa Smith and I've done lots of things, but I always dreamed of being a nurse. Nurses should be quite kind, brave, and really nice with people. They must be careful with everything around them. I’m like this, so I will be able to be the best nurse when I finish my studies and in a short time I will earn money by doing something I like!</p>
+  <p style="line-height:1.65">My wish to become a nurse comes from an experience as a teenager. When I was going to visit a friend, who I met through Facebook, I got sick at the airport. Thank God, they found an ambulance and took me to the hospital. A group of fantastic nurses looked after me and I soon got better. Then, I only had to go to the drugstore for a few days. This awesome time at the hospital encouraged me to become a nurse.</p>
+  <p style="line-height:1.65">At university, we study hospital vocabulary, lots of health subjects and practice at local hospitals. My classmates and I can easily see how nurses help people feel less pain. These people are always glad and thanking them for their excellent job. Nurses work all the time and spend, even their free time, learning how to improve people's lives. Soon, I hope to be ready to start my career in this wonderful occupation.</p>
+</div>`
+      }
+    ],
+    prompt: "112. Once Alexa felt healthy again, she",
+    options: [
+      { letter: "A", text: "posted it online." },
+      { letter: "B", text: "flew back home." },
+      { letter: "C", text: "decided her future." }
+    ],
+    correctAnswer: "B",
+    explanation: "Después de mejorar, la alternativa que mejor completa la situación de regreso posterior al viaje es B."
+  },
+  {
+    uid: "s2-ing-113",
+    session: 2,
+    block: 5,
+    number: 113,
+    area: "Inglés",
+    competencia: "Comprensión de lectura",
+    componente: "Identificación de información explícita e inferencias básicas en texto narrativo/descriptivo",
+    dificultad: "Básica",
+    type: "single-choice",
+    interaction: "reading-comprehension",
+    scored: true,
+    sourceLabel: "Sección 2 - Inglés - Pregunta 113",
+    stem: "Part 5. Read the text and answer the question.",
+    resources: [
+      {
+        type: "html",
+        html: `<div class="concept-card" style="max-width:850px;margin:auto">
+  <h4 style="margin:0 0 10px">Part 5 · Reading comprehension</h4>
+  <h3 style="margin:0 0 14px;text-align:center">I’ll Be a Nurse</h3>
+  <p style="line-height:1.65">I'm Alexa Smith and I've done lots of things, but I always dreamed of being a nurse. Nurses should be quite kind, brave, and really nice with people. They must be careful with everything around them. I’m like this, so I will be able to be the best nurse when I finish my studies and in a short time I will earn money by doing something I like!</p>
+  <p style="line-height:1.65">My wish to become a nurse comes from an experience as a teenager. When I was going to visit a friend, who I met through Facebook, I got sick at the airport. Thank God, they found an ambulance and took me to the hospital. A group of fantastic nurses looked after me and I soon got better. Then, I only had to go to the drugstore for a few days. This awesome time at the hospital encouraged me to become a nurse.</p>
+  <p style="line-height:1.65">At university, we study hospital vocabulary, lots of health subjects and practice at local hospitals. My classmates and I can easily see how nurses help people feel less pain. These people are always glad and thanking them for their excellent job. Nurses work all the time and spend, even their free time, learning how to improve people's lives. Soon, I hope to be ready to start my career in this wonderful occupation.</p>
+</div>`
+      }
+    ],
+    prompt: "113. While studying, Alexa and her friends from university have",
+    options: [
+      { letter: "A", text: "seen how patients like nurses." },
+      { letter: "B", text: "lived at a hospital." },
+      { letter: "C", text: "shared their spare time." }
+    ],
+    correctAnswer: "A",
+    explanation: "El texto dice que Alexa y sus compañeros ven cómo las enfermeras ayudan a los pacientes, quienes se muestran agradecidos. La opción correcta es A."
+  },
+  {
+    uid: "s2-ing-114",
+    session: 2,
+    block: 5,
+    number: 114,
+    area: "Inglés",
+    competencia: "Comprensión de lectura",
+    componente: "Identificación de información explícita e inferencias básicas en texto narrativo/descriptivo",
+    dificultad: "Básica",
+    type: "single-choice",
+    interaction: "reading-comprehension",
+    scored: true,
+    sourceLabel: "Sección 2 - Inglés - Pregunta 114",
+    stem: "Part 5. Read the text and answer the question.",
+    resources: [
+      {
+        type: "html",
+        html: `<div class="concept-card" style="max-width:850px;margin:auto">
+  <h4 style="margin:0 0 10px">Part 5 · Reading comprehension</h4>
+  <h3 style="margin:0 0 14px;text-align:center">I’ll Be a Nurse</h3>
+  <p style="line-height:1.65">I'm Alexa Smith and I've done lots of things, but I always dreamed of being a nurse. Nurses should be quite kind, brave, and really nice with people. They must be careful with everything around them. I’m like this, so I will be able to be the best nurse when I finish my studies and in a short time I will earn money by doing something I like!</p>
+  <p style="line-height:1.65">My wish to become a nurse comes from an experience as a teenager. When I was going to visit a friend, who I met through Facebook, I got sick at the airport. Thank God, they found an ambulance and took me to the hospital. A group of fantastic nurses looked after me and I soon got better. Then, I only had to go to the drugstore for a few days. This awesome time at the hospital encouraged me to become a nurse.</p>
+  <p style="line-height:1.65">At university, we study hospital vocabulary, lots of health subjects and practice at local hospitals. My classmates and I can easily see how nurses help people feel less pain. These people are always glad and thanking them for their excellent job. Nurses work all the time and spend, even their free time, learning how to improve people's lives. Soon, I hope to be ready to start my career in this wonderful occupation.</p>
+</div>`
+      }
+    ],
+    prompt: "114. Alexa can’t wait for the moment to",
+    options: [
+      { letter: "A", text: "become an assistant." },
+      { letter: "B", text: "begin working." },
+      { letter: "C", text: "have some rest." }
+    ],
+    correctAnswer: "B",
+    explanation: "Alexa afirma que espera estar lista pronto para iniciar su carrera. Por eso, la opción correcta es B."
+  }
+,
+  {
+    uid: "s2-ing-115",
+    session: 2,
+    block: 6,
+    number: 115,
+    area: "Inglés",
+    competencia: "Comprensión de lectura",
+    componente: "Identificación de propósito comunicativo en texto argumentativo/reflexivo",
+    dificultad: "Media",
+    type: "single-choice",
+    interaction: "reading-comprehension",
+    readingGroup: "s2-ing-lazy-periods-115-119",
+    scored: true,
+    sourceLabel: "Sección 2 - Inglés - Pregunta 115",
+    stem: "Part 6.A. Read the text and answer the question.",
+    resources: [
+      {
+        type: "html",
+        html: `<div class="concept-card" style="max-width:900px;margin:auto">
+  <h4 style="margin:0 0 10px">Part 6.A · Reading comprehension</h4>
+  <h3 style="margin:0 0 14px;text-align:center">The Value of Doing Nothing</h3>
+  <p style="line-height:1.65">I know people who will do anything to avoid looking after their children at a playground. They will ask their friends to go with them so they don’t have to do it alone, so they can listen to music and remain mentally absent.</p>
+  <p style="line-height:1.65">I should say that, in general, I am very good at “doing nothing”. I could sit looking at the wood on a table for a long time and be pleased. These days, there is a lot of literature on the necessity for children to “do nothing”, which is mentioned in the context of warnings about giving children too much to do and the use of screens. However, there is less talk about the value of “doing nothing” for adults although this habit often helps to develop thinking abilities to be active and efficient.</p>
+  <p style="line-height:1.65">Lazy periods may seem useless; however, they can be valuable. Once, I had to wait in a row for an hour. This was actually a relaxing moment that made me think what life is all about. It will be a moment that I’ll remember with the deepest nostalgia. On another occasion, I forgot my phone at home when I went out, and it was amazing! I learnt a lot from that “accident”. I was able to take a breath and enjoy the simple things when I sat in the sunshine while my children rode their bikes up and down and then left them to play in the sand.</p>
+  <p style="line-height:1.65">The funny thing about the two experiences of “doing nothing”, passively waiting for something to end and going out without my phone, were the greatest moments of active and efficient activities which I’ve done with my time.</p>
+</div>`
+      }
+    ],
+    prompt: "115. What is the writer trying to do in the text?",
+    options: [
+      { letter: "A", text: "explore new activities to have fun and attract your children" },
+      { letter: "B", text: "convince people to leave their electronic objects at work" },
+      { letter: "C", text: "recommend doing relaxing outdoor activities and living in nature" },
+      { letter: "D", text: "encourage people to value lazy periods" }
+    ],
+    correctAnswer: "D",
+    explanation: "The writer explains that lazy periods or moments of doing nothing can be valuable because they help people think, relax and become more active and efficient. Therefore, the correct answer is D."
+  },
+  {
+    uid: "s2-ing-116",
+    session: 2,
+    block: 6,
+    number: 116,
+    area: "Inglés",
+    competencia: "Comprensión de lectura",
+    componente: "Reconocimiento de información global e inferencias en texto argumentativo/reflexivo",
+    dificultad: "Media",
+    type: "single-choice",
+    interaction: "reading-comprehension",
+    readingGroup: "s2-ing-lazy-periods-115-119",
+    scored: true,
+    sourceLabel: "Sección 2 - Inglés - Pregunta 116",
+    stem: "Part 6.A. Read the text and answer the question.",
+    resources: [
+      {
+        type: "html",
+        html: `<div class="concept-card" style="max-width:900px;margin:auto">
+  <h4 style="margin:0 0 10px">Part 6.A · Reading comprehension</h4>
+  <h3 style="margin:0 0 14px;text-align:center">The Value of Doing Nothing</h3>
+  <p style="line-height:1.65">I know people who will do anything to avoid looking after their children at a playground. They will ask their friends to go with them so they don’t have to do it alone, so they can listen to music and remain mentally absent.</p>
+  <p style="line-height:1.65">I should say that, in general, I am very good at “doing nothing”. I could sit looking at the wood on a table for a long time and be pleased. These days, there is a lot of literature on the necessity for children to “do nothing”, which is mentioned in the context of warnings about giving children too much to do and the use of screens. However, there is less talk about the value of “doing nothing” for adults although this habit often helps to develop thinking abilities to be active and efficient.</p>
+  <p style="line-height:1.65">Lazy periods may seem useless; however, they can be valuable. Once, I had to wait in a row for an hour. This was actually a relaxing moment that made me think what life is all about. It will be a moment that I’ll remember with the deepest nostalgia. On another occasion, I forgot my phone at home when I went out, and it was amazing! I learnt a lot from that “accident”. I was able to take a breath and enjoy the simple things when I sat in the sunshine while my children rode their bikes up and down and then left them to play in the sand.</p>
+  <p style="line-height:1.65">The funny thing about the two experiences of “doing nothing”, passively waiting for something to end and going out without my phone, were the greatest moments of active and efficient activities which I’ve done with my time.</p>
+</div>`
+      }
+    ],
+    prompt: "116. What can the reader find out from this article?",
+    options: [
+      { letter: "A", text: "difficulties that you could avoid when you decide to give up technology" },
+      { letter: "B", text: "chances to develop your ideas, dreams and abilities when you are outdoors" },
+      { letter: "C", text: "regrets about the writer’s active life without his electronic objects" },
+      { letter: "D", text: "benefits that you could receive from doing routine activities" }
+    ],
+    correctAnswer: "B",
+    explanation: "The article shows that being without distractions, especially in simple outdoor moments, can help people think, develop ideas and enjoy life. Therefore, the correct answer is B."
+  },
+  {
+    uid: "s2-ing-117",
+    session: 2,
+    block: 6,
+    number: 117,
+    area: "Inglés",
+    competencia: "Comprensión de lectura",
+    componente: "Interpretación de expresiones y sentido global en texto argumentativo/reflexivo",
+    dificultad: "Media",
+    type: "single-choice",
+    interaction: "reading-comprehension",
+    readingGroup: "s2-ing-lazy-periods-115-119",
+    scored: true,
+    sourceLabel: "Sección 2 - Inglés - Pregunta 117",
+    stem: "Part 6.A. Read the text and answer the question.",
+    resources: [
+      {
+        type: "html",
+        html: `<div class="concept-card" style="max-width:900px;margin:auto">
+  <h4 style="margin:0 0 10px">Part 6.A · Reading comprehension</h4>
+  <h3 style="margin:0 0 14px;text-align:center">The Value of Doing Nothing</h3>
+  <p style="line-height:1.65">I know people who will do anything to avoid looking after their children at a playground. They will ask their friends to go with them so they don’t have to do it alone, so they can listen to music and remain mentally absent.</p>
+  <p style="line-height:1.65">I should say that, in general, I am very good at “doing nothing”. I could sit looking at the wood on a table for a long time and be pleased. These days, there is a lot of literature on the necessity for children to “do nothing”, which is mentioned in the context of warnings about giving children too much to do and the use of screens. However, there is less talk about the value of “doing nothing” for adults although this habit often helps to develop thinking abilities to be active and efficient.</p>
+  <p style="line-height:1.65">Lazy periods may seem useless; however, they can be valuable. Once, I had to wait in a row for an hour. This was actually a relaxing moment that made me think what life is all about. It will be a moment that I’ll remember with the deepest nostalgia. On another occasion, I forgot my phone at home when I went out, and it was amazing! I learnt a lot from that “accident”. I was able to take a breath and enjoy the simple things when I sat in the sunshine while my children rode their bikes up and down and then left them to play in the sand.</p>
+  <p style="line-height:1.65">The funny thing about the two experiences of “doing nothing”, passively waiting for something to end and going out without my phone, were the greatest moments of active and efficient activities which I’ve done with my time.</p>
+</div>`
+      }
+    ],
+    prompt: "117. According to the author, “lazy periods” are",
+    options: [
+      { letter: "A", text: "moments that make people avoid using their time, money and skills in the best way." },
+      { letter: "B", text: "unimportant daily decisions that people forget very quickly." },
+      { letter: "C", text: "ordinary activities that can provide amazing and relaxing feelings." },
+      { letter: "D", text: "silent moments that can make your life stressful." }
+    ],
+    correctAnswer: "C",
+    explanation: "The author describes lazy periods as valuable moments that can be relaxing, amazing and useful for thinking. Therefore, the correct answer is C."
+  },
+  {
+    uid: "s2-ing-118",
+    session: 2,
+    block: 6,
+    number: 118,
+    area: "Inglés",
+    competencia: "Comprensión de lectura",
+    componente: "Selección de título según la idea principal del texto",
+    dificultad: "Media",
+    type: "single-choice",
+    interaction: "reading-comprehension",
+    readingGroup: "s2-ing-lazy-periods-115-119",
+    scored: true,
+    sourceLabel: "Sección 2 - Inglés - Pregunta 118",
+    stem: "Part 6.A. Read the text and answer the question.",
+    resources: [
+      {
+        type: "html",
+        html: `<div class="concept-card" style="max-width:900px;margin:auto">
+  <h4 style="margin:0 0 10px">Part 6.A · Reading comprehension</h4>
+  <h3 style="margin:0 0 14px;text-align:center">The Value of Doing Nothing</h3>
+  <p style="line-height:1.65">I know people who will do anything to avoid looking after their children at a playground. They will ask their friends to go with them so they don’t have to do it alone, so they can listen to music and remain mentally absent.</p>
+  <p style="line-height:1.65">I should say that, in general, I am very good at “doing nothing”. I could sit looking at the wood on a table for a long time and be pleased. These days, there is a lot of literature on the necessity for children to “do nothing”, which is mentioned in the context of warnings about giving children too much to do and the use of screens. However, there is less talk about the value of “doing nothing” for adults although this habit often helps to develop thinking abilities to be active and efficient.</p>
+  <p style="line-height:1.65">Lazy periods may seem useless; however, they can be valuable. Once, I had to wait in a row for an hour. This was actually a relaxing moment that made me think what life is all about. It will be a moment that I’ll remember with the deepest nostalgia. On another occasion, I forgot my phone at home when I went out, and it was amazing! I learnt a lot from that “accident”. I was able to take a breath and enjoy the simple things when I sat in the sunshine while my children rode their bikes up and down and then left them to play in the sand.</p>
+  <p style="line-height:1.65">The funny thing about the two experiences of “doing nothing”, passively waiting for something to end and going out without my phone, were the greatest moments of active and efficient activities which I’ve done with my time.</p>
+</div>`
+      }
+    ],
+    prompt: "118. The most suitable title for the reading could be “One day I",
+    options: [
+      { letter: "A", text: "decided to pay attention to normal events, it was a surprising experience”." },
+      { letter: "B", text: "admitted that I was absent when I played with my children”." },
+      { letter: "C", text: "forgot my cellphone, and it was an awful and stressful experience”." },
+      { letter: "D", text: "decided to give up my phone to avoid unimportant and unusual calls”." }
+    ],
+    correctAnswer: "A",
+    explanation: "The text focuses on how simple and ordinary moments became surprising and meaningful experiences for the writer. Therefore, the correct answer is A."
+  },
+  {
+    uid: "s2-ing-119",
+    session: 2,
+    block: 6,
+    number: 119,
+    area: "Inglés",
+    competencia: "Comprensión de lectura",
+    componente: "Inferencia de consejo o postura del autor a partir del texto",
+    dificultad: "Media",
+    type: "single-choice",
+    interaction: "reading-comprehension",
+    readingGroup: "s2-ing-lazy-periods-115-119",
+    scored: true,
+    sourceLabel: "Sección 2 - Inglés - Pregunta 119",
+    stem: "Part 6.A. Read the text and answer the question.",
+    resources: [
+      {
+        type: "html",
+        html: `<div class="concept-card" style="max-width:900px;margin:auto">
+  <h4 style="margin:0 0 10px">Part 6.A · Reading comprehension</h4>
+  <h3 style="margin:0 0 14px;text-align:center">The Value of Doing Nothing</h3>
+  <p style="line-height:1.65">I know people who will do anything to avoid looking after their children at a playground. They will ask their friends to go with them so they don’t have to do it alone, so they can listen to music and remain mentally absent.</p>
+  <p style="line-height:1.65">I should say that, in general, I am very good at “doing nothing”. I could sit looking at the wood on a table for a long time and be pleased. These days, there is a lot of literature on the necessity for children to “do nothing”, which is mentioned in the context of warnings about giving children too much to do and the use of screens. However, there is less talk about the value of “doing nothing” for adults although this habit often helps to develop thinking abilities to be active and efficient.</p>
+  <p style="line-height:1.65">Lazy periods may seem useless; however, they can be valuable. Once, I had to wait in a row for an hour. This was actually a relaxing moment that made me think what life is all about. It will be a moment that I’ll remember with the deepest nostalgia. On another occasion, I forgot my phone at home when I went out, and it was amazing! I learnt a lot from that “accident”. I was able to take a breath and enjoy the simple things when I sat in the sunshine while my children rode their bikes up and down and then left them to play in the sand.</p>
+  <p style="line-height:1.65">The funny thing about the two experiences of “doing nothing”, passively waiting for something to end and going out without my phone, were the greatest moments of active and efficient activities which I’ve done with my time.</p>
+</div>`
+      }
+    ],
+    prompt: "119. What advice would the writer give his readers?",
+    options: [
+      { letter: "A", text: "Leave always your electronic objects at home. It’ll let you breathe and relax." },
+      { letter: "B", text: "Cancel your stressful work activities. They might seriously damage your health." },
+      { letter: "C", text: "Consider simple daily routines. They could develop your thinking abilities." },
+      { letter: "D", text: "Carry on with your routine. It may prevent accidents in your life." }
+    ],
+    correctAnswer: "A",
+    explanation: "The writer presents the experience of going out without his phone as a positive accident that helped him breathe and relax. The answer marked in the source image is A."
+  },
+  {
+    uid: "s2-ing-120",
+    session: 2,
+    block: 6,
+    number: 120,
+    area: "Inglés",
+    competencia: "Comprensión de lectura",
+    componente: "Identificación del propósito comunicativo en texto expositivo/reflexivo",
+    dificultad: "Media",
+    type: "single-choice",
+    interaction: "reading-comprehension",
+    readingGroup: "s2-ing-gymnastics-120-124",
+    scored: true,
+    sourceLabel: "Sección 2 - Inglés - Pregunta 120",
+    stem: "Part 6.B. Read the text and answer the question.",
+    resources: [
+      {
+        type: "html",
+        html: `<div class="concept-card" style="max-width:900px;margin:auto">
+  <h4 style="margin:0 0 10px">Part 6.B · Reading comprehension</h4>
+  <h3 style="margin:0 0 14px;text-align:center">Gymnastics and Personal Development</h3>
+  <p style="line-height:1.65">I cannot remember a time when I was not involved in the sport of gymnastics. My mom used to exercise a lot when she was pregnant with me, so you could say that it is in my blood! I love the challenge that gymnastics offer. My coaches taught me the value of setting goals by writing them down and focusing on bringing them to life. In my personal life, gymnastics has given me the essential support to practice other sports, a love for fitness and physical activity, and a skill set that has allowed me to perform well in school and in my professional life.</p>
+  <p style="line-height:1.65">Nowadays, as a gym owner, I am inspired when I see that same feeling in someone else’s eyes and smiles that I once had when I practiced gymnastics. Besides keeping you active, gymnastics also makes your body feel strong and enables you to do different things, such as keeping up with the everyday challenges of living a fast life.</p>
+  <p style="line-height:1.65">As it happens with other sports, gymnastics is a sport where you fall again and again and have to stand up and continue. This sport teaches you the power of “I can do it”. This means you need to work hard to get what you want, but quitting is not an option. To do this, you need to be responsible, confident and spend time doing something that is worth it. In general, gymnastics can bring different benefits for your life, not only for your body but also for your personal development.</p>
+</div>`
+      }
+    ],
+    prompt: "120. The purpose of the text is to",
+    options: [
+      { letter: "A", text: "advise students on the best techniques to learn gymnastics." },
+      { letter: "B", text: "complain about the issues students have while doing gymnastics." },
+      { letter: "C", text: "encourage students to try gymnastics as an exciting sport." },
+      { letter: "D", text: "convince students why gymnastics is better than other sports." }
+    ],
+    correctAnswer: "C",
+    explanation: "The writer presents gymnastics as a positive and exciting sport that offers physical and personal benefits. Therefore, the correct answer is C."
+  },
+  {
+    uid: "s2-ing-121",
+    session: 2,
+    block: 6,
+    number: 121,
+    area: "Inglés",
+    competencia: "Comprensión de lectura",
+    componente: "Reconocimiento de información explícita sobre aprendizajes del autor",
+    dificultad: "Media",
+    type: "single-choice",
+    interaction: "reading-comprehension",
+    readingGroup: "s2-ing-gymnastics-120-124",
+    scored: true,
+    sourceLabel: "Sección 2 - Inglés - Pregunta 121",
+    stem: "Part 6.B. Read the text and answer the question.",
+    resources: [
+      {
+        type: "html",
+        html: `<div class="concept-card" style="max-width:900px;margin:auto">
+  <h4 style="margin:0 0 10px">Part 6.B · Reading comprehension</h4>
+  <h3 style="margin:0 0 14px;text-align:center">Gymnastics and Personal Development</h3>
+  <p style="line-height:1.65">I cannot remember a time when I was not involved in the sport of gymnastics. My mom used to exercise a lot when she was pregnant with me, so you could say that it is in my blood! I love the challenge that gymnastics offer. My coaches taught me the value of setting goals by writing them down and focusing on bringing them to life. In my personal life, gymnastics has given me the essential support to practice other sports, a love for fitness and physical activity, and a skill set that has allowed me to perform well in school and in my professional life.</p>
+  <p style="line-height:1.65">Nowadays, as a gym owner, I am inspired when I see that same feeling in someone else’s eyes and smiles that I once had when I practiced gymnastics. Besides keeping you active, gymnastics also makes your body feel strong and enables you to do different things, such as keeping up with the everyday challenges of living a fast life.</p>
+  <p style="line-height:1.65">As it happens with other sports, gymnastics is a sport where you fall again and again and have to stand up and continue. This sport teaches you the power of “I can do it”. This means you need to work hard to get what you want, but quitting is not an option. To do this, you need to be responsible, confident and spend time doing something that is worth it. In general, gymnastics can bring different benefits for your life, not only for your body but also for your personal development.</p>
+</div>`
+      }
+    ],
+    prompt: "121. What did the writer learn from practicing gymnastics?",
+    options: [
+      { letter: "A", text: "Long workouts are necessary to keep fit." },
+      { letter: "B", text: "Goals in life need to be clearly established." },
+      { letter: "C", text: "Training should be carried out regularly." },
+      { letter: "D", text: "Performance in other sports might be limited." }
+    ],
+    correctAnswer: "B",
+    explanation: "The text says that the writer’s coaches taught the value of setting goals by writing them down and focusing on bringing them to life. Therefore, the correct answer is B."
+  },
+  {
+    uid: "s2-ing-122",
+    session: 2,
+    block: 6,
+    number: 122,
+    area: "Inglés",
+    competencia: "Comprensión de lectura",
+    componente: "Inferencia de beneficios personales a partir de información explícita",
+    dificultad: "Media",
+    type: "single-choice",
+    interaction: "reading-comprehension",
+    readingGroup: "s2-ing-gymnastics-120-124",
+    scored: true,
+    sourceLabel: "Sección 2 - Inglés - Pregunta 122",
+    stem: "Part 6.B. Read the text and answer the question.",
+    resources: [
+      {
+        type: "html",
+        html: `<div class="concept-card" style="max-width:900px;margin:auto">
+  <h4 style="margin:0 0 10px">Part 6.B · Reading comprehension</h4>
+  <h3 style="margin:0 0 14px;text-align:center">Gymnastics and Personal Development</h3>
+  <p style="line-height:1.65">I cannot remember a time when I was not involved in the sport of gymnastics. My mom used to exercise a lot when she was pregnant with me, so you could say that it is in my blood! I love the challenge that gymnastics offer. My coaches taught me the value of setting goals by writing them down and focusing on bringing them to life. In my personal life, gymnastics has given me the essential support to practice other sports, a love for fitness and physical activity, and a skill set that has allowed me to perform well in school and in my professional life.</p>
+  <p style="line-height:1.65">Nowadays, as a gym owner, I am inspired when I see that same feeling in someone else’s eyes and smiles that I once had when I practiced gymnastics. Besides keeping you active, gymnastics also makes your body feel strong and enables you to do different things, such as keeping up with the everyday challenges of living a fast life.</p>
+  <p style="line-height:1.65">As it happens with other sports, gymnastics is a sport where you fall again and again and have to stand up and continue. This sport teaches you the power of “I can do it”. This means you need to work hard to get what you want, but quitting is not an option. To do this, you need to be responsible, confident and spend time doing something that is worth it. In general, gymnastics can bring different benefits for your life, not only for your body but also for your personal development.</p>
+</div>`
+      }
+    ],
+    prompt: "122. Besides making your body stronger, gymnastics can make you feel more",
+    options: [
+      { letter: "A", text: "efficient to deal with daily activities." },
+      { letter: "B", text: "careless about your body." },
+      { letter: "C", text: "creative about your love life." },
+      { letter: "D", text: "engaged with other sports at school." }
+    ],
+    correctAnswer: "A",
+    explanation: "The text explains that gymnastics helps people keep up with everyday challenges, so it can make them feel more efficient in daily life. Therefore, the correct answer is A."
+  },
+  {
+    uid: "s2-ing-123",
+    session: 2,
+    block: 6,
+    number: 123,
+    area: "Inglés",
+    competencia: "Comprensión de lectura",
+    componente: "Interpretación de expresión dentro del contexto del párrafo",
+    dificultad: "Media",
+    type: "single-choice",
+    interaction: "reading-comprehension",
+    readingGroup: "s2-ing-gymnastics-120-124",
+    scored: true,
+    sourceLabel: "Sección 2 - Inglés - Pregunta 123",
+    stem: "Part 6.B. Read the text and answer the question.",
+    resources: [
+      {
+        type: "html",
+        html: `<div class="concept-card" style="max-width:900px;margin:auto">
+  <h4 style="margin:0 0 10px">Part 6.B · Reading comprehension</h4>
+  <h3 style="margin:0 0 14px;text-align:center">Gymnastics and Personal Development</h3>
+  <p style="line-height:1.65">I cannot remember a time when I was not involved in the sport of gymnastics. My mom used to exercise a lot when she was pregnant with me, so you could say that it is in my blood! I love the challenge that gymnastics offer. My coaches taught me the value of setting goals by writing them down and focusing on bringing them to life. In my personal life, gymnastics has given me the essential support to practice other sports, a love for fitness and physical activity, and a skill set that has allowed me to perform well in school and in my professional life.</p>
+  <p style="line-height:1.65">Nowadays, as a gym owner, I am inspired when I see that same feeling in someone else’s eyes and smiles that I once had when I practiced gymnastics. Besides keeping you active, gymnastics also makes your body feel strong and enables you to do different things, such as keeping up with the everyday challenges of living a fast life.</p>
+  <p style="line-height:1.65">As it happens with other sports, gymnastics is a sport where you fall again and again and have to stand up and continue. This sport teaches you the power of “I can do it”. This means you need to work hard to get what you want, but quitting is not an option. To do this, you need to be responsible, confident and spend time doing something that is worth it. In general, gymnastics can bring different benefits for your life, not only for your body but also for your personal development.</p>
+</div>`
+      }
+    ],
+    prompt: "123. In paragraph 3, what does the power of “I can do it” mean?",
+    options: [
+      { letter: "A", text: "achieve the aims you are certain about" },
+      { letter: "B", text: "carry on with your professional goals" },
+      { letter: "C", text: "create other ways to manage hard work" },
+      { letter: "D", text: "spending your time on something useful" }
+    ],
+    correctAnswer: "C",
+    explanation: "In the paragraph, the expression is connected with working hard, standing up again and not quitting. The answer marked in the source image is C."
+  },
+  {
+    uid: "s2-ing-124",
+    session: 2,
+    block: 6,
+    number: 124,
+    area: "Inglés",
+    competencia: "Comprensión de lectura",
+    componente: "Inferencia de sugerencias coherentes con el contenido del texto",
+    dificultad: "Media",
+    type: "single-choice",
+    interaction: "reading-comprehension",
+    readingGroup: "s2-ing-gymnastics-120-124",
+    scored: true,
+    sourceLabel: "Sección 2 - Inglés - Pregunta 124",
+    stem: "Part 6.B. Read the text and answer the question.",
+    resources: [
+      {
+        type: "html",
+        html: `<div class="concept-card" style="max-width:900px;margin:auto">
+  <h4 style="margin:0 0 10px">Part 6.B · Reading comprehension</h4>
+  <h3 style="margin:0 0 14px;text-align:center">Gymnastics and Personal Development</h3>
+  <p style="line-height:1.65">I cannot remember a time when I was not involved in the sport of gymnastics. My mom used to exercise a lot when she was pregnant with me, so you could say that it is in my blood! I love the challenge that gymnastics offer. My coaches taught me the value of setting goals by writing them down and focusing on bringing them to life. In my personal life, gymnastics has given me the essential support to practice other sports, a love for fitness and physical activity, and a skill set that has allowed me to perform well in school and in my professional life.</p>
+  <p style="line-height:1.65">Nowadays, as a gym owner, I am inspired when I see that same feeling in someone else’s eyes and smiles that I once had when I practiced gymnastics. Besides keeping you active, gymnastics also makes your body feel strong and enables you to do different things, such as keeping up with the everyday challenges of living a fast life.</p>
+  <p style="line-height:1.65">As it happens with other sports, gymnastics is a sport where you fall again and again and have to stand up and continue. This sport teaches you the power of “I can do it”. This means you need to work hard to get what you want, but quitting is not an option. To do this, you need to be responsible, confident and spend time doing something that is worth it. In general, gymnastics can bring different benefits for your life, not only for your body but also for your personal development.</p>
+</div>`
+      }
+    ],
+    prompt: "124. What might be some suggestions to people who want to practice gymnastics?",
+    options: [
+      { letter: "A", text: "You definitely need to choose a good gym. You also need to organize the schedule of training and set basic goals." },
+      { letter: "B", text: "A good thing would be to approach others who are interested in gymnastics, and hire a personal trainer with monthly practices." },
+      { letter: "C", text: "It’s important to keep daily trainings going, and check the progress of your goals as well as a record of your achievements." },
+      { letter: "D", text: "You might gain some experience by practicing some basic movements, and then joining a group that has some experience." }
+    ],
+    correctAnswer: "C",
+    explanation: "The text emphasizes goals, effort, responsibility, confidence and continuous practice. The answer marked in the source image is C."
+  },
+  {
+    uid: "s2-ing-125",
+    session: 2,
+    block: 7,
+    number: 125,
+    area: "Inglés",
+    competencia: "Uso del lenguaje en contexto",
+    componente: "Uso lexical en contexto: phrasal verb y estructura “bring up”",
+    dificultad: "Media",
+    type: "single-choice",
+    interaction: "cloze-text",
+    readingGroup: "s2-ing-jamaica-kincaid-125-134",
+    scored: true,
+    sourceLabel: "Sección 2 - Inglés - Pregunta 125",
+    stem: "Part 7. Read the text and choose the correct word for each space.",
+    resources: [
+      {
+        type: "html",
+        html: `<div class="concept-card" style="max-width:900px;margin:auto">
+  <h4 style="margin:0 0 10px">Part 7 · Cloze text</h4>
+  <h3 style="margin:0 0 14px;text-align:center">Jamaica Kincaid</h3>
+  <p style="line-height:1.65">Jamaica Kincaid is <em>(0) considered</em> one of the most talented Caribbean novelists of all time. Born in Antigua in 1949, she was <strong>(125) ____</strong> up in a poor background. When she was 17, she moved to New York. There she worked in different jobs; however, she soon went (126) ____ to become a well-known writer.</p>
+  <p style="line-height:1.65">Kincaid declared that she was (127) ____ depressed upon her arrival in the US, and that, by then, she (128) ____ begun writing to save herself. She added that she didn’t have any (129) ____ to be published. (130) ____ it wasn’t her goal to be a recognized author, this quickly became her reality.</p>
+  <p style="line-height:1.65">Kincaid built her reputation with the honest (131) ____ of her writing. Her texts often deal with the relationships that are (132) ____ between mothers and daughters, like in her first poem, “Girl”. Her recent (133) ____ of essays “My Garden” is also powerful, yet less bitter than her (134) ____ works.</p>
+  <div style="margin-top:14px;padding:12px 14px;border-radius:10px;background:rgba(30,60,90,.06)">
+    <strong>Example 0:</strong> considered
+  </div>
+</div>`
+      }
+    ],
+    prompt: "125. Choose the correct word to complete the space.",
+    options: [
+      { letter: "A", text: "split" },
+      { letter: "B", text: "brought" },
+      { letter: "C", text: "kept" },
+      { letter: "D", text: "filled" }
+    ],
+    correctAnswer: "B",
+    explanation: "The expression is 'was brought up', which means she was raised in a poor background. Therefore, the correct answer is B."
+  },
+  {
+    uid: "s2-ing-126",
+    session: 2,
+    block: 7,
+    number: 126,
+    area: "Inglés",
+    competencia: "Uso del lenguaje en contexto",
+    componente: "Uso lexical en contexto: phrasal verb “go on to”",
+    dificultad: "Media",
+    type: "single-choice",
+    interaction: "cloze-text",
+    readingGroup: "s2-ing-jamaica-kincaid-125-134",
+    scored: true,
+    sourceLabel: "Sección 2 - Inglés - Pregunta 126",
+    stem: "Part 7. Read the text and choose the correct word for each space.",
+    resources: [
+      {
+        type: "html",
+        html: `<div class="concept-card" style="max-width:900px;margin:auto">
+  <h4 style="margin:0 0 10px">Part 7 · Cloze text</h4>
+  <h3 style="margin:0 0 14px;text-align:center">Jamaica Kincaid</h3>
+  <p style="line-height:1.65">Jamaica Kincaid is <em>(0) considered</em> one of the most talented Caribbean novelists of all time. Born in Antigua in 1949, she was (125) ____ up in a poor background. When she was 17, she moved to New York. There she worked in different jobs; however, she soon went <strong>(126) ____</strong> to become a well-known writer.</p>
+  <p style="line-height:1.65">Kincaid declared that she was (127) ____ depressed upon her arrival in the US, and that, by then, she (128) ____ begun writing to save herself. She added that she didn’t have any (129) ____ to be published. (130) ____ it wasn’t her goal to be a recognized author, this quickly became her reality.</p>
+  <p style="line-height:1.65">Kincaid built her reputation with the honest (131) ____ of her writing. Her texts often deal with the relationships that are (132) ____ between mothers and daughters, like in her first poem, “Girl”. Her recent (133) ____ of essays “My Garden” is also powerful, yet less bitter than her (134) ____ works.</p>
+  <div style="margin-top:14px;padding:12px 14px;border-radius:10px;background:rgba(30,60,90,.06)">
+    <strong>Example 0:</strong> considered
+  </div>
+</div>`
+      }
+    ],
+    prompt: "126. Choose the correct word to complete the space.",
+    options: [
+      { letter: "A", text: "for" },
+      { letter: "B", text: "on" },
+      { letter: "C", text: "together" },
+      { letter: "D", text: "with" }
+    ],
+    correctAnswer: "B",
+    explanation: "The expression 'went on to become' means that later she became a well-known writer. Therefore, the correct answer is B."
+  },
+  {
+    uid: "s2-ing-127",
+    session: 2,
+    block: 7,
+    number: 127,
+    area: "Inglés",
+    competencia: "Uso del lenguaje en contexto",
+    componente: "Uso de adverbios de grado en contexto",
+    dificultad: "Media",
+    type: "single-choice",
+    interaction: "cloze-text",
+    readingGroup: "s2-ing-jamaica-kincaid-125-134",
+    scored: true,
+    sourceLabel: "Sección 2 - Inglés - Pregunta 127",
+    stem: "Part 7. Read the text and choose the correct word for each space.",
+    resources: [
+      {
+        type: "html",
+        html: `<div class="concept-card" style="max-width:900px;margin:auto">
+  <h4 style="margin:0 0 10px">Part 7 · Cloze text</h4>
+  <h3 style="margin:0 0 14px;text-align:center">Jamaica Kincaid</h3>
+  <p style="line-height:1.65">Jamaica Kincaid is <em>(0) considered</em> one of the most talented Caribbean novelists of all time. Born in Antigua in 1949, she was (125) ____ up in a poor background. When she was 17, she moved to New York. There she worked in different jobs; however, she soon went (126) ____ to become a well-known writer.</p>
+  <p style="line-height:1.65">Kincaid declared that she was <strong>(127) ____</strong> depressed upon her arrival in the US, and that, by then, she (128) ____ begun writing to save herself. She added that she didn’t have any (129) ____ to be published. (130) ____ it wasn’t her goal to be a recognized author, this quickly became her reality.</p>
+  <p style="line-height:1.65">Kincaid built her reputation with the honest (131) ____ of her writing. Her texts often deal with the relationships that are (132) ____ between mothers and daughters, like in her first poem, “Girl”. Her recent (133) ____ of essays “My Garden” is also powerful, yet less bitter than her (134) ____ works.</p>
+  <div style="margin-top:14px;padding:12px 14px;border-radius:10px;background:rgba(30,60,90,.06)">
+    <strong>Example 0:</strong> considered
+  </div>
+</div>`
+      }
+    ],
+    prompt: "127. Choose the correct word to complete the space.",
+    options: [
+      { letter: "A", text: "slightly" },
+      { letter: "B", text: "shortly" },
+      { letter: "C", text: "partly" },
+      { letter: "D", text: "approximately" }
+    ],
+    correctAnswer: "A",
+    explanation: "'Slightly depressed' is the natural collocation to express a small degree of sadness or depression. Therefore, the correct answer is A."
+  },
+  {
+    uid: "s2-ing-128",
+    session: 2,
+    block: 7,
+    number: 128,
+    area: "Inglés",
+    competencia: "Uso del lenguaje en contexto",
+    componente: "Uso de pasado perfecto en contexto narrativo",
+    dificultad: "Media",
+    type: "single-choice",
+    interaction: "cloze-text",
+    readingGroup: "s2-ing-jamaica-kincaid-125-134",
+    scored: true,
+    sourceLabel: "Sección 2 - Inglés - Pregunta 128",
+    stem: "Part 7. Read the text and choose the correct word for each space.",
+    resources: [
+      {
+        type: "html",
+        html: `<div class="concept-card" style="max-width:900px;margin:auto">
+  <h4 style="margin:0 0 10px">Part 7 · Cloze text</h4>
+  <h3 style="margin:0 0 14px;text-align:center">Jamaica Kincaid</h3>
+  <p style="line-height:1.65">Jamaica Kincaid is <em>(0) considered</em> one of the most talented Caribbean novelists of all time. Born in Antigua in 1949, she was (125) ____ up in a poor background. When she was 17, she moved to New York. There she worked in different jobs; however, she soon went (126) ____ to become a well-known writer.</p>
+  <p style="line-height:1.65">Kincaid declared that she was (127) ____ depressed upon her arrival in the US, and that, by then, she <strong>(128) ____</strong> begun writing to save herself. She added that she didn’t have any (129) ____ to be published. (130) ____ it wasn’t her goal to be a recognized author, this quickly became her reality.</p>
+  <p style="line-height:1.65">Kincaid built her reputation with the honest (131) ____ of her writing. Her texts often deal with the relationships that are (132) ____ between mothers and daughters, like in her first poem, “Girl”. Her recent (133) ____ of essays “My Garden” is also powerful, yet less bitter than her (134) ____ works.</p>
+  <div style="margin-top:14px;padding:12px 14px;border-radius:10px;background:rgba(30,60,90,.06)">
+    <strong>Example 0:</strong> considered
+  </div>
+</div>`
+      }
+    ],
+    prompt: "128. Choose the correct word to complete the space.",
+    options: [
+      { letter: "A", text: "having" },
+      { letter: "B", text: "has" },
+      { letter: "C", text: "have" },
+      { letter: "D", text: "had" }
+    ],
+    correctAnswer: "D",
+    explanation: "The sentence needs the past perfect form: 'she had begun writing'. Therefore, the correct answer is D."
+  },
+  {
+    uid: "s2-ing-129",
+    session: 2,
+    block: 7,
+    number: 129,
+    area: "Inglés",
+    competencia: "Uso del lenguaje en contexto",
+    componente: "Selección léxica según sentido del texto",
+    dificultad: "Media",
+    type: "single-choice",
+    interaction: "cloze-text",
+    readingGroup: "s2-ing-jamaica-kincaid-125-134",
+    scored: true,
+    sourceLabel: "Sección 2 - Inglés - Pregunta 129",
+    stem: "Part 7. Read the text and choose the correct word for each space.",
+    resources: [
+      {
+        type: "html",
+        html: `<div class="concept-card" style="max-width:900px;margin:auto">
+  <h4 style="margin:0 0 10px">Part 7 · Cloze text</h4>
+  <h3 style="margin:0 0 14px;text-align:center">Jamaica Kincaid</h3>
+  <p style="line-height:1.65">Jamaica Kincaid is <em>(0) considered</em> one of the most talented Caribbean novelists of all time. Born in Antigua in 1949, she was (125) ____ up in a poor background. When she was 17, she moved to New York. There she worked in different jobs; however, she soon went (126) ____ to become a well-known writer.</p>
+  <p style="line-height:1.65">Kincaid declared that she was (127) ____ depressed upon her arrival in the US, and that, by then, she (128) ____ begun writing to save herself. She added that she didn’t have any <strong>(129) ____</strong> to be published. (130) ____ it wasn’t her goal to be a recognized author, this quickly became her reality.</p>
+  <p style="line-height:1.65">Kincaid built her reputation with the honest (131) ____ of her writing. Her texts often deal with the relationships that are (132) ____ between mothers and daughters, like in her first poem, “Girl”. Her recent (133) ____ of essays “My Garden” is also powerful, yet less bitter than her (134) ____ works.</p>
+  <div style="margin-top:14px;padding:12px 14px;border-radius:10px;background:rgba(30,60,90,.06)">
+    <strong>Example 0:</strong> considered
+  </div>
+</div>`
+      }
+    ],
+    prompt: "129. Choose the correct word to complete the space.",
+    options: [
+      { letter: "A", text: "reward" },
+      { letter: "B", text: "ambition" },
+      { letter: "C", text: "achievement" },
+      { letter: "D", text: "improvement" }
+    ],
+    correctAnswer: "B",
+    explanation: "The sentence means she did not intend or aspire to be published. 'Ambition' fits that meaning. Therefore, the correct answer is B."
+  },
+  {
+    uid: "s2-ing-130",
+    session: 2,
+    block: 7,
+    number: 130,
+    area: "Inglés",
+    competencia: "Uso del lenguaje en contexto",
+    componente: "Uso de conectores de contraste",
+    dificultad: "Media",
+    type: "single-choice",
+    interaction: "cloze-text",
+    readingGroup: "s2-ing-jamaica-kincaid-125-134",
+    scored: true,
+    sourceLabel: "Sección 2 - Inglés - Pregunta 130",
+    stem: "Part 7. Read the text and choose the correct word for each space.",
+    resources: [
+      {
+        type: "html",
+        html: `<div class="concept-card" style="max-width:900px;margin:auto">
+  <h4 style="margin:0 0 10px">Part 7 · Cloze text</h4>
+  <h3 style="margin:0 0 14px;text-align:center">Jamaica Kincaid</h3>
+  <p style="line-height:1.65">Jamaica Kincaid is <em>(0) considered</em> one of the most talented Caribbean novelists of all time. Born in Antigua in 1949, she was (125) ____ up in a poor background. When she was 17, she moved to New York. There she worked in different jobs; however, she soon went (126) ____ to become a well-known writer.</p>
+  <p style="line-height:1.65">Kincaid declared that she was (127) ____ depressed upon her arrival in the US, and that, by then, she (128) ____ begun writing to save herself. She added that she didn’t have any (129) ____ to be published. <strong>(130) ____</strong> it wasn’t her goal to be a recognized author, this quickly became her reality.</p>
+  <p style="line-height:1.65">Kincaid built her reputation with the honest (131) ____ of her writing. Her texts often deal with the relationships that are (132) ____ between mothers and daughters, like in her first poem, “Girl”. Her recent (133) ____ of essays “My Garden” is also powerful, yet less bitter than her (134) ____ works.</p>
+  <div style="margin-top:14px;padding:12px 14px;border-radius:10px;background:rgba(30,60,90,.06)">
+    <strong>Example 0:</strong> considered
+  </div>
+</div>`
+      }
+    ],
+    prompt: "130. Choose the correct word to complete the space.",
+    options: [
+      { letter: "A", text: "Unless" },
+      { letter: "B", text: "Since" },
+      { letter: "C", text: "Although" },
+      { letter: "D", text: "Whenever" }
+    ],
+    correctAnswer: "C",
+    explanation: "The sentence contrasts the fact that being recognized was not her goal with the fact that it became her reality. 'Although' expresses contrast. Therefore, the correct answer is C."
+  },
+  {
+    uid: "s2-ing-131",
+    session: 2,
+    block: 7,
+    number: 131,
+    area: "Inglés",
+    competencia: "Uso del lenguaje en contexto",
+    componente: "Selección léxica sobre rasgos de escritura",
+    dificultad: "Media",
+    type: "single-choice",
+    interaction: "cloze-text",
+    readingGroup: "s2-ing-jamaica-kincaid-125-134",
+    scored: true,
+    sourceLabel: "Sección 2 - Inglés - Pregunta 131",
+    stem: "Part 7. Read the text and choose the correct word for each space.",
+    resources: [
+      {
+        type: "html",
+        html: `<div class="concept-card" style="max-width:900px;margin:auto">
+  <h4 style="margin:0 0 10px">Part 7 · Cloze text</h4>
+  <h3 style="margin:0 0 14px;text-align:center">Jamaica Kincaid</h3>
+  <p style="line-height:1.65">Jamaica Kincaid is <em>(0) considered</em> one of the most talented Caribbean novelists of all time. Born in Antigua in 1949, she was (125) ____ up in a poor background. When she was 17, she moved to New York. There she worked in different jobs; however, she soon went (126) ____ to become a well-known writer.</p>
+  <p style="line-height:1.65">Kincaid declared that she was (127) ____ depressed upon her arrival in the US, and that, by then, she (128) ____ begun writing to save herself. She added that she didn’t have any (129) ____ to be published. (130) ____ it wasn’t her goal to be a recognized author, this quickly became her reality.</p>
+  <p style="line-height:1.65">Kincaid built her reputation with the honest <strong>(131) ____</strong> of her writing. Her texts often deal with the relationships that are (132) ____ between mothers and daughters, like in her first poem, “Girl”. Her recent (133) ____ of essays “My Garden” is also powerful, yet less bitter than her (134) ____ works.</p>
+  <div style="margin-top:14px;padding:12px 14px;border-radius:10px;background:rgba(30,60,90,.06)">
+    <strong>Example 0:</strong> considered
+  </div>
+</div>`
+      }
+    ],
+    prompt: "131. Choose the correct word to complete the space.",
+    options: [
+      { letter: "A", text: "pattern" },
+      { letter: "B", text: "fashion" },
+      { letter: "C", text: "design" },
+      { letter: "D", text: "style" }
+    ],
+    correctAnswer: "D",
+    explanation: "The natural expression is 'the honest style of her writing', referring to the way she writes. Therefore, the correct answer is D."
+  },
+  {
+    uid: "s2-ing-132",
+    session: 2,
+    block: 7,
+    number: 132,
+    area: "Inglés",
+    competencia: "Uso del lenguaje en contexto",
+    componente: "Uso de participios en voz pasiva y relaciones temáticas",
+    dificultad: "Media",
+    type: "single-choice",
+    interaction: "cloze-text",
+    readingGroup: "s2-ing-jamaica-kincaid-125-134",
+    scored: true,
+    sourceLabel: "Sección 2 - Inglés - Pregunta 132",
+    stem: "Part 7. Read the text and choose the correct word for each space.",
+    resources: [
+      {
+        type: "html",
+        html: `<div class="concept-card" style="max-width:900px;margin:auto">
+  <h4 style="margin:0 0 10px">Part 7 · Cloze text</h4>
+  <h3 style="margin:0 0 14px;text-align:center">Jamaica Kincaid</h3>
+  <p style="line-height:1.65">Jamaica Kincaid is <em>(0) considered</em> one of the most talented Caribbean novelists of all time. Born in Antigua in 1949, she was (125) ____ up in a poor background. When she was 17, she moved to New York. There she worked in different jobs; however, she soon went (126) ____ to become a well-known writer.</p>
+  <p style="line-height:1.65">Kincaid declared that she was (127) ____ depressed upon her arrival in the US, and that, by then, she (128) ____ begun writing to save herself. She added that she didn’t have any (129) ____ to be published. (130) ____ it wasn’t her goal to be a recognized author, this quickly became her reality.</p>
+  <p style="line-height:1.65">Kincaid built her reputation with the honest (131) ____ of her writing. Her texts often deal with the relationships that are <strong>(132) ____</strong> between mothers and daughters, like in her first poem, “Girl”. Her recent (133) ____ of essays “My Garden” is also powerful, yet less bitter than her (134) ____ works.</p>
+  <div style="margin-top:14px;padding:12px 14px;border-radius:10px;background:rgba(30,60,90,.06)">
+    <strong>Example 0:</strong> considered
+  </div>
+</div>`
+      }
+    ],
+    prompt: "132. Choose the correct word to complete the space.",
+    options: [
+      { letter: "A", text: "developed" },
+      { letter: "B", text: "appeared" },
+      { letter: "C", text: "produced" },
+      { letter: "D", text: "encouraged" }
+    ],
+    correctAnswer: "A",
+    explanation: "The relationships between mothers and daughters can be 'developed' in her texts. This option best fits the meaning. Therefore, the correct answer is A."
+  },
+  {
+    uid: "s2-ing-133",
+    session: 2,
+    block: 7,
+    number: 133,
+    area: "Inglés",
+    competencia: "Uso del lenguaje en contexto",
+    componente: "Uso de sustantivos colectivos en contexto literario",
+    dificultad: "Media",
+    type: "single-choice",
+    interaction: "cloze-text",
+    readingGroup: "s2-ing-jamaica-kincaid-125-134",
+    scored: true,
+    sourceLabel: "Sección 2 - Inglés - Pregunta 133",
+    stem: "Part 7. Read the text and choose the correct word for each space.",
+    resources: [
+      {
+        type: "html",
+        html: `<div class="concept-card" style="max-width:900px;margin:auto">
+  <h4 style="margin:0 0 10px">Part 7 · Cloze text</h4>
+  <h3 style="margin:0 0 14px;text-align:center">Jamaica Kincaid</h3>
+  <p style="line-height:1.65">Jamaica Kincaid is <em>(0) considered</em> one of the most talented Caribbean novelists of all time. Born in Antigua in 1949, she was (125) ____ up in a poor background. When she was 17, she moved to New York. There she worked in different jobs; however, she soon went (126) ____ to become a well-known writer.</p>
+  <p style="line-height:1.65">Kincaid declared that she was (127) ____ depressed upon her arrival in the US, and that, by then, she (128) ____ begun writing to save herself. She added that she didn’t have any (129) ____ to be published. (130) ____ it wasn’t her goal to be a recognized author, this quickly became her reality.</p>
+  <p style="line-height:1.65">Kincaid built her reputation with the honest (131) ____ of her writing. Her texts often deal with the relationships that are (132) ____ between mothers and daughters, like in her first poem, “Girl”. Her recent <strong>(133) ____</strong> of essays “My Garden” is also powerful, yet less bitter than her (134) ____ works.</p>
+  <div style="margin-top:14px;padding:12px 14px;border-radius:10px;background:rgba(30,60,90,.06)">
+    <strong>Example 0:</strong> considered
+  </div>
+</div>`
+      }
+    ],
+    prompt: "133. Choose the correct word to complete the space.",
+    options: [
+      { letter: "A", text: "bunch" },
+      { letter: "B", text: "collection" },
+      { letter: "C", text: "account" },
+      { letter: "D", text: "arrangement" }
+    ],
+    correctAnswer: "B",
+    explanation: "A group of essays published together is a 'collection of essays'. Therefore, the correct answer is B."
+  },
+  {
+    uid: "s2-ing-134",
+    session: 2,
+    block: 7,
+    number: 134,
+    area: "Inglés",
+    competencia: "Uso del lenguaje en contexto",
+    componente: "Uso de adjetivos temporales en contexto comparativo",
+    dificultad: "Media",
+    type: "single-choice",
+    interaction: "cloze-text",
+    readingGroup: "s2-ing-jamaica-kincaid-125-134",
+    scored: true,
+    sourceLabel: "Sección 2 - Inglés - Pregunta 134",
+    stem: "Part 7. Read the text and choose the correct word for each space.",
+    resources: [
+      {
+        type: "html",
+        html: `<div class="concept-card" style="max-width:900px;margin:auto">
+  <h4 style="margin:0 0 10px">Part 7 · Cloze text</h4>
+  <h3 style="margin:0 0 14px;text-align:center">Jamaica Kincaid</h3>
+  <p style="line-height:1.65">Jamaica Kincaid is <em>(0) considered</em> one of the most talented Caribbean novelists of all time. Born in Antigua in 1949, she was (125) ____ up in a poor background. When she was 17, she moved to New York. There she worked in different jobs; however, she soon went (126) ____ to become a well-known writer.</p>
+  <p style="line-height:1.65">Kincaid declared that she was (127) ____ depressed upon her arrival in the US, and that, by then, she (128) ____ begun writing to save herself. She added that she didn’t have any (129) ____ to be published. (130) ____ it wasn’t her goal to be a recognized author, this quickly became her reality.</p>
+  <p style="line-height:1.65">Kincaid built her reputation with the honest (131) ____ of her writing. Her texts often deal with the relationships that are (132) ____ between mothers and daughters, like in her first poem, “Girl”. Her recent (133) ____ of essays “My Garden” is also powerful, yet less bitter than her <strong>(134) ____</strong> works.</p>
+  <div style="margin-top:14px;padding:12px 14px;border-radius:10px;background:rgba(30,60,90,.06)">
+    <strong>Example 0:</strong> considered
+  </div>
+</div>`
+      }
+    ],
+    prompt: "134. Choose the correct word to complete the space.",
+    options: [
+      { letter: "A", text: "ancient" },
+      { letter: "B", text: "aged" },
+      { letter: "C", text: "elderly" },
+      { letter: "D", text: "previous" }
+    ],
+    correctAnswer: "D",
+    explanation: "The text compares her recent collection with her earlier works. 'Previous works' is the appropriate expression. Therefore, the correct answer is D."
+  }
+
+
 ];
