@@ -1,15 +1,18 @@
-# Simulador ICFES - Sección 2
+# Simulador ICFES — Sección 2
 
-Versión actualizada con el banco de datos de Matemáticas hasta la pregunta 50.
+Versión actualizada con banco de datos incorporado hasta **Ciencias Naturales 79**.
 
-## Contenido incluido
-- Sociales y Ciudadanas: preguntas 1 a 28.
-- Matemáticas: preguntas 29 a 50.
-- Diseño responsive para móviles.
-- Compatible con GitHub Pages e inserción en Google Sites.
+## Uso en GitHub Pages
+1. Suba todos los archivos a un repositorio.
+2. Active GitHub Pages desde la rama principal.
+3. Abra `index.html`.
 
-## Publicación en GitHub Pages
-1. Sube todos los archivos a la raíz del repositorio.
-2. Verifica que `index.html`, `app.js`, `styles.css`, `.nojekyll` y la carpeta `data` queden en la raíz.
-3. Activa GitHub Pages desde Settings > Pages.
-4. Inserta la URL publicada en Google Sites usando la opción Insertar > Incorporar.
+Incluye `.nojekyll` para publicación directa e incrustación en Google Sites.
+
+Actualización: incluye Sección 2 - Ciencias Naturales hasta la pregunta 59.
+
+
+Actualización: banco de datos con Sección 2 — Ciencias Naturales hasta la pregunta 73.
+
+
+Actualización: se agregó Sección 2 — Ciencias Naturales, pregunta 74, respuesta correcta C.
