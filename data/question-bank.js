@@ -7793,4 +7793,1069 @@ Sin embargo, al buscar apoyo para promover su ley, los jóvenes se dan cuenta de
     explanation: "La opción C identifica una barrera de acceso relacionada con la brecha digital y la desigualdad territorial, lo cual puede impedir que el programa cumpla su propósito de equidad. Por eso, la respuesta correcta es C."
   }
 
+
+  ,
+  {
+    uid: "s2-mat-029",
+    session: 2,
+    block: 2,
+    number: 29,
+    area: "Matemáticas",
+    competencia: "Interpretación y representación",
+    componente: "Clasificación de polígonos según número de lados",
+    dificultad: "Básica",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 2 - Matemáticas - Pregunta 29",
+    stem: "En la figura se muestran seis polígonos, los cuales se distribuyeron en dos grupos. El grupo X se compone de los tres polígonos con mayor número de lados; los otros tres polígonos conforman el grupo Z.",
+    resources: [
+      {
+        type: "html",
+        html: `
+          <div class="geometry-card" style="display:grid;gap:14px;justify-items:center">
+            <svg viewBox="0 0 620 360" role="img" aria-label="Seis polígonos distribuidos en los grupos X y Z" style="width:min(100%,640px);height:auto;border:1px solid var(--line);border-radius:18px;background:var(--panel);padding:12px">
+              <defs>
+                <filter id="softShadow29" x="-20%" y="-20%" width="140%" height="140%">
+                  <feDropShadow dx="0" dy="3" stdDeviation="3" flood-opacity="0.18"/>
+                </filter>
+              </defs>
+              <path d="M70,75 C125,25 222,34 280,90 C330,138 319,220 255,268 C190,316 82,284 52,210 C35,165 35,108 70,75Z" fill="none" stroke="currentColor" stroke-width="8" opacity="0.85"/>
+              <path d="M360,64 C430,22 534,41 565,117 C594,188 560,292 477,315 C400,338 330,287 334,220 C337,170 310,113 360,64Z" fill="none" stroke="currentColor" stroke-width="8" opacity="0.85"/>
+              <text x="112" y="58" font-size="36" font-weight="900" fill="currentColor">X</text>
+              <text x="514" y="58" font-size="36" font-weight="900" fill="currentColor">Z</text>
+
+              <polygon points="171,82 230,82 214,155 184,155" fill="#9aa3ad" stroke="#64748b" stroke-width="4" filter="url(#softShadow29)"/>
+              <polygon points="122,202 170,218 160,251 194,268 144,279 104,245" fill="#9aa3ad" stroke="#64748b" stroke-width="4" filter="url(#softShadow29)"/>
+              <polygon points="263,162 308,146 340,174 330,220 302,214 283,235 252,210" fill="#9aa3ad" stroke="#64748b" stroke-width="4" filter="url(#softShadow29)"/>
+
+              <polygon points="448,70 493,150 402,150" fill="#9aa3ad" stroke="#64748b" stroke-width="4" filter="url(#softShadow29)"/>
+              <polygon points="414,190 475,213 435,232 408,255" fill="#9aa3ad" stroke="#64748b" stroke-width="4" filter="url(#softShadow29)"/>
+              <polygon points="465,260 500,292 465,325 430,292" fill="#9aa3ad" stroke="#64748b" stroke-width="4" filter="url(#softShadow29)"/>
+            </svg>
+          </div>
+        `
+      }
+    ],
+    prompt: "Entre los polígonos del grupo X, ¿cuál tiene menor número de lados?",
+    options: [
+      { letter: "A", isHtml: true, text: `<div style="display:flex;align-items:center;gap:12px"><svg viewBox="0 0 90 90" style="width:70px;height:70px"><polygon points="45,8 82,78 8,78" fill="#9aa3ad" stroke="#64748b" stroke-width="5"/></svg><span>Triángulo.</span></div>` },
+      { letter: "B", isHtml: true, text: `<div style="display:flex;align-items:center;gap:12px"><svg viewBox="0 0 90 90" style="width:70px;height:70px"><polygon points="45,6 80,45 45,84 10,45" fill="#9aa3ad" stroke="#64748b" stroke-width="5"/></svg><span>Rombo.</span></div>` },
+      { letter: "C", isHtml: true, text: `<div style="display:flex;align-items:center;gap:12px"><svg viewBox="0 0 90 90" style="width:70px;height:70px"><polygon points="26,16 65,31 56,55 78,68 37,76 11,52" fill="#9aa3ad" stroke="#64748b" stroke-width="5"/></svg><span>Polígono cóncavo del grupo X.</span></div>` },
+      { letter: "D", isHtml: true, text: `<div style="display:flex;align-items:center;gap:12px"><svg viewBox="0 0 90 90" style="width:70px;height:70px"><polygon points="18,12 72,12 59,78 31,78" fill="#9aa3ad" stroke="#64748b" stroke-width="5"/></svg><span>Polígono tipo trapecio.</span></div>` }
+    ],
+    correctAnswer: "C",
+    explanation: "El grupo X contiene los tres polígonos con mayor número de lados. Al comparar únicamente esos polígonos, el polígono cóncavo de la opción C es el que tiene menor número de lados dentro de ese grupo. Por tanto, la respuesta correcta es C."
+  }
+,
+
+  {
+    uid: "s2-mat-030",
+    session: 2,
+    block: 2,
+    number: 30,
+    area: "Matemáticas",
+    competencia: "Interpretación y representación",
+    componente: "Estadística descriptiva",
+    dificultad: "Básica",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 2 - Matemáticas - Pregunta 30",
+    stem: "Una persona quiere comprar un teléfono celular de alta tecnología. Para ello, elabora la siguiente tabla con siete opciones, en la que se indica la marca, el modelo y el precio para cada una de estas:",
+    context: [
+      {
+        type: "html",
+        content: `
+          <div class="table-wrap" role="img" aria-label="Tabla de marcas, modelos y precios de teléfonos celulares">
+            <table class="data-table compact-table">
+              <thead>
+                <tr>
+                  <th>Marca</th>
+                  <th>Modelo</th>
+                  <th>Precio en pesos</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Ringring</td><td>X1</td><td>1.400.000</td></tr>
+                <tr><td>SoiBeep</td><td>Enos</td><td>1.200.000</td></tr>
+                <tr><td>Ringring</td><td>X2</td><td>1.400.000</td></tr>
+                <tr><td>SoiBeep</td><td>Gow1</td><td>1.500.000</td></tr>
+                <tr><td>Telebene</td><td>Gaia</td><td>1.600.000</td></tr>
+                <tr><td>Uthil</td><td>Hul</td><td>1.250.000</td></tr>
+                <tr><td>Uthil</td><td>Paxx</td><td>1.350.000</td></tr>
+              </tbody>
+            </table>
+          </div>
+        `
+      }
+    ],
+    prompt: "Si la persona decide comprar el teléfono celular de menor precio, ¿cuál debe ser la marca de su elección?",
+    options: [
+      { letter: "A", text: "Ringring." },
+      { letter: "B", text: "Telebene." },
+      { letter: "C", text: "SoiBeep." },
+      { letter: "D", text: "Uthil." }
+    ],
+    correctAnswer: "C",
+    explanation: "Al comparar los precios de la tabla, el menor valor es 1.200.000 pesos. Ese precio corresponde al modelo Enos de la marca SoiBeep. Por tanto, la respuesta correcta es C."
+  }
+
+
+,
+  {
+    uid: "s2-mat-031",
+    session: 2,
+    block: 2,
+    number: 31,
+    area: "Matemáticas",
+    competencia: "Formulación y ejecución",
+    componente: "Conteo, principio multiplicativo y combinatoria",
+    dificultad: "Media",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 2 - Matemáticas - Pregunta 31",
+    stem: "En una ciudad hay dos tipos de placas para identificar los vehículos: Tipo 1: para vehículos particulares y de transporte público, placa con 3 letras y 3 dígitos; tanto las letras como los dígitos se pueden repetir. Tipo 2: para vehículos de transporte pesado, placa con la letra T seguida de 4 dígitos; los dígitos se pueden repetir.",
+    resources: [],
+    prompt: "Sabiendo que hay 26 letras y 10 dígitos, ¿cuál es la expresión que permite calcular el número máximo de placas de los dos tipos que pueden registrarse en esa ciudad?",
+    options: [
+      { letter: "A", isHtml: true, text: "26<sup>3</sup> × 10<sup>3</sup> + 26 × 10<sup>4</sup>" },
+      { letter: "B", isHtml: true, text: "(26<sup>3</sup> + 1) × (10<sup>3</sup> + 10<sup>4</sup>)" },
+      { letter: "C", isHtml: true, text: "(26<sup>3</sup> + 26) × (10<sup>3</sup> + 10<sup>4</sup>)" },
+      { letter: "D", isHtml: true, text: "26<sup>3</sup> × 10<sup>3</sup> + 1 × 10<sup>4</sup>" }
+    ],
+    correctAnswer: "D",
+    explanation: "Para las placas tipo 1 hay 26 opciones para cada una de las 3 letras y 10 opciones para cada uno de los 3 dígitos, por lo que se obtienen 26³ × 10³ placas. Para las placas tipo 2, la letra T es fija, así que solo hay 1 opción de letra y 10 opciones para cada uno de los 4 dígitos: 1 × 10⁴. Al sumar ambos tipos, la expresión correcta es 26³ × 10³ + 1 × 10⁴. Por tanto, la respuesta correcta es D."
+  }
+
+,
+  {
+    uid: "s2-mat-032",
+    session: 2,
+    block: 2,
+    number: 32,
+    area: "Matemáticas",
+    competencia: "Formulación y ejecución",
+    componente: "Aritmética, división entera y comparación de cantidades",
+    dificultad: "Básica",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 2 - Matemáticas - Pregunta 32",
+    stem: "Una persona cuenta con $5.000 para comprar la mayor cantidad posible de paquetes de papas fritas. En el supermercado 1 venden un paquete de papas fritas en $1.000 y ofrecen la promoción \"lleve 5 paquetes por el precio de 4\". Para saber cuántos paquetes puede comprar, se efectúa el procedimiento indicado. En el supermercado 2 venden cada paquete a $850.",
+    context: [
+      {
+        type: "html",
+        content: `
+          <div class="procedure-card" style="display:grid;gap:14px">
+            <div class="callout" style="padding:14px 16px;border:1px solid var(--line);border-radius:16px;background:var(--panel)">
+              <strong>Supermercado 1</strong><br>
+              Precio por paquete: <strong>$1.000</strong><br>
+              Promoción: <strong>lleve 5 paquetes por el precio de 4</strong>
+            </div>
+            <div class="table-wrap" role="img" aria-label="Procedimiento para calcular la cantidad de paquetes en el supermercado 1">
+              <table class="data-table compact-table">
+                <tbody>
+                  <tr><th>Paso 1</th><td>Dividir la cantidad de dinero entre $1.000 y aproximar al entero menor más próximo.</td></tr>
+                  <tr><th>Paso 2</th><td>Dividir el número obtenido en el paso 1 entre 4 y aproximar al entero menor más próximo.</td></tr>
+                  <tr><th>Paso 3</th><td>Sumar los resultados de los pasos 1 y 2.</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="callout" style="padding:14px 16px;border:1px solid var(--line);border-radius:16px;background:var(--panel)">
+              <strong>Supermercado 2</strong><br>
+              Precio por paquete: <strong>$850</strong><br>
+              Procedimiento: dividir la cantidad de dinero entre $850 y aproximar al entero menor más próximo.
+            </div>
+          </div>
+        `
+      }
+    ],
+    prompt: "Con los $5.000, ¿en cuál de los dos supermercados puede comprar una mayor cantidad de paquetes de papas fritas?",
+    options: [
+      { letter: "A", text: "En el supermercado 1, pues puede comprar 5 paquetes de papas." },
+      { letter: "B", text: "En el supermercado 2, pues puede comprar 5 paquetes de papas." },
+      { letter: "C", text: "En el supermercado 1, pues puede comprar 6 paquetes de papas." },
+      { letter: "D", text: "En el supermercado 2, pues puede comprar 6 paquetes de papas." }
+    ],
+    correctAnswer: "C",
+    explanation: "En el supermercado 1, con $5.000 puede pagar 5 paquetes de $1.000. Como por cada 4 paquetes pagados recibe 1 adicional, obtiene 1 paquete extra: 5 + 1 = 6 paquetes. En el supermercado 2, $5.000 ÷ $850 = 5 paquetes completos, porque no alcanza para 6. Por tanto, compra más paquetes en el supermercado 1 y la respuesta correcta es C."
+  }
+
+
+
+,
+  {
+    uid: "s2-mat-033",
+    session: 2,
+    block: 2,
+    number: 33,
+    area: "Matemáticas",
+    competencia: "Interpretación y representación",
+    componente: "Proporcionalidad directa y patrones numéricos",
+    dificultad: "Básica",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 2 - Matemáticas - Pregunta 33",
+    stem: "Sobre una carretera recta un automóvil viaja a rapidez constante. A partir de cierto momento, se registra la distancia que ha recorrido el automóvil cada minuto. La tabla que contiene dichos datos es la siguiente:",
+    context: [
+      {
+        type: "html",
+        content: `
+          <div class="table-wrap" role="img" aria-label="Tabla de tiempo y distancia recorrida por un automóvil">
+            <table class="data-table compact-table">
+              <tbody>
+                <tr>
+                  <th>Tiempo (min)</th>
+                  <td>1</td>
+                  <td>2</td>
+                  <td>3</td>
+                </tr>
+                <tr>
+                  <th>Distancia recorrida (km)</th>
+                  <td>3</td>
+                  <td>6</td>
+                  <td>9</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        `
+      }
+    ],
+    prompt: "¿Cuál debe ser el valor de la distancia correspondiente al minuto 4 y qué tipo de proporcionalidad existe entre la distancia recorrida y el tiempo?",
+    options: [
+      { letter: "A", text: "12 y la proporcionalidad es inversa." },
+      { letter: "B", text: "16 y la proporcionalidad es directa." },
+      { letter: "C", text: "12 y la proporcionalidad es directa." },
+      { letter: "D", text: "16 y la proporcionalidad es inversa." }
+    ],
+    correctAnswer: "C",
+    explanation: "La distancia aumenta 3 km por cada minuto: 1 minuto corresponde a 3 km, 2 minutos a 6 km y 3 minutos a 9 km. Por tanto, en 4 minutos recorrerá 12 km. Como al aumentar el tiempo aumenta la distancia en la misma proporción, la relación es de proporcionalidad directa. La respuesta correcta es C."
+  }
+
+,
+  {
+    uid: "s2-mat-034",
+    session: 2,
+    block: 2,
+    number: 34,
+    area: "Matemáticas",
+    competencia: "Formulación y ejecución",
+    componente: "Expresiones algebraicas y representación de datos",
+    dificultad: "Básica",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 2 - Matemáticas - Pregunta 34",
+    stem: "Sofía ha diseñado la siguiente tabla para relacionar la estatura de uno de sus pacientes con la edad, durante sus primeros cuatro meses de vida.",
+    context: [
+      {
+        type: "html",
+        content: `
+          <div class="table-wrap" role="img" aria-label="Tabla de edad en meses y estatura en centímetros">
+            <table class="data-table compact-table">
+              <thead>
+                <tr>
+                  <th>Edad (meses)</th>
+                  <th>Estatura (centímetros)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>1</td><td>73</td></tr>
+                <tr><td>2</td><td>79</td></tr>
+                <tr><td>3</td><td>85</td></tr>
+                <tr><td>4</td><td>91</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="formula-card" style="margin-top:14px;padding:14px 16px;border:1px solid var(--line);border-radius:16px;background:var(--panel);text-align:center;font-weight:800">
+            Estatura = 67 − (6 × edad)
+          </div>
+        `
+      }
+    ],
+    prompt: "¿Es verdadero afirmar que la expresión algebraica establecida por Sofía permite representar la información presentada en la tabla?",
+    options: [
+      { letter: "A", text: "Sí, porque, al reemplazar las edades presentadas en la tabla en la expresión, se obtiene cada una de las estaturas presentadas allí." },
+      { letter: "B", text: "No, porque la cantidad que multiplica a la edad en la expresión encontrada debe ser 18." },
+      { letter: "C", text: "No, porque, por ejemplo, para un mes de edad, la estatura es diferente de 67 − 6." },
+      { letter: "D", text: "Sí, porque para hallar la estatura hay que multiplicar la edad por −6." }
+    ],
+    correctAnswer: "C",
+    explanation: "La expresión propuesta no representa la tabla. Si edad = 1, la expresión da 67 − 6 = 61, pero en la tabla la estatura correspondiente es 73 cm. Por tanto, la afirmación es falsa y la respuesta correcta es C."
+  }
+
+,
+  {
+    uid: "s2-mat-035",
+    session: 2,
+    block: 2,
+    number: 35,
+    area: "Matemáticas",
+    competencia: "Formulación y ejecución",
+    componente: "Probabilidad, combinatoria y conteo",
+    dificultad: "Media",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 2 - Matemáticas - Pregunta 35",
+    stem: "En una bolsa hay 9 bolas de igual peso y tamaño, 4 azules y 5 negras. Un concurso consiste en sacar, en un solo intento, 3 bolas de la bolsa. La persona gana si al menos 2 de las bolas son azules. La probabilidad de ganar se puede calcular como:",
+    context: [
+      {
+        type: "html",
+        content: `
+          <div class="formula-card" style="margin:14px 0;padding:14px 16px;border:1px solid var(--line);border-radius:16px;background:var(--panel);text-align:center;font-weight:800">
+            Probabilidad = <span style="display:inline-flex;flex-direction:column;align-items:center;vertical-align:middle;line-height:1.15;margin-left:6px">
+              <span style="border-bottom:2px solid currentColor;padding:0 8px 4px">Número de casos favorables</span>
+              <span style="padding-top:4px">Número de casos posibles</span>
+            </span>
+          </div>
+          <div class="info-card" style="margin-top:12px">
+            <p>El número de casos favorables se obtiene a partir de la suma de:</p>
+            <ul>
+              <li>El número de formas de escoger 2 bolas azules entre las 4 azules y 1 bola negra entre las 5 negras.</li>
+              <li>El número de formas de escoger 3 bolas azules entre las 4 azules.</li>
+            </ul>
+          </div>
+        `
+      }
+    ],
+    prompt: "Para conocer esta probabilidad, se debe calcular, también, el número de",
+    options: [
+      { letter: "A", text: "formas de escoger 6 bolas en un conjunto de 9 bolas." },
+      { letter: "B", text: "formas de escoger 6 bolas en un conjunto de 6 bolas." },
+      { letter: "C", text: "formas de escoger 3 bolas en un conjunto de 9 bolas." },
+      { letter: "D", text: "formas de escoger 3 bolas en un conjunto de 6 bolas." }
+    ],
+    correctAnswer: "C",
+    explanation: "Para calcular una probabilidad se necesitan los casos favorables y los casos posibles. Como el experimento consiste en sacar 3 bolas de una bolsa con 9 bolas, el número de casos posibles corresponde a las formas de escoger 3 bolas entre las 9 disponibles. Por tanto, la respuesta correcta es C."
+  }
+,
+  {
+    uid: "s2-mat-036",
+    session: 2,
+    block: 2,
+    number: 36,
+    area: "Matemáticas",
+    competencia: "Formulación y ejecución",
+    componente: "Promedio aritmético y ecuaciones sencillas",
+    dificultad: "Media",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 2 - Matemáticas - Pregunta 36",
+    stem: "En una biblioteca escolar se registró la cantidad de libros leídos por cuatro estudiantes durante un mes. Luego, se desea incluir el dato de un quinto estudiante para que el promedio del grupo sea de 6 libros.",
+    resources: [
+      {
+        type: "table",
+        caption: "Libros leídos durante el mes",
+        headers: ["Estudiante", "Cantidad de libros"],
+        rows: [
+          ["1", "3"],
+          ["2", "5"],
+          ["3", "4"],
+          ["4", "8"],
+          ["5", "x"]
+        ]
+      }
+    ],
+    prompt: "¿Cuántos libros debe haber leído el quinto estudiante para que el promedio sea 6?",
+    options: [
+      { letter: "A", text: "8 libros." },
+      { letter: "B", text: "9 libros." },
+      { letter: "C", text: "10 libros." },
+      { letter: "D", text: "12 libros." }
+    ],
+    correctAnswer: "C",
+    explanation: "Para que 5 estudiantes tengan promedio de 6 libros, el total debe ser 5 × 6 = 30 libros. Los cuatro primeros leyeron 3 + 5 + 4 + 8 = 20 libros. Por tanto, el quinto debe haber leído 30 − 20 = 10 libros. La respuesta correcta es C."
+  }
+,
+  {
+    uid: "s2-mat-037",
+    session: 2,
+    block: 2,
+    number: 37,
+    area: "Matemáticas",
+    competencia: "Interpretación y representación",
+    componente: "Geometría: área de figuras planas",
+    dificultad: "Básica",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 2 - Matemáticas - Pregunta 37",
+    stem: "En un parque se quiere sembrar césped en una zona rectangular. En el centro de esa zona habrá una plazoleta cuadrada donde no se sembrará césped, como se muestra en la figura.",
+    resources: [
+      {
+        type: "html",
+        html: `
+          <div class="geometry-card" style="display:grid;gap:14px;justify-items:center">
+            <svg viewBox="0 0 520 320" role="img" aria-label="Zona rectangular de 12 metros por 8 metros con una plazoleta cuadrada de 4 metros por 4 metros" style="width:min(100%,560px);height:auto;border:1px solid var(--line);border-radius:18px;background:var(--panel);padding:12px">
+              <rect x="80" y="60" width="360" height="200" rx="8" fill="#d9f99d" stroke="#64748b" stroke-width="4"/>
+              <rect x="200" y="110" width="120" height="120" rx="6" fill="#cbd5e1" stroke="#475569" stroke-width="4"/>
+              <text x="246" y="52" font-size="22" font-weight="800" fill="currentColor">12 m</text>
+              <text x="20" y="170" font-size="22" font-weight="800" fill="currentColor">8 m</text>
+              <text x="238" y="102" font-size="18" font-weight="800" fill="currentColor">4 m</text>
+              <text x="326" y="177" font-size="18" font-weight="800" fill="currentColor">4 m</text>
+              <text x="218" y="176" font-size="16" font-weight="800" fill="currentColor">Plazoleta</text>
+              <text x="180" y="286" font-size="16" fill="currentColor">Zona verde rectangular</text>
+            </svg>
+          </div>
+        `
+      }
+    ],
+    prompt: "¿Cuál es el área de la zona donde se sembrará césped?",
+    options: [
+      { letter: "A", text: "48 m²." },
+      { letter: "B", text: "80 m²." },
+      { letter: "C", text: "96 m²." },
+      { letter: "D", text: "112 m²." }
+    ],
+    correctAnswer: "B",
+    explanation: "El área del rectángulo es 12 × 8 = 96 m². El área de la plazoleta cuadrada es 4 × 4 = 16 m². La zona de césped corresponde a 96 − 16 = 80 m². La respuesta correcta es B."
+  }
+,
+  {
+    uid: "s2-mat-038",
+    session: 2,
+    block: 2,
+    number: 38,
+    area: "Matemáticas",
+    competencia: "Formulación y ejecución",
+    componente: "Proporcionalidad directa y escala",
+    dificultad: "Básica",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 2 - Matemáticas - Pregunta 38",
+    stem: "En un mapa turístico se indica que 1 centímetro en el mapa representa 5 kilómetros en la realidad. La distancia entre dos pueblos en el mapa es de 7 centímetros.",
+    resources: [
+      {
+        type: "html",
+        html: `
+          <div class="formula-card" style="margin:14px 0;padding:14px 16px;border:1px solid var(--line);border-radius:16px;background:var(--panel);text-align:center;font-weight:800">
+            Escala: 1 cm → 5 km
+          </div>
+        `
+      }
+    ],
+    prompt: "¿Cuál es la distancia real entre los dos pueblos?",
+    options: [
+      { letter: "A", text: "35 km." },
+      { letter: "B", text: "12 km." },
+      { letter: "C", text: "25 km." },
+      { letter: "D", text: "40 km." }
+    ],
+    correctAnswer: "A",
+    explanation: "La escala indica que cada centímetro equivale a 5 km. Si en el mapa hay 7 cm, la distancia real es 7 × 5 = 35 km. La respuesta correcta es A."
+  }
+,
+  {
+    uid: "s2-mat-039",
+    session: 2,
+    block: 2,
+    number: 39,
+    area: "Matemáticas",
+    competencia: "Interpretación y representación",
+    componente: "Porcentajes y lectura de tablas",
+    dificultad: "Media",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 2 - Matemáticas - Pregunta 39",
+    stem: "En una encuesta a 80 estudiantes se preguntó por el deporte que más practican. Los resultados se muestran en la siguiente tabla.",
+    resources: [
+      {
+        type: "table",
+        caption: "Deporte más practicado por los estudiantes",
+        headers: ["Deporte", "Número de estudiantes"],
+        rows: [
+          ["Fútbol", "32"],
+          ["Baloncesto", "24"],
+          ["Voleibol", "24"]
+        ]
+      }
+    ],
+    prompt: "Un estudiante afirma que el voleibol representa el 40 % de las respuestas. ¿Es correcta su afirmación?",
+    options: [
+      { letter: "A", text: "Sí, porque 24 estudiantes equivalen al 40 % de 80." },
+      { letter: "B", text: "Sí, porque el voleibol y el baloncesto tienen la misma cantidad de estudiantes." },
+      { letter: "C", text: "No, porque el 40 % corresponde a 24 estudiantes y el voleibol tiene 32." },
+      { letter: "D", text: "No, porque 24 estudiantes de 80 equivalen al 30 %, no al 40 %." }
+    ],
+    correctAnswer: "D",
+    explanation: "Para hallar el porcentaje de estudiantes que practican voleibol se calcula 24 ÷ 80 = 0,30, es decir, 30 %. Por tanto, la afirmación del estudiante no es correcta. La respuesta correcta es D."
+  }
+
+,
+  {
+    uid: "s2-mat-040",
+    session: 2,
+    block: 2,
+    number: 40,
+    area: "Matemáticas",
+    competencia: "Formulación y ejecución",
+    componente: "Operaciones con números enteros y seguimiento de procedimientos",
+    dificultad: "Básica",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 2 - Matemáticas - Pregunta 40",
+    stem: "La calculadora de un computador quedó mal configurada y, ahora, al pedirle que haga la multiplicación entre dos números, ejecuta el siguiente proceso:",
+    resources: [
+      {
+        type: "html",
+        html: `
+          <div class="procedure-card" style="margin:14px 0;padding:16px 18px;border:1px solid var(--line);border-radius:18px;background:var(--panel)">
+            <ol style="margin:0;padding-left:22px;display:grid;gap:8px">
+              <li>Suma los dos números.</li>
+              <li>Eleva el resultado de la suma al cuadrado.</li>
+              <li>Al resultado del paso anterior le suma 1.</li>
+            </ol>
+          </div>
+        `
+      }
+    ],
+    prompt: "¿Qué resultado obtendrá una persona que le pida a esta calculadora el producto entre -1 y 5?",
+    options: [
+      { letter: "A", text: "17" },
+      { letter: "B", text: "26" },
+      { letter: "C", text: "-5" },
+      { letter: "D", text: "-15" }
+    ],
+    correctAnswer: "A",
+    explanation: "La calculadora no multiplica directamente. Primero suma los números: -1 + 5 = 4. Luego eleva el resultado al cuadrado: 4² = 16. Finalmente suma 1: 16 + 1 = 17. La respuesta correcta es A."
+  }
+
+
+
+,
+  {
+    uid: "s2-mat-041",
+    session: 2,
+    block: 2,
+    number: 41,
+    area: "Matemáticas",
+    competencia: "Interpretación y representación",
+    componente: "Geometría: comparación de longitudes y trayectorias",
+    dificultad: "Media",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 2 - Matemáticas - Pregunta 41",
+    stem: "En un parque de diversiones, para desplazarse del juego P al juego Q una persona cuenta con las siguientes trayectorias:",
+    resources: [
+      {
+        type: "html",
+        html: `
+          <div class="geometry-card" style="display:grid;gap:16px;justify-items:center">
+            <svg viewBox="0 0 820 330" role="img" aria-label="Tres trayectorias entre los puntos P y Q: una línea recta, un camino triangular equilátero y un arco semicircular" style="width:min(100%,860px);height:auto;border:1px solid var(--line);border-radius:18px;background:var(--panel);padding:16px">
+              <defs>
+                <marker id="dot41" markerWidth="6" markerHeight="6" refX="3" refY="3">
+                  <circle cx="3" cy="3" r="3" fill="currentColor" />
+                </marker>
+              </defs>
+              <text x="90" y="36" font-size="24" font-weight="900" fill="currentColor">Trayectoria 1</text>
+              <text x="350" y="36" font-size="24" font-weight="900" fill="currentColor">Trayectoria 2</text>
+              <text x="625" y="36" font-size="24" font-weight="900" fill="currentColor">Trayectoria 3</text>
+
+              <line x1="70" y1="145" x2="235" y2="145" stroke="currentColor" stroke-width="7" stroke-linecap="round" />
+              <text x="52" y="155" font-size="28" font-weight="900" fill="currentColor">P</text>
+              <text x="245" y="155" font-size="28" font-weight="900" fill="currentColor">Q</text>
+
+              <polyline points="350,210 440,70 530,210" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" />
+              <text x="329" y="223" font-size="28" font-weight="900" fill="currentColor">P</text>
+              <text x="436" y="58" font-size="28" font-weight="900" fill="currentColor">S</text>
+              <text x="538" y="223" font-size="28" font-weight="900" fill="currentColor">Q</text>
+
+              <path d="M620,210 A92,92 0 0 1 804,210" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round" />
+              <text x="600" y="223" font-size="28" font-weight="900" fill="currentColor">P</text>
+              <text x="812" y="223" font-size="28" font-weight="900" fill="currentColor">Q</text>
+            </svg>
+            <div class="info-card" style="max-width:900px">
+              <p>La trayectoria 1 corresponde a una línea recta que comunica los dos juegos.</p>
+              <p>La trayectoria 2 corresponde a un camino que va hasta el juego S, de forma que el triángulo PQS es equilátero.</p>
+              <p>La trayectoria 3 corresponde a un camino en forma de semicírculo donde el segmento PQ es un diámetro.</p>
+            </div>
+          </div>
+        `
+      }
+    ],
+    prompt: "De menor a mayor, ¿cuál es el orden de las longitudes de las trayectorias?",
+    options: [
+      { letter: "A", text: "Trayectoria 1, Trayectoria 3, Trayectoria 2." },
+      { letter: "B", text: "Trayectoria 1, Trayectoria 2, Trayectoria 3." },
+      { letter: "C", text: "Trayectoria 2, Trayectoria 3, Trayectoria 1." },
+      { letter: "D", text: "Trayectoria 3, Trayectoria 2, Trayectoria 1." }
+    ],
+    correctAnswer: "A",
+    explanation: "Si el segmento PQ mide d, la trayectoria 1 mide d. Como el triángulo PQS es equilátero, la trayectoria 2 mide PS + SQ = d + d = 2d. La trayectoria 3 es un semicírculo de diámetro d, por tanto mide la mitad de la circunferencia: πd/2, aproximadamente 1,57d. Entonces, de menor a mayor: trayectoria 1, trayectoria 3 y trayectoria 2. La respuesta correcta es A."
+  }
+
+,
+  {
+    uid: "s2-mat-042",
+    session: 2,
+    block: 2,
+    number: 42,
+    area: "Matemáticas",
+    competencia: "Formulación y ejecución",
+    componente: "Medidas de tendencia central: promedio aritmético",
+    dificultad: "Básica",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 2 - Matemáticas - Pregunta 42",
+    stem: "Las edades en años de los integrantes de un equipo que quiere participar en un torneo se muestran a continuación: 19, 28, 32, 19, 17, 28, 23, 28, 24, 15, 17.",
+    resources: [
+      {
+        type: "html",
+        html: `
+          <div class="info-card" style="margin:14px 0">
+            <p>El torneo tiene una norma que indica que, para que un equipo pueda participar, la edad promedio debe ser mayor a 25 años.</p>
+          </div>
+        `
+      }
+    ],
+    prompt: "¿Cuál de los siguientes procedimientos permite establecer si el equipo puede o no participar?",
+    options: [
+      { letter: "A", text: "Paso 1. Sumar todas las edades de los integrantes. Paso 2. Dividir el valor obtenido en el paso 1 entre el número de integrantes. Paso 3. Comparar el valor obtenido en el paso 2 con respecto al número 25." },
+      { letter: "B", text: "Paso 1. Sumar todas las edades de los integrantes. Paso 2. Multiplicar el valor obtenido en el paso 1 entre el número de integrantes. Paso 3. Comparar el valor obtenido en el paso 2 con respecto al número 25." },
+      { letter: "C", text: "Paso 1. Ordenar las edades de menor a mayor. Paso 2. Identificar el dato que está en la posición central. Paso 3. Comparar el dato identificado en el paso anterior con el número 25." },
+      { letter: "D", text: "Paso 1. Contar el número de veces que aparece cada edad. Paso 2. Identificar el dato que más veces se repite. Paso 3. Comparar el dato identificado en el paso anterior con el número 25." }
+    ],
+    correctAnswer: "A",
+    explanation: "La norma habla de edad promedio. Para verificarla se debe calcular el promedio aritmético: sumar todas las edades, dividir entre el número de integrantes y comparar el resultado con 25. Las otras opciones calculan otras medidas o procedimientos incorrectos. La respuesta correcta es A."
+  }
+
+
+
+
+,
+  {
+    uid: "s2-mat-043",
+    session: 2,
+    block: 2,
+    number: 43,
+    area: "Matemáticas",
+    competencia: "Interpretación y representación",
+    componente: "Geometría: cálculo de áreas por descomposición",
+    dificultad: "Media",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 2 - Matemáticas - Pregunta 43",
+    stem: "En un terreno rectangular de 60 m × 40 m se ha decidido poner un jardín en medio, con la forma mostrada en la figura.",
+    resources: [
+      {
+        type: "html",
+        html: `
+          <div class="geometry-card" style="display:grid;gap:16px;justify-items:center">
+            <svg viewBox="0 0 760 470" role="img" aria-label="Terreno rectangular de 60 metros por 40 metros con un jardín central en forma de romboide" style="width:min(100%,820px);height:auto;border:1px solid var(--line);border-radius:18px;background:var(--panel);padding:16px">
+              <defs>
+                <marker id="arrow43" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto-start-reverse">
+                  <path d="M0,0 L10,5 L0,10 Z" fill="currentColor" />
+                </marker>
+                <pattern id="gardenDots43" width="18" height="18" patternUnits="userSpaceOnUse">
+                  <circle cx="5" cy="5" r="2.4" fill="currentColor" opacity=".35" />
+                  <circle cx="14" cy="12" r="2" fill="currentColor" opacity=".28" />
+                </pattern>
+              </defs>
+
+              <text x="380" y="32" text-anchor="middle" font-size="24" font-weight="900" fill="currentColor">Terreno rectangular: 60 m × 40 m</text>
+
+              <rect x="90" y="70" width="560" height="320" fill="none" stroke="currentColor" stroke-width="5" />
+
+              <polygon points="190,70 650,230 190,390 90,230" fill="url(#gardenDots43)" stroke="currentColor" stroke-width="5" stroke-linejoin="round" />
+              <text x="360" y="225" text-anchor="middle" font-size="30" font-weight="900" fill="currentColor">Jardín</text>
+
+              <line x1="90" y1="54" x2="650" y2="54" stroke="currentColor" stroke-width="3" marker-start="url(#arrow43)" marker-end="url(#arrow43)" />
+              <text x="370" y="48" text-anchor="middle" font-size="24" font-weight="800" fill="currentColor">60 m</text>
+
+              <line x1="670" y1="70" x2="670" y2="390" stroke="currentColor" stroke-width="3" marker-start="url(#arrow43)" marker-end="url(#arrow43)" />
+              <text x="696" y="235" text-anchor="middle" font-size="24" font-weight="800" fill="currentColor" transform="rotate(90 696 235)">40 m</text>
+
+              <text x="134" y="100" font-size="22" font-weight="900" fill="currentColor">10 m</text>
+              <text x="100" y="176" font-size="22" font-weight="900" fill="currentColor">20 m</text>
+              <text x="100" y="296" font-size="22" font-weight="900" fill="currentColor">20 m</text>
+              <text x="134" y="374" font-size="22" font-weight="900" fill="currentColor">10 m</text>
+
+              <text x="394" y="100" font-size="22" font-weight="900" fill="currentColor">50 m</text>
+              <text x="588" y="176" font-size="22" font-weight="900" fill="currentColor">20 m</text>
+              <text x="588" y="296" font-size="22" font-weight="900" fill="currentColor">20 m</text>
+              <text x="394" y="374" font-size="22" font-weight="900" fill="currentColor">50 m</text>
+            </svg>
+          </div>
+        `
+      }
+    ],
+    prompt: "¿Cuál es el área del jardín?",
+    options: [
+      { letter: "A", text: "120 m²" },
+      { letter: "B", text: "2.400 m²" },
+      { letter: "C", text: "1.200 m²" },
+      { letter: "D", text: "100 m²" }
+    ],
+    correctAnswer: "C",
+    explanation: "El área total del terreno rectangular es 60 × 40 = 2.400 m². Las zonas que quedan fuera del jardín forman cuatro triángulos: dos de base 10 m y altura 20 m, cada uno con área 100 m², y dos de base 50 m y altura 20 m, cada uno con área 500 m². El área fuera del jardín es 100 + 100 + 500 + 500 = 1.200 m². Por tanto, el área del jardín es 2.400 - 1.200 = 1.200 m². La respuesta correcta es C."
+  }
+
+
+
+,
+  {
+    uid: "s2-mat-044",
+    session: 2,
+    block: 2,
+    number: 44,
+    area: "Matemáticas",
+    competencia: "Interpretación y representación",
+    componente: "Estadística: correlación lineal",
+    dificultad: "Media",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 2 - Matemáticas - Pregunta 44",
+    stem: "La correlación estadística indica el grado en que dos o más variables están relacionadas linealmente y, generalmente, se mide a través del coeficiente de correlación de Pearson en una escala de -1 a 1.",
+    resources: [
+      {
+        type: "html",
+        html: `
+          <div class="info-card" style="margin:14px 0">
+            <ul>
+              <li>Si este coeficiente está cercano a -1 o a 1, indica una relación lineal fuerte entre las variables.</li>
+              <li>Si es positivo, indica que al aumentar el valor de una de las variables cabe esperar aumento en el valor de la otra; si es negativo, cabe esperar disminución en el valor de la otra.</li>
+            </ul>
+          </div>
+          <div class="info-card" style="margin:14px 0">
+            <p>Un consejero estudiantil analiza las notas de Física y Cálculo de 200 estudiantes de ingeniería y encuentra que el coeficiente de correlación es <strong>0,92</strong>, con lo cual afirma: “Si un estudiante tiene una nota alta en Física es muy probable que su nota en Cálculo sea alta”.</p>
+          </div>
+        `
+      }
+    ],
+    prompt: "¿Por qué es verdadera la afirmación del consejero?",
+    options: [
+      { letter: "A", text: "Porque la nota de Física se obtiene al multiplicar 0,92 por la nota de Cálculo." },
+      { letter: "B", text: "Porque 0,92 es menor que 1, lo cual indica que los datos están poco dispersos." },
+      { letter: "C", text: "Porque 0,92 es un número real positivo y está cercano a uno." },
+      { letter: "D", text: "Porque la constante de proporcionalidad de las notas es 0,92." }
+    ],
+    correctAnswer: "C",
+    explanation: "El coeficiente de correlación 0,92 es positivo y está cercano a 1. Esto indica una relación lineal fuerte y directa: cuando una variable aumenta, se espera que la otra también aumente. Por eso, si una nota en Física es alta, es muy probable que la nota en Cálculo también sea alta. La respuesta correcta es C."
+  }
+
+,
+  {
+    uid: "s2-mat-045",
+    session: 2,
+    block: 2,
+    number: 45,
+    area: "Matemáticas",
+    competencia: "Formulación y ejecución",
+    componente: "Conteo: principio multiplicativo",
+    dificultad: "Baja",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 2 - Matemáticas - Pregunta 45",
+    stem: "Esteban y Santiago van a jugar fútbol en un videojuego. Antes de que empiece el partido, cada uno de ellos debe escoger un equipo con su respectivo uniforme. En el juego hay 10 equipos disponibles y cada equipo tiene 3 uniformes diferentes.",
+    resources: [
+      {
+        type: "html",
+        html: `
+          <div class="info-card" style="margin:14px 0">
+            <p><strong>Esteban dice</strong> que el primero que elige tiene <strong>30 posibilidades</strong> para escoger un equipo uniformado.</p>
+          </div>
+        `
+      }
+    ],
+    prompt: "¿Es correcta la afirmación que hizo Esteban?",
+    options: [
+      { letter: "A", text: "Sí, porque 10 × 3 es la cantidad de formas posibles de escoger un equipo y un uniforme." },
+      { letter: "B", text: "No, porque se debe calcular 10 + 3 para saber la cantidad de posibilidades." },
+      { letter: "C", text: "Sí, porque en total hay 10 × 3 equipos de fútbol para jugar el partido." },
+      { letter: "D", text: "No, porque cada equipo solo puede jugar una vez, entonces solo hay 10 opciones." }
+    ],
+    correctAnswer: "A",
+    explanation: "Para escoger un equipo uniformado se elige primero uno de los 10 equipos y luego uno de los 3 uniformes disponibles para ese equipo. Por el principio multiplicativo, el número de posibilidades es 10 × 3 = 30. Por tanto, la afirmación de Esteban es correcta. La respuesta correcta es A."
+  }
+
+
+,
+  {
+    uid: "s2-mat-046",
+    session: 2,
+    block: 2,
+    number: 46,
+    area: "Matemáticas",
+    competencia: "Interpretación y representación",
+    componente: "Estadística: promedio aritmético",
+    dificultad: "Baja",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 2 - Matemáticas - Pregunta 46",
+    stem: "Un campesino tiene varias vacas en su finca. En la tabla, aparece la producción de leche de las vacas durante 5 días de una semana.",
+    resources: [
+      {
+        type: "table",
+        caption: "Producción de leche durante cinco días",
+        headers: ["Día", "Producción de leche (litros)"],
+        rows: [
+          ["Lunes", "75"],
+          ["Martes", "65"],
+          ["Miércoles", "75"],
+          ["Jueves", "65"],
+          ["Viernes", "70"],
+          ["Total", "350"]
+        ]
+      }
+    ],
+    prompt: "Una persona afirma que, durante esos 5 días, las vacas produjeron, en promedio, 70 litros de leche por día. ¿Es verdadera esta afirmación?",
+    options: [
+      { letter: "A", text: "Sí, porque el viernes produjeron 70 litros de leche." },
+      { letter: "B", text: "No, porque solamente produjeron 70 litros de leche un día." },
+      { letter: "C", text: "Sí, porque la producción total es igual a la multiplicación de 70 litros de leche por el número de días." },
+      { letter: "D", text: "No, porque el martes y el jueves la producción fue de menos de 70 litros de leche." }
+    ],
+    correctAnswer: "C",
+    explanation: "El promedio diario se calcula dividiendo la producción total entre el número de días: 350 ÷ 5 = 70. De forma equivalente, si el promedio es 70 durante 5 días, la producción total debe ser 70 × 5 = 350 litros, que coincide con la tabla. Por tanto, la afirmación es verdadera y la respuesta correcta es C."
+  }
+
+
+,
+  {
+    uid: "s2-mat-047",
+    session: 2,
+    block: 2,
+    number: 47,
+    area: "Matemáticas",
+    competencia: "Formulación y ejecución",
+    componente: "Porcentajes y criterios de comparación",
+    dificultad: "Media",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 2 - Matemáticas - Pregunta 47",
+    stem: "En un país las personas deben pagar el llamado ‘impuesto distributivo’, que es equivalente a la suma del 5 % de los ingresos totales del año anterior más el 1 % del patrimonio bruto. Este impuesto, sin embargo, solo debe ser pagado por aquellos ciudadanos cuyo patrimonio supere los 350.000 dólares o que el 40 % de sus ingresos del año anterior sean mayores que 20.000 dólares.",
+    resources: [
+      {
+        type: "table",
+        caption: "Información de algunos ciudadanos",
+        headers: ["Nombre", "Ingresos totales año anterior", "Patrimonio"],
+        rows: [
+          ["Luisa", "16.000", "400.000"],
+          ["Ernesta", "400.000", "100.000"],
+          ["Paolo", "45.000", "300.000"]
+        ]
+      }
+    ],
+    prompt: "¿A cuál o a cuáles de estos ciudadanos se le debe cobrar el ‘impuesto distributivo’?",
+    options: [
+      { letter: "A", text: "Luisa y Ernesta únicamente." },
+      { letter: "B", text: "Luisa y Paolo únicamente." },
+      { letter: "C", text: "Solamente Ernesta." },
+      { letter: "D", text: "Solamente Paolo." }
+    ],
+    correctAnswer: "A",
+    explanation: "El impuesto se cobra si se cumple al menos una de las dos condiciones: patrimonio mayor que 350.000 dólares o que el 40 % de los ingresos sea mayor que 20.000 dólares. Luisa paga porque su patrimonio es 400.000, mayor que 350.000. Ernesta paga porque el 40 % de 400.000 es 160.000, mayor que 20.000. Paolo no paga porque su patrimonio es 300.000 y el 40 % de 45.000 es 18.000. Por tanto, la respuesta correcta es A."
+  }
+
+
+,
+  {
+    uid: "s2-mat-048",
+    session: 2,
+    block: 2,
+    number: 48,
+    area: "Matemáticas",
+    competencia: "Interpretación y representación",
+    componente: "Geometría: clasificación de polígonos",
+    dificultad: "Baja",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 2 - Matemáticas - Pregunta 48",
+    stem: "En una sastrería se cortan telas para manteles de diferentes formas geométricas como se muestra en la figura.",
+    resources: [
+      {
+        type: "html",
+        html: `
+          <div class="geo-card mateles-card" aria-label="Formas de manteles">
+            <style>
+              .manteles-card{padding:14px;border:1px solid rgba(15,23,42,.14);border-radius:16px;background:linear-gradient(180deg,#fff,#f8fafc);}
+              .manteles-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;align-items:end;}
+              .mantel-item{text-align:center;font-weight:800;color:#1f2937;}
+              .mantel-shape{height:150px;display:flex;align-items:center;justify-content:center;margin-top:8px;border-radius:12px;background:#ffffff;box-shadow:inset 0 0 0 1px rgba(15,23,42,.08);}
+              .mantel-svg{width:120px;height:120px;max-width:90%;}
+              @media (max-width:640px){.manteles-grid{grid-template-columns:1fr;}.mantel-shape{height:120px}.mantel-svg{width:96px;height:96px}}
+            </style>
+            <div class="manteles-grid">
+              <div class="mantel-item">
+                <div>Mantel 1</div>
+                <div class="mantel-shape">
+                  <svg class="mantel-svg" viewBox="0 0 120 120" role="img" aria-label="Mantel cuadrado de cuatro lados">
+                    <rect x="18" y="18" width="84" height="84" fill="#d1d5db" stroke="#111827" stroke-width="4"/>
+                  </svg>
+                </div>
+              </div>
+              <div class="mantel-item">
+                <div>Mantel 2</div>
+                <div class="mantel-shape">
+                  <svg class="mantel-svg" viewBox="0 0 120 120" role="img" aria-label="Mantel triangular de tres lados">
+                    <polygon points="60,14 108,100 12,100" fill="#d1d5db" stroke="#111827" stroke-width="4"/>
+                  </svg>
+                </div>
+              </div>
+              <div class="mantel-item">
+                <div>Mantel 3</div>
+                <div class="mantel-shape">
+                  <svg class="mantel-svg" viewBox="0 0 120 120" role="img" aria-label="Mantel hexagonal de seis lados">
+                    <polygon points="36,14 84,14 110,60 84,106 36,106 10,60" fill="#d1d5db" stroke="#111827" stroke-width="4"/>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        `
+      }
+    ],
+    prompt: "Una persona necesita hacer una lista ordenando información sobre los manteles, teniendo en cuenta el número de lados que tiene la forma del mantel. Si decide que ordenará de menor a mayor número de lados, ¿cuál debe ser el orden de la lista?",
+    options: [
+      { letter: "A", text: "Mantel 1 - Mantel 3 - Mantel 2" },
+      { letter: "B", text: "Mantel 1 - Mantel 2 - Mantel 3" },
+      { letter: "C", text: "Mantel 2 - Mantel 3 - Mantel 1" },
+      { letter: "D", text: "Mantel 2 - Mantel 1 - Mantel 3" }
+    ],
+    correctAnswer: "D",
+    explanation: "El Mantel 2 tiene forma triangular, por tanto tiene 3 lados. El Mantel 1 tiene forma cuadrada, por tanto tiene 4 lados. El Mantel 3 tiene forma hexagonal, por tanto tiene 6 lados. Ordenados de menor a mayor número de lados quedan: Mantel 2, Mantel 1 y Mantel 3. Por tanto, la respuesta correcta es D."
+  }
+
+,
+  {
+    uid: "s2-mat-049",
+    session: 2,
+    block: 2,
+    number: 49,
+    area: "Matemáticas",
+    competencia: "Formulación y ejecución",
+    componente: "Conteo: combinaciones y selección de grupos",
+    dificultad: "Baja",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 2 - Matemáticas - Pregunta 49",
+    stem: "El profesor de un colegio ha decidido organizar un grupo de estudiantes para representar a la institución en una actividad.",
+    resources: [],
+    prompt: "¿Qué información se necesita para calcular el número total de posibles grupos que puede organizar el profesor?",
+    options: [
+      { letter: "A", text: "La cantidad de estudiantes que tendrá el grupo." },
+      { letter: "B", text: "El número de estudiantes del colegio y la cantidad de estudiantes que tendrá el grupo." },
+      { letter: "C", text: "La cantidad de grupos que va a organizar." },
+      { letter: "D", text: "El número de estudiantes del colegio y la cantidad de grupos que va a organizar." }
+    ],
+    correctAnswer: "B",
+    explanation: "Para calcular cuántos grupos diferentes se pueden formar, se necesita conocer el total de estudiantes disponibles y cuántos estudiantes tendrá cada grupo. Con esos dos datos se puede determinar el número de posibles selecciones o combinaciones. Por tanto, la respuesta correcta es B."
+  }
+
+,
+  {
+    uid: "s2-mat-050",
+    session: 2,
+    block: 2,
+    number: 50,
+    area: "Matemáticas",
+    competencia: "Interpretación y representación",
+    componente: "Estadística: cuartiles y gráfica de cajas",
+    dificultad: "Media",
+    type: "single-choice",
+    scored: true,
+    sourceLabel: "Sección 2 - Matemáticas - Pregunta 50",
+    stem: "La tabla muestra las estaturas, ordenadas de menor a mayor, de 11 estudiantes de grado once. El cuartil 1 (Q1) es 162 cm porque este valor es mayor o igual que las tres primeras estaturas de la tabla.",
+    resources: [
+      {
+        type: "table",
+        caption: "Estaturas ordenadas de 11 estudiantes",
+        headers: ["Estudiante", "Estatura (cm)", "Cuartil"],
+        rows: [
+          ["1", "155", "Mín."],
+          ["2", "156", ""],
+          ["3", "162", "Q1"],
+          ["4", "163", ""],
+          ["5", "164", ""],
+          ["6", "165", "Q2"],
+          ["7", "167", ""],
+          ["8", "168", ""],
+          ["9", "170", "Q3"],
+          ["10", "171", ""],
+          ["11", "172", "Máx."]
+        ]
+      },
+      {
+        type: "html",
+        html: `
+          <div class="boxplot-card" aria-label="Opciones de gráficas de cajas">
+            <style>
+              .boxplot-card{padding:14px;border:1px solid rgba(15,23,42,.14);border-radius:18px;background:linear-gradient(180deg,#fff,#f8fafc);}
+              .boxplot-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;}
+              .boxplot-option{border:1px solid rgba(15,23,42,.12);border-radius:16px;background:#fff;padding:10px;box-shadow:0 10px 22px rgba(15,23,42,.06);}
+              .boxplot-option strong{display:block;margin-bottom:6px;color:#0f172a;}
+              .boxplot-svg{width:100%;height:270px;max-height:45vh;}
+              .boxplot-axis{stroke:#111827;stroke-width:2;}
+              .boxplot-line{stroke:#111827;stroke-width:3;fill:none;}
+              .boxplot-box{fill:#f1f5f9;stroke:#111827;stroke-width:3;}
+              .boxplot-label{font-size:12px;font-weight:800;fill:#1f2937;}
+              .boxplot-tick{font-size:10px;fill:#475569;}
+              @media (max-width:760px){.boxplot-grid{grid-template-columns:1fr}.boxplot-svg{height:240px}}
+            </style>
+            <div class="boxplot-grid">
+              <div class="boxplot-option">
+                <strong>A.</strong>
+                <svg class="boxplot-svg" viewBox="0 0 220 270" role="img" aria-label="Gráfica A con eje de 1 a 11">
+                  <line class="boxplot-axis" x1="42" y1="18" x2="42" y2="245"/>
+                  ${Array.from({length:11},(_,i)=>`<text class="boxplot-tick" x="22" y="${230-i*19}">${i+1}</text><line x1="36" y1="${226-i*19}" x2="42" y2="${226-i*19}" stroke="#64748b"/>`).join('')}
+                  <line class="boxplot-line" x1="120" y1="226" x2="120" y2="36"/>
+                  <line class="boxplot-line" x1="92" y1="226" x2="148" y2="226"/>
+                  <line class="boxplot-line" x1="92" y1="36" x2="148" y2="36"/>
+                  <rect class="boxplot-box" x="78" y="74" width="84" height="114"/>
+                  <line class="boxplot-line" x1="78" y1="131" x2="162" y2="131"/>
+                  <text class="boxplot-label" x="154" y="40">Máx.</text><text class="boxplot-label" x="166" y="79">Q3</text><text class="boxplot-label" x="166" y="135">Q2</text><text class="boxplot-label" x="166" y="192">Q1</text><text class="boxplot-label" x="154" y="232">Mín.</text>
+                </svg>
+              </div>
+              <div class="boxplot-option">
+                <strong>B.</strong>
+                <svg class="boxplot-svg" viewBox="0 0 220 270" role="img" aria-label="Gráfica B con Q1 aproximado a 159 y Q3 a 171">
+                  <line class="boxplot-axis" x1="42" y1="18" x2="42" y2="245"/>
+                  ${[155,156,157,158,159,160,161,162,163,164,165,166,167,168,169,170,171,172].map((v,i)=>`<text class="boxplot-tick" x="16" y="${235-i*12}">${v}</text><line x1="36" y1="${231-i*12}" x2="42" y2="${231-i*12}" stroke="#64748b"/>`).join('')}
+                  <line class="boxplot-line" x1="122" y1="231" x2="122" y2="27"/>
+                  <line class="boxplot-line" x1="96" y1="231" x2="148" y2="231"/>
+                  <line class="boxplot-line" x1="96" y1="27" x2="148" y2="27"/>
+                  <rect class="boxplot-box" x="78" y="39" width="88" height="146"/>
+                  <line class="boxplot-line" x1="78" y1="111" x2="166" y2="111"/>
+                  <text class="boxplot-label" x="152" y="31">Máx.</text><text class="boxplot-label" x="170" y="45">Q3</text><text class="boxplot-label" x="170" y="115">Q2</text><text class="boxplot-label" x="170" y="189">Q1</text><text class="boxplot-label" x="152" y="237">Mín.</text>
+                </svg>
+              </div>
+              <div class="boxplot-option">
+                <strong>C.</strong>
+                <svg class="boxplot-svg" viewBox="0 0 220 270" role="img" aria-label="Gráfica C con mínimo 155, Q1 162, Q2 165, Q3 170 y máximo 172">
+                  <line class="boxplot-axis" x1="42" y1="18" x2="42" y2="245"/>
+                  ${[155,156,157,158,159,160,161,162,163,164,165,166,167,168,169,170,171,172].map((v,i)=>`<text class="boxplot-tick" x="16" y="${235-i*12}">${v}</text><line x1="36" y1="${231-i*12}" x2="42" y2="${231-i*12}" stroke="#64748b"/>`).join('')}
+                  <line class="boxplot-line" x1="122" y1="231" x2="122" y2="27"/>
+                  <line class="boxplot-line" x1="96" y1="231" x2="148" y2="231"/>
+                  <line class="boxplot-line" x1="96" y1="27" x2="148" y2="27"/>
+                  <rect class="boxplot-box" x="78" y="51" width="88" height="96"/>
+                  <line class="boxplot-line" x1="78" y1="111" x2="166" y2="111"/>
+                  <text class="boxplot-label" x="152" y="31">Máx.</text><text class="boxplot-label" x="170" y="55">Q3</text><text class="boxplot-label" x="170" y="115">Q2</text><text class="boxplot-label" x="170" y="151">Q1</text><text class="boxplot-label" x="152" y="237">Mín.</text>
+                </svg>
+              </div>
+              <div class="boxplot-option">
+                <strong>D.</strong>
+                <svg class="boxplot-svg" viewBox="0 0 220 270" role="img" aria-label="Gráfica D con Q1 aproximado a 156 y Q3 a 169">
+                  <line class="boxplot-axis" x1="42" y1="18" x2="42" y2="245"/>
+                  ${[155,156,157,158,159,160,161,162,163,164,165,166,167,168,169,170,171,172].map((v,i)=>`<text class="boxplot-tick" x="16" y="${235-i*12}">${v}</text><line x1="36" y1="${231-i*12}" x2="42" y2="${231-i*12}" stroke="#64748b"/>`).join('')}
+                  <line class="boxplot-line" x1="122" y1="231" x2="122" y2="27"/>
+                  <line class="boxplot-line" x1="96" y1="231" x2="148" y2="231"/>
+                  <line class="boxplot-line" x1="96" y1="27" x2="148" y2="27"/>
+                  <rect class="boxplot-box" x="78" y="63" width="88" height="156"/>
+                  <line class="boxplot-line" x1="78" y1="111" x2="166" y2="111"/>
+                  <text class="boxplot-label" x="152" y="31">Máx.</text><text class="boxplot-label" x="170" y="67">Q3</text><text class="boxplot-label" x="170" y="115">Q2</text><text class="boxplot-label" x="170" y="223">Q1</text><text class="boxplot-label" x="152" y="237">Mín.</text>
+                </svg>
+              </div>
+            </div>
+          </div>
+        `
+      }
+    ],
+    prompt: "¿Cuál de las siguientes gráficas de cajas se corresponde con la información de la tabla?",
+    options: [
+      { letter: "A", text: "Gráfica A." },
+      { letter: "B", text: "Gráfica B." },
+      { letter: "C", text: "Gráfica C." },
+      { letter: "D", text: "Gráfica D." }
+    ],
+    correctAnswer: "C",
+    explanation: "La tabla indica los cinco valores principales de la gráfica de cajas: mínimo 155, Q1 = 162, Q2 = 165, Q3 = 170 y máximo 172. La única gráfica que ubica esos valores en esas posiciones es la opción C. Por tanto, la respuesta correcta es C."
+  }
+
 ];
