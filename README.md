@@ -58,3 +58,26 @@ Duración: 4 horas y 30 minutos. Total académico configurado: 134 preguntas.
 ## Actualización para Google Sites
 
 Esta versión evita depender de ventanas nativas `confirm()` para las acciones críticas. Los botones **Inicio** y **Finalizar intento** usan una confirmación interna del simulador, por lo que funcionan correctamente al alojar el proyecto en GitHub Pages e incrustarlo como iframe en Google Sites.
+
+
+Actualización: se agregó Sección 2 — Sociales y Ciudadanas, pregunta 14.
+
+
+Actualización: incluye Sección 2 — Sociales y Ciudadanas, pregunta 15.
+
+
+Actualización: incluye Sección 2 — Sociales y Ciudadanas, pregunta 20.
+
+
+Actualización: se agregó la Sección 2 - Sociales y Ciudadanas - Pregunta 23.
+
+
+Actualización: se agregó la Sección 2 — Sociales y Ciudadanas — Pregunta 23, con respuesta correcta B.
+
+Actualización: se agregó la Sección 2 — Sociales y Ciudadanas — Pregunta 24, con respuesta correcta D.
+
+
+## Actualización
+
+- Se insertaron en el banco de datos las preguntas 26, 27 y 28 de Sociales y Ciudadanas de la Sección 2, completando el bloque 1 (preguntas 1 a 28).
+- Respuestas correctas agregadas: 26-C, 27-B, 28-C.
