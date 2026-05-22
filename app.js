@@ -31,11 +31,13 @@ const EXAM_STRUCTURE = [
 
 const STORAGE_KEY = "simulador_icfes_saber11_estado_v2";
 const HISTORY_KEY = "simulador_icfes_saber11_historial_v2";
+const STUDENT_KEY = "simulador_icfes_saber11_estudiante_v2";
 
 const app = document.getElementById("app");
 const homeBtn = document.getElementById("homeBtn");
 const themeBtn = document.getElementById("themeBtn");
 const tipsBtn = document.getElementById("tipsBtn");
+const instructionsBtn = document.getElementById("instructionsBtn");
 
 let timerInterval = null;
 let state = {
@@ -49,6 +51,8 @@ let state = {
   answers: {},
   marked: {},
   startedAt: null,
+  finishedAt: null,
+  student: null,
   remainingSeconds: 0,
   finished: false
 };
@@ -91,13 +95,20 @@ function init() {
   const savedTheme = storageGet("simulador_icfes_theme", "light");
   document.documentElement.dataset.theme = savedTheme;
   themeBtn.textContent = savedTheme === "dark" ? "☀️" : "🌙";
-  renderHome();
+  const savedStudent = loadSavedStudent();
+  if (savedStudent) {
+    state.student = savedStudent;
+    renderHome();
+  } else {
+    renderAccess();
+  }
   bindGlobalEvents();
 }
 
 function bindGlobalEvents() {
   homeBtn.addEventListener("click", handleHomeNavigation);
   if (tipsBtn) tipsBtn.addEventListener("click", openTipsModal);
+  if (instructionsBtn) instructionsBtn.addEventListener("click", openInstructionsModal);
 
   themeBtn.addEventListener("click", () => {
     const current = document.documentElement.dataset.theme === "dark" ? "dark" : "light";
@@ -336,10 +347,63 @@ function openTipsModal() {
   if (closeBtn) closeBtn.focus({ preventScroll: true });
 }
 
+
+function openInstructionsModal() {
+  closeActionDialog();
+
+  const overlay = document.createElement("div");
+  overlay.className = "dialog-overlay tips-modal-overlay";
+  overlay.setAttribute("role", "presentation");
+  overlay.innerHTML = `
+    <section class="dialog-card tips-dialog-card instructions-dialog-card" role="dialog" aria-modal="true" aria-labelledby="instructionsDialogTitle">
+      <button class="dialog-close" type="button" aria-label="Cerrar">×</button>
+      <p class="eyebrow">Guía rápida del simulador</p>
+      <h2 id="instructionsDialogTitle">Instrucciones</h2>
+      <div class="tips-modal-content instructions-content">
+        <article class="tip-card">
+          <ol class="instructions-list">
+            <li><strong>Modo de trabajo:</strong> Simulacro.</li>
+            <li>Iniciar <strong>Primera sesión</strong> o <strong>Segunda sesión</strong>.</li>
+            <li>Analiza la pregunta y da clic en la opción de respuesta.</li>
+            <li>Las preguntas que quieras dejar para el final selecciónalas con <strong>Marcar para revisar</strong>.</li>
+            <li>Cuando finalices, da clic en el botón <strong>Finalizar intento</strong>.</li>
+            <li>Descarga el <strong>informe PDF</strong>.</li>
+            <li>Da clic en <strong>Enviar informe PDF</strong> para cargarlo en el formulario indicado.</li>
+          </ol>
+        </article>
+      </div>
+      <div class="dialog-actions tips-modal-actions">
+        <button class="primary-btn" type="button" data-dialog-cancel>Cerrar instrucciones</button>
+      </div>
+    </section>
+  `;
+
+  overlay.addEventListener("click", event => {
+    if (event.target === overlay || event.target.closest("[data-dialog-cancel]") || event.target.closest(".dialog-close")) {
+      closeActionDialog();
+    }
+  });
+
+  document.body.appendChild(overlay);
+  const closeBtn = overlay.querySelector(".dialog-close");
+  if (closeBtn) closeBtn.focus({ preventScroll: true });
+}
+
 function focusApp() {
   if (app && typeof app.focus === "function") {
     requestAnimationFrame(() => app.focus({ preventScroll: true }));
   }
+}
+
+function scrollToPageTop() {
+  requestAnimationFrame(() => {
+    if (typeof window.scrollTo === "function") {
+      window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+    }
+    if (app && typeof app.focus === "function") {
+      app.focus({ preventScroll: true });
+    }
+  });
 }
 
 function scrollToTimerBox() {
@@ -359,7 +423,111 @@ function scrollToTimerBox() {
   });
 }
 
+function renderAccess(pendingScope = null) {
+  clearTimer();
+  state.screen = "access";
+  homeBtn.classList.add("hidden");
+  const current = state.student || loadSavedStudent() || { fullName: "", group: "" };
+  const currentFullName = normalizeNameInput(current.fullName || `${current.firstName || ""} ${current.lastName || ""}`);
+  const currentGroup = normalizeGroupInput(current.group || current.gradeGroup || current.course || "");
+
+  app.innerHTML = `
+    <section class="access-panel" aria-labelledby="accessTitle">
+      <div class="access-card">
+        <p class="eyebrow">Ingreso del estudiante</p>
+        <h2 id="accessTitle">Antes de iniciar, registra tus datos</h2>
+        <p class="access-intro">Esta información aparecerá en la página de resultados y en el informe final en PDF del simulacro.</p>
+        <form id="studentForm" class="student-form">
+          <div class="form-grid student-form-grid">
+            <label class="field field-wide">
+              <span>Nombre y apellido completo</span>
+              <input id="studentFullName" type="text" autocomplete="name" required maxlength="120" placeholder="Ejemplo: Juan Carlos Blandón Vargas" value="${escapeAttr(currentFullName)}" />
+            </label>
+            <label class="field">
+              <span>Grupo</span>
+              <select id="studentGroup" required>
+                <option value="">Selecciona el grupo</option>
+                <option value="11-1" ${currentGroup === "11-1" ? "selected" : ""}>11-1</option>
+                <option value="11-2" ${currentGroup === "11-2" ? "selected" : ""}>11-2</option>
+                <option value="11-3" ${currentGroup === "11-3" ? "selected" : ""}>11-3</option>
+              </select>
+            </label>
+          </div>
+          <div class="form-error" id="studentFormError" aria-live="polite"></div>
+          <div class="session-actions">
+            <button class="primary-btn" type="submit">Ingresar al simulador</button>
+          </div>
+        </form>
+      </div>
+    </section>
+  `;
+
+  document.getElementById("studentForm").addEventListener("submit", event => {
+    event.preventDefault();
+    const fullName = normalizeNameInput(document.getElementById("studentFullName").value);
+    const group = normalizeGroupInput(document.getElementById("studentGroup").value);
+    const error = document.getElementById("studentFormError");
+
+    if (!fullName) {
+      error.textContent = "Por favor, escribe el nombre y apellido completo del estudiante.";
+      return;
+    }
+
+    if (!group) {
+      error.textContent = "Por favor, selecciona el grupo: 11-1, 11-2 o 11-3.";
+      return;
+    }
+
+    state.student = { fullName, group };
+    storageSet(STUDENT_KEY, JSON.stringify(state.student));
+    if (pendingScope) startScope(pendingScope);
+    else renderHome();
+  });
+
+  const firstInput = document.getElementById("studentFullName");
+  if (firstInput) firstInput.focus({ preventScroll: true });
+}
+
+function normalizeNameInput(value) {
+  return String(value || "").replace(/\s+/g, " ").trim();
+}
+
+function normalizeGroupInput(value) {
+  const group = String(value || "").replace(/\s+/g, "").trim();
+  return ["11-1", "11-2", "11-3"].includes(group) ? group : "";
+}
+
+function loadSavedStudent() {
+  const student = storageJson(STUDENT_KEY, null);
+  if (!student) return null;
+  const fullName = normalizeNameInput(student.fullName || `${student.firstName || ""} ${student.lastName || ""}`);
+  const group = normalizeGroupInput(student.group || student.gradeGroup || student.course || "");
+  if (!fullName || !group) return null;
+  return { fullName, group };
+}
+
+function hasValidStudent() {
+  if (!state.student) return false;
+  const fullName = normalizeNameInput(state.student.fullName || `${state.student.firstName || ""} ${state.student.lastName || ""}`);
+  const group = normalizeGroupInput(state.student.group || state.student.gradeGroup || state.student.course || "");
+  return Boolean(fullName && group);
+}
+
+function getStudentFullName() {
+  if (!hasValidStudent()) return "Estudiante sin registrar";
+  return normalizeNameInput(state.student.fullName || `${state.student.firstName || ""} ${state.student.lastName || ""}`);
+}
+
+function getStudentGroup() {
+  if (!hasValidStudent()) return "Sin grupo";
+  return normalizeGroupInput(state.student.group || state.student.gradeGroup || state.student.course || "") || "Sin grupo";
+}
+
 function renderHome() {
+  if (!hasValidStudent()) {
+    renderAccess();
+    return;
+  }
   clearTimer();
   state.screen = "home";
   homeBtn.classList.add("hidden");
@@ -376,6 +544,15 @@ function renderHome() {
         <div class="stat"><strong>${EXAM_STRUCTURE.reduce((sum, session) => sum + session.totalQuestions, 0)}</strong><span>preguntas estructuradas</span></div>
         <div class="stat"><strong>${QUESTION_BANK.length}</strong><span>preguntas disponibles</span></div>
       </div>
+    </section>
+
+    <section class="student-strip" aria-label="Datos del estudiante">
+      <div>
+        <p class="eyebrow">Estudiante registrado</p>
+        <strong>${getStudentFullName()}</strong>
+        <span class="student-group-label">Grupo: ${getStudentGroup()}</span>
+      </div>
+      <button class="secondary-btn" id="changeStudentBtn" type="button">Cambiar estudiante</button>
     </section>
 
     <section class="config-bar" aria-label="Configuración del simulador">
@@ -400,6 +577,15 @@ function renderHome() {
     });
   });
 
+  document.getElementById("changeStudentBtn").addEventListener("click", () => {
+    openActionDialog({
+      title: "Cambiar estudiante",
+      message: "Al cambiar los datos del estudiante, los nuevos intentos e informes quedarán asociados al nuevo nombre y grupo. El intento guardado actual, si existe, se conservará en este navegador.",
+      confirmText: "Cambiar",
+      cancelText: "Cancelar",
+      onConfirm: () => renderAccess()
+    });
+  });
   document.getElementById("resumeBtn").addEventListener("click", resumeSavedAttempt);
   renderSessionCards();
   app.focus();
@@ -513,6 +699,10 @@ function showStructure(sessionId) {
 }
 
 function startScope(scope) {
+  if (!hasValidStudent()) {
+    renderAccess(scope);
+    return;
+  }
   const session = getSession(scope.sessionId);
   const range = getScopeRange(session, scope);
   const navNumbers = createNumberRange(range.from, range.to);
@@ -529,6 +719,8 @@ function startScope(scope) {
     answers: {},
     marked: {},
     startedAt: new Date().toISOString(),
+    finishedAt: null,
+    student: { ...state.student },
     remainingSeconds: state.mode === "entrenamiento" ? 0 : session.durationMinutes * 60,
     finished: false
   };
@@ -786,79 +978,159 @@ function finishAttempt() {
 function completeAttempt() {
   clearTimer();
   state.finished = true;
+  state.finishedAt = new Date().toISOString();
   saveAttemptToHistory();
   storageRemove(STORAGE_KEY);
   renderResults();
-  focusApp();
+  scrollToPageTop();
 }
 
 function renderResults() {
-  const session = getSession(state.sessionId);
-  const loadedQuestions = state.availableNumbers.map(number => getQuestion(state.sessionId, number)).filter(Boolean);
-  const scored = loadedQuestions.filter(q => q.scored !== false);
-  const answered = loadedQuestions.filter(q => state.answers[getAnswerKey(q.number)]).length;
-  const correct = scored.filter(q => state.answers[getAnswerKey(q.number)] === q.correctAnswer).length;
-  const incorrect = scored.filter(q => state.answers[getAnswerKey(q.number)] && state.answers[getAnswerKey(q.number)] !== q.correctAnswer).length;
-  const omitted = scored.length - correct - incorrect;
-  const score = scored.length ? Math.round((correct / scored.length) * 100) : 0;
+  const result = buildResultData();
 
-  const byArea = groupBy(scored, q => q.area);
-  const areaRows = Object.entries(byArea).map(([area, questions]) => {
-    const c = questions.filter(q => state.answers[getAnswerKey(q.number)] === q.correctAnswer).length;
-    const pct = questions.length ? Math.round((c / questions.length) * 100) : 0;
-    return `<tr><td>${area}</td><td>${questions.length}</td><td>${c}</td><td>${pct}%</td></tr>`;
-  }).join("");
+  const areaRows = result.byArea.map(row => `
+    <tr>
+      <td>${escapeHtml(row.area)}</td>
+      <td>${row.total}</td>
+      <td>${row.answered}</td>
+      <td>${row.correct}</td>
+      <td>${row.incorrect}</td>
+      <td>${row.omitted}</td>
+      <td><strong>${row.percent}%</strong></td>
+    </tr>
+  `).join("");
 
-  const review = loadedQuestions.map(q => {
-    const ans = state.answers[getAnswerKey(q.number)] || "Sin responder";
-    const ok = q.scored === false ? "No calificable" : ans === q.correctAnswer ? "Correcta" : "Incorrecta";
-    return `
-      <div class="review-item">
-        <strong>Pregunta ${q.number} · ${q.area}</strong>
-        <p>Tu respuesta: ${ans} · Respuesta correcta: ${q.correctAnswer || "No aplica"} · ${ok}</p>
-        <p>${q.explanation || "Sin explicación registrada."}</p>
-      </div>
-    `;
-  }).join("");
+  const review = result.details.map(item => `
+    <div class="review-item">
+      <strong>Pregunta ${item.number} · ${escapeHtml(item.area)}</strong>
+      <p><strong>Respuesta del estudiante:</strong> ${escapeHtml(item.studentAnswer)} · <strong>Respuesta correcta:</strong> ${escapeHtml(item.correctAnswer)} · <strong>Resultado:</strong> ${escapeHtml(item.result)}</p>
+      <p><strong>Competencia:</strong> ${escapeHtml(item.competence)} · <strong>Componente:</strong> ${escapeHtml(item.component)} · <strong>Dificultad:</strong> ${escapeHtml(item.difficulty)}</p>
+      <p>${escapeHtml(item.explanation)}</p>
+    </div>
+  `).join("");
 
   app.innerHTML = `
     <section class="results-panel">
       <div class="result-top">
         <div>
-          <p class="eyebrow">Resultados</p>
-          <h2>${session.label} · ${state.scope.label}</h2>
+          <p class="eyebrow">Informe detallado de resultados</p>
+          <h2>${escapeHtml(result.sessionLabel)} · ${escapeHtml(result.scopeLabel)}</h2>
+          <p class="student-result-name">Estudiante: <strong>${escapeHtml(result.studentName)}</strong> · Grupo: <strong>${escapeHtml(result.studentGroup)}</strong></p>
         </div>
-        <span class="pill success">Puntaje interno: ${score}%</span>
+        <span class="pill success">Puntaje interno: ${result.score}%</span>
+      </div>
+
+      <div class="report-meta-grid">
+        <div><span>Fecha de finalización</span><strong>${escapeHtml(result.finishedAtLabel)}</strong></div>
+        <div><span>Grupo</span><strong>${escapeHtml(result.studentGroup)}</strong></div>
+        <div><span>Modo</span><strong>${escapeHtml(result.modeLabel)}</strong></div>
+        <div><span>Preguntas disponibles</span><strong>${result.totalQuestions}</strong></div>
+        <div><span>Tiempo empleado</span><strong>${escapeHtml(result.elapsedLabel)}</strong></div>
       </div>
 
       <div class="result-grid">
-        <div class="result-card"><strong>${score}%</strong><span>Porcentaje de acierto</span></div>
-        <div class="result-card"><strong>${correct}</strong><span>Correctas</span></div>
-        <div class="result-card"><strong>${incorrect}</strong><span>Incorrectas</span></div>
-        <div class="result-card"><strong>${omitted}</strong><span>Omitidas</span></div>
+        <div class="result-card"><strong>${result.score}%</strong><span>Porcentaje de acierto</span></div>
+        <div class="result-card"><strong>${result.correct}</strong><span>Correctas</span></div>
+        <div class="result-card"><strong>${result.incorrect}</strong><span>Incorrectas</span></div>
+        <div class="result-card"><strong>${result.omitted}</strong><span>Omitidas</span></div>
       </div>
 
+      <div class="results-chart-grid" aria-label="Gráficos de resultados">
+        ${renderStatusChart(result)}
+        ${renderAreaChart(result)}
+      </div>
+
+      <h3>Resultado por área</h3>
       <div class="table-wrap">
         <table class="structure-table">
-          <thead><tr><th>Área</th><th>Preguntas disponibles</th><th>Correctas</th><th>Resultado</th></tr></thead>
-          <tbody>${areaRows || `<tr><td colspan="4">No hay preguntas calificables disponibles.</td></tr>`}</tbody>
+          <thead><tr><th>Área</th><th>Preguntas</th><th>Respondidas</th><th>Correctas</th><th>Incorrectas</th><th>Omitidas</th><th>Resultado</th></tr></thead>
+          <tbody>${areaRows || `<tr><td colspan="7">No hay preguntas calificables disponibles.</td></tr>`}</tbody>
         </table>
       </div>
 
-      <div class="session-actions">
+      <div class="session-actions report-actions">
         <button class="primary-btn" type="button" id="newAttemptBtn">Nuevo intento</button>
-        <button class="secondary-btn" type="button" id="downloadCsvBtn">Descargar resultados CSV</button>
-        <button class="secondary-btn" type="button" id="downloadTxtBtn">Descargar reporte TXT</button>
+        <button class="secondary-btn" type="button" id="downloadPdfBtn">Descargar informe PDF</button>
+        <a class="secondary-btn send-report-btn" id="sendPdfBtn" href="https://docs.google.com/forms/d/e/1FAIpQLSfaYK8XGQrHm-2Iap6IfSTFwQ9mITHjIki1aPNBkFEx5nz6PA/viewform" target="_blank" rel="noopener noreferrer">Enviar informe PDF</a>
       </div>
 
-      <h3 style="margin-top:24px">Revisión</h3>
+      <h3 style="margin-top:24px">Revisión detallada por pregunta</h3>
+      <p class="footer-note">Esta sección se conserva en pantalla para revisión pedagógica. El PDF descargable contiene el resumen general y los gráficos, sin la revisión detallada por pregunta.</p>
       <div class="review-list">${review}</div>
     </section>
   `;
 
   document.getElementById("newAttemptBtn").addEventListener("click", renderHome);
-  document.getElementById("downloadCsvBtn").addEventListener("click", downloadCsv);
-  document.getElementById("downloadTxtBtn").addEventListener("click", downloadTxtReport);
+  document.getElementById("downloadPdfBtn").addEventListener("click", downloadPdfReport);
+}
+
+function renderStatusChart(result) {
+  const total = Math.max(result.scored, 1);
+  const parts = [
+    { label: "Correctas", value: result.correct, className: "correct" },
+    { label: "Incorrectas", value: result.incorrect, className: "incorrect" },
+    { label: "Omitidas", value: result.omitted, className: "omitted" }
+  ].map(part => ({ ...part, percent: Math.round((part.value / total) * 100) }));
+
+  const stackedSegments = parts.map(part => `
+    <span class="stacked-segment ${part.className}" style="width:${part.percent}%" title="${part.label}: ${part.value}"></span>
+  `).join("");
+
+  const rows = parts.map(part => `
+    <div class="status-chart-row">
+      <div class="status-chart-label"><i class="${part.className}"></i><span>${part.label}</span></div>
+      <strong>${part.value}</strong>
+      <span>${part.percent}%</span>
+    </div>
+  `).join("");
+
+  return `
+    <article class="result-chart-card">
+      <div class="chart-heading">
+        <div>
+          <p class="eyebrow">Gráfico general</p>
+          <h3>Distribución de respuestas</h3>
+        </div>
+        <span class="chart-score">${result.score}%</span>
+      </div>
+      <div class="score-ring" style="--score:${result.score}">
+        <div><strong>${result.score}%</strong><span>Acierto</span></div>
+      </div>
+      <div class="stacked-bar" aria-hidden="true">${stackedSegments}</div>
+      <div class="status-chart-table">${rows}</div>
+    </article>
+  `;
+}
+
+function renderAreaChart(result) {
+  if (!result.byArea.length) {
+    return `
+      <article class="result-chart-card">
+        <p class="eyebrow">Gráfico por área</p>
+        <h3>Desempeño por área</h3>
+        <p class="footer-note">No hay preguntas calificables disponibles para generar el gráfico.</p>
+      </article>
+    `;
+  }
+
+  const rows = result.byArea.map(row => `
+    <div class="area-chart-row">
+      <div class="area-chart-label">
+        <strong>${escapeHtml(row.area)}</strong>
+        <span>${row.correct}/${row.total} correctas · ${row.answered} respondidas</span>
+      </div>
+      <div class="area-chart-track"><span style="width:${row.percent}%"></span></div>
+      <strong class="area-chart-percent">${row.percent}%</strong>
+    </div>
+  `).join("");
+
+  return `
+    <article class="result-chart-card area-chart-card">
+      <p class="eyebrow">Gráfico por área</p>
+      <h3>Desempeño por área</h3>
+      <div class="area-chart-list">${rows}</div>
+    </article>
+  `;
 }
 
 function startTimer() {
@@ -874,9 +1146,11 @@ function startTimer() {
       clearTimer();
       alert("El tiempo ha finalizado. Se mostrarán los resultados.");
       state.finished = true;
+      state.finishedAt = new Date().toISOString();
       saveAttemptToHistory();
       storageRemove(STORAGE_KEY);
       renderResults();
+      scrollToPageTop();
     } else {
       saveState();
     }
@@ -941,7 +1215,21 @@ function getModeLabel(mode) {
 }
 
 function escapeAttr(value) {
-  return String(value).replace(/"/g, "&quot;");
+  return String(value)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}
+
+function escapeHtml(value) {
+  return String(value ?? "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
 }
 
 function groupBy(items, callback) {
@@ -970,6 +1258,15 @@ function resumeSavedAttempt() {
     const session = getSession(saved.sessionId);
     if (!session) throw new Error("Sesión no encontrada");
     state = { ...state, ...saved, finished: false };
+    if (saved.student) state.student = saved.student;
+    if (!hasValidStudent()) {
+      const savedStudent = loadSavedStudent();
+      if (savedStudent) state.student = savedStudent;
+    }
+    if (!hasValidStudent()) {
+      renderAccess();
+      return;
+    }
     homeBtn.classList.remove("hidden");
     renderExam({ scrollToTimer: true });
     if (state.mode !== "entrenamiento") startTimer();
@@ -988,52 +1285,407 @@ function saveAttemptToHistory() {
     answers: state.answers,
     marked: state.marked,
     mode: state.mode,
+    student: state.student,
     startedAt: state.startedAt,
-    finishedAt: new Date().toISOString()
+    finishedAt: state.finishedAt || new Date().toISOString()
   });
   storageSet(HISTORY_KEY, JSON.stringify(history.slice(0, 20)));
 }
 
-function downloadCsv() {
-  const questions = state.availableNumbers.map(number => getQuestion(state.sessionId, number)).filter(Boolean);
-  const lines = ["Sesion,Area,Pregunta,Respuesta_usuario,Respuesta_correcta,Resultado"];
-  questions.forEach(q => {
-    const ans = state.answers[getAnswerKey(q.number)] || "";
-    const result = q.scored === false ? "No calificable" : ans === q.correctAnswer ? "Correcta" : ans ? "Incorrecta" : "Omitida";
-    lines.push([state.sessionId, q.area, q.number, ans, q.correctAnswer || "", result].map(csvEscape).join(","));
-  });
-  downloadFile("resultados-simulador-icfes.csv", lines.join("\n"), "text/csv;charset=utf-8");
-}
-
-function downloadTxtReport() {
-  const questions = state.availableNumbers.map(number => getQuestion(state.sessionId, number)).filter(Boolean);
-  const scored = questions.filter(q => q.scored !== false);
+function buildResultData() {
+  const session = getSession(state.sessionId) || { label: "Sección", title: "Sesión" };
+  const loadedQuestions = state.availableNumbers.map(number => getQuestion(state.sessionId, number)).filter(Boolean);
+  const scored = loadedQuestions.filter(q => q.scored !== false);
+  const answeredQuestions = loadedQuestions.filter(q => state.answers[getAnswerKey(q.number)]);
   const correct = scored.filter(q => state.answers[getAnswerKey(q.number)] === q.correctAnswer).length;
+  const incorrect = scored.filter(q => state.answers[getAnswerKey(q.number)] && state.answers[getAnswerKey(q.number)] !== q.correctAnswer).length;
+  const omitted = scored.length - correct - incorrect;
+  const score = scored.length ? Math.round((correct / scored.length) * 100) : 0;
+  const byArea = Object.entries(groupBy(scored, q => q.area)).map(([area, questions]) => {
+    const areaAnswered = questions.filter(q => state.answers[getAnswerKey(q.number)]).length;
+    const areaCorrect = questions.filter(q => state.answers[getAnswerKey(q.number)] === q.correctAnswer).length;
+    const areaIncorrect = questions.filter(q => state.answers[getAnswerKey(q.number)] && state.answers[getAnswerKey(q.number)] !== q.correctAnswer).length;
+    const areaOmitted = questions.length - areaCorrect - areaIncorrect;
+    const percent = questions.length ? Math.round((areaCorrect / questions.length) * 100) : 0;
+    return { area, total: questions.length, answered: areaAnswered, correct: areaCorrect, incorrect: areaIncorrect, omitted: areaOmitted, percent };
+  });
+
+  const details = loadedQuestions.map(q => {
+    const ans = state.answers[getAnswerKey(q.number)] || "Sin responder";
+    const result = getQuestionResultLabel(q, ans);
+    return {
+      number: q.number,
+      area: q.area,
+      studentAnswer: ans,
+      correctAnswer: q.correctAnswer || "No aplica",
+      result,
+      competence: q.competencia || "Por definir",
+      component: q.componente || "Por definir",
+      difficulty: q.dificultad || "Por definir",
+      explanation: q.explanation || "Sin explicación registrada."
+    };
+  });
+
+  return {
+    studentName: getStudentFullName(),
+    studentGroup: getStudentGroup(),
+    sessionLabel: session.label || `Sección ${state.sessionId}`,
+    sessionTitle: session.title || "Sesión",
+    scopeLabel: state.scope ? state.scope.label : "Intento",
+    modeLabel: getModeLabel(state.mode),
+    startedAt: state.startedAt,
+    finishedAt: state.finishedAt || new Date().toISOString(),
+    finishedAtLabel: formatDateTime(state.finishedAt || new Date().toISOString()),
+    elapsedLabel: formatElapsedTime(state.startedAt, state.finishedAt || new Date().toISOString()),
+    totalQuestions: loadedQuestions.length,
+    answered: answeredQuestions.length,
+    scored: scored.length,
+    correct,
+    incorrect,
+    omitted,
+    score,
+    byArea,
+    details
+  };
+}
+
+function getQuestionResultLabel(question, answer) {
+  if (question.scored === false) return "No calificable";
+  if (!answer || answer === "Sin responder") return "Omitida";
+  return answer === question.correctAnswer ? "Correcta" : "Incorrecta";
+}
+
+function formatDateTime(value) {
+  if (!value) return "No registrado";
+  const date = new Date(value);
+  if (Number.isNaN(date.getTime())) return "No registrado";
+  return date.toLocaleString("es-CO", { dateStyle: "medium", timeStyle: "short" });
+}
+
+function formatElapsedTime(startValue, endValue) {
+  if (!startValue || !endValue) return "No registrado";
+  const start = new Date(startValue).getTime();
+  const end = new Date(endValue).getTime();
+  if (Number.isNaN(start) || Number.isNaN(end) || end < start) return "No registrado";
+  return formatSeconds(Math.round((end - start) / 1000));
+}
+
+function downloadPdfReport() {
+  const result = buildResultData();
+  const pdf = createChartPdf(result);
+  const filename = `informe-icfes-${slugify(result.studentName)}-${slugify(result.studentGroup)}.pdf`;
+  downloadBlob(filename, new Blob([pdf], { type: "application/pdf" }));
+}
+
+function buildPdfReportLines(result) {
   const lines = [
-    "REPORTE DEL SIMULADOR ICFES SABER 11°",
-    `Fecha: ${new Date().toLocaleString()}`,
-    `Sección: ${state.sessionId}`,
-    `Bloque: ${state.scope.label}`,
-    `Modo: ${getModeLabel(state.mode)}`,
-    `Preguntas disponibles: ${questions.length}`,
-    `Resultado: ${scored.length ? Math.round((correct / scored.length) * 100) : 0}%`,
+    "REPORTE DETALLADO - SIMULADOR ICFES SABER 11",
     "",
-    "DETALLE",
-    ...questions.map(q => {
-      const ans = state.answers[getAnswerKey(q.number)] || "Sin responder";
-      return `Pregunta ${q.number} (${q.area}) | Usuario: ${ans} | Correcta: ${q.correctAnswer || "No aplica"}`;
-    })
+    `Estudiante: ${result.studentName}`,
+    `Grupo: ${result.studentGroup}`,
+    `Fecha de finalizacion: ${result.finishedAtLabel}`,
+    `Seccion: ${result.sessionLabel} - ${result.sessionTitle}`,
+    `Bloque o alcance: ${result.scopeLabel}`,
+    `Modo: ${result.modeLabel}`,
+    `Tiempo empleado: ${result.elapsedLabel}`,
+    "",
+    "RESUMEN GENERAL",
+    `Preguntas disponibles: ${result.totalQuestions}`,
+    `Preguntas calificables: ${result.scored}`,
+    `Preguntas respondidas: ${result.answered}`,
+    `Correctas: ${result.correct}`,
+    `Incorrectas: ${result.incorrect}`,
+    `Omitidas: ${result.omitted}`,
+    `Porcentaje de acierto: ${result.score}%`,
+    "",
+    "RESULTADO POR AREA"
   ];
-  downloadFile("reporte-simulador-icfes.txt", lines.join("\n"), "text/plain;charset=utf-8");
+
+  if (!result.byArea.length) {
+    lines.push("No hay preguntas calificables disponibles.");
+  } else {
+    result.byArea.forEach(row => {
+      lines.push(`${row.area}: ${row.correct}/${row.total} correctas | Respondidas: ${row.answered} | Incorrectas: ${row.incorrect} | Omitidas: ${row.omitted} | Resultado: ${row.percent}%`);
+    });
+  }
+
+  return lines;
 }
 
-function csvEscape(value) {
-  const text = String(value ?? "");
-  return /[",\n]/.test(text) ? `"${text.replace(/"/g, '""')}"` : text;
+function createChartPdf(result) {
+  const pageWidth = 595.28;
+  const pageHeight = 841.89;
+  const marginX = 44;
+  const rightX = pageWidth - marginX;
+  const colors = {
+    primary: [0.14, 0.33, 0.76],
+    accent: [0.02, 0.65, 0.47],
+    danger: [0.85, 0.31, 0.31],
+    warning: [0.96, 0.62, 0.04],
+    text: [0.06, 0.13, 0.20],
+    muted: [0.38, 0.45, 0.55],
+    line: [0.86, 0.90, 0.95],
+    panel: [0.97, 0.98, 0.99],
+    white: [1, 1, 1]
+  };
+
+  const ops = [];
+  pdfRect(ops, 0, 0, pageWidth, pageHeight, colors.white);
+  pdfText(ops, "INFORME DE RESULTADOS - SIMULADOR ICFES SABER 11", marginX, 800, 15, true, colors.primary);
+  pdfText(ops, `Estudiante: ${result.studentName}`, marginX, 776, 12, true, colors.text);
+  pdfText(ops, `Grupo: ${result.studentGroup}`, marginX, 758, 10.5, true, colors.text);
+  pdfText(ops, `${result.sessionLabel} - ${result.sessionTitle} | ${result.scopeLabel}`, marginX, 740, 9.8, false, colors.muted);
+  pdfText(ops, `Fecha: ${result.finishedAtLabel} | Modo: ${result.modeLabel} | Tiempo empleado: ${result.elapsedLabel}`, marginX, 724, 9.8, false, colors.muted);
+
+  const cardY = 664;
+  const cardW = 116;
+  const cardGap = 10;
+  const cards = [
+    ["Acierto", `${result.score}%`, colors.primary],
+    ["Correctas", String(result.correct), colors.accent],
+    ["Incorrectas", String(result.incorrect), colors.danger],
+    ["Omitidas", String(result.omitted), colors.warning]
+  ];
+  cards.forEach((card, index) => {
+    const x = marginX + index * (cardW + cardGap);
+    pdfRoundRect(ops, x, cardY, cardW, 58, 8, colors.panel, colors.line);
+    pdfText(ops, card[0], x + 12, cardY + 37, 8.5, false, colors.muted);
+    pdfText(ops, card[1], x + 12, cardY + 16, 20, true, card[2]);
+  });
+
+  // Bloque grafico general: se separan titulos, metadatos y barras para evitar superposiciones en el PDF.
+  const summaryTitleY = 614;
+  pdfText(ops, "RESUMEN GRAFICO GENERAL", marginX, summaryTitleY, 11.5, true, colors.text);
+  pdfText(ops, `Preguntas calificables: ${result.scored} | Respondidas: ${result.answered} | Disponibles: ${result.totalQuestions}`, marginX, summaryTitleY - 24, 9.2, false, colors.muted);
+
+  const scoreX = marginX;
+  const scoreY = 544;
+  const scoreW = rightX - marginX;
+  pdfText(ops, `Porcentaje de acierto: ${result.score}%`, scoreX, scoreY + 31, 9.5, true, colors.text);
+  pdfRect(ops, scoreX, scoreY, scoreW, 16, colors.line);
+  pdfRect(ops, scoreX, scoreY, scoreW * Math.max(0, Math.min(result.score, 100)) / 100, 16, colors.primary);
+
+  pdfText(ops, "Distribucion de respuestas", marginX, 508, 9.5, true, colors.text);
+  const total = Math.max(result.scored, 1);
+  let cursorX = marginX;
+  const stackedY = 482;
+  const stackedW = rightX - marginX;
+  const segments = [
+    ["Correctas", result.correct, colors.accent],
+    ["Incorrectas", result.incorrect, colors.danger],
+    ["Omitidas", result.omitted, colors.warning]
+  ];
+  pdfRect(ops, marginX, stackedY, stackedW, 18, colors.line);
+  segments.forEach(segment => {
+    const width = stackedW * segment[1] / total;
+    if (width > 0) pdfRect(ops, cursorX, stackedY, width, 18, segment[2]);
+    cursorX += width;
+  });
+  let labelY = 458;
+  segments.forEach(segment => {
+    const pct = Math.round((segment[1] / total) * 100);
+    pdfRect(ops, marginX, labelY - 4, 8, 8, segment[2]);
+    pdfText(ops, `${segment[0]}: ${segment[1]} (${pct}%)`, marginX + 14, labelY - 2, 9, false, colors.text);
+    labelY -= 16;
+  });
+
+  let y = 396;
+  pdfText(ops, "RESULTADO POR AREA", marginX, y, 11.5, true, colors.text);
+  y -= 22;
+
+  if (!result.byArea.length) {
+    pdfText(ops, "No hay preguntas calificables disponibles para graficar.", marginX, y, 9.5, false, colors.muted);
+  } else {
+    result.byArea.forEach(row => {
+      if (y < 90) return;
+      pdfText(ops, `${row.area}`, marginX, y, 9.2, true, colors.text);
+      pdfText(ops, `${row.correct}/${row.total} correctas | ${row.percent}%`, rightX - 116, y, 9.2, false, colors.text);
+      const barY = y - 17;
+      pdfRect(ops, marginX, barY, 400, 12, colors.line);
+      pdfRect(ops, marginX, barY, 400 * Math.max(0, Math.min(row.percent, 100)) / 100, 12, colors.accent);
+      y -= 42;
+    });
+  }
+
+  y -= 8;
+  pdfText(ops, "Nota: Este PDF resume el desempeno general y por area mediante graficos. La revision detallada por pregunta se conserva solo en la pagina de resultados del simulador.", marginX, Math.max(y, 70), 8.5, false, colors.muted, 92);
+  pdfText(ops, "Pagina 1 de 1", marginX, 30, 8, false, colors.muted);
+
+  return buildPdfFromStreams([ops.join("\n")], pageWidth, pageHeight);
 }
 
-function downloadFile(filename, content, type) {
-  const blob = new Blob([content], { type });
+function buildPdfFromStreams(streams, pageWidth = 595.28, pageHeight = 841.89) {
+  const objects = [];
+  objects[1] = "<< /Type /Catalog /Pages 2 0 R >>";
+  objects[3] = "<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica /Encoding /WinAnsiEncoding >>";
+  objects[4] = "<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding >>";
+
+  const kids = [];
+  streams.forEach((stream, index) => {
+    const pageObj = 5 + index * 2;
+    const contentObj = pageObj + 1;
+    kids.push(`${pageObj} 0 R`);
+    objects[pageObj] = `<< /Type /Page /Parent 2 0 R /MediaBox [0 0 ${pageWidth} ${pageHeight}] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents ${contentObj} 0 R >>`;
+    objects[contentObj] = `<< /Length ${stream.length} >>\nstream\n${stream}\nendstream`;
+  });
+
+  objects[2] = `<< /Type /Pages /Kids [${kids.join(" ")}] /Count ${streams.length} >>`;
+
+  let pdf = "%PDF-1.4\n";
+  const offsets = [0];
+  for (let i = 1; i < objects.length; i += 1) {
+    offsets[i] = pdf.length;
+    pdf += `${i} 0 obj\n${objects[i]}\nendobj\n`;
+  }
+
+  const xrefOffset = pdf.length;
+  pdf += `xref\n0 ${objects.length}\n0000000000 65535 f \n`;
+  for (let i = 1; i < objects.length; i += 1) {
+    pdf += `${String(offsets[i]).padStart(10, "0")} 00000 n \n`;
+  }
+  pdf += `trailer\n<< /Size ${objects.length} /Root 1 0 R >>\nstartxref\n${xrefOffset}\n%%EOF`;
+  return pdf;
+}
+
+function pdfText(ops, text, x, y, size = 9.5, bold = false, color = [0, 0, 0], maxChars = 0) {
+  const safe = pdfSafeText(text);
+  const lines = maxChars ? wrapPdfLine(safe, maxChars) : [safe];
+  lines.forEach((line, index) => {
+    const yy = y - index * (size + 3);
+    ops.push(`${color.map(formatPdfNumber).join(" ")} rg`);
+    ops.push("BT");
+    ops.push(`/${bold ? "F2" : "F1"} ${formatPdfNumber(size)} Tf`);
+    ops.push(`1 0 0 1 ${formatPdfNumber(x)} ${formatPdfNumber(yy)} Tm (${escapePdfText(line)}) Tj`);
+    ops.push("ET");
+  });
+}
+
+function pdfRect(ops, x, y, width, height, fill = [0, 0, 0], stroke = null) {
+  ops.push(`${fill.map(formatPdfNumber).join(" ")} rg`);
+  if (stroke) ops.push(`${stroke.map(formatPdfNumber).join(" ")} RG`);
+  ops.push(`${formatPdfNumber(x)} ${formatPdfNumber(y)} ${formatPdfNumber(width)} ${formatPdfNumber(height)} re ${stroke ? "B" : "f"}`);
+}
+
+function pdfRoundRect(ops, x, y, width, height, radius, fill, stroke = null) {
+  // Rectangulo simple con esquinas visualmente limpias para mantener compatibilidad PDF basica.
+  pdfRect(ops, x, y, width, height, fill, stroke);
+}
+
+function formatPdfNumber(value) {
+  return Number(value).toFixed(3).replace(/\.000$/, "");
+}
+
+
+function createSimplePdf(lines) {
+  const pageWidth = 595.28;
+  const pageHeight = 841.89;
+  const marginX = 44;
+  const topY = 800;
+  const lineHeight = 13;
+  const maxChars = 92;
+  const maxLinesPerPage = 55;
+  const normalizedLines = [];
+
+  lines.forEach(line => {
+    const wrapped = wrapPdfLine(pdfSafeText(line), maxChars);
+    if (!wrapped.length) normalizedLines.push("");
+    else normalizedLines.push(...wrapped);
+  });
+
+  const pages = [];
+  for (let i = 0; i < normalizedLines.length; i += maxLinesPerPage) {
+    pages.push(normalizedLines.slice(i, i + maxLinesPerPage));
+  }
+  if (!pages.length) pages.push(["Reporte sin datos"]);
+
+  const objects = [];
+  objects[1] = "<< /Type /Catalog /Pages 2 0 R >>";
+  objects[3] = "<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica /Encoding /WinAnsiEncoding >>";
+  objects[4] = "<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding >>";
+
+  const kids = [];
+  pages.forEach((pageLines, index) => {
+    const pageObj = 5 + index * 2;
+    const contentObj = pageObj + 1;
+    kids.push(`${pageObj} 0 R`);
+    const stream = buildPdfPageStream(pageLines, index + 1, pages.length, marginX, topY, lineHeight);
+    objects[pageObj] = `<< /Type /Page /Parent 2 0 R /MediaBox [0 0 ${pageWidth} ${pageHeight}] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents ${contentObj} 0 R >>`;
+    objects[contentObj] = `<< /Length ${stream.length} >>\nstream\n${stream}\nendstream`;
+  });
+
+  objects[2] = `<< /Type /Pages /Kids [${kids.join(" ")}] /Count ${pages.length} >>`;
+
+  let pdf = "%PDF-1.4\n";
+  const offsets = [0];
+  for (let i = 1; i < objects.length; i += 1) {
+    offsets[i] = pdf.length;
+    pdf += `${i} 0 obj\n${objects[i]}\nendobj\n`;
+  }
+
+  const xrefOffset = pdf.length;
+  pdf += `xref\n0 ${objects.length}\n0000000000 65535 f \n`;
+  for (let i = 1; i < objects.length; i += 1) {
+    pdf += `${String(offsets[i]).padStart(10, "0")} 00000 n \n`;
+  }
+  pdf += `trailer\n<< /Size ${objects.length} /Root 1 0 R >>\nstartxref\n${xrefOffset}\n%%EOF`;
+  return pdf;
+}
+
+function buildPdfPageStream(lines, pageNumber, totalPages, marginX, topY, lineHeight) {
+  const ops = ["BT"];
+  lines.forEach((line, index) => {
+    const y = topY - index * lineHeight;
+    const isTitle = pageNumber === 1 && index === 0;
+    const isSection = /^[A-Z0-9 ]{5,}$/.test(line) && line.length < 48 && index !== 0;
+    ops.push(`${isTitle || isSection ? "/F2" : "/F1"} ${isTitle ? 15 : isSection ? 11 : 9.5} Tf`);
+    ops.push(`1 0 0 1 ${marginX} ${y} Tm (${escapePdfText(line)}) Tj`);
+  });
+  ops.push(`/F1 8 Tf`);
+  ops.push(`1 0 0 1 ${marginX} 30 Tm (Pagina ${pageNumber} de ${totalPages}) Tj`);
+  ops.push("ET");
+  return ops.join("\n");
+}
+
+function wrapPdfLine(text, maxChars) {
+  const clean = String(text || "");
+  if (!clean) return [""];
+  const words = clean.split(/\s+/);
+  const lines = [];
+  let current = "";
+  words.forEach(word => {
+    if (!current) {
+      current = word;
+    } else if ((current + " " + word).length <= maxChars) {
+      current += " " + word;
+    } else {
+      lines.push(current);
+      current = word;
+    }
+  });
+  if (current) lines.push(current);
+  return lines;
+}
+
+function pdfSafeText(value) {
+  return String(value ?? "")
+    .replace(/–|—/g, "-")
+    .replace(/“|”/g, '"')
+    .replace(/‘|’/g, "'")
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^\x20-\x7E]/g, " ");
+}
+
+function escapePdfText(text) {
+  return String(text).replace(/\\/g, "\\\\").replace(/\(/g, "\\(").replace(/\)/g, "\\)");
+}
+
+function slugify(value) {
+  const slug = pdfSafeText(value).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
+  return slug || "estudiante";
+}
+
+function downloadBlob(filename, blob) {
   const url = URL.createObjectURL(blob);
   const a = document.createElement("a");
   a.href = url;

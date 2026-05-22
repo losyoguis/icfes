@@ -3,9 +3,14 @@
 Versión actualizada con banco de datos incorporado hasta **Inglés 134**.
 
 ## Actualización realizada
+- Se solicita **nombre y apellido del estudiante** antes de ingresar al simulador.
+- El nombre del estudiante aparece en la pantalla inicial y en el **informe detallado final**.
+- Al finalizar la prueba, el sistema muestra un informe con resumen general, resultado por área y revisión detallada por pregunta.
+- Se eliminaron las descargas de resultados en CSV y TXT.
+- La descarga de resultados queda disponible únicamente como **informe PDF**.
 - Al seleccionar una respuesta, la pantalla permanece en la misma zona; no avanza automáticamente.
 - La navegación entre preguntas se realiza únicamente con Anterior, Siguiente o el panel numérico.
-- Los botones de navegación ahora dicen “Anterior” y “Siguiente”.
+- Los botones de navegación dicen “Anterior” y “Siguiente”.
 - Al cambiar de pregunta, la vista se ubica al inicio del contenido de la página.
 - Se mantienen las preguntas previamente disponibles de la Sección 2.
 - Se conserva la tanda de Inglés 108 a 114: comprensión de lectura “I’ll Be a Nurse”.
