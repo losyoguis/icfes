@@ -67,3 +67,45 @@ El informe institucional incluye:
 - Recomendaciones pedagógicas para la institución.
 
 > Nota: Este análisis es una escala interna de seguimiento pedagógico. No reemplaza el reporte oficial del ICFES.
+
+## Corrección incluida en esta versión
+
+Esta versión corrige el error:
+
+```txt
+TypeError: sheet.clearCharts is not a function
+```
+
+La limpieza de gráficos ahora se hace con `getCharts()` y `removeChart()`, que son compatibles con Google Apps Script.
+
+Si ya tenías el backend desplegado, copia de nuevo todo el contenido de `google-apps-script/Code.gs`, pégalo en tu proyecto de Apps Script y crea una nueva implementación o actualiza la implementación existente.
+
+
+## Corrección incluida en esta versión: envío de correo
+
+Esta versión corrige el problema en el que la página mostraba que la solicitud de envío se había realizado, pero el correo no llegaba.
+
+Cambios realizados:
+
+- La app ahora envía el informe al Web App como `application/x-www-form-urlencoded` usando el campo `payload`, que Google Apps Script recibe de forma más estable.
+- El backend también acepta JSON directo y formulario codificado como respaldo.
+- Si ejecutas manualmente `doPost` desde Apps Script, ya no aparecerá el error `No se recibieron datos del informe`; esa función solo recibe datos reales cuando la llama la app.
+- Se agregó la función `probarEnvioConDatosDePrueba()` para autorizar permisos y verificar el envío real de correo.
+
+## Prueba recomendada después de pegar el nuevo Code.gs
+
+1. En Apps Script, pega de nuevo todo el contenido de `google-apps-script/Code.gs`.
+2. Guarda el proyecto.
+3. En el selector de funciones, elige:
+
+```js
+probarEnvioConDatosDePrueba
+```
+
+4. Haz clic en **Ejecutar**.
+5. Autoriza los permisos solicitados.
+6. Verifica que llegue un correo de prueba a `pruebas@iemanueljbetancur.edu.co`.
+7. Luego ve a **Implementar > Administrar implementaciones > Editar > Nueva versión > Implementar**.
+8. Prueba nuevamente desde la app del simulador.
+
+Importante: no pruebes el envío ejecutando manualmente `doPost`, porque `doPost` necesita recibir datos desde la app. Para pruebas manuales usa `probarEnvioConDatosDePrueba()`.

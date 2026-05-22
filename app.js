@@ -1535,14 +1535,18 @@ async function sendReportEmail({ automatic = false } = {}) {
     const pdf = createChartPdf(result);
     const payload = buildReportEmailPayload(result, pdf);
 
+    const formPayload = new URLSearchParams();
+    formPayload.set("payload", JSON.stringify(payload));
+
     await fetch(REPORT_EMAIL_ENDPOINT, {
       method: "POST",
       mode: "no-cors",
-      headers: { "Content-Type": "text/plain;charset=utf-8" },
-      body: JSON.stringify(payload)
+      credentials: "include",
+      headers: { "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8" },
+      body: formPayload.toString()
     });
 
-    updateReportEmailStatus(`Solicitud de envío realizada. Revisa el correo ${result.studentEmail} y la copia institucional ${REPORT_INSTITUTION_EMAIL}.`, "success");
+    updateReportEmailStatus(`Solicitud de envío enviada al backend institucional. Revisa el correo ${result.studentEmail} y la copia institucional ${REPORT_INSTITUTION_EMAIL}.`, "success");
     return true;
   } catch (error) {
     updateReportEmailStatus("No fue posible enviar el informe. Verifica la conexión o la URL de Google Apps Script.", "error");
