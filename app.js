@@ -37,10 +37,12 @@ const STUDENT_KEY = "simulador_icfes_saber11_estudiante_v2";
 // 1. Copia el código de google-apps-script/Code.gs en Apps Script.
 // 2. Despliégalo como aplicación web.
 // 3. Pega aquí la URL terminada en /exec para activar el envío automático real.
-const REPORT_EMAIL_ENDPOINT = "";
+const REPORT_EMAIL_ENDPOINT = "https://script.google.com/a/macros/iemanueljbetancur.edu.co/s/AKfycbwCl5fXOLLDA6fKjk1S-eeLIfuYKa0WoTO6IT1E-di8De-DztCX7TQxtIKkv9SK_S8/exec";
 const REPORT_INSTITUTION_EMAIL = "pruebas@iemanueljbetancur.edu.co";
+const INSTITUTION_NAME = "Institución Educativa Manuel J. Betancur";
+const INSTITUTION_SHORT_NAME = "I.E. Manuel J. Betancur";
 const REPORT_AUTOSEND_ON_FINISH = true;
-const REPORT_APP_VERSION = "ICFES-S2-1-134-email-v1";
+const REPORT_APP_VERSION = "ICFES-S2-1-134-institucional-v2";
 
 const app = document.getElementById("app");
 const homeBtn = document.getElementById("homeBtn");
@@ -444,9 +446,9 @@ function renderAccess(pendingScope = null) {
   app.innerHTML = `
     <section class="access-panel" aria-labelledby="accessTitle">
       <div class="access-card">
-        <p class="eyebrow">Ingreso del estudiante</p>
+        <p class="eyebrow">${escapeHtml(INSTITUTION_NAME)}</p>
         <h2 id="accessTitle">Antes de iniciar, registra tus datos</h2>
-        <p class="access-intro">Esta información aparecerá en la página de resultados, en el informe final en PDF y permitirá el envío automático del informe al estudiante y al equipo institucional.</p>
+        <p class="access-intro">Esta información aparecerá en la página de resultados, en el informe final en PDF y permitirá el envío automático del informe al estudiante y al equipo institucional de la ${escapeHtml(INSTITUTION_NAME)}.</p>
         <form id="studentForm" class="student-form">
           <div class="form-grid student-form-grid">
             <label class="field field-wide">
@@ -568,7 +570,7 @@ function renderHome() {
   homeBtn.classList.add("hidden");
   app.innerHTML = `
     <section class="hero">
-      <p class="eyebrow">Estructura del material</p>
+      <p class="eyebrow">${escapeHtml(INSTITUTION_NAME)}</p>
       <h2>Simulador ICFES Saber 11° por sesiones, bloques y áreas</h2>
       <p>
         Selecciona una sesión completa o un bloque específico para iniciar el simulacro, practicar con retroalimentación o entrenar sin límite de tiempo.
@@ -583,7 +585,7 @@ function renderHome() {
 
     <section class="student-strip" aria-label="Datos del estudiante">
       <div>
-        <p class="eyebrow">Estudiante registrado</p>
+        <p class="eyebrow">Estudiante registrado · ${escapeHtml(INSTITUTION_SHORT_NAME)}</p>
         <strong>${getStudentFullName()}</strong>
         <span class="student-group-label">Grupo: ${getStudentGroup()} · Correo: ${getStudentEmail()}</span>
       </div>
@@ -1035,6 +1037,7 @@ function renderResults() {
       <td>${row.incorrect}</td>
       <td>${row.omitted}</td>
       <td><strong>${row.percent}%</strong></td>
+      <td>${escapeHtml(row.level || getInternalPerformanceLevel(row.percent))}</td>
     </tr>
   `).join("");
 
@@ -1051,20 +1054,22 @@ function renderResults() {
     <section class="results-panel">
       <div class="result-top">
         <div>
-          <p class="eyebrow">Informe detallado de resultados</p>
-          <h2>${escapeHtml(result.sessionLabel)} · ${escapeHtml(result.scopeLabel)}</h2>
+          <p class="eyebrow">${escapeHtml(result.institutionName)}</p>
+          <h2>Informe detallado de resultados · ${escapeHtml(result.sessionLabel)} · ${escapeHtml(result.scopeLabel)}</h2>
           <p class="student-result-name">Estudiante: <strong>${escapeHtml(result.studentName)}</strong> · Grupo: <strong>${escapeHtml(result.studentGroup)}</strong> · Correo: <strong>${escapeHtml(result.studentEmail)}</strong></p>
         </div>
         <span class="pill success">Puntaje interno: ${result.score}%</span>
       </div>
 
       <div class="report-meta-grid">
+        <div><span>Institución educativa</span><strong>${escapeHtml(result.institutionName)}</strong></div>
         <div><span>Fecha de finalización</span><strong>${escapeHtml(result.finishedAtLabel)}</strong></div>
         <div><span>Grupo</span><strong>${escapeHtml(result.studentGroup)}</strong></div>
         <div><span>Correo del estudiante</span><strong>${escapeHtml(result.studentEmail)}</strong></div>
         <div><span>Modo</span><strong>${escapeHtml(result.modeLabel)}</strong></div>
         <div><span>Preguntas disponibles</span><strong>${result.totalQuestions}</strong></div>
         <div><span>Tiempo empleado</span><strong>${escapeHtml(result.elapsedLabel)}</strong></div>
+        <div><span>Nivel interno</span><strong>${escapeHtml(result.performanceLevel)}</strong></div>
       </div>
 
       <div class="result-grid">
@@ -1072,6 +1077,7 @@ function renderResults() {
         <div class="result-card"><strong>${result.correct}</strong><span>Correctas</span></div>
         <div class="result-card"><strong>${result.incorrect}</strong><span>Incorrectas</span></div>
         <div class="result-card"><strong>${result.omitted}</strong><span>Omitidas</span></div>
+        <div class="result-card level-card"><strong>${escapeHtml(result.performanceLevel)}</strong><span>Nivel interno</span></div>
       </div>
 
       <div class="results-chart-grid" aria-label="Gráficos de resultados">
@@ -1082,8 +1088,8 @@ function renderResults() {
       <h3>Resultado por área</h3>
       <div class="table-wrap">
         <table class="structure-table">
-          <thead><tr><th>Área</th><th>Preguntas</th><th>Respondidas</th><th>Correctas</th><th>Incorrectas</th><th>Omitidas</th><th>Resultado</th></tr></thead>
-          <tbody>${areaRows || `<tr><td colspan="7">No hay preguntas calificables disponibles.</td></tr>`}</tbody>
+          <thead><tr><th>Área</th><th>Preguntas</th><th>Respondidas</th><th>Correctas</th><th>Incorrectas</th><th>Omitidas</th><th>Resultado</th><th>Nivel interno</th></tr></thead>
+          <tbody>${areaRows || `<tr><td colspan="8">No hay preguntas calificables disponibles.</td></tr>`}</tbody>
         </table>
       </div>
 
@@ -1095,7 +1101,7 @@ function renderResults() {
       <div id="emailReportStatus" class="email-report-status" role="status" aria-live="polite"></div>
 
       <h3 style="margin-top:24px">Revisión detallada por pregunta</h3>
-      <p class="footer-note">Esta sección se conserva en pantalla para revisión pedagógica. El PDF descargable contiene el resumen general y los gráficos, sin la revisión detallada por pregunta.</p>
+      <p class="footer-note">Esta sección se conserva en pantalla para revisión pedagógica. El PDF descargable contiene el resumen general y los gráficos, sin la revisión detallada por pregunta. El backend de Google Sheets consolida los resultados para el informe institucional de la I.E. Manuel J. Betancur.</p>
       <div class="review-list">${review}</div>
     </section>
   `;
@@ -1159,7 +1165,7 @@ function renderAreaChart(result) {
     <div class="area-chart-row">
       <div class="area-chart-label">
         <strong>${escapeHtml(row.area)}</strong>
-        <span>${row.correct}/${row.total} correctas · ${row.answered} respondidas</span>
+        <span>${row.correct}/${row.total} correctas · ${row.answered} respondidas · ${escapeHtml(row.level || getInternalPerformanceLevel(row.percent))}</span>
       </div>
       <div class="area-chart-track"><span style="width:${row.percent}%"></span></div>
       <strong class="area-chart-percent">${row.percent}%</strong>
@@ -1256,6 +1262,22 @@ function getModeLabel(mode) {
   }[mode] || mode;
 }
 
+function getInternalPerformanceLevel(score) {
+  const value = Number(score) || 0;
+  if (value >= 76) return "Nivel 4 - Avanzado";
+  if (value >= 61) return "Nivel 3 - Satisfactorio";
+  if (value >= 41) return "Nivel 2 - Básico";
+  return "Nivel 1 - Bajo";
+}
+
+function getInternalPerformanceRecommendation(score) {
+  const value = Number(score) || 0;
+  if (value >= 76) return "Mantener desempeño alto con simulacros cronometrados y preguntas de mayor complejidad.";
+  if (value >= 61) return "Fortalecer áreas específicas con error recurrente y mejorar velocidad de respuesta.";
+  if (value >= 41) return "Implementar refuerzo por competencias, revisión de conceptos base y práctica guiada.";
+  return "Priorizar acompañamiento intensivo, lectura de enunciados y recuperación de aprendizajes fundamentales.";
+}
+
 function escapeAttr(value) {
   return String(value)
     .replace(/&/g, "&amp;")
@@ -1349,7 +1371,16 @@ function buildResultData() {
     const areaIncorrect = questions.filter(q => state.answers[getAnswerKey(q.number)] && state.answers[getAnswerKey(q.number)] !== q.correctAnswer).length;
     const areaOmitted = questions.length - areaCorrect - areaIncorrect;
     const percent = questions.length ? Math.round((areaCorrect / questions.length) * 100) : 0;
-    return { area, total: questions.length, answered: areaAnswered, correct: areaCorrect, incorrect: areaIncorrect, omitted: areaOmitted, percent };
+    return {
+      area,
+      total: questions.length,
+      answered: areaAnswered,
+      correct: areaCorrect,
+      incorrect: areaIncorrect,
+      omitted: areaOmitted,
+      percent,
+      level: getInternalPerformanceLevel(percent)
+    };
   });
 
   const details = loadedQuestions.map(q => {
@@ -1368,7 +1399,11 @@ function buildResultData() {
     };
   });
 
+  const performanceLevel = getInternalPerformanceLevel(score);
+  const performanceRecommendation = getInternalPerformanceRecommendation(score);
+
   return {
+    institutionName: INSTITUTION_NAME,
     studentName: getStudentFullName(),
     studentGroup: getStudentGroup(),
     studentEmail: getStudentEmail(),
@@ -1387,6 +1422,8 @@ function buildResultData() {
     incorrect,
     omitted,
     score,
+    performanceLevel,
+    performanceRecommendation,
     byArea,
     details
   };
@@ -1422,9 +1459,9 @@ function downloadPdfReport() {
 
 function getReportEmailInitialMessage() {
   if (!REPORT_EMAIL_ENDPOINT) {
-    return `Envío automático pendiente de activar: pega la URL /exec de Google Apps Script en la constante REPORT_EMAIL_ENDPOINT. El informe se enviará al estudiante y a ${REPORT_INSTITUTION_EMAIL}.`;
+    return `Envío automático pendiente de activar: pega la URL /exec de Google Apps Script en la constante REPORT_EMAIL_ENDPOINT. El informe se enviará al estudiante y a ${REPORT_INSTITUTION_EMAIL}, y quedará registrado para el análisis institucional de la ${INSTITUTION_NAME}.`;
   }
-  return `Al finalizar, el informe se envía automáticamente al estudiante y a ${REPORT_INSTITUTION_EMAIL}. También puedes reenviarlo desde este botón.`;
+  return `Al finalizar, el informe se envía automáticamente al estudiante y a ${REPORT_INSTITUTION_EMAIL}. Además, Google Sheets actualiza el análisis institucional por estudiante, grupo y área.`;
 }
 
 function updateReportEmailStatus(message, kind = "info") {
@@ -1435,12 +1472,13 @@ function updateReportEmailStatus(message, kind = "info") {
 }
 
 function getReportFileName(result) {
-  return `informe-icfes-${slugify(result.studentName)}-${slugify(result.studentGroup)}.pdf`;
+  return `informe-icfes-manuel-j-betancur-${slugify(result.studentName)}-${slugify(result.studentGroup)}.pdf`;
 }
 
 function buildReportEmailPayload(result, pdf) {
   return {
     version: REPORT_APP_VERSION,
+    institutionName: result.institutionName,
     institutionEmail: REPORT_INSTITUTION_EMAIL,
     studentName: result.studentName,
     studentGroup: result.studentGroup,
@@ -1460,6 +1498,8 @@ function buildReportEmailPayload(result, pdf) {
     incorrect: result.incorrect,
     omitted: result.omitted,
     score: result.score,
+    performanceLevel: result.performanceLevel,
+    performanceRecommendation: result.performanceRecommendation,
     byArea: result.byArea,
     details: result.details,
     pdfFileName: getReportFileName(result),
@@ -1518,6 +1558,7 @@ async function sendReportEmail({ automatic = false } = {}) {
 function buildPdfReportLines(result) {
   const lines = [
     "REPORTE DETALLADO - SIMULADOR ICFES SABER 11",
+    `${result.institutionName}`,
     "",
     `Estudiante: ${result.studentName}`,
     `Grupo: ${result.studentGroup}`,
@@ -1536,6 +1577,8 @@ function buildPdfReportLines(result) {
     `Incorrectas: ${result.incorrect}`,
     `Omitidas: ${result.omitted}`,
     `Porcentaje de acierto: ${result.score}%`,
+    `Nivel de desempeno interno: ${result.performanceLevel}`,
+    `Recomendacion: ${result.performanceRecommendation}`,
     "",
     "RESULTADO POR AREA"
   ];
@@ -1570,14 +1613,15 @@ function createChartPdf(result) {
 
   const ops = [];
   pdfRect(ops, 0, 0, pageWidth, pageHeight, colors.white);
-  pdfText(ops, "INFORME DE RESULTADOS - SIMULADOR ICFES SABER 11", marginX, 800, 15, true, colors.primary);
-  pdfText(ops, `Estudiante: ${result.studentName}`, marginX, 776, 12, true, colors.text);
-  pdfText(ops, `Grupo: ${result.studentGroup}`, marginX, 758, 10.5, true, colors.text);
-  pdfText(ops, `Correo: ${result.studentEmail}`, marginX, 741, 9.8, false, colors.text);
-  pdfText(ops, `${result.sessionLabel} - ${result.sessionTitle} | ${result.scopeLabel}`, marginX, 724, 9.8, false, colors.muted);
-  pdfText(ops, `Fecha: ${result.finishedAtLabel} | Modo: ${result.modeLabel} | Tiempo empleado: ${result.elapsedLabel}`, marginX, 708, 9.8, false, colors.muted);
+  pdfText(ops, "INFORME DE RESULTADOS - SIMULADOR ICFES SABER 11", marginX, 804, 14.5, true, colors.primary);
+  pdfText(ops, result.institutionName || INSTITUTION_NAME, marginX, 784, 11, true, colors.text);
+  pdfText(ops, `Estudiante: ${result.studentName}`, marginX, 764, 11.5, true, colors.text);
+  pdfText(ops, `Grupo: ${result.studentGroup} | Correo: ${result.studentEmail}`, marginX, 747, 9.5, false, colors.text, 92);
+  pdfText(ops, `${result.sessionLabel} - ${result.sessionTitle} | ${result.scopeLabel}`, marginX, 731, 9.5, false, colors.muted);
+  pdfText(ops, `Fecha: ${result.finishedAtLabel} | Modo: ${result.modeLabel} | Tiempo empleado: ${result.elapsedLabel}`, marginX, 716, 9.2, false, colors.muted, 92);
+  pdfText(ops, `Nivel interno: ${result.performanceLevel}`, marginX, 701, 9.2, true, colors.primary);
 
-  const cardY = 664;
+  const cardY = 628;
   const cardW = 116;
   const cardGap = 10;
   const cards = [
@@ -1594,21 +1638,22 @@ function createChartPdf(result) {
   });
 
   // Bloque grafico general: se separan titulos, metadatos y barras para evitar superposiciones en el PDF.
-  const summaryTitleY = 614;
+  const summaryTitleY = 578;
   pdfText(ops, "RESUMEN GRAFICO GENERAL", marginX, summaryTitleY, 11.5, true, colors.text);
   pdfText(ops, `Preguntas calificables: ${result.scored} | Respondidas: ${result.answered} | Disponibles: ${result.totalQuestions}`, marginX, summaryTitleY - 24, 9.2, false, colors.muted);
 
   const scoreX = marginX;
-  const scoreY = 544;
+  const scoreY = 508;
   const scoreW = rightX - marginX;
   pdfText(ops, `Porcentaje de acierto: ${result.score}%`, scoreX, scoreY + 31, 9.5, true, colors.text);
+  pdfText(ops, `Recomendacion: ${result.performanceRecommendation}`, scoreX, scoreY - 15, 8.2, false, colors.muted, 112);
   pdfRect(ops, scoreX, scoreY, scoreW, 16, colors.line);
   pdfRect(ops, scoreX, scoreY, scoreW * Math.max(0, Math.min(result.score, 100)) / 100, 16, colors.primary);
 
-  pdfText(ops, "Distribucion de respuestas", marginX, 508, 9.5, true, colors.text);
+  pdfText(ops, "Distribucion de respuestas", marginX, 472, 9.5, true, colors.text);
   const total = Math.max(result.scored, 1);
   let cursorX = marginX;
-  const stackedY = 482;
+  const stackedY = 446;
   const stackedW = rightX - marginX;
   const segments = [
     ["Correctas", result.correct, colors.accent],
@@ -1621,7 +1666,7 @@ function createChartPdf(result) {
     if (width > 0) pdfRect(ops, cursorX, stackedY, width, 18, segment[2]);
     cursorX += width;
   });
-  let labelY = 458;
+  let labelY = 422;
   segments.forEach(segment => {
     const pct = Math.round((segment[1] / total) * 100);
     pdfRect(ops, marginX, labelY - 4, 8, 8, segment[2]);
@@ -1629,7 +1674,7 @@ function createChartPdf(result) {
     labelY -= 16;
   });
 
-  let y = 396;
+  let y = 360;
   pdfText(ops, "RESULTADO POR AREA", marginX, y, 11.5, true, colors.text);
   y -= 22;
 
@@ -1639,7 +1684,7 @@ function createChartPdf(result) {
     result.byArea.forEach(row => {
       if (y < 90) return;
       pdfText(ops, `${row.area}`, marginX, y, 9.2, true, colors.text);
-      pdfText(ops, `${row.correct}/${row.total} correctas | ${row.percent}%`, rightX - 116, y, 9.2, false, colors.text);
+      pdfText(ops, `${row.correct}/${row.total} correctas | ${row.percent}% | ${row.level || getInternalPerformanceLevel(row.percent)}`, rightX - 186, y, 8.8, false, colors.text);
       const barY = y - 17;
       pdfRect(ops, marginX, barY, 400, 12, colors.line);
       pdfRect(ops, marginX, barY, 400 * Math.max(0, Math.min(row.percent, 100)) / 100, 12, colors.accent);
@@ -1648,7 +1693,7 @@ function createChartPdf(result) {
   }
 
   y -= 8;
-  pdfText(ops, "Nota: Este PDF resume el desempeno general y por area mediante graficos. La revision detallada por pregunta se conserva solo en la pagina de resultados del simulador.", marginX, Math.max(y, 70), 8.5, false, colors.muted, 92);
+  pdfText(ops, "Nota: Este PDF resume el desempeno individual de la Institucion Educativa Manuel J. Betancur. Google Sheets consolida el informe general por estudiante, grupo y area. La revision detallada por pregunta se conserva en la pagina de resultados.", marginX, Math.max(y, 70), 8.5, false, colors.muted, 92);
   pdfText(ops, "Pagina 1 de 1", marginX, 30, 8, false, colors.muted);
 
   return buildPdfFromStreams([ops.join("\n")], pageWidth, pageHeight);
