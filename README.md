@@ -86,3 +86,7 @@ El dashboard tiene doble vía de lectura:
 1. Apps Script Web App.
 2. Lectura directa de respaldo desde Google Sheets, si Apps Script no responde.
 
+
+## Actualización v7
+
+Se reforzó el envío real de resultados a Google Sheets y al dashboard institucional. El sistema registra primero un resumen liviano confirmado y luego envía el detalle por pregunta en lotes pequeños.

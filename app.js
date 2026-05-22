@@ -32,18 +32,24 @@ const EXAM_STRUCTURE = [
 const STORAGE_KEY = "simulador_icfes_saber11_estado_v2";
 const HISTORY_KEY = "simulador_icfes_saber11_historial_v2";
 const STUDENT_KEY = "simulador_icfes_saber11_estudiante_v2";
+const SUBMISSION_KEY = "simulador_icfes_saber11_envio_actual_v2";
 
 // Envío automático de informes por correo.
 // 1. Copia el código de google-apps-script/Code.gs en Apps Script.
 // 2. Despliégalo como aplicación web.
 // 3. Pega aquí la URL terminada en /exec para activar el envío automático real.
-const REPORT_EMAIL_ENDPOINT = "https://script.google.com/a/macros/iemanueljbetancur.edu.co/s/AKfycbwCl5fXOLLDA6fKjk1S-eeLIfuYKa0WoTO6IT1E-di8De-DztCX7TQxtIKkv9SK_S8/exec";
+// URL pública de Apps Script. Se usa la versión sin /a/macros/ para evitar que
+// el navegador del estudiante sea redirigido al inicio de sesión del dominio.
+const REPORT_EMAIL_ENDPOINT = "https://script.google.com/macros/s/AKfycbwCl5fXOLLDA6fKjk1S-eeLIfuYKa0WoTO6IT1E-di8De-DztCX7TQxtIKkv9SK_S8/exec";
+const REPORT_EMAIL_ENDPOINT_DOMAIN = "https://script.google.com/a/macros/iemanueljbetancur.edu.co/s/AKfycbwCl5fXOLLDA6fKjk1S-eeLIfuYKa0WoTO6IT1E-di8De-DztCX7TQxtIKkv9SK_S8/exec";
+// Se usa un único endpoint público para evitar duplicados y bloqueos por dominio.
+const REPORT_EMAIL_ENDPOINTS = [REPORT_EMAIL_ENDPOINT].filter(Boolean);
 const REPORT_INSTITUTION_EMAIL = "pruebas@iemanueljbetancur.edu.co";
 const REPORT_MJB_FORM_URL = "https://docs.google.com/forms/d/1Q-jAP50dzVLYEmuhgEi3TO6eDNFHCoid3lLoo8tY91E/preview";
 const INSTITUTION_NAME = "Institución Educativa Manuel J. Betancur";
 const INSTITUTION_SHORT_NAME = "I.E. Manuel J. Betancur";
 const REPORT_AUTOSEND_ON_FINISH = true;
-const REPORT_APP_VERSION = "ICFES-S2-1-134-dashboard-institucional-mjb-v5-cerrar-sesion";
+const REPORT_APP_VERSION = "ICFES-S2-1-134-dashboard-institucional-mjb-v7-registro-real-sheets";
 
 const app = document.getElementById("app");
 const homeBtn = document.getElementById("homeBtn");
@@ -175,6 +181,7 @@ function performLogout() {
   clearTimer();
   storageRemove(STUDENT_KEY);
   storageRemove(STORAGE_KEY);
+  storageRemove(SUBMISSION_KEY);
   state = {
     screen: "access",
     mode: "simulacro",
@@ -814,6 +821,8 @@ function startScope(scope) {
   const navNumbers = createNumberRange(range.from, range.to);
   const availableNumbers = navNumbers.filter(number => getQuestion(session.id, number));
 
+  storageRemove(SUBMISSION_KEY);
+
   state = {
     ...state,
     screen: "exam",
@@ -1429,6 +1438,32 @@ function saveAttemptToHistory() {
   storageSet(HISTORY_KEY, JSON.stringify(history.slice(0, 20)));
 }
 
+function getCurrentSubmissionId() {
+  let id = storageGet(SUBMISSION_KEY, "");
+  if (!id) {
+    const base = [
+      getStudentEmail(),
+      getStudentGroup(),
+      state.sessionId || "sesion",
+      state.startedAt || new Date().toISOString(),
+      Math.random().toString(36).slice(2)
+    ].join("|");
+    id = `MJB-${Date.now()}-${Math.abs(hashString(base))}`;
+    storageSet(SUBMISSION_KEY, id);
+  }
+  return id;
+}
+
+function hashString(value) {
+  let hash = 0;
+  const text = String(value || "");
+  for (let i = 0; i < text.length; i += 1) {
+    hash = ((hash << 5) - hash) + text.charCodeAt(i);
+    hash |= 0;
+  }
+  return hash;
+}
+
 function buildResultData() {
   const session = getSession(state.sessionId) || { label: "Sección", title: "Sesión" };
   const loadedQuestions = state.availableNumbers.map(number => getQuestion(state.sessionId, number)).filter(Boolean);
@@ -1476,6 +1511,7 @@ function buildResultData() {
   const performanceRecommendation = getInternalPerformanceRecommendation(score);
 
   return {
+    submissionId: getCurrentSubmissionId(),
     institutionName: INSTITUTION_NAME,
     studentName: getStudentFullName(),
     studentGroup: getStudentGroup(),
@@ -1550,7 +1586,9 @@ function getReportFileName(result) {
 
 function buildReportEmailPayload(result, pdf) {
   return {
+    action: "enviarInforme",
     version: REPORT_APP_VERSION,
+    submissionId: result.submissionId,
     institutionName: result.institutionName,
     institutionEmail: REPORT_INSTITUTION_EMAIL,
     studentName: result.studentName,
@@ -1602,19 +1640,30 @@ async function sendReportEmail({ automatic = false } = {}) {
   try {
     if (sendBtn) {
       sendBtn.disabled = true;
-      sendBtn.textContent = automatic ? "Enviando informe..." : "Enviando...";
+      sendBtn.textContent = automatic ? "Registrando..." : "Enviando...";
     }
-    updateReportEmailStatus(`Enviando informe PDF a ${result.studentEmail} y copia institucional a ${REPORT_INSTITUTION_EMAIL}...`, "info");
+    updateReportEmailStatus(`Registrando resultado real en Google Sheets para actualizar el dashboard...`, "info");
+
+    // Paso 1: registro liviano confirmado por JSONP.
+    // Este registro NO incluye el PDF ni el detalle pesado; por eso sí llega estable a Google Sheets.
+    await submitResultOnlyToAppsScript(result);
+
+    updateReportEmailStatus(`Resultado registrado. Enviando detalle por pregunta al dashboard...`, "info");
+    await submitDetailChunksToAppsScript(result);
+
+    updateReportEmailStatus(`Resultado y detalle enviados a Google Sheets. Procesando PDF y correos...`, "info");
 
     const pdf = createChartPdf(result);
     const payload = buildReportEmailPayload(result, pdf);
 
+    // Paso 3: envío completo con PDF. Si el PDF tarda, los datos ya quedaron registrados.
     await submitReportPayloadToAppsScript(payload);
 
-    updateReportEmailStatus(`Solicitud enviada al backend institucional. El sistema registrará el resultado en Google Sheets, actualizará el dashboard y enviará el informe. Revisa ${result.studentEmail}, ${REPORT_INSTITUTION_EMAIL}, la hoja Resultados y Apps Script > Ejecuciones.`, "success");
+    updateReportEmailStatus(`Resultado enviado al backend institucional. El dashboard se actualizará con los datos reales del estudiante ${result.studentName}.`, "success");
     return true;
   } catch (error) {
-    updateReportEmailStatus("No fue posible enviar el informe. Verifica la conexión o la URL de Google Apps Script.", "error");
+    console.error("Error enviando informe:", error);
+    updateReportEmailStatus(`No fue posible completar el envío automático: ${error.message || "verifica la conexión o la URL de Apps Script"}.`, "error");
     return false;
   } finally {
     if (sendBtn) {
@@ -1625,60 +1674,177 @@ async function sendReportEmail({ automatic = false } = {}) {
 }
 
 
+function buildResultOnlyPayload(result) {
+  return {
+    action: "registrarResultadoLiviano",
+    version: REPORT_APP_VERSION,
+    submissionId: result.submissionId,
+    institutionName: result.institutionName,
+    institutionEmail: REPORT_INSTITUTION_EMAIL,
+    studentName: result.studentName,
+    studentGroup: result.studentGroup,
+    studentEmail: result.studentEmail,
+    sessionLabel: result.sessionLabel,
+    sessionTitle: result.sessionTitle,
+    scopeLabel: result.scopeLabel,
+    modeLabel: result.modeLabel,
+    startedAt: result.startedAt,
+    finishedAt: result.finishedAt,
+    finishedAtLabel: result.finishedAtLabel,
+    elapsedLabel: result.elapsedLabel,
+    totalQuestions: result.totalQuestions,
+    answered: result.answered,
+    scored: result.scored,
+    correct: result.correct,
+    incorrect: result.incorrect,
+    omitted: result.omitted,
+    score: result.score,
+    performanceLevel: result.performanceLevel,
+    performanceRecommendation: result.performanceRecommendation,
+    byArea: compactAreaRowsForBackend(result.byArea)
+  };
+}
+
+function compactAreaRowsForBackend(rows) {
+  return (rows || []).map(row => ({
+    area: row.area,
+    total: row.total,
+    answered: row.answered,
+    correct: row.correct,
+    incorrect: row.incorrect,
+    omitted: row.omitted,
+    percent: row.percent,
+    level: row.level
+  }));
+}
+
+function compactDetailsForBackend(details) {
+  return (details || []).map(item => ({
+    number: item.number,
+    area: item.area,
+    competence: item.competence,
+    component: item.component,
+    difficulty: item.difficulty,
+    studentAnswer: item.studentAnswer,
+    correctAnswer: item.correctAnswer,
+    result: item.result
+  }));
+}
+
+function buildDetailsChunkPayload(result, details, chunkIndex, chunkTotal) {
+  return {
+    action: "registrarDetallePreguntas",
+    version: REPORT_APP_VERSION,
+    submissionId: result.submissionId,
+    institutionName: result.institutionName,
+    institutionEmail: REPORT_INSTITUTION_EMAIL,
+    studentName: result.studentName,
+    studentGroup: result.studentGroup,
+    studentEmail: result.studentEmail,
+    sessionLabel: result.sessionLabel,
+    sessionTitle: result.sessionTitle,
+    scopeLabel: result.scopeLabel,
+    modeLabel: result.modeLabel,
+    startedAt: result.startedAt,
+    finishedAt: result.finishedAt,
+    finishedAtLabel: result.finishedAtLabel,
+    elapsedLabel: result.elapsedLabel,
+    score: result.score,
+    chunkIndex,
+    chunkTotal,
+    details
+  };
+}
+
+
+function submitResultOnlyToAppsScript(result) {
+  return submitPayloadViaJsonp(buildResultOnlyPayload(result), "registrar-resultado-liviano", 45000);
+}
+
+async function submitDetailChunksToAppsScript(result) {
+  const compact = compactDetailsForBackend(result.details);
+  if (!compact.length) return true;
+  const chunkSize = 18;
+  const chunks = [];
+  for (let i = 0; i < compact.length; i += chunkSize) chunks.push(compact.slice(i, i + chunkSize));
+  for (let i = 0; i < chunks.length; i += 1) {
+    await submitPayloadViaJsonp(buildDetailsChunkPayload(result, chunks[i], i + 1, chunks.length), "registrar-detalle-preguntas", 45000);
+  }
+  return true;
+}
+
 function submitReportPayloadToAppsScript(payload) {
-  const payloadText = JSON.stringify(payload);
+  return submitPayloadToAppsScriptEverywhere(payload, { lightweight: false });
+}
 
-  // Envío principal por formulario oculto. Es más estable con Google Apps Script
-  // desde GitHub Pages o desde archivo local porque no depende de CORS.
-  return new Promise(resolve => {
-    const iframeName = `gasSubmitFrame_${Date.now()}_${Math.random().toString(36).slice(2)}`;
-    const iframe = document.createElement("iframe");
-    iframe.name = iframeName;
-    iframe.title = "Envío seguro del informe";
-    iframe.style.position = "fixed";
-    iframe.style.left = "-9999px";
-    iframe.style.width = "1px";
-    iframe.style.height = "1px";
-    iframe.style.opacity = "0";
+function submitPayloadViaJsonp(payload, accion, timeoutMs = 30000) {
+  return new Promise((resolve, reject) => {
+    const endpoint = REPORT_EMAIL_ENDPOINT;
+    if (!endpoint) return reject(new Error("No hay URL de Apps Script configurada."));
 
-    const form = document.createElement("form");
-    form.method = "POST";
-    form.action = REPORT_EMAIL_ENDPOINT;
-    form.target = iframeName;
-    form.enctype = "application/x-www-form-urlencoded";
-    form.style.display = "none";
-
-    const input = document.createElement("input");
-    input.type = "hidden";
-    input.name = "payload";
-    input.value = payloadText;
-    form.appendChild(input);
-
-    let resolved = false;
-    const cleanup = () => {
-      setTimeout(() => {
-        if (form.parentNode) form.parentNode.removeChild(form);
-        if (iframe.parentNode) iframe.parentNode.removeChild(iframe);
-      }, 1000);
-    };
-
-    const finish = () => {
-      if (resolved) return;
-      resolved = true;
+    const callbackName = `gasJsonp_${Date.now()}_${Math.random().toString(36).slice(2)}`;
+    const script = document.createElement("script");
+    const timer = setTimeout(() => {
       cleanup();
-      resolve(true);
+      reject(new Error("Tiempo de espera agotado registrando datos en Google Sheets."));
+    }, timeoutMs);
+
+    function cleanup() {
+      clearTimeout(timer);
+      try { delete window[callbackName]; } catch (_) { window[callbackName] = undefined; }
+      if (script.parentNode) script.parentNode.removeChild(script);
+    }
+
+    window[callbackName] = response => {
+      cleanup();
+      if (!response || response.ok === false) {
+        reject(new Error((response && response.message) || "Apps Script no confirmó el registro."));
+        return;
+      }
+      resolve(response);
     };
 
-    iframe.addEventListener("load", finish, { once: true });
-    document.body.appendChild(iframe);
-    document.body.appendChild(form);
-    form.submit();
+    script.onerror = () => {
+      cleanup();
+      reject(new Error("No fue posible conectar con Apps Script."));
+    };
 
-    // Algunos navegadores no disparan load en iframes con respuestas opacas de Apps Script.
-    // El POST ya queda enviado; este respaldo permite continuar la experiencia del estudiante.
-    setTimeout(finish, 3500);
+    const url = new URL(endpoint);
+    url.searchParams.set("accion", accion || payload.action || "registrar-resultado-liviano");
+    url.searchParams.set("payload", JSON.stringify(payload));
+    url.searchParams.set("callback", callbackName);
+    url.searchParams.set("t", Date.now().toString());
+    script.src = url.toString();
+    document.body.appendChild(script);
   });
 }
+
+async function submitPayloadToAppsScriptEverywhere(payload, { lightweight = false } = {}) {
+  const payloadText = JSON.stringify(payload);
+  const endpoints = REPORT_EMAIL_ENDPOINTS && REPORT_EMAIL_ENDPOINTS.length ? REPORT_EMAIL_ENDPOINTS : [REPORT_EMAIL_ENDPOINT].filter(Boolean);
+
+  const fetchTasks = endpoints.map(endpoint => {
+    try {
+      const body = new URLSearchParams();
+      body.set("payload", payloadText);
+      body.set("action", payload.action || "payload");
+      body.set("source", "simulador-icfes-mjb");
+      return fetch(endpoint, {
+        method: "POST",
+        mode: "no-cors",
+        cache: "no-store",
+        headers: { "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8" },
+        body
+      }).catch(() => null);
+    } catch (error) {
+      return Promise.resolve(null);
+    }
+  });
+
+  await Promise.allSettled(fetchTasks);
+  return true;
+}
+
 
 function buildPdfReportLines(result) {
   const lines = [

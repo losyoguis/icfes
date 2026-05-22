@@ -1,4 +1,4 @@
-const DASHBOARD_ENDPOINT = "https://script.google.com/a/macros/iemanueljbetancur.edu.co/s/AKfycbwCl5fXOLLDA6fKjk1S-eeLIfuYKa0WoTO6IT1E-di8De-DztCX7TQxtIKkv9SK_S8/exec";
+const DASHBOARD_ENDPOINT = "https://script.google.com/macros/s/AKfycbwCl5fXOLLDA6fKjk1S-eeLIfuYKa0WoTO6IT1E-di8De-DztCX7TQxtIKkv9SK_S8/exec";
 const DASHBOARD_INSTITUTION = "Institución Educativa Manuel J. Betancur";
 const DASHBOARD_SPREADSHEET_ID = "17FbkF9BulfEfAAoDFNkljdsXWjXQOH_cBB3r-Iizjxs";
 const DASHBOARD_SPREADSHEET_URL = `https://docs.google.com/spreadsheets/d/${DASHBOARD_SPREADSHEET_ID}/edit`;
@@ -275,9 +275,10 @@ function recordsFromSheetRows(table) {
       recommendation: at(row, "Recomendacion pedagogica"),
       pdfDriveUrl: at(row, "PDF en Drive"),
       pdfDriveId: at(row, "ID PDF en Drive"),
-      byArea: parseJsonArray(byAreaRaw)
+      byArea: parseJsonArray(byAreaRaw),
+      submissionId: at(row, "ID envio")
     };
-  });
+  }).filter(record => !isSystemTestRecord(record));
 }
 
 function detailsFromSheetRows(table) {
@@ -305,8 +306,14 @@ function detailsFromSheetRows(table) {
     difficulty: at(row, "Dificultad"),
     studentAnswer: at(row, "Respuesta del estudiante"),
     correctAnswer: at(row, "Respuesta correcta"),
-    result: at(row, "Resultado")
-  }));
+    result: at(row, "Resultado"),
+    submissionId: at(row, "ID envio")
+  })).filter(record => !isSystemTestRecord(record));
+}
+
+function isSystemTestRecord(record) {
+  const text = `${record.studentName || ""} ${record.scopeLabel || ""} ${record.sessionTitle || ""} ${record.email || ""}`.toLowerCase();
+  return text.includes("prueba registro liviano") || text.includes("estudiante prueba dashboard") || (text.includes("prueba") && text.includes("dashboard institucional"));
 }
 
 function normalizeHeader(value) {
@@ -356,11 +363,11 @@ function normalizeDashboardData(data) {
       incorrect: toNumber(record.incorrect),
       omitted: toNumber(record.omitted),
       byArea: Array.isArray(record.byArea) ? record.byArea : []
-    })) : [],
+    })).filter(record => !isSystemTestRecord(record)) : [],
     details: Array.isArray(data.details) ? data.details.map(item => ({
       ...item,
       number: toNumber(item.number)
-    })) : []
+    })).filter(record => !isSystemTestRecord(record)) : []
   };
 }
 
