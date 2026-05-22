@@ -37,7 +37,7 @@ const STUDENT_KEY = "simulador_icfes_saber11_estudiante_v2";
 // 1. Copia el código de google-apps-script/Code.gs en Apps Script.
 // 2. Despliégalo como aplicación web.
 // 3. Pega aquí la URL terminada en /exec para activar el envío automático real.
-const REPORT_EMAIL_ENDPOINT = "https://script.google.com/a/macros/iemanueljbetancur.edu.co/s/AKfycbwCl5fXOLLDA6fKjk1S-eeLIfuYKa0WoTO6IT1E-di8De-DztCX7TQxtIKkv9SK_S8/exec";
+const REPORT_EMAIL_ENDPOINT = "https://script.google.com/a/macros/iemanueljbetancur.edu.co/s/AKfycbw46l-QqQYo7Ah_P9cA85D2a_4miFYf70FfUK304aEfRRrw-HU0ziPfBEpM_n3vWFta/exec";
 const REPORT_INSTITUTION_EMAIL = "pruebas@iemanueljbetancur.edu.co";
 const INSTITUTION_NAME = "Institución Educativa Manuel J. Betancur";
 const INSTITUTION_SHORT_NAME = "I.E. Manuel J. Betancur";
