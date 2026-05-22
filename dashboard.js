@@ -1,4 +1,6 @@
 const DASHBOARD_ENDPOINT = "https://script.google.com/macros/s/AKfycbwCl5fXOLLDA6fKjk1S-eeLIfuYKa0WoTO6IT1E-di8De-DztCX7TQxtIKkv9SK_S8/exec";
+const DASHBOARD_ENDPOINT_DOMAIN = "https://script.google.com/a/macros/iemanueljbetancur.edu.co/s/AKfycbwCl5fXOLLDA6fKjk1S-eeLIfuYKa0WoTO6IT1E-di8De-DztCX7TQxtIKkv9SK_S8/exec";
+const DASHBOARD_ENDPOINTS = Array.from(new Set([DASHBOARD_ENDPOINT_DOMAIN, DASHBOARD_ENDPOINT].filter(Boolean)));
 const DASHBOARD_INSTITUTION = "Institución Educativa Manuel J. Betancur";
 const DASHBOARD_SPREADSHEET_ID = "17FbkF9BulfEfAAoDFNkljdsXWjXQOH_cBB3r-Iizjxs";
 const DASHBOARD_SPREADSHEET_URL = `https://docs.google.com/spreadsheets/d/${DASHBOARD_SPREADSHEET_ID}/edit`;
@@ -90,8 +92,8 @@ function deleteSheetData() {
   els.deleteBtn.disabled = true;
   setStatus('Borrando datos de Google Sheets...', 'warning');
 
-  const url = `${DASHBOARD_ENDPOINT}?accion=borrar-datos&confirmacion=${encodeURIComponent('BORRAR DATOS')}&clave=${encodeURIComponent(password.trim())}`;
-  fetchJsonp(url, 90000)
+  const query = `?accion=borrar-datos&confirmacion=${encodeURIComponent('BORRAR DATOS')}&clave=${encodeURIComponent(password.trim())}`;
+  fetchJsonpFromEndpoints(DASHBOARD_ENDPOINTS, query, 90000)
     .then(response => {
       if (!response || response.ok === false) throw new Error(response && response.message ? response.message : 'No fue posible borrar los datos.');
       setStatus(`${response.message || 'Datos borrados correctamente.'} Hojas limpiadas: ${(response.sheetsCleared || []).join(', ')}`, 'success');
@@ -140,7 +142,7 @@ function loadDashboardData() {
 }
 
 function loadDashboardDataFromAppsScript() {
-  return fetchJsonp(`${DASHBOARD_ENDPOINT}?accion=dashboard-data`, 90000)
+  return fetchJsonpFromEndpoints(DASHBOARD_ENDPOINTS, '?accion=dashboard-data', 90000)
     .then(data => {
       if (!data || data.ok === false) throw new Error(data && data.message ? data.message : "Respuesta inválida de Apps Script.");
       data.source = "Apps Script";
@@ -169,6 +171,20 @@ function loadDashboardDataFromGoogleSheets() {
         "Para registrar nuevos resultados automáticamente, el Apps Script debe estar desplegado con el Code.gs actualizado."
       ]
     };
+  });
+}
+
+function fetchJsonpFromEndpoints(endpoints, query, timeoutMs = 25000) {
+  const ordered = Array.from(new Set((endpoints || []).filter(Boolean)));
+  let lastError = null;
+  return ordered.reduce((promise, endpoint) => {
+    return promise.catch(error => {
+      lastError = error;
+      const url = endpoint + (query || '');
+      return fetchJsonp(url, timeoutMs);
+    });
+  }, Promise.reject(new Error('inicio'))).catch(error => {
+    throw error && error.message !== 'inicio' ? error : (lastError || new Error('No se pudo conectar con Apps Script.'));
   });
 }
 

@@ -42,16 +42,17 @@ const SUBMISSION_KEY = "simulador_icfes_saber11_envio_actual_v2";
 // el navegador del estudiante sea redirigido al inicio de sesión del dominio.
 const REPORT_EMAIL_ENDPOINT = "https://script.google.com/macros/s/AKfycbwCl5fXOLLDA6fKjk1S-eeLIfuYKa0WoTO6IT1E-di8De-DztCX7TQxtIKkv9SK_S8/exec";
 const REPORT_EMAIL_ENDPOINT_DOMAIN = "https://script.google.com/a/macros/iemanueljbetancur.edu.co/s/AKfycbwCl5fXOLLDA6fKjk1S-eeLIfuYKa0WoTO6IT1E-di8De-DztCX7TQxtIKkv9SK_S8/exec";
-// Se usa un único endpoint público para evitar duplicados y bloqueos por dominio.
-const REPORT_EMAIL_ENDPOINTS = Array.from(new Set([REPORT_EMAIL_ENDPOINT, REPORT_EMAIL_ENDPOINT_DOMAIN].filter(Boolean)));
-// Para el registro en Google Sheets se intentan ambos endpoints. El ID de envío evita duplicados en Apps Script.
+// CORRECCIÓN v10:
+// En algunos dominios educativos el Web App responde mejor por la URL /a/macros/ del dominio.
+// Por eso el registro confirmado intenta primero la URL institucional y luego la URL pública.
+const REPORT_EMAIL_ENDPOINTS = Array.from(new Set([REPORT_EMAIL_ENDPOINT_DOMAIN, REPORT_EMAIL_ENDPOINT].filter(Boolean)));
 const REPORT_REGISTRATION_ENDPOINTS = REPORT_EMAIL_ENDPOINTS;
 const REPORT_INSTITUTION_EMAIL = "pruebas@iemanueljbetancur.edu.co";
 const REPORT_MJB_FORM_URL = "https://docs.google.com/forms/d/1Q-jAP50dzVLYEmuhgEi3TO6eDNFHCoid3lLoo8tY91E/preview";
 const INSTITUTION_NAME = "Institución Educativa Manuel J. Betancur";
 const INSTITUTION_SHORT_NAME = "I.E. Manuel J. Betancur";
 const REPORT_AUTOSEND_ON_FINISH = true;
-const REPORT_APP_VERSION = "ICFES-S2-1-134-dashboard-institucional-mjb-v9-jsonp-confirmado";
+const REPORT_APP_VERSION = "ICFES-S2-1-134-dashboard-institucional-mjb-v10-registro-confirmado-dominio";
 
 const app = document.getElementById("app");
 const homeBtn = document.getElementById("homeBtn");
@@ -1783,15 +1784,32 @@ function buildDetailsChunkPayload(result, details, chunkIndex, chunkTotal) {
 async function submitResultOnlyToAppsScript(result) {
   const payload = buildResultOnlyPayload(result);
 
-  // Método principal y confirmado: JSONP por doGet.
-  // El dashboard ya usa este mismo canal para leer datos, por eso es el método más confiable
-  // desde GitHub Pages hacia Google Apps Script sin depender de CORS.
-  const confirmation = await submitPayloadViaJsonp(payload, "registrar-resultado-liviano", 25000);
+  // Método principal v10: JSONP confirmado con parámetros directos y fallback por dominio/público.
+  // Esto evita que el navegador bloquee el envío por CORS y reduce el tamaño de la URL frente a un JSON completo.
+  const directParams = buildResultOnlyDirectParams(payload);
+  let confirmation;
+  try {
+    confirmation = await submitParamsViaJsonpToEndpoints(directParams, REPORT_REGISTRATION_ENDPOINTS, 45000);
+  } catch (firstError) {
+    console.warn("No se confirmó el registro por GET directo. Se intentará JSONP con payload compacto.", firstError);
+    try {
+      confirmation = await submitPayloadViaJsonpToEndpoints(payload, "registrar-resultado-liviano", REPORT_REGISTRATION_ENDPOINTS, 45000);
+    } catch (secondError) {
+      console.warn("Tampoco se confirmó JSONP compacto. Se enviará por POST/formulario oculto de respaldo.", secondError);
+      await submitPayloadViaReliablePost(payload, "registrar-resultado-liviano", {
+        endpoints: REPORT_REGISTRATION_ENDPOINTS,
+        includeHiddenForm: true,
+        waitMs: 2200
+      });
+      confirmation = { ok: true, mode: "post-fallback", message: "Resultado enviado por método de respaldo. Revisa el dashboard después de unos segundos." };
+    }
+  }
+
   if (!confirmation || confirmation.ok === false) {
     throw new Error((confirmation && confirmation.message) || "Apps Script no confirmó el registro del resultado en Sheets.");
   }
 
-  // Respaldo no bloqueante por POST. Si falla, no afecta el registro confirmado por JSONP.
+  // Respaldo adicional no bloqueante. El ID de envío evita duplicados en Apps Script.
   submitPayloadViaReliablePost(payload, "registrar-resultado-liviano", {
     endpoints: REPORT_REGISTRATION_ENDPOINTS,
     includeHiddenForm: true,
@@ -1805,17 +1823,17 @@ async function submitDetailChunksToAppsScript(result) {
   const compact = compactDetailsForBackend(result.details);
   if (!compact.length) return true;
 
-  // Lotes pequeños para mantener URL corta en JSONP y evitar bloqueos del navegador.
-  const chunkSize = 8;
+  const chunkSize = 6;
   const chunks = [];
   for (let i = 0; i < compact.length; i += chunkSize) chunks.push(compact.slice(i, i + chunkSize));
 
   for (let i = 0; i < chunks.length; i += 1) {
     const payload = buildDetailsChunkPayload(result, chunks[i], i + 1, chunks.length);
+    const params = buildDetailChunkDirectParams(payload);
     try {
-      await submitPayloadViaJsonp(payload, "registrar-detalle-preguntas", 20000);
+      await submitParamsViaJsonpToEndpoints(params, REPORT_REGISTRATION_ENDPOINTS, 30000);
     } catch (error) {
-      console.warn(`No se confirmó el lote de detalle ${i + 1}/${chunks.length}. Se intentará por POST.`, error);
+      console.warn(`No se confirmó el lote de detalle ${i + 1}/${chunks.length} por JSONP directo. Se intentará por POST.`, error);
       await submitPayloadViaReliablePost(payload, "registrar-detalle-preguntas", {
         endpoints: REPORT_REGISTRATION_ENDPOINTS,
         includeHiddenForm: true,
@@ -1826,6 +1844,64 @@ async function submitDetailChunksToAppsScript(result) {
   return true;
 }
 
+function buildResultOnlyDirectParams(payload) {
+  return {
+    accion: "registrar-resultado-liviano",
+    action: payload.action || "registrarResultadoLiviano",
+    version: payload.version || REPORT_APP_VERSION,
+    submissionId: payload.submissionId || "",
+    institutionName: payload.institutionName || INSTITUTION_NAME,
+    institutionEmail: payload.institutionEmail || REPORT_INSTITUTION_EMAIL,
+    studentName: payload.studentName || "",
+    studentGroup: payload.studentGroup || "",
+    studentEmail: payload.studentEmail || "",
+    sessionLabel: payload.sessionLabel || "",
+    sessionTitle: payload.sessionTitle || "",
+    scopeLabel: payload.scopeLabel || "",
+    modeLabel: payload.modeLabel || "",
+    startedAt: payload.startedAt || "",
+    finishedAt: payload.finishedAt || "",
+    finishedAtLabel: payload.finishedAtLabel || "",
+    elapsedLabel: payload.elapsedLabel || "",
+    totalQuestions: payload.totalQuestions || 0,
+    answered: payload.answered || 0,
+    scored: payload.scored || 0,
+    correct: payload.correct || 0,
+    incorrect: payload.incorrect || 0,
+    omitted: payload.omitted || 0,
+    score: payload.score || 0,
+    performanceLevel: payload.performanceLevel || "",
+    performanceRecommendation: payload.performanceRecommendation || "",
+    byArea: JSON.stringify(payload.byArea || [])
+  };
+}
+
+function buildDetailChunkDirectParams(payload) {
+  return {
+    accion: "registrar-detalle-preguntas",
+    action: payload.action || "registrarDetallePreguntas",
+    version: payload.version || REPORT_APP_VERSION,
+    submissionId: payload.submissionId || "",
+    institutionName: payload.institutionName || INSTITUTION_NAME,
+    institutionEmail: payload.institutionEmail || REPORT_INSTITUTION_EMAIL,
+    studentName: payload.studentName || "",
+    studentGroup: payload.studentGroup || "",
+    studentEmail: payload.studentEmail || "",
+    sessionLabel: payload.sessionLabel || "",
+    sessionTitle: payload.sessionTitle || "",
+    scopeLabel: payload.scopeLabel || "",
+    modeLabel: payload.modeLabel || "",
+    startedAt: payload.startedAt || "",
+    finishedAt: payload.finishedAt || "",
+    finishedAtLabel: payload.finishedAtLabel || "",
+    elapsedLabel: payload.elapsedLabel || "",
+    score: payload.score || 0,
+    chunkIndex: payload.chunkIndex || 1,
+    chunkTotal: payload.chunkTotal || 1,
+    details: JSON.stringify(payload.details || [])
+  };
+}
+
 function submitReportPayloadToAppsScript(payload) {
   // El PDF/correo se envía solo al endpoint principal para evitar correos duplicados.
   // El resultado ya fue registrado antes en ambos endpoints disponibles.
@@ -1833,8 +1909,35 @@ function submitReportPayloadToAppsScript(payload) {
 }
 
 function submitPayloadViaJsonp(payload, accion, timeoutMs = 30000) {
+  return submitPayloadViaJsonpToEndpoints(payload, accion, [REPORT_EMAIL_ENDPOINT].filter(Boolean), timeoutMs);
+}
+
+async function submitPayloadViaJsonpToEndpoints(payload, accion, endpoints, timeoutMs = 30000) {
+  const params = {
+    accion: accion || payload.action || "registrar-resultado-liviano",
+    payload: JSON.stringify(payload)
+  };
+  return submitParamsViaJsonpToEndpoints(params, endpoints, timeoutMs);
+}
+
+async function submitParamsViaJsonpToEndpoints(params, endpoints, timeoutMs = 30000) {
+  const ordered = Array.from(new Set((endpoints || []).filter(Boolean)));
+  if (!ordered.length) throw new Error("No hay URL de Apps Script configurada.");
+
+  let lastError = null;
+  for (const endpoint of ordered) {
+    try {
+      return await submitParamsViaJsonp(endpoint, params, timeoutMs);
+    } catch (error) {
+      lastError = error;
+      console.warn(`Fallo JSONP con endpoint ${endpoint}`, error);
+    }
+  }
+  throw lastError || new Error("No fue posible conectar con Apps Script.");
+}
+
+function submitParamsViaJsonp(endpoint, params, timeoutMs = 30000) {
   return new Promise((resolve, reject) => {
-    const endpoint = REPORT_EMAIL_ENDPOINT;
     if (!endpoint) return reject(new Error("No hay URL de Apps Script configurada."));
 
     const callbackName = `gasJsonp_${Date.now()}_${Math.random().toString(36).slice(2)}`;
@@ -1865,8 +1968,10 @@ function submitPayloadViaJsonp(payload, accion, timeoutMs = 30000) {
     };
 
     const url = new URL(endpoint);
-    url.searchParams.set("accion", accion || payload.action || "registrar-resultado-liviano");
-    url.searchParams.set("payload", JSON.stringify(payload));
+    Object.entries(params || {}).forEach(([key, value]) => {
+      if (value === undefined || value === null) return;
+      url.searchParams.set(key, String(value));
+    });
     url.searchParams.set("callback", callbackName);
     url.searchParams.set("t", Date.now().toString());
     script.src = url.toString();
