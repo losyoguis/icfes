@@ -212,3 +212,39 @@ Cambios técnicos principales:
 6. Abre el dashboard y presiona **Actualizar datos**.
 
 Si después de actualizar todavía no aparece el resultado, revisa en Apps Script la sección **Ejecuciones**. Debe aparecer una ejecución `doPost` asociada al intento real.
+
+## Corrección v9: registro confirmado por JSONP
+
+Esta versión cambia el flujo del registro real del simulacro:
+
+1. El resultado principal se registra primero por **JSONP confirmado** usando `doGet`.
+2. La app espera la respuesta real de Apps Script. Si Apps Script no confirma, la página muestra el error en la sección de resultados.
+3. El detalle por pregunta también se envía por JSONP en lotes pequeños de 8 preguntas.
+4. Se agregó el botón **Sincronizar con Sheets** en la página de resultados para reenviar manualmente el resultado si la red falló en el primer intento.
+5. Se agregó la hoja **Registro_Tecnico**, donde Apps Script deja evidencia de cada registro recibido desde el simulador.
+
+Después de actualizar, en el Google Sheets deben existir estas hojas:
+
+- Resultados
+- Respuestas_Detalladas
+- Registro_Envios
+- Registro_Tecnico
+- Analisis_Estudiantes
+- Analisis_Grupos
+- Analisis_Areas
+- Informe_Institucional
+
+### Prueba recomendada
+
+1. Reemplaza todo el `Code.gs` en Apps Script.
+2. Guarda el proyecto.
+3. Ejecuta `configurarConexionOficialMJB`.
+4. Ejecuta `inicializarSistema`.
+5. Actualiza la implementación como **Nueva versión**.
+6. Sube a GitHub Pages los archivos nuevos, especialmente `app.js`, `dashboard.js` y `dashboard.html`.
+7. Limpia caché con `Cmd + Shift + R` en Mac o `Ctrl + Shift + R` en Windows.
+8. Presenta un simulacro real.
+9. Al finalizar, espera el mensaje: **Registro confirmado en Google Sheets**.
+10. Revisa en Google Sheets las hojas `Resultados`, `Respuestas_Detalladas` y `Registro_Tecnico`.
+
+Si el resultado no aparece, revisa primero la hoja `Registro_Tecnico`. Si está vacía, el navegador no está usando el nuevo `app.js` o el Web App no fue actualizado como nueva versión.

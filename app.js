@@ -51,7 +51,7 @@ const REPORT_MJB_FORM_URL = "https://docs.google.com/forms/d/1Q-jAP50dzVLYEmuhgE
 const INSTITUTION_NAME = "Institución Educativa Manuel J. Betancur";
 const INSTITUTION_SHORT_NAME = "I.E. Manuel J. Betancur";
 const REPORT_AUTOSEND_ON_FINISH = true;
-const REPORT_APP_VERSION = "ICFES-S2-1-134-dashboard-institucional-mjb-v8-registro-post-reliable";
+const REPORT_APP_VERSION = "ICFES-S2-1-134-dashboard-institucional-mjb-v9-jsonp-confirmado";
 
 const app = document.getElementById("app");
 const homeBtn = document.getElementById("homeBtn");
@@ -1180,6 +1180,7 @@ function renderResults() {
         <button class="primary-btn" type="button" id="newAttemptBtn">Nuevo intento</button>
         <button class="secondary-btn" type="button" id="downloadPdfBtn">Descargar informe PDF</button>
         <button class="secondary-btn send-report-btn" type="button" id="sendPdfBtn">Enviar informe PDF</button>
+        <button class="secondary-btn" type="button" id="syncSheetsBtn">Sincronizar con Sheets</button>
         <a class="secondary-btn mjb-report-btn" id="sendMjbReportBtn" href="${REPORT_MJB_FORM_URL}" target="_blank" rel="noopener noreferrer">Enviar Informe al MJB</a>
       </div>
       <div id="emailReportStatus" class="email-report-status" role="status" aria-live="polite"></div>
@@ -1193,6 +1194,26 @@ function renderResults() {
   document.getElementById("newAttemptBtn").addEventListener("click", renderHome);
   document.getElementById("downloadPdfBtn").addEventListener("click", downloadPdfReport);
   document.getElementById("sendPdfBtn").addEventListener("click", () => sendReportEmail({ automatic: false }));
+  const syncSheetsBtn = document.getElementById("syncSheetsBtn");
+  if (syncSheetsBtn) {
+    syncSheetsBtn.addEventListener("click", async () => {
+      syncSheetsBtn.disabled = true;
+      syncSheetsBtn.textContent = "Sincronizando...";
+      updateReportEmailStatus("Registrando nuevamente el resultado en Google Sheets...", "info");
+      try {
+        const latest = buildResultData();
+        await submitResultOnlyToAppsScript(latest);
+        await submitDetailChunksToAppsScript(latest);
+        updateReportEmailStatus("Resultado confirmado en Google Sheets. Abre el dashboard y presiona Actualizar datos.", "success");
+      } catch (error) {
+        console.error("Error sincronizando Sheets:", error);
+        updateReportEmailStatus(`No se pudo sincronizar con Google Sheets: ${error.message || error}`, "error");
+      } finally {
+        syncSheetsBtn.disabled = false;
+        syncSheetsBtn.textContent = "Sincronizar con Sheets";
+      }
+    });
+  }
   updateReportEmailStatus(getReportEmailInitialMessage());
 }
 
@@ -1644,13 +1665,13 @@ async function sendReportEmail({ automatic = false } = {}) {
       sendBtn.disabled = true;
       sendBtn.textContent = automatic ? "Registrando..." : "Enviando...";
     }
-    updateReportEmailStatus(`Registrando resultado real en Google Sheets para actualizar el dashboard...`, "info");
+    updateReportEmailStatus(`Conectando con Google Sheets y registrando resultado confirmado...`, "info");
 
     // Paso 1: registro liviano robusto. Se envía por POST no-cors + sendBeacon + formulario oculto
     // a los endpoints disponibles. No depende de CORS ni de JSONP; por eso llega al Sheets.
     await submitResultOnlyToAppsScript(result);
 
-    updateReportEmailStatus(`Registro enviado a Google Sheets. Enviando detalle por pregunta al dashboard...`, "info");
+    updateReportEmailStatus(`Registro confirmado en Google Sheets. Enviando detalle por pregunta al dashboard...`, "success");
     await submitDetailChunksToAppsScript(result);
 
     updateReportEmailStatus(`Resultado y detalle enviados. Procesando PDF, Drive y correos...`, "info");
@@ -1761,35 +1782,46 @@ function buildDetailsChunkPayload(result, details, chunkIndex, chunkTotal) {
 
 async function submitResultOnlyToAppsScript(result) {
   const payload = buildResultOnlyPayload(result);
-  await submitPayloadViaReliablePost(payload, "registrar-resultado-liviano", {
+
+  // Método principal y confirmado: JSONP por doGet.
+  // El dashboard ya usa este mismo canal para leer datos, por eso es el método más confiable
+  // desde GitHub Pages hacia Google Apps Script sin depender de CORS.
+  const confirmation = await submitPayloadViaJsonp(payload, "registrar-resultado-liviano", 25000);
+  if (!confirmation || confirmation.ok === false) {
+    throw new Error((confirmation && confirmation.message) || "Apps Script no confirmó el registro del resultado en Sheets.");
+  }
+
+  // Respaldo no bloqueante por POST. Si falla, no afecta el registro confirmado por JSONP.
+  submitPayloadViaReliablePost(payload, "registrar-resultado-liviano", {
     endpoints: REPORT_REGISTRATION_ENDPOINTS,
     includeHiddenForm: true,
-    waitMs: 1800
-  });
+    waitMs: 100
+  }).catch(error => console.warn("Respaldo POST no confirmado:", error));
 
-  // Confirmación opcional por JSONP. Si falla por permisos del dominio, NO se detiene el registro,
-  // porque el POST por formulario oculto ya fue enviado al Web App.
-  try {
-    await submitPayloadViaJsonp(payload, "registrar-resultado-liviano", 12000);
-  } catch (error) {
-    console.warn("Confirmación JSONP no disponible; el registro POST ya fue enviado.", error);
-  }
-  return true;
+  return confirmation;
 }
 
 async function submitDetailChunksToAppsScript(result) {
   const compact = compactDetailsForBackend(result.details);
   if (!compact.length) return true;
-  const chunkSize = 15;
+
+  // Lotes pequeños para mantener URL corta en JSONP y evitar bloqueos del navegador.
+  const chunkSize = 8;
   const chunks = [];
   for (let i = 0; i < compact.length; i += chunkSize) chunks.push(compact.slice(i, i + chunkSize));
+
   for (let i = 0; i < chunks.length; i += 1) {
     const payload = buildDetailsChunkPayload(result, chunks[i], i + 1, chunks.length);
-    await submitPayloadViaReliablePost(payload, "registrar-detalle-preguntas", {
-      endpoints: REPORT_REGISTRATION_ENDPOINTS,
-      includeHiddenForm: false,
-      waitMs: 250
-    });
+    try {
+      await submitPayloadViaJsonp(payload, "registrar-detalle-preguntas", 20000);
+    } catch (error) {
+      console.warn(`No se confirmó el lote de detalle ${i + 1}/${chunks.length}. Se intentará por POST.`, error);
+      await submitPayloadViaReliablePost(payload, "registrar-detalle-preguntas", {
+        endpoints: REPORT_REGISTRATION_ENDPOINTS,
+        includeHiddenForm: true,
+        waitMs: 500
+      });
+    }
   }
   return true;
 }
