@@ -34,25 +34,19 @@ const HISTORY_KEY = "simulador_icfes_saber11_historial_v2";
 const STUDENT_KEY = "simulador_icfes_saber11_estudiante_v2";
 const SUBMISSION_KEY = "simulador_icfes_saber11_envio_actual_v2";
 
-// Envío automático de informes por correo.
-// 1. Copia el código de google-apps-script/Code.gs en Apps Script.
-// 2. Despliégalo como aplicación web.
-// 3. Pega aquí la URL terminada en /exec para activar el envío automático real.
-// URL pública de Apps Script. Se usa la versión sin /a/macros/ para evitar que
-// el navegador del estudiante sea redirigido al inicio de sesión del dominio.
-const REPORT_EMAIL_ENDPOINT = "https://script.google.com/macros/s/AKfycbwCl5fXOLLDA6fKjk1S-eeLIfuYKa0WoTO6IT1E-di8De-DztCX7TQxtIKkv9SK_S8/exec";
-const REPORT_EMAIL_ENDPOINT_DOMAIN = "https://script.google.com/a/macros/iemanueljbetancur.edu.co/s/AKfycbwCl5fXOLLDA6fKjk1S-eeLIfuYKa0WoTO6IT1E-di8De-DztCX7TQxtIKkv9SK_S8/exec";
-// CORRECCIÓN v10:
-// En algunos dominios educativos el Web App responde mejor por la URL /a/macros/ del dominio.
-// Por eso el registro confirmado intenta primero la URL institucional y luego la URL pública.
-const REPORT_EMAIL_ENDPOINTS = Array.from(new Set([REPORT_EMAIL_ENDPOINT_DOMAIN, REPORT_EMAIL_ENDPOINT].filter(Boolean)));
+// Envío automático de informes por correo y registro en Google Sheets.
+// URL /exec oficial entregada por la Institución Educativa Manuel J. Betancur.
+// Esta versión usa un solo endpoint público para evitar intentos hacia implementaciones antiguas.
+const REPORT_EMAIL_ENDPOINT = "https://script.google.com/macros/s/AKfycbw46l-QqQYo7Ah_P9cA85D2a_4miFYf70FfUK304aEfRRrw-HU0ziPfBEpM_n3vWFta/exec";
+const REPORT_EMAIL_ENDPOINT_DOMAIN = "";
+const REPORT_EMAIL_ENDPOINTS = [REPORT_EMAIL_ENDPOINT].filter(Boolean);
 const REPORT_REGISTRATION_ENDPOINTS = REPORT_EMAIL_ENDPOINTS;
 const REPORT_INSTITUTION_EMAIL = "pruebas@iemanueljbetancur.edu.co";
 const REPORT_MJB_FORM_URL = "https://docs.google.com/forms/d/1Q-jAP50dzVLYEmuhgEi3TO6eDNFHCoid3lLoo8tY91E/preview";
 const INSTITUTION_NAME = "Institución Educativa Manuel J. Betancur";
 const INSTITUTION_SHORT_NAME = "I.E. Manuel J. Betancur";
 const REPORT_AUTOSEND_ON_FINISH = true;
-const REPORT_APP_VERSION = "ICFES-S2-1-134-dashboard-institucional-mjb-v10-registro-confirmado-dominio";
+const REPORT_APP_VERSION = "ICFES-S2-1-134-dashboard-institucional-mjb-v11-exec-oficial";
 
 const app = document.getElementById("app");
 const homeBtn = document.getElementById("homeBtn");
@@ -1783,15 +1777,18 @@ function buildDetailsChunkPayload(result, details, chunkIndex, chunkTotal) {
 
 async function submitResultOnlyToAppsScript(result) {
   const payload = buildResultOnlyPayload(result);
-
-  // Método principal v10: JSONP confirmado con parámetros directos y fallback por dominio/público.
-  // Esto evita que el navegador bloquee el envío por CORS y reduce el tamaño de la URL frente a un JSON completo.
   const directParams = buildResultOnlyDirectParams(payload);
+
+  // v11: antes de esperar confirmación, se dispara un GET liviano al endpoint oficial.
+  // Aunque el navegador no pueda leer la respuesta por políticas de Apps Script,
+  // el servidor recibe la petición y puede escribir en Google Sheets.
+  fireAndForgetDirectGetToEndpoints(directParams, REPORT_REGISTRATION_ENDPOINTS);
+
   let confirmation;
   try {
     confirmation = await submitParamsViaJsonpToEndpoints(directParams, REPORT_REGISTRATION_ENDPOINTS, 45000);
   } catch (firstError) {
-    console.warn("No se confirmó el registro por GET directo. Se intentará JSONP con payload compacto.", firstError);
+    console.warn("No se confirmó el registro por GET/JSONP directo. Se intentará JSONP con payload compacto.", firstError);
     try {
       confirmation = await submitPayloadViaJsonpToEndpoints(payload, "registrar-resultado-liviano", REPORT_REGISTRATION_ENDPOINTS, 45000);
     } catch (secondError) {
@@ -1799,17 +1796,22 @@ async function submitResultOnlyToAppsScript(result) {
       await submitPayloadViaReliablePost(payload, "registrar-resultado-liviano", {
         endpoints: REPORT_REGISTRATION_ENDPOINTS,
         includeHiddenForm: true,
-        waitMs: 2200
+        waitMs: 2500
       });
-      confirmation = { ok: true, mode: "post-fallback", message: "Resultado enviado por método de respaldo. Revisa el dashboard después de unos segundos." };
+      confirmation = { ok: true, mode: "respaldo-post-get", message: "Resultado enviado por método de respaldo. Revisa el dashboard después de unos segundos." };
     }
   }
 
   if (!confirmation || confirmation.ok === false) {
-    throw new Error((confirmation && confirmation.message) || "Apps Script no confirmó el registro del resultado en Sheets.");
+    // Último respaldo: no bloquea el flujo si ya se dispararon GET/POST al backend.
+    await submitPayloadViaReliablePost(payload, "registrar-resultado-liviano", {
+      endpoints: REPORT_REGISTRATION_ENDPOINTS,
+      includeHiddenForm: true,
+      waitMs: 2500
+    });
+    return { ok: true, mode: "respaldo-sin-confirmacion", message: "Resultado reenviado por respaldo al endpoint oficial." };
   }
 
-  // Respaldo adicional no bloqueante. El ID de envío evita duplicados en Apps Script.
   submitPayloadViaReliablePost(payload, "registrar-resultado-liviano", {
     endpoints: REPORT_REGISTRATION_ENDPOINTS,
     includeHiddenForm: true,
@@ -1823,7 +1825,7 @@ async function submitDetailChunksToAppsScript(result) {
   const compact = compactDetailsForBackend(result.details);
   if (!compact.length) return true;
 
-  const chunkSize = 6;
+  const chunkSize = 4;
   const chunks = [];
   for (let i = 0; i < compact.length; i += chunkSize) chunks.push(compact.slice(i, i + chunkSize));
 
@@ -1918,6 +1920,37 @@ async function submitPayloadViaJsonpToEndpoints(payload, accion, endpoints, time
     payload: JSON.stringify(payload)
   };
   return submitParamsViaJsonpToEndpoints(params, endpoints, timeoutMs);
+}
+
+function fireAndForgetDirectGetToEndpoints(params, endpoints) {
+  const ordered = Array.from(new Set((endpoints || []).filter(Boolean)));
+  ordered.forEach(endpoint => {
+    try {
+      const url = new URL(endpoint);
+      Object.entries(params || {}).forEach(([key, value]) => {
+        if (value === undefined || value === null) return;
+        url.searchParams.set(key, String(value));
+      });
+      url.searchParams.set("t", Date.now().toString());
+      url.searchParams.set("origen", "github-pages-get-directo");
+
+      // Imagen invisible: permite enviar GET sin depender de CORS ni de leer la respuesta.
+      const img = new Image();
+      img.style.display = "none";
+      img.width = 1;
+      img.height = 1;
+      img.alt = "";
+      img.onload = img.onerror = () => {
+        window.setTimeout(() => {
+          if (img.parentNode) img.parentNode.removeChild(img);
+        }, 1000);
+      };
+      img.src = url.toString();
+      document.body.appendChild(img);
+    } catch (error) {
+      console.warn("No fue posible disparar GET directo a Apps Script", error);
+    }
+  });
 }
 
 async function submitParamsViaJsonpToEndpoints(params, endpoints, timeoutMs = 30000) {

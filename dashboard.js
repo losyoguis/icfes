@@ -1,5 +1,5 @@
-const DASHBOARD_ENDPOINT = "https://script.google.com/macros/s/AKfycbwCl5fXOLLDA6fKjk1S-eeLIfuYKa0WoTO6IT1E-di8De-DztCX7TQxtIKkv9SK_S8/exec";
-const DASHBOARD_ENDPOINT_DOMAIN = "https://script.google.com/a/macros/iemanueljbetancur.edu.co/s/AKfycbwCl5fXOLLDA6fKjk1S-eeLIfuYKa0WoTO6IT1E-di8De-DztCX7TQxtIKkv9SK_S8/exec";
+const DASHBOARD_ENDPOINT = "https://script.google.com/macros/s/AKfycbw46l-QqQYo7Ah_P9cA85D2a_4miFYf70FfUK304aEfRRrw-HU0ziPfBEpM_n3vWFta/exec";
+const DASHBOARD_ENDPOINT_DOMAIN = "";
 const DASHBOARD_ENDPOINTS = Array.from(new Set([DASHBOARD_ENDPOINT_DOMAIN, DASHBOARD_ENDPOINT].filter(Boolean)));
 const DASHBOARD_INSTITUTION = "Institución Educativa Manuel J. Betancur";
 const DASHBOARD_SPREADSHEET_ID = "17FbkF9BulfEfAAoDFNkljdsXWjXQOH_cBB3r-Iizjxs";

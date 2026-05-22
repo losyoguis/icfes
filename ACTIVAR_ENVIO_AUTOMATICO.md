@@ -25,7 +25,7 @@ Además, el backend genera una base de resultados en Google Sheets, guarda una c
 10. En esta versión el archivo `app.js` ya quedó configurado con la URL `/exec` suministrada:
 
 ```js
-const REPORT_EMAIL_ENDPOINT = "https://script.google.com/macros/s/AKfycbwCl5fXOLLDA6fKjk1S-eeLIfuYKa0WoTO6IT1E-di8De-DztCX7TQxtIKkv9SK_S8/exec";
+const REPORT_EMAIL_ENDPOINT = "https://script.google.com/macros/s/AKfycbw46l-QqQYo7Ah_P9cA85D2a_4miFYf70FfUK304aEfRRrw-HU0ziPfBEpM_n3vWFta/exec";
 ```
 
 11. Guarda los cambios y vuelve a subir la app a GitHub Pages.

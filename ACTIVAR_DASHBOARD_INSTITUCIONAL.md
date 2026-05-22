@@ -140,7 +140,7 @@ Luego actualiza la implementación:
 La URL pública recomendada para la app es la versión sin `/a/macros/`:
 
 ```text
-https://script.google.com/macros/s/AKfycbwCl5fXOLLDA6fKjk1S-eeLIfuYKa0WoTO6IT1E-di8De-DztCX7TQxtIKkv9SK_S8/exec
+https://script.google.com/macros/s/AKfycbw46l-QqQYo7Ah_P9cA85D2a_4miFYf70FfUK304aEfRRrw-HU0ziPfBEpM_n3vWFta/exec
 ```
 
 La versión con `/a/macros/iemanueljbetancur.edu.co/` queda como respaldo, pero puede exigir inicio de sesión del dominio y bloquear el envío desde algunos navegadores de estudiantes.
