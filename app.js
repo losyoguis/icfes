@@ -942,6 +942,7 @@ function renderQuestion(question) {
     </div>
     <p class="question-text">${question.stem}</p>
     ${resources}
+    ${state.mode === "practica" ? renderPracticeNotebookSection(question) : ""}
     <p class="prompt">${question.prompt}</p>
     <div class="options">${options}</div>
     ${showFeedback ? renderFeedback(question, selected) : ""}
@@ -1012,6 +1013,42 @@ function renderResources(resources) {
     return "";
   }).join("");
 }
+
+function renderPracticeNotebookSection(question) {
+  const sessionParam = encodeURIComponent(String(question.session));
+  const questionParam = encodeURIComponent(String(question.number));
+  const baseUrl = `notebook-siteslesson.html?session=${sessionParam}&question=${questionParam}`;
+  const tools = [
+    { key: "mindmap", icon: "🧠", label: "Mapa mental", text: "Organiza conceptos clave de la pregunta." },
+    { key: "video", icon: "🎬", label: "Video", text: "Guía audiovisual para comprender el reto." },
+    { key: "audio", icon: "🎧", label: "Audio", text: "Escucha una orientación breve de estudio." },
+    { key: "presentation", icon: "📊", label: "Presentación", text: "Revisa pasos y estrategias de solución." },
+    { key: "infographic", icon: "🖼️", label: "Infografía", text: "Sintetiza la información en lectura visual." }
+  ];
+
+  return `
+    <section class="practice-notebook" aria-label="Notebook - Siteslessom para preparar la pregunta">
+      <div class="practice-notebook__head">
+        <div>
+          <p class="eyebrow">Solo en práctica con retroalimentación</p>
+          <h4>Notebook - Siteslessom</h4>
+          <p>Antes de responder o después de recibir retroalimentación, usa estos recursos para preparar la pregunta ${question.number}.</p>
+        </div>
+        <a class="secondary-btn notebook-main-link" href="${baseUrl}" target="_blank" rel="noopener">Abrir notebook completo</a>
+      </div>
+      <div class="notebook-resource-grid">
+        ${tools.map(tool => `
+          <a class="notebook-mini-card" href="${baseUrl}&resource=${encodeURIComponent(tool.key)}" target="_blank" rel="noopener">
+            <span class="notebook-mini-card__icon">${tool.icon}</span>
+            <strong>${tool.label}</strong>
+            <small>${tool.text}</small>
+          </a>
+        `).join("")}
+      </div>
+    </section>
+  `;
+}
+
 
 function updateProgressUI() {
   const loaded = state.availableNumbers.length;

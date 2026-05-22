@@ -248,3 +248,10 @@ Después de actualizar, en el Google Sheets deben existir estas hojas:
 10. Revisa en Google Sheets las hojas `Resultados`, `Respuestas_Detalladas` y `Registro_Tecnico`.
 
 Si el resultado no aparece, revisa primero la hoja `Registro_Tecnico`. Si está vacía, el navegador no está usando el nuevo `app.js` o el Web App no fue actualizado como nueva versión.
+
+
+## Nota sobre Notebook - Siteslessom
+
+La página `notebook-siteslesson.html` no requiere configuración adicional en Apps Script. Funciona de manera local dentro de GitHub Pages y toma la información desde `data/question-bank.js`.
+
+El bloque de acceso a Notebook - Siteslessom aparece únicamente en el modo **Práctica con retroalimentación**; no se muestra en Simulacro ni en Entrenamiento sin tiempo.
