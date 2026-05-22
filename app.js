@@ -33,6 +33,15 @@ const STORAGE_KEY = "simulador_icfes_saber11_estado_v2";
 const HISTORY_KEY = "simulador_icfes_saber11_historial_v2";
 const STUDENT_KEY = "simulador_icfes_saber11_estudiante_v2";
 
+// Envío automático de informes por correo.
+// 1. Copia el código de google-apps-script/Code.gs en Apps Script.
+// 2. Despliégalo como aplicación web.
+// 3. Pega aquí la URL terminada en /exec para activar el envío automático real.
+const REPORT_EMAIL_ENDPOINT = "";
+const REPORT_INSTITUTION_EMAIL = "pruebas@iemanueljbetancur.edu.co";
+const REPORT_AUTOSEND_ON_FINISH = true;
+const REPORT_APP_VERSION = "ICFES-S2-1-134-email-v1";
+
 const app = document.getElementById("app");
 const homeBtn = document.getElementById("homeBtn");
 const themeBtn = document.getElementById("themeBtn");
@@ -427,16 +436,17 @@ function renderAccess(pendingScope = null) {
   clearTimer();
   state.screen = "access";
   homeBtn.classList.add("hidden");
-  const current = state.student || loadSavedStudent() || { fullName: "", group: "" };
+  const current = state.student || loadSavedStudent() || { fullName: "", group: "", email: "" };
   const currentFullName = normalizeNameInput(current.fullName || `${current.firstName || ""} ${current.lastName || ""}`);
   const currentGroup = normalizeGroupInput(current.group || current.gradeGroup || current.course || "");
+  const currentEmail = normalizeEmailInput(current.email || current.studentEmail || "");
 
   app.innerHTML = `
     <section class="access-panel" aria-labelledby="accessTitle">
       <div class="access-card">
         <p class="eyebrow">Ingreso del estudiante</p>
         <h2 id="accessTitle">Antes de iniciar, registra tus datos</h2>
-        <p class="access-intro">Esta información aparecerá en la página de resultados y en el informe final en PDF del simulacro.</p>
+        <p class="access-intro">Esta información aparecerá en la página de resultados, en el informe final en PDF y permitirá el envío automático del informe al estudiante y al equipo institucional.</p>
         <form id="studentForm" class="student-form">
           <div class="form-grid student-form-grid">
             <label class="field field-wide">
@@ -452,6 +462,10 @@ function renderAccess(pendingScope = null) {
                 <option value="11-3" ${currentGroup === "11-3" ? "selected" : ""}>11-3</option>
               </select>
             </label>
+            <label class="field field-wide">
+              <span>Correo electrónico del estudiante</span>
+              <input id="studentEmail" type="email" autocomplete="email" required maxlength="140" placeholder="Ejemplo: estudiante@correo.com" value="${escapeAttr(currentEmail)}" />
+            </label>
           </div>
           <div class="form-error" id="studentFormError" aria-live="polite"></div>
           <div class="session-actions">
@@ -466,6 +480,7 @@ function renderAccess(pendingScope = null) {
     event.preventDefault();
     const fullName = normalizeNameInput(document.getElementById("studentFullName").value);
     const group = normalizeGroupInput(document.getElementById("studentGroup").value);
+    const email = normalizeEmailInput(document.getElementById("studentEmail").value);
     const error = document.getElementById("studentFormError");
 
     if (!fullName) {
@@ -478,7 +493,12 @@ function renderAccess(pendingScope = null) {
       return;
     }
 
-    state.student = { fullName, group };
+    if (!isValidEmail(email)) {
+      error.textContent = "Por favor, escribe un correo electrónico válido para enviar el informe.";
+      return;
+    }
+
+    state.student = { fullName, group, email };
     storageSet(STUDENT_KEY, JSON.stringify(state.student));
     if (pendingScope) startScope(pendingScope);
     else renderHome();
@@ -497,20 +517,30 @@ function normalizeGroupInput(value) {
   return ["11-1", "11-2", "11-3"].includes(group) ? group : "";
 }
 
+function normalizeEmailInput(value) {
+  return String(value || "").replace(/\s+/g, "").trim().toLowerCase();
+}
+
+function isValidEmail(value) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(normalizeEmailInput(value));
+}
+
 function loadSavedStudent() {
   const student = storageJson(STUDENT_KEY, null);
   if (!student) return null;
   const fullName = normalizeNameInput(student.fullName || `${student.firstName || ""} ${student.lastName || ""}`);
   const group = normalizeGroupInput(student.group || student.gradeGroup || student.course || "");
-  if (!fullName || !group) return null;
-  return { fullName, group };
+  const email = normalizeEmailInput(student.email || student.studentEmail || "");
+  if (!fullName || !group || !isValidEmail(email)) return null;
+  return { fullName, group, email };
 }
 
 function hasValidStudent() {
   if (!state.student) return false;
   const fullName = normalizeNameInput(state.student.fullName || `${state.student.firstName || ""} ${state.student.lastName || ""}`);
   const group = normalizeGroupInput(state.student.group || state.student.gradeGroup || state.student.course || "");
-  return Boolean(fullName && group);
+  const email = normalizeEmailInput(state.student.email || state.student.studentEmail || "");
+  return Boolean(fullName && group && isValidEmail(email));
 }
 
 function getStudentFullName() {
@@ -521,6 +551,11 @@ function getStudentFullName() {
 function getStudentGroup() {
   if (!hasValidStudent()) return "Sin grupo";
   return normalizeGroupInput(state.student.group || state.student.gradeGroup || state.student.course || "") || "Sin grupo";
+}
+
+function getStudentEmail() {
+  if (!hasValidStudent()) return "Sin correo";
+  return normalizeEmailInput(state.student.email || state.student.studentEmail || "") || "Sin correo";
 }
 
 function renderHome() {
@@ -550,7 +585,7 @@ function renderHome() {
       <div>
         <p class="eyebrow">Estudiante registrado</p>
         <strong>${getStudentFullName()}</strong>
-        <span class="student-group-label">Grupo: ${getStudentGroup()}</span>
+        <span class="student-group-label">Grupo: ${getStudentGroup()} · Correo: ${getStudentEmail()}</span>
       </div>
       <button class="secondary-btn" id="changeStudentBtn" type="button">Cambiar estudiante</button>
     </section>
@@ -983,6 +1018,9 @@ function completeAttempt() {
   storageRemove(STORAGE_KEY);
   renderResults();
   scrollToPageTop();
+  if (REPORT_AUTOSEND_ON_FINISH) {
+    sendReportEmail({ automatic: true });
+  }
 }
 
 function renderResults() {
@@ -1015,7 +1053,7 @@ function renderResults() {
         <div>
           <p class="eyebrow">Informe detallado de resultados</p>
           <h2>${escapeHtml(result.sessionLabel)} · ${escapeHtml(result.scopeLabel)}</h2>
-          <p class="student-result-name">Estudiante: <strong>${escapeHtml(result.studentName)}</strong> · Grupo: <strong>${escapeHtml(result.studentGroup)}</strong></p>
+          <p class="student-result-name">Estudiante: <strong>${escapeHtml(result.studentName)}</strong> · Grupo: <strong>${escapeHtml(result.studentGroup)}</strong> · Correo: <strong>${escapeHtml(result.studentEmail)}</strong></p>
         </div>
         <span class="pill success">Puntaje interno: ${result.score}%</span>
       </div>
@@ -1023,6 +1061,7 @@ function renderResults() {
       <div class="report-meta-grid">
         <div><span>Fecha de finalización</span><strong>${escapeHtml(result.finishedAtLabel)}</strong></div>
         <div><span>Grupo</span><strong>${escapeHtml(result.studentGroup)}</strong></div>
+        <div><span>Correo del estudiante</span><strong>${escapeHtml(result.studentEmail)}</strong></div>
         <div><span>Modo</span><strong>${escapeHtml(result.modeLabel)}</strong></div>
         <div><span>Preguntas disponibles</span><strong>${result.totalQuestions}</strong></div>
         <div><span>Tiempo empleado</span><strong>${escapeHtml(result.elapsedLabel)}</strong></div>
@@ -1051,8 +1090,9 @@ function renderResults() {
       <div class="session-actions report-actions">
         <button class="primary-btn" type="button" id="newAttemptBtn">Nuevo intento</button>
         <button class="secondary-btn" type="button" id="downloadPdfBtn">Descargar informe PDF</button>
-        <a class="secondary-btn send-report-btn" id="sendPdfBtn" href="https://docs.google.com/forms/d/e/1FAIpQLSfaYK8XGQrHm-2Iap6IfSTFwQ9mITHjIki1aPNBkFEx5nz6PA/viewform" target="_blank" rel="noopener noreferrer">Enviar informe PDF</a>
+        <button class="secondary-btn send-report-btn" type="button" id="sendPdfBtn">Enviar informe PDF</button>
       </div>
+      <div id="emailReportStatus" class="email-report-status" role="status" aria-live="polite"></div>
 
       <h3 style="margin-top:24px">Revisión detallada por pregunta</h3>
       <p class="footer-note">Esta sección se conserva en pantalla para revisión pedagógica. El PDF descargable contiene el resumen general y los gráficos, sin la revisión detallada por pregunta.</p>
@@ -1062,6 +1102,8 @@ function renderResults() {
 
   document.getElementById("newAttemptBtn").addEventListener("click", renderHome);
   document.getElementById("downloadPdfBtn").addEventListener("click", downloadPdfReport);
+  document.getElementById("sendPdfBtn").addEventListener("click", () => sendReportEmail({ automatic: false }));
+  updateReportEmailStatus(getReportEmailInitialMessage());
 }
 
 function renderStatusChart(result) {
@@ -1329,6 +1371,7 @@ function buildResultData() {
   return {
     studentName: getStudentFullName(),
     studentGroup: getStudentGroup(),
+    studentEmail: getStudentEmail(),
     sessionLabel: session.label || `Sección ${state.sessionId}`,
     sessionTitle: session.title || "Sesión",
     scopeLabel: state.scope ? state.scope.label : "Intento",
@@ -1373,8 +1416,103 @@ function formatElapsedTime(startValue, endValue) {
 function downloadPdfReport() {
   const result = buildResultData();
   const pdf = createChartPdf(result);
-  const filename = `informe-icfes-${slugify(result.studentName)}-${slugify(result.studentGroup)}.pdf`;
+  const filename = getReportFileName(result);
   downloadBlob(filename, new Blob([pdf], { type: "application/pdf" }));
+}
+
+function getReportEmailInitialMessage() {
+  if (!REPORT_EMAIL_ENDPOINT) {
+    return `Envío automático pendiente de activar: pega la URL /exec de Google Apps Script en la constante REPORT_EMAIL_ENDPOINT. El informe se enviará al estudiante y a ${REPORT_INSTITUTION_EMAIL}.`;
+  }
+  return `Al finalizar, el informe se envía automáticamente al estudiante y a ${REPORT_INSTITUTION_EMAIL}. También puedes reenviarlo desde este botón.`;
+}
+
+function updateReportEmailStatus(message, kind = "info") {
+  const status = document.getElementById("emailReportStatus");
+  if (!status) return;
+  status.textContent = message || "";
+  status.dataset.kind = kind;
+}
+
+function getReportFileName(result) {
+  return `informe-icfes-${slugify(result.studentName)}-${slugify(result.studentGroup)}.pdf`;
+}
+
+function buildReportEmailPayload(result, pdf) {
+  return {
+    version: REPORT_APP_VERSION,
+    institutionEmail: REPORT_INSTITUTION_EMAIL,
+    studentName: result.studentName,
+    studentGroup: result.studentGroup,
+    studentEmail: result.studentEmail,
+    sessionLabel: result.sessionLabel,
+    sessionTitle: result.sessionTitle,
+    scopeLabel: result.scopeLabel,
+    modeLabel: result.modeLabel,
+    startedAt: result.startedAt,
+    finishedAt: result.finishedAt,
+    finishedAtLabel: result.finishedAtLabel,
+    elapsedLabel: result.elapsedLabel,
+    totalQuestions: result.totalQuestions,
+    answered: result.answered,
+    scored: result.scored,
+    correct: result.correct,
+    incorrect: result.incorrect,
+    omitted: result.omitted,
+    score: result.score,
+    byArea: result.byArea,
+    details: result.details,
+    pdfFileName: getReportFileName(result),
+    pdfBase64: btoa(pdf)
+  };
+}
+
+async function sendReportEmail({ automatic = false } = {}) {
+  const result = buildResultData();
+  const sendBtn = document.getElementById("sendPdfBtn");
+
+  if (!REPORT_EMAIL_ENDPOINT) {
+    const message = `No se pudo enviar todavía porque falta configurar la URL /exec de Google Apps Script. El informe debe enviarse al estudiante (${result.studentEmail}) y a ${REPORT_INSTITUTION_EMAIL}.`;
+    updateReportEmailStatus(message, "warning");
+    if (!automatic) {
+      openActionDialog({
+        title: "Activar envío automático",
+        message: "La app ya está preparada para enviar el PDF por correo. Para activarlo, despliega el archivo google-apps-script/Code.gs como aplicación web y pega la URL /exec en REPORT_EMAIL_ENDPOINT dentro de app.js.",
+        confirmText: "Entendido",
+        cancelText: "Cerrar"
+      });
+    }
+    return false;
+  }
+
+  try {
+    if (sendBtn) {
+      sendBtn.disabled = true;
+      sendBtn.textContent = automatic ? "Enviando informe..." : "Enviando...";
+    }
+    updateReportEmailStatus(`Enviando informe PDF a ${result.studentEmail} y a ${REPORT_INSTITUTION_EMAIL}...`, "info");
+
+    const pdf = createChartPdf(result);
+    const payload = buildReportEmailPayload(result, pdf);
+
+    await fetch(REPORT_EMAIL_ENDPOINT, {
+      method: "POST",
+      mode: "no-cors",
+      headers: { "Content-Type": "text/plain;charset=utf-8" },
+      body: JSON.stringify(payload)
+    });
+
+    updateReportEmailStatus(`Solicitud de envío realizada. Revisa el correo ${result.studentEmail} y la copia institucional ${REPORT_INSTITUTION_EMAIL}.`, "success");
+    return true;
+  } catch (error) {
+    updateReportEmailStatus("No fue posible enviar el informe. Verifica la conexión o la URL de Google Apps Script.", "error");
+    return false;
+  } finally {
+    if (sendBtn) {
+      sendBtn.disabled = false;
+      sendBtn.textContent = "Enviar informe PDF";
+    }
+  }
 }
 
 function buildPdfReportLines(result) {
@@ -1383,6 +1521,7 @@ function buildPdfReportLines(result) {
     "",
     `Estudiante: ${result.studentName}`,
     `Grupo: ${result.studentGroup}`,
+    `Correo: ${result.studentEmail}`,
     `Fecha de finalizacion: ${result.finishedAtLabel}`,
     `Seccion: ${result.sessionLabel} - ${result.sessionTitle}`,
     `Bloque o alcance: ${result.scopeLabel}`,
@@ -1434,8 +1573,9 @@ function createChartPdf(result) {
   pdfText(ops, "INFORME DE RESULTADOS - SIMULADOR ICFES SABER 11", marginX, 800, 15, true, colors.primary);
   pdfText(ops, `Estudiante: ${result.studentName}`, marginX, 776, 12, true, colors.text);
   pdfText(ops, `Grupo: ${result.studentGroup}`, marginX, 758, 10.5, true, colors.text);
-  pdfText(ops, `${result.sessionLabel} - ${result.sessionTitle} | ${result.scopeLabel}`, marginX, 740, 9.8, false, colors.muted);
-  pdfText(ops, `Fecha: ${result.finishedAtLabel} | Modo: ${result.modeLabel} | Tiempo empleado: ${result.elapsedLabel}`, marginX, 724, 9.8, false, colors.muted);
+  pdfText(ops, `Correo: ${result.studentEmail}`, marginX, 741, 9.8, false, colors.text);
+  pdfText(ops, `${result.sessionLabel} - ${result.sessionTitle} | ${result.scopeLabel}`, marginX, 724, 9.8, false, colors.muted);
+  pdfText(ops, `Fecha: ${result.finishedAtLabel} | Modo: ${result.modeLabel} | Tiempo empleado: ${result.elapsedLabel}`, marginX, 708, 9.8, false, colors.muted);
 
   const cardY = 664;
   const cardW = 116;

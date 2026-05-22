@@ -2730,3 +2730,52 @@ h3 { font-size: 1.08rem; }
 .instructions-list strong {
   color: var(--primary);
 }
+
+/* Envío automático de informes por correo */
+.field-wide {
+  grid-column: span 2;
+}
+
+.email-report-status {
+  margin-top: -6px;
+  padding: 12px 14px;
+  border-radius: 14px;
+  border: 1px solid var(--line);
+  background: var(--panel-2);
+  color: var(--muted);
+  font-weight: 750;
+  line-height: 1.45;
+}
+
+.email-report-status:empty {
+  display: none;
+}
+
+.email-report-status[data-kind="success"] {
+  color: var(--accent);
+  border-color: color-mix(in srgb, var(--accent), transparent 72%);
+  background: color-mix(in srgb, var(--accent), transparent 92%);
+}
+
+.email-report-status[data-kind="warning"] {
+  color: #9a5b00;
+  border-color: color-mix(in srgb, var(--warning), transparent 68%);
+  background: color-mix(in srgb, var(--warning), transparent 90%);
+}
+
+.email-report-status[data-kind="error"] {
+  color: var(--danger);
+  border-color: color-mix(in srgb, var(--danger), transparent 68%);
+  background: color-mix(in srgb, var(--danger), transparent 92%);
+}
+
+.send-report-btn:disabled {
+  opacity: 0.7;
+  cursor: wait;
+}
+
+@media (max-width: 680px) {
+  .field-wide {
+    grid-column: span 1;
+  }
+}

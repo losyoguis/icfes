@@ -3,11 +3,12 @@
 Versión actualizada con banco de datos incorporado hasta **Inglés 134**.
 
 ## Actualización realizada
-- Se solicita **nombre y apellido del estudiante** antes de ingresar al simulador.
-- El nombre del estudiante aparece en la pantalla inicial y en el **informe detallado final**.
+- Se solicita **nombre y apellido completo**, **grupo** y **correo electrónico del estudiante** antes de ingresar al simulador.
+- Los datos del estudiante aparecen en la pantalla inicial, en la página de resultados y en el **informe PDF final**.
 - Al finalizar la prueba, el sistema muestra un informe con resumen general, resultado por área y revisión detallada por pregunta.
 - Se eliminaron las descargas de resultados en CSV y TXT.
 - La descarga de resultados queda disponible únicamente como **informe PDF**.
+- La app queda preparada para el **envío automático del informe PDF por correo** al estudiante y a `pruebas@iemanueljbetancur.edu.co` mediante Google Apps Script.
 - Al seleccionar una respuesta, la pantalla permanece en la misma zona; no avanza automáticamente.
 - La navegación entre preguntas se realiza únicamente con Anterior, Siguiente o el panel numérico.
 - Los botones de navegación dicen “Anterior” y “Siguiente”.
@@ -25,3 +26,7 @@ Versión actualizada con banco de datos incorporado hasta **Inglés 134**.
 3. Abra `index.html`.
 
 Incluye `.nojekyll` para publicación directa e incrustación en Google Sites.
+
+## Envío automático por correo
+
+La carpeta `google-apps-script/` contiene el backend necesario para enviar el informe PDF por correo y guardar los resultados en Google Sheets. Consulta el archivo `ACTIVAR_ENVIO_AUTOMATICO.md` para desplegarlo y pegar la URL `/exec` en `app.js`.
