@@ -37,12 +37,13 @@ const STUDENT_KEY = "simulador_icfes_saber11_estudiante_v2";
 // 1. Copia el código de google-apps-script/Code.gs en Apps Script.
 // 2. Despliégalo como aplicación web.
 // 3. Pega aquí la URL terminada en /exec para activar el envío automático real.
-const REPORT_EMAIL_ENDPOINT = "https://script.google.com/a/macros/iemanueljbetancur.edu.co/s/AKfycbw46l-QqQYo7Ah_P9cA85D2a_4miFYf70FfUK304aEfRRrw-HU0ziPfBEpM_n3vWFta/exec";
+const REPORT_EMAIL_ENDPOINT = "https://script.google.com/a/macros/iemanueljbetancur.edu.co/s/AKfycbwCl5fXOLLDA6fKjk1S-eeLIfuYKa0WoTO6IT1E-di8De-DztCX7TQxtIKkv9SK_S8/exec";
 const REPORT_INSTITUTION_EMAIL = "pruebas@iemanueljbetancur.edu.co";
+const REPORT_MJB_FORM_URL = "https://docs.google.com/forms/d/1Q-jAP50dzVLYEmuhgEi3TO6eDNFHCoid3lLoo8tY91E/preview";
 const INSTITUTION_NAME = "Institución Educativa Manuel J. Betancur";
 const INSTITUTION_SHORT_NAME = "I.E. Manuel J. Betancur";
 const REPORT_AUTOSEND_ON_FINISH = true;
-const REPORT_APP_VERSION = "ICFES-S2-1-134-institucional-v2";
+const REPORT_APP_VERSION = "ICFES-S2-1-134-institucional-v6-email-estudiante-adjunto-drive";
 
 const app = document.getElementById("app");
 const homeBtn = document.getElementById("homeBtn");
@@ -380,6 +381,7 @@ function openInstructionsModal() {
             <li>Cuando finalices, da clic en el botón <strong>Finalizar intento</strong>.</li>
             <li>Descarga el <strong>informe PDF</strong>.</li>
             <li>Da clic en <strong>Enviar informe PDF</strong> para cargarlo en el formulario indicado.</li>
+            <li>Usa <strong>Enviar Informe al MJB</strong> para abrir el formulario institucional de la I.E. Manuel J. Betancur.</li>
           </ol>
         </article>
       </div>
@@ -468,6 +470,10 @@ function renderAccess(pendingScope = null) {
               <span>Correo electrónico del estudiante</span>
               <input id="studentEmail" type="email" autocomplete="email" required maxlength="140" placeholder="Ejemplo: estudiante@correo.com" value="${escapeAttr(currentEmail)}" />
             </label>
+            <label class="field field-wide">
+              <span>Confirmar correo electrónico</span>
+              <input id="studentEmailConfirm" type="email" autocomplete="email" required maxlength="140" placeholder="Vuelve a escribir el correo del estudiante" value="${escapeAttr(currentEmail)}" />
+            </label>
           </div>
           <div class="form-error" id="studentFormError" aria-live="polite"></div>
           <div class="session-actions">
@@ -483,6 +489,7 @@ function renderAccess(pendingScope = null) {
     const fullName = normalizeNameInput(document.getElementById("studentFullName").value);
     const group = normalizeGroupInput(document.getElementById("studentGroup").value);
     const email = normalizeEmailInput(document.getElementById("studentEmail").value);
+    const emailConfirm = normalizeEmailInput(document.getElementById("studentEmailConfirm").value);
     const error = document.getElementById("studentFormError");
 
     if (!fullName) {
@@ -497,6 +504,11 @@ function renderAccess(pendingScope = null) {
 
     if (!isValidEmail(email)) {
       error.textContent = "Por favor, escribe un correo electrónico válido para enviar el informe.";
+      return;
+    }
+
+    if (email !== emailConfirm) {
+      error.textContent = "Los correos electrónicos no coinciden. Verifica el correo del estudiante antes de continuar.";
       return;
     }
 
@@ -1097,6 +1109,7 @@ function renderResults() {
         <button class="primary-btn" type="button" id="newAttemptBtn">Nuevo intento</button>
         <button class="secondary-btn" type="button" id="downloadPdfBtn">Descargar informe PDF</button>
         <button class="secondary-btn send-report-btn" type="button" id="sendPdfBtn">Enviar informe PDF</button>
+        <a class="secondary-btn mjb-report-btn" id="sendMjbReportBtn" href="${REPORT_MJB_FORM_URL}" target="_blank" rel="noopener noreferrer">Enviar Informe al MJB</a>
       </div>
       <div id="emailReportStatus" class="email-report-status" role="status" aria-live="polite"></div>
 
@@ -1461,7 +1474,7 @@ function getReportEmailInitialMessage() {
   if (!REPORT_EMAIL_ENDPOINT) {
     return `Envío automático pendiente de activar: pega la URL /exec de Google Apps Script en la constante REPORT_EMAIL_ENDPOINT. El informe se enviará al estudiante y a ${REPORT_INSTITUTION_EMAIL}, y quedará registrado para el análisis institucional de la ${INSTITUTION_NAME}.`;
   }
-  return `Al finalizar, el informe se envía automáticamente al estudiante y a ${REPORT_INSTITUTION_EMAIL}. Además, Google Sheets actualiza el análisis institucional por estudiante, grupo y área.`;
+  return `Al finalizar, el informe se envía automáticamente al estudiante con PDF adjunto y enlace de Drive, y se envía copia institucional a ${REPORT_INSTITUTION_EMAIL}. Además, Google Sheets actualiza el análisis por estudiante, grupo y área.`;
 }
 
 function updateReportEmailStatus(message, kind = "info") {
@@ -1483,6 +1496,7 @@ function buildReportEmailPayload(result, pdf) {
     studentName: result.studentName,
     studentGroup: result.studentGroup,
     studentEmail: result.studentEmail,
+    studentEmailRaw: result.studentEmail,
     sessionLabel: result.sessionLabel,
     sessionTitle: result.sessionTitle,
     scopeLabel: result.scopeLabel,
@@ -1530,7 +1544,7 @@ async function sendReportEmail({ automatic = false } = {}) {
       sendBtn.disabled = true;
       sendBtn.textContent = automatic ? "Enviando informe..." : "Enviando...";
     }
-    updateReportEmailStatus(`Enviando informe PDF a ${result.studentEmail} y a ${REPORT_INSTITUTION_EMAIL}...`, "info");
+    updateReportEmailStatus(`Enviando informe PDF a ${result.studentEmail} y copia institucional a ${REPORT_INSTITUTION_EMAIL}...`, "info");
 
     const pdf = createChartPdf(result);
     const payload = buildReportEmailPayload(result, pdf);
@@ -1546,7 +1560,7 @@ async function sendReportEmail({ automatic = false } = {}) {
       body: formPayload.toString()
     });
 
-    updateReportEmailStatus(`Solicitud de envío enviada al backend institucional. Revisa el correo ${result.studentEmail} y la copia institucional ${REPORT_INSTITUTION_EMAIL}.`, "success");
+    updateReportEmailStatus(`Solicitud enviada al backend institucional. El sistema enviará el informe al estudiante con PDF adjunto y enlace de Drive, y la copia institucional con adjunto. Revisa ${result.studentEmail}, ${REPORT_INSTITUTION_EMAIL}, Spam/Promociones y Apps Script > Ejecuciones > Registro_Envios.`, "success");
     return true;
   } catch (error) {
     updateReportEmailStatus("No fue posible enviar el informe. Verifica la conexión o la URL de Google Apps Script.", "error");

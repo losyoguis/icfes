@@ -41,3 +41,12 @@ La carpeta `google-apps-script/` contiene el backend necesario para:
 - Generar un informe general institucional tipo ICFES para la **Institución Educativa Manuel J. Betancur**.
 
 Consulta `ACTIVAR_ENVIO_AUTOMATICO.md`. En esta versión la URL `/exec` ya quedó configurada en `app.js`.
+
+
+### Mejora de entrega al estudiante
+
+El estudiante recibe un correo liviano con enlace al PDF guardado en Drive. La copia institucional llega a `pruebas@iemanueljbetancur.edu.co` con el PDF adjunto. El estado técnico se registra en la hoja `Registro_Envios`.
+
+### Corrección v5 de correo al estudiante
+
+Se corrigió la prueba manual de Apps Script para que no requiera parámetros. Además, el envío al estudiante ahora se realiza con una estrategia reforzada: mensaje principal por `GmailApp` y mensaje de respaldo en texto plano por `MailApp`. El estado técnico queda registrado en la hoja `Registro_Envios`.
