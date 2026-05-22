@@ -43,7 +43,7 @@ const REPORT_MJB_FORM_URL = "https://docs.google.com/forms/d/1Q-jAP50dzVLYEmuhgE
 const INSTITUTION_NAME = "Institución Educativa Manuel J. Betancur";
 const INSTITUTION_SHORT_NAME = "I.E. Manuel J. Betancur";
 const REPORT_AUTOSEND_ON_FINISH = true;
-const REPORT_APP_VERSION = "ICFES-S2-1-134-institucional-v6-email-estudiante-adjunto-drive";
+const REPORT_APP_VERSION = "ICFES-S2-1-134-dashboard-institucional-mjb-v1";
 
 const app = document.getElementById("app");
 const homeBtn = document.getElementById("homeBtn");

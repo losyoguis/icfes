@@ -50,3 +50,12 @@ El estudiante recibe un correo liviano con enlace al PDF guardado en Drive. La c
 ### Corrección v5 de correo al estudiante
 
 Se corrigió la prueba manual de Apps Script para que no requiera parámetros. Además, el envío al estudiante ahora se realiza con una estrategia reforzada: mensaje principal por `GmailApp` y mensaje de respaldo en texto plano por `MailApp`. El estado técnico queda registrado en la hoja `Registro_Envios`.
+
+
+## Dashboard institucional
+
+Esta versión incluye `dashboard.html`, una página para analizar resultados globales, por grupo e individuales de la Institución Educativa Manuel J. Betancur.
+
+Para activarlo, actualiza el archivo `google-apps-script/Code.gs`, crea una nueva versión de la implementación de Apps Script y abre el botón **Dashboard institucional** desde la app principal.
+
+Consulta el archivo `ACTIVAR_DASHBOARD_INSTITUCIONAL.md` para el paso a paso.
