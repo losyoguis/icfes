@@ -10,7 +10,10 @@ const NOTEBOOK_RESOURCE_TYPES = [
 
 let notebookState = {
   question: null,
-  activeResource: "mindmap"
+  activeResource: "mindmap",
+  session: 2,
+  questionNumber: 1,
+  returnUrl: "index.html"
 };
 
 initNotebook();
@@ -21,7 +24,11 @@ function initNotebook() {
   const session = Number(params.get("session") || 2);
   const questionNumber = Number(params.get("question") || 1);
   const resource = params.get("resource") || "mindmap";
+  const returnParam = params.get("return") || "";
   const question = findNotebookQuestion(session, questionNumber);
+  notebookState.session = session;
+  notebookState.questionNumber = questionNumber;
+  notebookState.returnUrl = buildReturnToQuestionUrl(session, questionNumber, returnParam);
   notebookState.question = question;
   notebookState.activeResource = NOTEBOOK_RESOURCE_TYPES.some(item => item.key === resource) ? resource : "mindmap";
   renderNotebook();
@@ -41,6 +48,23 @@ function initNotebookTheme() {
   });
 }
 
+function buildReturnToQuestionUrl(session, questionNumber, returnParam) {
+  if (returnParam) {
+    try {
+      const decoded = decodeURIComponent(returnParam);
+      if (decoded && !/^https?:\/\//i.test(decoded)) return decoded;
+    } catch (error) {
+      // Si el parámetro llega mal codificado, se usa el retorno seguro al simulador.
+    }
+  }
+  const params = new URLSearchParams();
+  params.set("volverPregunta", "1");
+  params.set("session", String(session || 2));
+  params.set("question", String(questionNumber || 1));
+  params.set("mode", "practica");
+  return `index.html?${params.toString()}`;
+}
+
 function findNotebookQuestion(session, number) {
   if (!Array.isArray(window.QUESTION_BANK)) return null;
   return QUESTION_BANK.find(item => Number(item.session) === Number(session) && Number(item.number) === Number(number)) || null;
@@ -49,12 +73,16 @@ function findNotebookQuestion(session, number) {
 function renderNotebook() {
   const question = notebookState.question;
   if (!question) {
+    const returnUrl = escapeHtml(notebookState.returnUrl || "index.html");
     NOTEBOOK_APP.innerHTML = `
-      <section class="empty-state">
+      <section class="empty-state notebook-empty-state">
         <p class="eyebrow">Notebook - Siteslessom</p>
         <h2>No se encontró la pregunta solicitada</h2>
-        <p>Regresa al simulador y abre el notebook desde una pregunta disponible en el modo Práctica con retroalimentación.</p>
-        <a class="primary-btn header-link" href="index.html">Volver al simulador</a>
+        <p>Regresa a la pregunta desde la que abriste el notebook o vuelve al inicio del simulador para seleccionar otra actividad.</p>
+        <div class="notebook-empty-actions">
+          <a class="primary-btn header-link" href="${returnUrl}">Volver a la pregunta</a>
+          <a class="ghost-btn header-link" href="index.html">Volver al simulador</a>
+        </div>
       </section>
     `;
     return;

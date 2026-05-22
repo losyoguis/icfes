@@ -111,16 +111,59 @@ function init() {
   const savedTheme = storageGet("simulador_icfes_theme", "light");
   document.documentElement.dataset.theme = savedTheme;
   themeBtn.textContent = savedTheme === "dark" ? "☀️" : "🌙";
+  bindGlobalEvents();
   const savedStudent = loadSavedStudent();
   if (savedStudent) {
     state.student = savedStudent;
     updateHeaderSessionButtons();
+    if (handleNotebookReturnRequest()) return;
     renderHome();
   } else {
     updateHeaderSessionButtons();
     renderAccess();
   }
-  bindGlobalEvents();
+}
+
+function handleNotebookReturnRequest() {
+  const params = new URLSearchParams(window.location.search);
+  if (params.get("volverPregunta") !== "1") return false;
+
+  const raw = storageGet(STORAGE_KEY);
+  const requestedSession = Number(params.get("session") || state.sessionId || 2);
+  const requestedQuestion = Number(params.get("question") || 1);
+
+  try {
+    const saved = raw ? JSON.parse(raw) : null;
+    if (!saved || Number(saved.sessionId) !== requestedSession) {
+      state.mode = params.get("mode") || "practica";
+      renderHome();
+      setTimeout(() => {
+        alert("No hay un intento guardado para volver directamente a esa pregunta. Selecciona el modo Práctica con retroalimentación e inicia la sesión correspondiente.");
+      }, 120);
+      return true;
+    }
+
+    state = {
+      ...state,
+      ...saved,
+      mode: params.get("mode") || saved.mode || "practica",
+      currentNumber: requestedQuestion || saved.currentNumber,
+      finished: false
+    };
+    if (saved.student) state.student = saved.student;
+    if (!hasValidStudent()) {
+      state.student = loadSavedStudent();
+    }
+    homeBtn.classList.remove("hidden");
+    window.history.replaceState({}, "", window.location.pathname);
+    renderExam({ scrollToTimer: false });
+    scrollToPageTop();
+    if (state.mode !== "entrenamiento") startTimer();
+    return true;
+  } catch (error) {
+    renderHome();
+    return true;
+  }
 }
 
 function bindGlobalEvents() {
@@ -1017,7 +1060,8 @@ function renderResources(resources) {
 function renderPracticeNotebookSection(question) {
   const sessionParam = encodeURIComponent(String(question.session));
   const questionParam = encodeURIComponent(String(question.number));
-  const baseUrl = `notebook-siteslesson.html?session=${sessionParam}&question=${questionParam}`;
+  const returnUrl = encodeURIComponent(`index.html?volverPregunta=1&session=${sessionParam}&question=${questionParam}&mode=practica`);
+  const baseUrl = `notebook-siteslesson.html?session=${sessionParam}&question=${questionParam}&return=${returnUrl}`;
   const tools = [
     { key: "mindmap", icon: "🧠", label: "Mapa mental", text: "Organiza conceptos clave de la pregunta." },
     { key: "video", icon: "🎬", label: "Video", text: "Guía audiovisual para comprender el reto." },

@@ -3487,3 +3487,23 @@ h3 { font-size: 1.08rem; }
     grid-row: auto;
   }
 }
+
+.notebook-empty-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 22px;
+}
+
+.notebook-empty-actions .primary-btn,
+.notebook-empty-actions .ghost-btn {
+  min-width: 190px;
+  justify-content: center;
+  text-align: center;
+}
+
+.notebook-empty-state .ghost-btn {
+  border-color: var(--line);
+}
