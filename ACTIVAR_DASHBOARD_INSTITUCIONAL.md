@@ -1,114 +1,123 @@
-# Activar dashboard institucional - I.E. Manuel J. Betancur
+# Activación del Dashboard Institucional ICFES - Manuel J. Betancur
 
-Esta versión incluye una nueva página:
+Esta versión queda conectada al Google Sheets oficial compartido:
 
-```text
-dashboard.html
-```
+https://docs.google.com/spreadsheets/d/17FbkF9BulfEfAAoDFNkljdsXWjXQOH_cBB3r-Iizjxs/edit
 
-El dashboard permite analizar los resultados del Simulador ICFES Saber 11 por:
+## Problema corregido
 
-- Resultado global institucional.
-- Grupo: 11-1, 11-2 y 11-3.
-- Estudiante individual.
-- Área evaluada.
-- Preguntas con mayor porcentaje de error.
-- Distribución por niveles internos de desempeño.
-- Recomendaciones pedagógicas automáticas tipo ICFES.
-
-## 1. Actualizar Apps Script
-
-1. Abre tu proyecto de Google Apps Script.
-2. Abre el archivo `Code.gs`.
-3. Borra el código anterior.
-4. Copia y pega el nuevo `Code.gs` incluido en la carpeta:
+El dashboard no cargaba porque el Apps Script estaba intentando abrir un ID de hoja incorrecto o una hoja diferente. El ID correcto es:
 
 ```text
-google-apps-script/Code.gs
+17FbkF9BulfEfAAoDFNkljdsXWjXQOH_cBB3r-Iizjxs
 ```
 
-5. Guarda los cambios.
-
-## 2. Crear nueva versión de la implementación
-
-Cada vez que reemplaces el código de Apps Script debes actualizar la implementación:
-
-1. Clic en **Implementar**.
-2. Clic en **Administrar implementaciones**.
-3. Clic en el lápiz de edición.
-4. En versión, selecciona **Nueva versión**.
-5. Clic en **Implementar**.
-6. Copia la URL que termina en `/exec`.
-
-## 3. Verificar el exec
-
-Esta versión ya trae configurado el exec entregado:
-
-```text
-https://script.google.com/a/macros/iemanueljbetancur.edu.co/s/AKfycbwCl5fXOLLDA6fKjk1S-eeLIfuYKa0WoTO6IT1E-di8De-DztCX7TQxtIKkv9SK_S8/exec
-```
-
-Si Google te genera una URL nueva, debes cambiarla en estos dos archivos:
-
-```text
-app.js
-dashboard.js
-```
-
-Busca las constantes:
+En esta versión el ID quedó fijo dentro de `google-apps-script/Code.gs` mediante la constante:
 
 ```javascript
-REPORT_EMAIL_ENDPOINT
-DASHBOARD_ENDPOINT
+const SPREADSHEET_ID_OFICIAL = '17FbkF9BulfEfAAoDFNkljdsXWjXQOH_cBB3r-Iizjxs';
 ```
 
-Y reemplaza el enlace anterior por el nuevo `/exec`.
+Además, el `dashboard.html` tiene lectura de respaldo directamente desde Google Sheets si Apps Script tarda o no responde.
 
-## 4. Subir los archivos actualizados a GitHub Pages
+## Pasos de actualización
 
-Sube todos los archivos del ZIP al repositorio del simulador, incluyendo:
+1. Descomprime este ZIP.
+2. Entra a Google Apps Script.
+3. Abre `Code.gs`.
+4. Borra todo el código anterior.
+5. Copia y pega el contenido nuevo de `google-apps-script/Code.gs`.
+6. Guarda.
+7. Ejecuta en este orden:
 
-```text
-index.html
-app.js
-styles.css
-dashboard.html
-dashboard.js
-data/question-bank.js
-google-apps-script/Code.gs
+```javascript
+configurarConexionOficialMJB
+inicializarSistema
+probarConexionDashboardMJB
+probarRegistroDashboard
 ```
 
-## 5. Limpiar caché
+8. Verifica que en el Google Sheets aparezcan o se conserven estas hojas:
 
-Después de publicar en GitHub Pages, abre la app y presiona:
+- Resultados
+- Respuestas_Detalladas
+- Registro_Envios
+- Analisis_Estudiantes
+- Analisis_Grupos
+- Analisis_Areas
+- Informe_Institucional
+
+9. Actualiza la implementación del Web App:
+
+**Implementar → Administrar implementaciones → Editar → Nueva versión → Implementar**
+
+10. Abre el simulador y el dashboard. En el navegador usa:
 
 - Windows: `Ctrl + Shift + R`
 - Mac: `Cmd + Shift + R`
 
-## 6. Abrir el dashboard
+para evitar caché vieja.
 
-Desde la app principal aparecerá el botón:
+## Pruebas rápidas
 
-```text
-Dashboard institucional
+Desde Apps Script, ejecuta:
+
+```javascript
+probarConexionDashboardMJB
 ```
 
-También se puede abrir directamente con:
+Debe devolver el ID del Sheets oficial y el número de intentos registrados.
+
+También puedes abrir el endpoint en el navegador con:
 
 ```text
-dashboard.html
+/exec?accion=ping
 ```
 
-## 7. Exportar a PDF
+Debe mostrar que el backend está conectado a Google Sheets.
 
-En el dashboard, usa el botón:
+## Nueva opción: borrar datos del Google Sheets
+
+Esta versión agrega un botón en `dashboard.html` llamado:
 
 ```text
-Exportar PDF
+Borrar datos Sheets
 ```
 
-Esto abre la ventana de impresión del navegador. Selecciona **Guardar como PDF**.
+El botón permite limpiar los registros del Google Sheets institucional sin borrar las hojas ni sus encabezados. También deja el dashboard listo para recibir nuevos resultados.
 
-## Nota de privacidad
+La acción limpia estas hojas:
 
-El dashboard contiene nombres, correos y resultados de estudiantes. Se recomienda que el Web App de Apps Script esté desplegado con permisos institucionales adecuados y que el enlace del dashboard sea compartido solo con docentes o directivos autorizados.
+- Resultados
+- Respuestas_Detalladas
+- Registro_Envios
+- Analisis_Estudiantes
+- Analisis_Grupos
+- Analisis_Areas
+- Informe_Institucional
+
+No se eliminan los PDF guardados en Drive.
+
+Para usar el botón se debe confirmar escribiendo:
+
+```text
+BORRAR DATOS
+```
+
+y luego escribir la clave institucional predeterminada:
+
+```text
+MJB-ICFES-2026
+```
+
+Si deseas cambiar esa clave, ejecuta desde Apps Script:
+
+```javascript
+configurarClaveBorradoDatos("NuevaClaveSegura2026")
+```
+
+También puedes borrar los datos directamente desde Apps Script ejecutando:
+
+```javascript
+borrarDatosDelSheets
+```

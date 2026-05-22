@@ -43,10 +43,11 @@ const REPORT_MJB_FORM_URL = "https://docs.google.com/forms/d/1Q-jAP50dzVLYEmuhgE
 const INSTITUTION_NAME = "Institución Educativa Manuel J. Betancur";
 const INSTITUTION_SHORT_NAME = "I.E. Manuel J. Betancur";
 const REPORT_AUTOSEND_ON_FINISH = true;
-const REPORT_APP_VERSION = "ICFES-S2-1-134-dashboard-institucional-mjb-v1";
+const REPORT_APP_VERSION = "ICFES-S2-1-134-dashboard-institucional-mjb-v5-cerrar-sesion";
 
 const app = document.getElementById("app");
 const homeBtn = document.getElementById("homeBtn");
+const logoutBtn = document.getElementById("logoutBtn");
 const themeBtn = document.getElementById("themeBtn");
 const tipsBtn = document.getElementById("tipsBtn");
 const instructionsBtn = document.getElementById("instructionsBtn");
@@ -110,8 +111,10 @@ function init() {
   const savedStudent = loadSavedStudent();
   if (savedStudent) {
     state.student = savedStudent;
+    updateHeaderSessionButtons();
     renderHome();
   } else {
+    updateHeaderSessionButtons();
     renderAccess();
   }
   bindGlobalEvents();
@@ -119,6 +122,7 @@ function init() {
 
 function bindGlobalEvents() {
   homeBtn.addEventListener("click", handleHomeNavigation);
+  if (logoutBtn) logoutBtn.addEventListener("click", handleLogout);
   if (tipsBtn) tipsBtn.addEventListener("click", openTipsModal);
   if (instructionsBtn) instructionsBtn.addEventListener("click", openInstructionsModal);
 
@@ -151,6 +155,50 @@ function handleHomeNavigation() {
   clearTimer();
   renderHome();
   focusApp();
+}
+
+function handleLogout() {
+  const hasActiveAttempt = state.screen === "exam" && !state.finished;
+  openActionDialog({
+    title: "Cerrar sesión",
+    message: hasActiveAttempt
+      ? "Se cerrará la sesión del estudiante actual y se eliminará el intento guardado en este navegador. Luego podrás ingresar con otro nombre, grupo y correo. ¿Deseas continuar?"
+      : "Se cerrará la sesión del estudiante actual. Luego podrás ingresar con otro nombre, grupo y correo. ¿Deseas continuar?",
+    confirmText: "Sí, cerrar sesión",
+    cancelText: "Cancelar",
+    danger: true,
+    onConfirm: performLogout
+  });
+}
+
+function performLogout() {
+  clearTimer();
+  storageRemove(STUDENT_KEY);
+  storageRemove(STORAGE_KEY);
+  state = {
+    screen: "access",
+    mode: "simulacro",
+    sessionId: null,
+    scope: null,
+    navNumbers: [],
+    availableNumbers: [],
+    currentNumber: null,
+    answers: {},
+    marked: {},
+    startedAt: null,
+    finishedAt: null,
+    student: null,
+    remainingSeconds: 0,
+    finished: false
+  };
+  updateHeaderSessionButtons();
+  renderAccess();
+  scrollToPageTop();
+}
+
+function updateHeaderSessionButtons() {
+  const loggedIn = hasValidStudent();
+  if (logoutBtn) logoutBtn.classList.toggle("hidden", !loggedIn);
 }
 
 function openActionDialog({ title, message, confirmText = "Aceptar", cancelText = "Cancelar", danger = false, onConfirm }) {
@@ -440,6 +488,7 @@ function renderAccess(pendingScope = null) {
   clearTimer();
   state.screen = "access";
   homeBtn.classList.add("hidden");
+  if (logoutBtn) logoutBtn.classList.add("hidden");
   const current = state.student || loadSavedStudent() || { fullName: "", group: "", email: "" };
   const currentFullName = normalizeNameInput(current.fullName || `${current.firstName || ""} ${current.lastName || ""}`);
   const currentGroup = normalizeGroupInput(current.group || current.gradeGroup || current.course || "");
@@ -514,6 +563,7 @@ function renderAccess(pendingScope = null) {
 
     state.student = { fullName, group, email };
     storageSet(STUDENT_KEY, JSON.stringify(state.student));
+    updateHeaderSessionButtons();
     if (pendingScope) startScope(pendingScope);
     else renderHome();
   });
@@ -580,6 +630,7 @@ function renderHome() {
   clearTimer();
   state.screen = "home";
   homeBtn.classList.add("hidden");
+  updateHeaderSessionButtons();
   app.innerHTML = `
     <section class="hero">
       <p class="eyebrow">${escapeHtml(INSTITUTION_NAME)}</p>
@@ -601,7 +652,10 @@ function renderHome() {
         <strong>${getStudentFullName()}</strong>
         <span class="student-group-label">Grupo: ${getStudentGroup()} · Correo: ${getStudentEmail()}</span>
       </div>
-      <button class="secondary-btn" id="changeStudentBtn" type="button">Cambiar estudiante</button>
+      <div class="student-actions">
+        <button class="secondary-btn" id="changeStudentBtn" type="button">Cambiar estudiante</button>
+        <button class="danger-btn" id="logoutStudentBtn" type="button">Cerrar sesión</button>
+      </div>
     </section>
 
     <section class="config-bar" aria-label="Configuración del simulador">
@@ -635,6 +689,8 @@ function renderHome() {
       onConfirm: () => renderAccess()
     });
   });
+  const logoutStudentBtn = document.getElementById("logoutStudentBtn");
+  if (logoutStudentBtn) logoutStudentBtn.addEventListener("click", handleLogout);
   document.getElementById("resumeBtn").addEventListener("click", resumeSavedAttempt);
   renderSessionCards();
   app.focus();
@@ -745,6 +801,7 @@ function showStructure(sessionId) {
   document.getElementById("startFromStructure").addEventListener("click", () => startScope({ sessionId, type: "session" }));
   document.getElementById("backHome").addEventListener("click", renderHome);
   homeBtn.classList.remove("hidden");
+  updateHeaderSessionButtons();
 }
 
 function startScope(scope) {
@@ -775,12 +832,14 @@ function startScope(scope) {
   };
 
   homeBtn.classList.remove("hidden");
+  updateHeaderSessionButtons();
   saveState();
   renderExam({ scrollToTimer: true });
   if (state.mode !== "entrenamiento") startTimer();
 }
 
 function renderExam({ scrollToTimer = false } = {}) {
+  updateHeaderSessionButtons();
   const session = getSession(state.sessionId);
   const loaded = state.availableNumbers.length;
 
@@ -1038,6 +1097,7 @@ function completeAttempt() {
 }
 
 function renderResults() {
+  updateHeaderSessionButtons();
   const result = buildResultData();
 
   const areaRows = result.byArea.map(row => `
@@ -1549,18 +1609,9 @@ async function sendReportEmail({ automatic = false } = {}) {
     const pdf = createChartPdf(result);
     const payload = buildReportEmailPayload(result, pdf);
 
-    const formPayload = new URLSearchParams();
-    formPayload.set("payload", JSON.stringify(payload));
+    await submitReportPayloadToAppsScript(payload);
 
-    await fetch(REPORT_EMAIL_ENDPOINT, {
-      method: "POST",
-      mode: "no-cors",
-      credentials: "include",
-      headers: { "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8" },
-      body: formPayload.toString()
-    });
-
-    updateReportEmailStatus(`Solicitud enviada al backend institucional. El sistema enviará el informe al estudiante con PDF adjunto y enlace de Drive, y la copia institucional con adjunto. Revisa ${result.studentEmail}, ${REPORT_INSTITUTION_EMAIL}, Spam/Promociones y Apps Script > Ejecuciones > Registro_Envios.`, "success");
+    updateReportEmailStatus(`Solicitud enviada al backend institucional. El sistema registrará el resultado en Google Sheets, actualizará el dashboard y enviará el informe. Revisa ${result.studentEmail}, ${REPORT_INSTITUTION_EMAIL}, la hoja Resultados y Apps Script > Ejecuciones.`, "success");
     return true;
   } catch (error) {
     updateReportEmailStatus("No fue posible enviar el informe. Verifica la conexión o la URL de Google Apps Script.", "error");
@@ -1571,6 +1622,62 @@ async function sendReportEmail({ automatic = false } = {}) {
       sendBtn.textContent = "Enviar informe PDF";
     }
   }
+}
+
+
+function submitReportPayloadToAppsScript(payload) {
+  const payloadText = JSON.stringify(payload);
+
+  // Envío principal por formulario oculto. Es más estable con Google Apps Script
+  // desde GitHub Pages o desde archivo local porque no depende de CORS.
+  return new Promise(resolve => {
+    const iframeName = `gasSubmitFrame_${Date.now()}_${Math.random().toString(36).slice(2)}`;
+    const iframe = document.createElement("iframe");
+    iframe.name = iframeName;
+    iframe.title = "Envío seguro del informe";
+    iframe.style.position = "fixed";
+    iframe.style.left = "-9999px";
+    iframe.style.width = "1px";
+    iframe.style.height = "1px";
+    iframe.style.opacity = "0";
+
+    const form = document.createElement("form");
+    form.method = "POST";
+    form.action = REPORT_EMAIL_ENDPOINT;
+    form.target = iframeName;
+    form.enctype = "application/x-www-form-urlencoded";
+    form.style.display = "none";
+
+    const input = document.createElement("input");
+    input.type = "hidden";
+    input.name = "payload";
+    input.value = payloadText;
+    form.appendChild(input);
+
+    let resolved = false;
+    const cleanup = () => {
+      setTimeout(() => {
+        if (form.parentNode) form.parentNode.removeChild(form);
+        if (iframe.parentNode) iframe.parentNode.removeChild(iframe);
+      }, 1000);
+    };
+
+    const finish = () => {
+      if (resolved) return;
+      resolved = true;
+      cleanup();
+      resolve(true);
+    };
+
+    iframe.addEventListener("load", finish, { once: true });
+    document.body.appendChild(iframe);
+    document.body.appendChild(form);
+    form.submit();
+
+    // Algunos navegadores no disparan load en iframes con respuestas opacas de Apps Script.
+    // El POST ya queda enviado; este respaldo permite continuar la experiencia del estudiante.
+    setTimeout(finish, 3500);
+  });
 }
 
 function buildPdfReportLines(result) {

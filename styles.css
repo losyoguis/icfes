@@ -3076,3 +3076,32 @@ h3 { font-size: 1.08rem; }
     grid-template-columns: 1fr 1fr !important;
   }
 }
+
+/* Cierre de sesión del estudiante */
+.danger-ghost-btn {
+  color: var(--danger);
+  border-color: rgba(239, 68, 68, 0.35);
+}
+
+.danger-ghost-btn:hover {
+  background: rgba(239, 68, 68, 0.08);
+}
+
+.student-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+@media (max-width: 720px) {
+  .student-actions {
+    width: 100%;
+    justify-content: stretch;
+  }
+
+  .student-actions .secondary-btn,
+  .student-actions .danger-btn {
+    flex: 1 1 100%;
+  }
+}

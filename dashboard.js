@@ -1,5 +1,7 @@
 const DASHBOARD_ENDPOINT = "https://script.google.com/a/macros/iemanueljbetancur.edu.co/s/AKfycbwCl5fXOLLDA6fKjk1S-eeLIfuYKa0WoTO6IT1E-di8De-DztCX7TQxtIKkv9SK_S8/exec";
 const DASHBOARD_INSTITUTION = "Institución Educativa Manuel J. Betancur";
+const DASHBOARD_SPREADSHEET_ID = "17FbkF9BulfEfAAoDFNkljdsXWjXQOH_cBB3r-Iizjxs";
+const DASHBOARD_SPREADSHEET_URL = `https://docs.google.com/spreadsheets/d/${DASHBOARD_SPREADSHEET_ID}/edit`;
 
 const dashboardState = {
   data: null,
@@ -13,6 +15,7 @@ const els = {
   themeBtn: document.getElementById("themeBtn"),
   refreshBtn: document.getElementById("refreshDashboardBtn"),
   printBtn: document.getElementById("printDashboardBtn"),
+  deleteBtn: document.getElementById("deleteSheetDataBtn"),
   group: document.getElementById("filterGroup"),
   student: document.getElementById("filterStudent"),
   from: document.getElementById("filterFrom"),
@@ -48,6 +51,7 @@ function initDashboard() {
 
   els.refreshBtn.addEventListener("click", loadDashboardData);
   els.printBtn.addEventListener("click", () => window.print());
+  if (els.deleteBtn) els.deleteBtn.addEventListener("click", deleteSheetData);
   [els.group, els.student, els.from, els.to].forEach(input => input.addEventListener("change", renderDashboard));
   els.clear.addEventListener("click", () => {
     els.group.value = "";
@@ -65,18 +69,63 @@ function setStatus(message, kind = "info") {
   els.status.dataset.kind = kind;
 }
 
-function loadDashboardData() {
-  setStatus("Conectando con Google Sheets...", "info");
-  els.refreshBtn.disabled = true;
+function deleteSheetData() {
+  const firstConfirm = window.confirm(
+    "Esta acción borrará los resultados registrados en Google Sheets y dejará las hojas listas con sus encabezados.\n\nNo se borrarán las carpetas ni los PDF guardados en Drive.\n\n¿Deseas continuar?"
+  );
+  if (!firstConfirm) return;
 
-  fetchJsonp(`${DASHBOARD_ENDPOINT}?accion=dashboard-data`, 35000)
+  const phrase = window.prompt('Para confirmar escribe exactamente: BORRAR DATOS');
+  if ((phrase || '').trim().toUpperCase() !== 'BORRAR DATOS') {
+    setStatus('Borrado cancelado: la frase de confirmación no coincide.', 'warning');
+    return;
+  }
+
+  const password = window.prompt('Escribe la clave institucional de borrado:');
+  if (!password) {
+    setStatus('Borrado cancelado: no se ingresó la clave institucional.', 'warning');
+    return;
+  }
+
+  els.deleteBtn.disabled = true;
+  setStatus('Borrando datos de Google Sheets...', 'warning');
+
+  const url = `${DASHBOARD_ENDPOINT}?accion=borrar-datos&confirmacion=${encodeURIComponent('BORRAR DATOS')}&clave=${encodeURIComponent(password.trim())}`;
+  fetchJsonp(url, 90000)
+    .then(response => {
+      if (!response || response.ok === false) throw new Error(response && response.message ? response.message : 'No fue posible borrar los datos.');
+      setStatus(`${response.message || 'Datos borrados correctamente.'} Hojas limpiadas: ${(response.sheetsCleared || []).join(', ')}`, 'success');
+      dashboardState.data = { ok: true, records: [], details: [], updatedAt: new Date().toISOString(), institutionName: DASHBOARD_INSTITUTION };
+      renderDashboard();
+      setTimeout(loadDashboardData, 1200);
+    })
+    .catch(error => {
+      console.error(error);
+      setStatus(`No fue posible borrar los datos. Detalle: ${error.message}`, 'error');
+    })
+    .finally(() => { els.deleteBtn.disabled = false; });
+}
+
+function loadDashboardData() {
+  setStatus("Inicializando conexión con Google Sheets...", "info");
+  els.refreshBtn.disabled = true;
+  els.sheets.href = DASHBOARD_SPREADSHEET_URL;
+  els.sheets.classList.remove("hidden");
+
+  loadDashboardDataFromAppsScript()
+    .catch(error => {
+      console.warn("Apps Script no respondió. Se intentará lectura directa desde Google Sheets.", error);
+      setStatus("Apps Script no respondió. Intentando lectura directa desde Google Sheets...", "warning");
+      return loadDashboardDataFromGoogleSheets();
+    })
     .then(data => {
       if (!data || data.ok === false) throw new Error(data && data.message ? data.message : "No se recibieron datos válidos.");
       dashboardState.data = normalizeDashboardData(data);
       populateFilterOptions();
       renderDashboard();
       const count = dashboardState.data.records.length;
-      setStatus(`Datos actualizados: ${count} intento(s). Última actualización: ${formatDateTime(data.updatedAt)}.`, "success");
+      const source = data.source ? ` Fuente: ${data.source}.` : "";
+      setStatus(`Datos actualizados: ${count} intento(s). Última actualización: ${formatDateTime(data.updatedAt)}.${source}`, "success");
       if (data.spreadsheetUrl) {
         els.sheets.href = data.spreadsheetUrl;
         els.sheets.classList.remove("hidden");
@@ -84,10 +133,43 @@ function loadDashboardData() {
     })
     .catch(error => {
       console.error(error);
-      setStatus(`No fue posible cargar el dashboard. Verifica que Code.gs esté actualizado y desplegado. Detalle: ${error.message}`, "error");
+      setStatus(`No fue posible cargar el dashboard. Verifica que el nuevo Code.gs esté desplegado, que el Web App sea accesible y que el Sheets tenga permisos de lectura. Detalle: ${error.message}`, "error");
       renderEmptyState();
     })
     .finally(() => { els.refreshBtn.disabled = false; });
+}
+
+function loadDashboardDataFromAppsScript() {
+  return fetchJsonp(`${DASHBOARD_ENDPOINT}?accion=dashboard-data`, 90000)
+    .then(data => {
+      if (!data || data.ok === false) throw new Error(data && data.message ? data.message : "Respuesta inválida de Apps Script.");
+      data.source = "Apps Script";
+      return data;
+    });
+}
+
+function loadDashboardDataFromGoogleSheets() {
+  return Promise.all([
+    fetchGvizRows("Resultados"),
+    fetchGvizRows("Respuestas_Detalladas")
+  ]).then(([resultTable, detailTable]) => {
+    const records = recordsFromSheetRows(resultTable);
+    const details = detailsFromSheetRows(detailTable);
+    return {
+      ok: true,
+      source: "Google Sheets directo",
+      institutionName: DASHBOARD_INSTITUTION,
+      updatedAt: new Date().toISOString(),
+      spreadsheetUrl: DASHBOARD_SPREADSHEET_URL,
+      records,
+      details,
+      summary: {},
+      notes: [
+        "Datos leídos directamente desde Google Sheets como respaldo cuando Apps Script no respondió.",
+        "Para registrar nuevos resultados automáticamente, el Apps Script debe estar desplegado con el Code.gs actualizado."
+      ]
+    };
+  });
 }
 
 function fetchJsonp(url, timeoutMs = 25000) {
@@ -118,6 +200,148 @@ function fetchJsonp(url, timeoutMs = 25000) {
     script.src = `${url}${separator}callback=${encodeURIComponent(callbackName)}&t=${Date.now()}`;
     document.body.appendChild(script);
   });
+}
+
+function fetchGvizRows(sheetName) {
+  return new Promise((resolve, reject) => {
+    const callbackName = `gvizCallback_${Date.now()}_${Math.random().toString(36).slice(2)}`;
+    const url = `https://docs.google.com/spreadsheets/d/${DASHBOARD_SPREADSHEET_ID}/gviz/tq?sheet=${encodeURIComponent(sheetName)}&tqx=out:json;responseHandler:${callbackName}&t=${Date.now()}`;
+    const script = document.createElement("script");
+    const timer = setTimeout(() => {
+      cleanup();
+      reject(new Error(`Tiempo de espera agotado leyendo la hoja ${sheetName}.`));
+    }, 30000);
+
+    function cleanup() {
+      clearTimeout(timer);
+      delete window[callbackName];
+      if (script.parentNode) script.parentNode.removeChild(script);
+    }
+
+    window[callbackName] = response => {
+      cleanup();
+      try {
+        const table = response && response.table ? response.table : { cols: [], rows: [] };
+        const headers = table.cols.map(col => (col.label || col.id || "").trim());
+        const rows = table.rows.map(row => (row.c || []).map(cell => cell ? (cell.f ?? cell.v ?? "") : ""));
+        resolve({ headers, rows });
+      } catch (error) {
+        reject(error);
+      }
+    };
+
+    script.onerror = () => {
+      cleanup();
+      reject(new Error(`No fue posible leer la hoja ${sheetName} directamente.`));
+    };
+
+    script.src = url;
+    document.body.appendChild(script);
+  });
+}
+
+function recordsFromSheetRows(table) {
+  const headers = table.headers || [];
+  const rows = table.rows || [];
+  const idx = name => headers.findIndex(header => normalizeHeader(header) === normalizeHeader(name));
+  const at = (row, name) => {
+    const i = idx(name);
+    return i >= 0 ? row[i] : "";
+  };
+
+  return rows.filter(row => row.some(cell => String(cell || "").trim() !== "")).map(row => {
+    const byAreaRaw = at(row, "Resultado por area JSON");
+    return {
+      timestamp: at(row, "Marca de tiempo"),
+      timestampISO: parseDateToIso(at(row, "Marca de tiempo")) || parseDateToIso(at(row, "Fecha de finalizacion")),
+      institution: at(row, "Institucion educativa") || DASHBOARD_INSTITUTION,
+      studentName: at(row, "Nombre del estudiante"),
+      group: at(row, "Grupo"),
+      email: at(row, "Correo del estudiante"),
+      sessionLabel: at(row, "Seccion"),
+      sessionTitle: at(row, "Titulo de sesion"),
+      scopeLabel: at(row, "Alcance"),
+      modeLabel: at(row, "Modo"),
+      finishedAtLabel: at(row, "Fecha de finalizacion"),
+      elapsedLabel: at(row, "Tiempo empleado"),
+      totalQuestions: toNumber(at(row, "Preguntas disponibles")),
+      answered: toNumber(at(row, "Respondidas")),
+      scored: toNumber(at(row, "Calificables")),
+      correct: toNumber(at(row, "Correctas")),
+      incorrect: toNumber(at(row, "Incorrectas")),
+      omitted: toNumber(at(row, "Omitidas")),
+      score: toNumber(at(row, "Porcentaje de acierto")),
+      level: at(row, "Nivel de desempeno interno"),
+      recommendation: at(row, "Recomendacion pedagogica"),
+      pdfDriveUrl: at(row, "PDF en Drive"),
+      pdfDriveId: at(row, "ID PDF en Drive"),
+      byArea: parseJsonArray(byAreaRaw)
+    };
+  });
+}
+
+function detailsFromSheetRows(table) {
+  const headers = table.headers || [];
+  const rows = table.rows || [];
+  const idx = name => headers.findIndex(header => normalizeHeader(header) === normalizeHeader(name));
+  const at = (row, name) => {
+    const i = idx(name);
+    return i >= 0 ? row[i] : "";
+  };
+
+  return rows.filter(row => row.some(cell => String(cell || "").trim() !== "")).map(row => ({
+    timestamp: at(row, "Marca de tiempo"),
+    timestampISO: parseDateToIso(at(row, "Marca de tiempo")) || parseDateToIso(at(row, "Fecha de finalizacion")),
+    institution: at(row, "Institucion educativa") || DASHBOARD_INSTITUTION,
+    studentName: at(row, "Nombre del estudiante"),
+    group: at(row, "Grupo"),
+    email: at(row, "Correo del estudiante"),
+    sessionLabel: at(row, "Seccion"),
+    scopeLabel: at(row, "Alcance"),
+    number: toNumber(at(row, "Pregunta")),
+    area: at(row, "Area"),
+    competence: at(row, "Competencia"),
+    component: at(row, "Componente"),
+    difficulty: at(row, "Dificultad"),
+    studentAnswer: at(row, "Respuesta del estudiante"),
+    correctAnswer: at(row, "Respuesta correcta"),
+    result: at(row, "Resultado")
+  }));
+}
+
+function normalizeHeader(value) {
+  return String(value || "")
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "")
+    .trim();
+}
+
+function parseJsonArray(value) {
+  if (Array.isArray(value)) return value;
+  const text = String(value || "").trim();
+  if (!text) return [];
+  try {
+    const parsed = JSON.parse(text);
+    return Array.isArray(parsed) ? parsed : [];
+  } catch (_) {
+    return [];
+  }
+}
+
+function parseDateToIso(value) {
+  const text = String(value || "").trim();
+  if (!text) return "";
+  const nativeDate = new Date(text);
+  if (!Number.isNaN(nativeDate.getTime())) return nativeDate.toISOString();
+  const match = text.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})(?:\s+(\d{1,2}):(\d{2})(?::(\d{2}))?)?/);
+  if (match) {
+    const [, d, m, y, hh = "0", mm = "0", ss = "0"] = match;
+    const date = new Date(Number(y), Number(m) - 1, Number(d), Number(hh), Number(mm), Number(ss));
+    if (!Number.isNaN(date.getTime())) return date.toISOString();
+  }
+  return "";
 }
 
 function normalizeDashboardData(data) {
@@ -365,8 +589,8 @@ function renderNoFilteredData() {
 }
 
 function renderEmptyState() {
-  els.kpi.innerHTML = kpiCard("Dashboard", "Pendiente", "Esperando conexión con Apps Script.");
-  els.groupChart.innerHTML = emptyBlock("Actualiza Code.gs y despliega el Web App para consultar Google Sheets.");
+  els.kpi.innerHTML = kpiCard("Dashboard", "Sin conexión", "No se recibió respuesta del Web App. Revisa la implementación de Apps Script.");
+  els.groupChart.innerHTML = emptyBlock("Si este mensaje permanece, ejecuta inicializarSistema() y prueba ?accion=ping en el Web App.");
   els.levelChart.innerHTML = emptyBlock("Sin datos.");
   els.areaChart.innerHTML = emptyBlock("Sin datos.");
   els.questionChart.innerHTML = emptyBlock("Sin datos.");

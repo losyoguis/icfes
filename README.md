@@ -59,3 +59,30 @@ Esta versión incluye `dashboard.html`, una página para analizar resultados glo
 Para activarlo, actualiza el archivo `google-apps-script/Code.gs`, crea una nueva versión de la implementación de Apps Script y abre el botón **Dashboard institucional** desde la app principal.
 
 Consulta el archivo `ACTIVAR_DASHBOARD_INSTITUCIONAL.md` para el paso a paso.
+
+## Nota de corrección del dashboard institucional
+
+Si el Google Sheets aparece vacío con solo `Hoja 1`, pega el nuevo `Code.gs` y ejecuta estas funciones en Apps Script:
+
+1. `usarEstaHojaComoBaseDeDatos`
+2. `inicializarSistema`
+
+Después crea una nueva versión de la implementación Web App.
+
+## Corrección dashboard institucional
+
+Esta versión conecta el Apps Script directamente con el Google Sheets oficial del dashboard institucional de la I.E. Manuel J. Betancur y cambia el envío de resultados a un formulario oculto compatible con GitHub Pages y ejecución local.
+
+Para activar correctamente, consulta `ACTIVAR_DASHBOARD_INSTITUCIONAL.md`.
+
+## Corrección de conexión con Google Sheets
+
+Esta versión usa como base oficial el archivo `ICFES` compartido por la Institución Educativa Manuel J. Betancur:
+
+`17FbkF9BulfEfAAoDFNkljdsXWjXQOH_cBB3r-Iizjxs`
+
+El dashboard tiene doble vía de lectura:
+
+1. Apps Script Web App.
+2. Lectura directa de respaldo desde Google Sheets, si Apps Script no responde.
+
