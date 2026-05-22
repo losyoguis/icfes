@@ -185,3 +185,30 @@ MJB-ICFES-2026
 6. En GitHub Pages, sube también los nuevos `app.js` y `dashboard.js`.
 7. Abre la app y presiona `Cmd + Shift + R` en Mac o `Ctrl + Shift + R` en Windows para limpiar caché.
 
+
+## Corrección v8: envío robusto real desde GitHub Pages hacia Google Sheets
+
+Esta versión corrige el caso en el que el dashboard cargaba, pero los resultados reales del simulacro no llegaban al Google Sheets y solo aparecían datos de prueba.
+
+Cambios técnicos principales:
+
+1. El resultado principal ya no depende únicamente de JSONP.
+2. La app envía el registro por tres vías compatibles con Apps Script:
+   - `navigator.sendBeacon`,
+   - `fetch` con `no-cors`,
+   - formulario oculto dirigido al Web App.
+3. El registro liviano se envía a la URL pública y a la URL del dominio institucional.
+4. El `ID envio` evita duplicados si ambos endpoints reciben el mismo intento.
+5. El PDF y los correos se procesan después; el dashboard no depende del PDF.
+6. Al terminar un simulacro real, abre el dashboard y presiona **Actualizar datos**.
+
+### Recomendación para probar datos reales
+
+1. Borra los datos de prueba con el botón **Borrar datos Sheets** o ejecuta `borrarDatosDePruebaSistema`.
+2. Presenta un simulacro real desde `index.html` con un nombre diferente a “Prueba”.
+3. Finaliza el intento.
+4. Espera entre 5 y 15 segundos.
+5. Abre el Google Sheets y revisa la hoja `Resultados`.
+6. Abre el dashboard y presiona **Actualizar datos**.
+
+Si después de actualizar todavía no aparece el resultado, revisa en Apps Script la sección **Ejecuciones**. Debe aparecer una ejecución `doPost` asociada al intento real.

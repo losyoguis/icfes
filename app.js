@@ -43,13 +43,15 @@ const SUBMISSION_KEY = "simulador_icfes_saber11_envio_actual_v2";
 const REPORT_EMAIL_ENDPOINT = "https://script.google.com/macros/s/AKfycbwCl5fXOLLDA6fKjk1S-eeLIfuYKa0WoTO6IT1E-di8De-DztCX7TQxtIKkv9SK_S8/exec";
 const REPORT_EMAIL_ENDPOINT_DOMAIN = "https://script.google.com/a/macros/iemanueljbetancur.edu.co/s/AKfycbwCl5fXOLLDA6fKjk1S-eeLIfuYKa0WoTO6IT1E-di8De-DztCX7TQxtIKkv9SK_S8/exec";
 // Se usa un único endpoint público para evitar duplicados y bloqueos por dominio.
-const REPORT_EMAIL_ENDPOINTS = [REPORT_EMAIL_ENDPOINT].filter(Boolean);
+const REPORT_EMAIL_ENDPOINTS = Array.from(new Set([REPORT_EMAIL_ENDPOINT, REPORT_EMAIL_ENDPOINT_DOMAIN].filter(Boolean)));
+// Para el registro en Google Sheets se intentan ambos endpoints. El ID de envío evita duplicados en Apps Script.
+const REPORT_REGISTRATION_ENDPOINTS = REPORT_EMAIL_ENDPOINTS;
 const REPORT_INSTITUTION_EMAIL = "pruebas@iemanueljbetancur.edu.co";
 const REPORT_MJB_FORM_URL = "https://docs.google.com/forms/d/1Q-jAP50dzVLYEmuhgEi3TO6eDNFHCoid3lLoo8tY91E/preview";
 const INSTITUTION_NAME = "Institución Educativa Manuel J. Betancur";
 const INSTITUTION_SHORT_NAME = "I.E. Manuel J. Betancur";
 const REPORT_AUTOSEND_ON_FINISH = true;
-const REPORT_APP_VERSION = "ICFES-S2-1-134-dashboard-institucional-mjb-v7-registro-real-sheets";
+const REPORT_APP_VERSION = "ICFES-S2-1-134-dashboard-institucional-mjb-v8-registro-post-reliable";
 
 const app = document.getElementById("app");
 const homeBtn = document.getElementById("homeBtn");
@@ -1644,22 +1646,22 @@ async function sendReportEmail({ automatic = false } = {}) {
     }
     updateReportEmailStatus(`Registrando resultado real en Google Sheets para actualizar el dashboard...`, "info");
 
-    // Paso 1: registro liviano confirmado por JSONP.
-    // Este registro NO incluye el PDF ni el detalle pesado; por eso sí llega estable a Google Sheets.
+    // Paso 1: registro liviano robusto. Se envía por POST no-cors + sendBeacon + formulario oculto
+    // a los endpoints disponibles. No depende de CORS ni de JSONP; por eso llega al Sheets.
     await submitResultOnlyToAppsScript(result);
 
-    updateReportEmailStatus(`Resultado registrado. Enviando detalle por pregunta al dashboard...`, "info");
+    updateReportEmailStatus(`Registro enviado a Google Sheets. Enviando detalle por pregunta al dashboard...`, "info");
     await submitDetailChunksToAppsScript(result);
 
-    updateReportEmailStatus(`Resultado y detalle enviados a Google Sheets. Procesando PDF y correos...`, "info");
+    updateReportEmailStatus(`Resultado y detalle enviados. Procesando PDF, Drive y correos...`, "info");
 
     const pdf = createChartPdf(result);
     const payload = buildReportEmailPayload(result, pdf);
 
-    // Paso 3: envío completo con PDF. Si el PDF tarda, los datos ya quedaron registrados.
+    // Paso 3: envío completo con PDF. Si este proceso tarda, el resultado liviano ya fue enviado al Sheets.
     await submitReportPayloadToAppsScript(payload);
 
-    updateReportEmailStatus(`Resultado enviado al backend institucional. El dashboard se actualizará con los datos reales del estudiante ${result.studentName}.`, "success");
+    updateReportEmailStatus(`Resultado enviado al backend institucional. Abre el dashboard y presiona “Actualizar datos” para visualizar los datos reales de ${result.studentName}.`, "success");
     return true;
   } catch (error) {
     console.error("Error enviando informe:", error);
@@ -1757,24 +1759,45 @@ function buildDetailsChunkPayload(result, details, chunkIndex, chunkTotal) {
 }
 
 
-function submitResultOnlyToAppsScript(result) {
-  return submitPayloadViaJsonp(buildResultOnlyPayload(result), "registrar-resultado-liviano", 45000);
+async function submitResultOnlyToAppsScript(result) {
+  const payload = buildResultOnlyPayload(result);
+  await submitPayloadViaReliablePost(payload, "registrar-resultado-liviano", {
+    endpoints: REPORT_REGISTRATION_ENDPOINTS,
+    includeHiddenForm: true,
+    waitMs: 1800
+  });
+
+  // Confirmación opcional por JSONP. Si falla por permisos del dominio, NO se detiene el registro,
+  // porque el POST por formulario oculto ya fue enviado al Web App.
+  try {
+    await submitPayloadViaJsonp(payload, "registrar-resultado-liviano", 12000);
+  } catch (error) {
+    console.warn("Confirmación JSONP no disponible; el registro POST ya fue enviado.", error);
+  }
+  return true;
 }
 
 async function submitDetailChunksToAppsScript(result) {
   const compact = compactDetailsForBackend(result.details);
   if (!compact.length) return true;
-  const chunkSize = 18;
+  const chunkSize = 15;
   const chunks = [];
   for (let i = 0; i < compact.length; i += chunkSize) chunks.push(compact.slice(i, i + chunkSize));
   for (let i = 0; i < chunks.length; i += 1) {
-    await submitPayloadViaJsonp(buildDetailsChunkPayload(result, chunks[i], i + 1, chunks.length), "registrar-detalle-preguntas", 45000);
+    const payload = buildDetailsChunkPayload(result, chunks[i], i + 1, chunks.length);
+    await submitPayloadViaReliablePost(payload, "registrar-detalle-preguntas", {
+      endpoints: REPORT_REGISTRATION_ENDPOINTS,
+      includeHiddenForm: false,
+      waitMs: 250
+    });
   }
   return true;
 }
 
 function submitReportPayloadToAppsScript(payload) {
-  return submitPayloadToAppsScriptEverywhere(payload, { lightweight: false });
+  // El PDF/correo se envía solo al endpoint principal para evitar correos duplicados.
+  // El resultado ya fue registrado antes en ambos endpoints disponibles.
+  return submitPayloadToAppsScriptEverywhere(payload, { lightweight: false, endpoints: [REPORT_EMAIL_ENDPOINT].filter(Boolean) });
 }
 
 function submitPayloadViaJsonp(payload, accion, timeoutMs = 30000) {
@@ -1819,30 +1842,113 @@ function submitPayloadViaJsonp(payload, accion, timeoutMs = 30000) {
   });
 }
 
-async function submitPayloadToAppsScriptEverywhere(payload, { lightweight = false } = {}) {
-  const payloadText = JSON.stringify(payload);
-  const endpoints = REPORT_EMAIL_ENDPOINTS && REPORT_EMAIL_ENDPOINTS.length ? REPORT_EMAIL_ENDPOINTS : [REPORT_EMAIL_ENDPOINT].filter(Boolean);
+async function submitPayloadToAppsScriptEverywhere(payload, { lightweight = false, endpoints = null } = {}) {
+  return submitPayloadViaReliablePost(payload, payload.action || "payload", {
+    endpoints: endpoints || REPORT_EMAIL_ENDPOINTS,
+    includeHiddenForm: false,
+    waitMs: lightweight ? 500 : 1200
+  });
+}
 
-  const fetchTasks = endpoints.map(endpoint => {
-    try {
-      const body = new URLSearchParams();
-      body.set("payload", payloadText);
-      body.set("action", payload.action || "payload");
-      body.set("source", "simulador-icfes-mjb");
-      return fetch(endpoint, {
-        method: "POST",
-        mode: "no-cors",
-        cache: "no-store",
-        headers: { "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8" },
-        body
-      }).catch(() => null);
-    } catch (error) {
-      return Promise.resolve(null);
+async function submitPayloadViaReliablePost(payload, action, options = {}) {
+  const endpoints = Array.from(new Set((options.endpoints || REPORT_EMAIL_ENDPOINTS || []).filter(Boolean)));
+  if (!endpoints.length) throw new Error("No hay endpoints de Apps Script configurados.");
+
+  const payloadText = JSON.stringify(payload);
+  endpoints.forEach(endpoint => {
+    trySendBeaconToEndpoint(endpoint, payloadText, action);
+    tryFetchNoCorsToEndpoint(endpoint, payloadText, action);
+    if (options.includeHiddenForm) {
+      tryPostHiddenFormToEndpoint(endpoint, payloadText, action);
     }
   });
 
-  await Promise.allSettled(fetchTasks);
+  await delay(options.waitMs || 800);
   return true;
+}
+
+function trySendBeaconToEndpoint(endpoint, payloadText, action) {
+  try {
+    if (!navigator.sendBeacon) return false;
+    const body = new URLSearchParams();
+    body.set("payload", payloadText);
+    body.set("action", action || "payload");
+    body.set("source", "simulador-icfes-mjb-sendbeacon");
+    return navigator.sendBeacon(endpoint, body);
+  } catch (error) {
+    console.warn("sendBeacon no disponible para Apps Script", error);
+    return false;
+  }
+}
+
+function tryFetchNoCorsToEndpoint(endpoint, payloadText, action) {
+  try {
+    const body = new URLSearchParams();
+    body.set("payload", payloadText);
+    body.set("action", action || "payload");
+    body.set("source", "simulador-icfes-mjb-fetch");
+    fetch(endpoint, {
+      method: "POST",
+      mode: "no-cors",
+      cache: "no-store",
+      headers: { "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8" },
+      body,
+      keepalive: payloadText.length < 60000
+    }).catch(error => console.warn("fetch no-cors no confirmó Apps Script", error));
+    return true;
+  } catch (error) {
+    console.warn("No fue posible enviar por fetch no-cors", error);
+    return false;
+  }
+}
+
+function tryPostHiddenFormToEndpoint(endpoint, payloadText, action) {
+  try {
+    const iframeName = `gas_post_iframe_${Date.now()}_${Math.random().toString(36).slice(2)}`;
+    const iframe = document.createElement("iframe");
+    iframe.name = iframeName;
+    iframe.style.position = "absolute";
+    iframe.style.width = "1px";
+    iframe.style.height = "1px";
+    iframe.style.opacity = "0";
+    iframe.style.pointerEvents = "none";
+    iframe.setAttribute("aria-hidden", "true");
+
+    const form = document.createElement("form");
+    form.method = "POST";
+    form.action = endpoint;
+    form.target = iframeName;
+    form.style.display = "none";
+
+    const fields = {
+      payload: payloadText,
+      action: action || "payload",
+      source: "simulador-icfes-mjb-form"
+    };
+
+    Object.entries(fields).forEach(([name, value]) => {
+      const input = document.createElement("textarea");
+      input.name = name;
+      input.value = value;
+      form.appendChild(input);
+    });
+
+    document.body.appendChild(iframe);
+    document.body.appendChild(form);
+    form.submit();
+    window.setTimeout(() => {
+      if (form.parentNode) form.parentNode.removeChild(form);
+      if (iframe.parentNode) iframe.parentNode.removeChild(iframe);
+    }, 30000);
+    return true;
+  } catch (error) {
+    console.warn("No fue posible enviar por formulario oculto", error);
+    return false;
+  }
+}
+
+function delay(ms) {
+  return new Promise(resolve => window.setTimeout(resolve, ms));
 }
 
 
