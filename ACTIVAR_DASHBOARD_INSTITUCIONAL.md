@@ -250,8 +250,8 @@ Después de actualizar, en el Google Sheets deben existir estas hojas:
 Si el resultado no aparece, revisa primero la hoja `Registro_Tecnico`. Si está vacía, el navegador no está usando el nuevo `app.js` o el Web App no fue actualizado como nueva versión.
 
 
-## Nota sobre Notebook - Siteslessom
+## Nota sobre Notebook
 
-La página `notebook-siteslesson.html` no requiere configuración adicional en Apps Script. Funciona de manera local dentro de GitHub Pages y toma la información desde `data/question-bank.js`.
+La página `notebook.html` no requiere configuración adicional en Apps Script. Funciona de manera local dentro de GitHub Pages y toma la información desde `data/question-bank.js`.
 
-El bloque de acceso a Notebook - Siteslessom aparece únicamente en el modo **Práctica con retroalimentación**; no se muestra en Simulacro ni en Entrenamiento sin tiempo.
+El bloque de acceso a Notebook aparece únicamente en el modo **Práctica con Notebook**; no se muestra en Simulacro ni en Entrenamiento sin tiempo.

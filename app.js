@@ -138,7 +138,7 @@ function handleNotebookReturnRequest() {
       state.mode = params.get("mode") || "practica";
       renderHome();
       setTimeout(() => {
-        alert("No hay un intento guardado para volver directamente a esa pregunta. Selecciona el modo Práctica con retroalimentación e inicia la sesión correspondiente.");
+        alert("No hay un intento guardado para volver directamente a esa pregunta. Selecciona el modo Práctica con Notebook e inicia la sesión correspondiente.");
       }, 120);
       return true;
     }
@@ -683,7 +683,7 @@ function renderHome() {
       <p class="eyebrow">${escapeHtml(INSTITUTION_NAME)}</p>
       <h2>Simulador ICFES Saber 11° por sesiones, bloques y áreas</h2>
       <p>
-        Selecciona una sesión completa o un bloque específico para iniciar el simulacro, practicar con retroalimentación o entrenar sin límite de tiempo.
+        Selecciona una sesión completa o un bloque específico para iniciar el simulacro, practicar con Notebook o entrenar sin límite de tiempo.
       </p>
       <div class="hero-grid">
         <div class="stat"><strong>2</strong><span>sesiones configuradas</span></div>
@@ -710,7 +710,7 @@ function renderHome() {
         <p class="eyebrow">Modo de trabajo</p>
         <div class="mode-control">
           <label class="mode-option"><input type="radio" name="mode" value="simulacro" ${state.mode === "simulacro" ? "checked" : ""}> Simulacro</label>
-          <label class="mode-option"><input type="radio" name="mode" value="practica" ${state.mode === "practica" ? "checked" : ""}> Práctica con retroalimentación</label>
+          <label class="mode-option"><input type="radio" name="mode" value="practica" ${state.mode === "practica" ? "checked" : ""}> Práctica con Notebook</label>
           <label class="mode-option"><input type="radio" name="mode" value="entrenamiento" ${state.mode === "entrenamiento" ? "checked" : ""}> Entrenamiento sin tiempo</label>
         </div>
       </div>
@@ -1061,7 +1061,7 @@ function renderPracticeNotebookSection(question) {
   const sessionParam = encodeURIComponent(String(question.session));
   const questionParam = encodeURIComponent(String(question.number));
   const returnUrl = encodeURIComponent(`index.html?volverPregunta=1&session=${sessionParam}&question=${questionParam}&mode=practica`);
-  const baseUrl = `notebook-siteslesson.html?session=${sessionParam}&question=${questionParam}&return=${returnUrl}`;
+  const baseUrl = `notebook.html?session=${sessionParam}&question=${questionParam}&return=${returnUrl}`;
   const tools = [
     { key: "mindmap", icon: "🧠", label: "Mapa mental", text: "Organiza conceptos clave de la pregunta." },
     { key: "video", icon: "🎬", label: "Video", text: "Guía audiovisual para comprender el reto." },
@@ -1071,12 +1071,12 @@ function renderPracticeNotebookSection(question) {
   ];
 
   return `
-    <section class="practice-notebook" aria-label="Notebook - Siteslessom para preparar la pregunta">
+    <section class="practice-notebook" aria-label="Notebook de preparación individual para esta pregunta">
       <div class="practice-notebook__head">
         <div>
-          <p class="eyebrow">Solo en práctica con retroalimentación</p>
-          <h4>Notebook - Siteslessom</h4>
-          <p>Antes de responder o después de recibir retroalimentación, usa estos recursos para preparar la pregunta ${question.number}.</p>
+          <p class="eyebrow">Solo en Práctica con Notebook</p>
+          <h4>Notebook de la pregunta ${question.number}</h4>
+          <p>Recursos individuales para esta pregunta: mapa mental, video, audio, presentación e infografía. Preparan la comprensión sin revelar la respuesta.</p>
         </div>
         <a class="secondary-btn notebook-main-link" href="${baseUrl}" target="_blank" rel="noopener">Abrir notebook completo</a>
       </div>

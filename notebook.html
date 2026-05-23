@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Notebook · I.E. Manuel J. Betancur</title>
+  <meta name="description" content="Notebook para preparar cada pregunta del simulador ICFES Saber 11° de la Institución Educativa Manuel J. Betancur." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell notebook-shell">
+    <header class="app-header notebook-header">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true">NB</div>
+        <div>
+          <p class="eyebrow">Institución Educativa Manuel J. Betancur</p>
+          <h1>Notebook</h1>
+        </div>
+      </div>
+      <div class="header-actions">
+        <a class="ghost-btn header-link" id="returnQuestionHeaderBtn" href="index.html?volverPregunta=1">Volver a la pregunta</a>
+        <button id="themeBtn" class="icon-btn" type="button" aria-label="Cambiar tema">🌙</button>
+      </div>
+    </header>
+
+    <main id="notebookApp" class="app-main" tabindex="-1"></main>
+  </div>
+
+  <script src="data/question-bank.js"></script>
+  <script src="notebook.js"></script>
+</body>
+</html>

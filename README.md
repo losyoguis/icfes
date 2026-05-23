@@ -92,9 +92,9 @@ El dashboard tiene doble vía de lectura:
 Se reforzó el envío real de resultados a Google Sheets y al dashboard institucional. El sistema registra primero un resumen liviano confirmado y luego envía el detalle por pregunta en lotes pequeños.
 
 
-## Actualización: Notebook - Siteslessom en práctica con retroalimentación
+## Actualización: Notebook en Práctica con Notebook
 
-Esta versión agrega una sección formativa visible únicamente cuando el estudiante trabaja en el modo **Práctica con retroalimentación**. En cada pregunta aparece el bloque **Notebook - Siteslessom**, con acceso a cinco recursos de preparación:
+Esta versión agrega una sección formativa visible únicamente cuando el estudiante trabaja en el modo **Práctica con Notebook**. En cada pregunta aparece el bloque **Notebook**, con acceso a cinco recursos de preparación:
 
 1. Mapa mental.
 2. Video guía.
@@ -102,4 +102,4 @@ Esta versión agrega una sección formativa visible únicamente cuando el estudi
 4. Presentación de estudio.
 5. Infografía.
 
-Cada recurso se abre en `notebook-siteslesson.html` y se genera de forma contextual según la pregunta, el área, la competencia, el componente y la dificultad. El objetivo es preparar al estudiante sin revelar directamente la respuesta correcta.
+Cada recurso se abre en `notebook.html` y se genera de forma contextual según la pregunta, el área, la competencia, el componente y la dificultad. El objetivo es preparar al estudiante sin revelar directamente la respuesta correcta.
