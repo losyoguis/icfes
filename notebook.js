@@ -10,10 +10,30 @@ const NOTEBOOK_RESOURCE_TYPES = [
 
 const NOTEBOOK_CUSTOM_RESOURCES = {
   "1-1": {
+    mindmap: {
+      title: "Mapa mental · Sección 1 - Matemáticas - Pregunta 1",
+      description: "Mapa mental individual para organizar los datos de la tabla y preparar la comprensión de la pregunta 1.",
+      embedHtml: `<iframe src="https://drive.google.com/file/d/1unEMah3-QKQ4ft7U3aLLU418dTfVjYql/preview" width="640" height="480" allow="autoplay" allowfullscreen></iframe>`
+    },
     video: {
-      title: "Video de preparación · Sección 1 - Pregunta 1",
+      title: "Video de preparación · Sección 1 - Matemáticas - Pregunta 1",
       description: "Video individual de preparación para la Sección 1 · Matemáticas · Pregunta 1.",
       embedHtml: `<iframe src="https://drive.google.com/file/d/1WjJl5tmp1XrmCs1cPgbNR7ZvytTjtSTZ/preview" width="640" height="480" allow="autoplay" allowfullscreen></iframe>`
+    },
+    audio: {
+      title: "Audio de preparación · Sección 1 - Matemáticas - Pregunta 1",
+      description: "Audio individual de orientación para comprender la pregunta 1 de Matemáticas antes de responder.",
+      embedHtml: `<iframe src="https://drive.google.com/file/d/1zOmudVfmN--MEAL-sqSEqRSZO-_v80oY/preview" width="640" height="480" allow="autoplay" allowfullscreen></iframe>`
+    },
+    presentation: {
+      title: "Presentación de estudio · Sección 1 - Matemáticas - Pregunta 1",
+      description: "Presentación individual de apoyo para preparar la pregunta 1 de Matemáticas.",
+      embedHtml: `<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vQtCZB-sV6wIeQgnRHzcZoO7K4PR45ZpZ4E-6q_GXPJtiixGzv6Ql6XKwh8q0_Kiw/pubembed?start=false&loop=false&delayms=3000" frameborder="0" width="1707" height="989" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>`
+    },
+    infographic: {
+      title: "Infografía · Sección 1 - Matemáticas - Pregunta 1",
+      description: "Infografía individual para sintetizar visualmente la información de la pregunta 1.",
+      embedHtml: `<iframe src="https://drive.google.com/file/d/1crO89zIz6JyP3gvLHhi0g2m77fMedXpp/preview" width="640" height="480" allow="autoplay" allowfullscreen></iframe>`
     }
   }
 };
