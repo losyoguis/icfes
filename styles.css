@@ -4012,3 +4012,11 @@ h3 { font-size: 1.08rem; }
 .science-answer-grid .sim-answer span {
   text-align: left;
 }
+
+.field-help {
+  display: block;
+  margin-top: 0.45rem;
+  color: var(--muted);
+  font-size: 0.82rem;
+  line-height: 1.35;
+}

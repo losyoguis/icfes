@@ -1,4 +1,5 @@
 const DASHBOARD_ENDPOINT = "https://script.google.com/macros/s/AKfycbw46l-QqQYo7Ah_P9cA85D2a_4miFYf70FfUK304aEfRRrw-HU0ziPfBEpM_n3vWFta/exec";
+const DASHBOARD_INSTITUTION_EMAIL = "pruebas@iemanueljbetancur.edu.co";
 const DASHBOARD_ENDPOINT_DOMAIN = "";
 const DASHBOARD_ENDPOINTS = Array.from(new Set([DASHBOARD_ENDPOINT_DOMAIN, DASHBOARD_ENDPOINT].filter(Boolean)));
 const DASHBOARD_INSTITUTION = "Institución Educativa Manuel J. Betancur";
@@ -221,7 +222,7 @@ function fetchJsonp(url, timeoutMs = 25000) {
 function fetchGvizRows(sheetName) {
   return new Promise((resolve, reject) => {
     const callbackName = `gvizCallback_${Date.now()}_${Math.random().toString(36).slice(2)}`;
-    const url = `https://docs.google.com/spreadsheets/d/${DASHBOARD_SPREADSHEET_ID}/gviz/tq?sheet=${encodeURIComponent(sheetName)}&tqx=out:json;responseHandler:${callbackName}&t=${Date.now()}`;
+    const url = `https://docs.google.com/spreadsheets/d/${DASHBOARD_SPREADSHEET_ID}/gviz/tq?sheet=${encodeURIComponent(sheetName)}&headers=1&tqx=out:json;responseHandler:${callbackName}&t=${Date.now()}`;
     const script = document.createElement("script");
     const timer = setTimeout(() => {
       cleanup();
@@ -238,8 +239,17 @@ function fetchGvizRows(sheetName) {
       cleanup();
       try {
         const table = response && response.table ? response.table : { cols: [], rows: [] };
-        const headers = table.cols.map(col => (col.label || col.id || "").trim());
-        const rows = table.rows.map(row => (row.c || []).map(cell => cell ? (cell.f ?? cell.v ?? "") : ""));
+        let headers = table.cols.map(col => (col.label || col.id || "").trim());
+        let rows = table.rows.map(row => (row.c || []).map(cell => cell ? (cell.f ?? cell.v ?? "") : ""));
+        const expected = expectedHeadersForSheet(sheetName);
+        const normalizedHeaders = headers.map(normalizeHeader);
+        const hasExpectedHeaders = expected.some(name => normalizedHeaders.includes(normalizeHeader(name)));
+        if (!hasExpectedHeaders && rows.length && rows[0].some(cell => expected.map(normalizeHeader).includes(normalizeHeader(cell)))) {
+          headers = rows.shift().map(String);
+        }
+        if (!headers.some(Boolean) || !expected.some(name => headers.map(normalizeHeader).includes(normalizeHeader(name)))) {
+          headers = expected;
+        }
         resolve({ headers, rows });
       } catch (error) {
         reject(error);
@@ -254,6 +264,23 @@ function fetchGvizRows(sheetName) {
     script.src = url;
     document.body.appendChild(script);
   });
+}
+
+function expectedHeadersForSheet(sheetName) {
+  if (sheetName === "Respuestas_Detalladas") {
+    return [
+      "Marca de tiempo", "Institucion educativa", "Nombre del estudiante", "Grupo", "Correo del estudiante",
+      "Seccion", "Alcance", "Pregunta", "Area", "Competencia", "Componente", "Dificultad",
+      "Respuesta del estudiante", "Respuesta correcta", "Resultado", "ID envio"
+    ];
+  }
+  return [
+    "Marca de tiempo", "Institucion educativa", "Nombre del estudiante", "Grupo", "Correo del estudiante",
+    "Seccion", "Titulo de sesion", "Alcance", "Modo", "Fecha de finalizacion", "Tiempo empleado",
+    "Preguntas disponibles", "Respondidas", "Calificables", "Correctas", "Incorrectas", "Omitidas",
+    "Porcentaje de acierto", "Nivel de desempeno interno", "Recomendacion pedagogica", "PDF en Drive",
+    "ID PDF en Drive", "Resultado por area JSON", "Detalle por pregunta JSON", "ID envio"
+  ];
 }
 
 function recordsFromSheetRows(table) {
@@ -328,8 +355,17 @@ function detailsFromSheetRows(table) {
 }
 
 function isSystemTestRecord(record) {
+  const email = normalizeEmailForDashboard(record.email || "");
+  const student = String(record.studentName || "").toLowerCase();
   const text = `${record.studentName || ""} ${record.scopeLabel || ""} ${record.sessionTitle || ""} ${record.email || ""}`.toLowerCase();
-  return text.includes("prueba registro liviano") || text.includes("estudiante prueba dashboard") || (text.includes("prueba") && text.includes("dashboard institucional"));
+  return text.includes("prueba registro liviano")
+    || text.includes("estudiante prueba dashboard")
+    || (text.includes("prueba") && text.includes("dashboard institucional"))
+    || (email === normalizeEmailForDashboard(DASHBOARD_INSTITUTION_EMAIL) && /prueba|pruebas|test|dashboard/i.test(student));
+}
+
+function normalizeEmailForDashboard(value) {
+  return String(value || "").replace(/\s+/g, "").trim().toLowerCase();
 }
 
 function normalizeHeader(value) {

@@ -46,7 +46,7 @@ const REPORT_MJB_FORM_URL = "https://docs.google.com/forms/d/1Q-jAP50dzVLYEmuhgE
 const INSTITUTION_NAME = "Institución Educativa Manuel J. Betancur";
 const INSTITUTION_SHORT_NAME = "I.E. Manuel J. Betancur";
 const REPORT_AUTOSEND_ON_FINISH = true;
-const REPORT_APP_VERSION = "ICFES-S2-1-134-dashboard-institucional-mjb-v11-exec-oficial";
+const REPORT_APP_VERSION = "ICFES-S2-1-134-dashboard-institucional-mjb-v12-correo-estudiante";
 
 const app = document.getElementById("app");
 const homeBtn = document.getElementById("homeBtn");
@@ -565,6 +565,7 @@ function renderAccess(pendingScope = null) {
             <label class="field field-wide">
               <span>Correo electrónico del estudiante</span>
               <input id="studentEmail" type="email" autocomplete="email" required maxlength="140" placeholder="Ejemplo: estudiante@correo.com" value="${escapeAttr(currentEmail)}" />
+              <small class="field-help">Usa el correo propio del estudiante. El correo pruebas@iemanueljbetancur.edu.co se usa solo para la copia institucional.</small>
             </label>
             <label class="field field-wide">
               <span>Confirmar correo electrónico</span>
@@ -603,6 +604,11 @@ function renderAccess(pendingScope = null) {
       return;
     }
 
+    if (isInstitutionReceptionEmail(email)) {
+      error.textContent = "Ese correo es el buzón institucional de recepción de informes. Escribe el correo propio del estudiante; el sistema enviará copia automáticamente a pruebas@iemanueljbetancur.edu.co.";
+      return;
+    }
+
     if (email !== emailConfirm) {
       error.textContent = "Los correos electrónicos no coinciden. Verifica el correo del estudiante antes de continuar.";
       return;
@@ -634,6 +640,10 @@ function normalizeEmailInput(value) {
 
 function isValidEmail(value) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(normalizeEmailInput(value));
+}
+
+function isInstitutionReceptionEmail(value) {
+  return normalizeEmailInput(value) === normalizeEmailInput(REPORT_INSTITUTION_EMAIL);
 }
 
 function loadSavedStudent() {
