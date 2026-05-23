@@ -3876,3 +3876,70 @@ h3 { font-size: 1.08rem; }
     width: 100%;
   }
 }
+
+/* Simuladores guiados por pregunta · Matemáticas sección 1 */
+.guided-s1-math-sim .guided-data-table div {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.guided-concept-box {
+  display: block;
+  text-align: left;
+  line-height: 1.55;
+  font-size: .98rem;
+}
+
+.guided-chip-grid,
+.guided-choice-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin: 14px 0;
+}
+
+.guided-chip,
+.guided-choice {
+  border: 1px solid var(--line);
+  background: var(--card);
+  color: var(--text);
+  border-radius: 16px;
+  padding: 13px 14px;
+  cursor: pointer;
+  text-align: left;
+  font-weight: 850;
+  line-height: 1.35;
+  transition: transform .16s ease, border-color .16s ease, background .16s ease;
+}
+
+.guided-chip:hover,
+.guided-choice:hover,
+.guided-chip.selected,
+.guided-choice.selected {
+  transform: translateY(-1px);
+  border-color: rgba(96, 165, 250, .55);
+  background: rgba(96, 165, 250, .12);
+}
+
+.guided-chip.correct,
+.guided-choice.correct {
+  border-color: rgba(16, 185, 129, .6);
+  background: rgba(16, 185, 129, .14);
+}
+
+.guided-chip.wrong,
+.guided-choice.wrong {
+  border-color: rgba(248, 113, 113, .62);
+  background: rgba(248, 113, 113, .13);
+}
+
+.guided-answer-grid .sim-answer {
+  min-height: 116px;
+}
+
+@media (max-width: 780px) {
+  .guided-chip-grid,
+  .guided-choice-grid,
+  .guided-answer-grid {
+    grid-template-columns: 1fr;
+  }
+}
