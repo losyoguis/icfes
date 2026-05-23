@@ -103,3 +103,8 @@ Esta versión agrega una sección formativa visible únicamente cuando el estudi
 5. Infografía.
 
 Cada recurso se abre en `notebook.html` y se genera de forma contextual según la pregunta, el área, la competencia, el componente y la dificultad. El objetivo es preparar al estudiante sin revelar directamente la respuesta correcta.
+
+
+## Actualización responsive tipo app móvil
+
+Esta versión incorpora un rediseño responsive tipo app móvil para el simulador, el dashboard y el Notebook. Incluye cabecera fija con efecto app, botones táctiles, tarjetas adaptativas, tablas convertidas en tarjetas en celular, navegación inferior fija en preguntas, compatibilidad con áreas seguras de iOS/Android y manifest web para experiencia instalable desde el navegador.

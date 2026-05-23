@@ -1,0 +1,13 @@
+{
+  "name": "Simulador ICFES Saber 11° - Manuel J. Betancur",
+  "short_name": "ICFES MJB",
+  "description": "Simulador ICFES Saber 11° con Notebook, dashboard e informes para la Institución Educativa Manuel J. Betancur.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#0c1424",
+  "theme_color": "#0c1424",
+  "orientation": "portrait-primary",
+  "lang": "es-CO",
+  "categories": ["education", "productivity"]
+}

@@ -4047,3 +4047,804 @@ h3 { font-size: 1.08rem; }
   font-weight: 800;
   font-size: 0.82rem;
 }
+
+/* ==========================================================
+   Rediseño responsive tipo app móvil · MJB ICFES v13
+   Optimizado para celular, tablet y escritorio sin afectar
+   la lógica de simulador, dashboard, Notebook ni Apps Script.
+   ========================================================== */
+:root {
+  --mobile-shell: 460px;
+  --touch: 48px;
+  --app-bottom-gap: calc(88px + env(safe-area-inset-bottom));
+}
+
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  -webkit-text-size-adjust: 100%;
+  text-rendering: optimizeLegibility;
+}
+
+img,
+svg,
+iframe,
+video,
+canvas {
+  max-width: 100%;
+}
+
+iframe {
+  border-radius: 20px;
+  background: var(--panel-2);
+}
+
+button,
+a,
+input,
+select,
+textarea {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.primary-btn,
+.secondary-btn,
+.ghost-btn,
+.danger-btn,
+.icon-btn,
+.tiny-btn,
+.nav-btn,
+.area-btn,
+.option,
+.q-dot,
+.notebook-mini-card,
+.notebook-tab,
+.sim-answer,
+.guided-chip,
+.guided-choice {
+  touch-action: manipulation;
+}
+
+/* Apariencia general más cercana a una app instalada */
+.app-shell,
+.dashboard-shell,
+.notebook-shell {
+  position: relative;
+}
+
+.app-header {
+  isolation: isolate;
+}
+
+.header-link {
+  white-space: nowrap;
+}
+
+/* Formularios y campos con apariencia táctil */
+.field input,
+.field select,
+.mode-option,
+.option,
+.q-dot,
+.notebook-tab {
+  min-height: var(--touch);
+}
+
+.access-card,
+.session-card,
+.config-bar,
+.exam-main,
+.exam-side,
+.results-panel,
+.dashboard-card,
+.dashboard-filters,
+.notebook-card,
+.notebook-question-summary,
+.notebook-hero,
+.practice-notebook {
+  border-color: color-mix(in srgb, var(--line), transparent 8%);
+}
+
+/* Botoneras fluidas */
+.header-actions,
+.session-actions,
+.report-actions,
+.dashboard-header-actions,
+.dashboard-filter-actions,
+.student-actions,
+.question-actions,
+.bottom-actions {
+  min-width: 0;
+}
+
+/* Tablas: evitan desbordes en tablet y móvil */
+.table-wrap,
+.dashboard-table-wrap,
+.option-rich {
+  -webkit-overflow-scrolling: touch;
+}
+
+.data-table,
+.option-table,
+.structure-table {
+  overflow-wrap: anywhere;
+}
+
+/* Notebook: tarjetas de recursos con estados visuales más claros */
+.practice-notebook {
+  scroll-margin-top: 110px;
+}
+
+.notebook-mini-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.notebook-mini-card::after {
+  content: "Abrir";
+  position: absolute;
+  right: 12px;
+  bottom: 10px;
+  color: var(--accent);
+  font-weight: 950;
+  font-size: .72rem;
+  opacity: .85;
+}
+
+.notebook-resource-grid .notebook-mini-card:nth-child(6)::after {
+  content: "Practicar";
+}
+
+/* Dashboard: gráficas y tablas más legibles */
+.dashboard-chart,
+.dashboard-table-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.dashboard-table {
+  min-width: 980px;
+}
+
+.dashboard-inline-btn,
+.dashboard-pdf-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 36px;
+}
+
+/* Tablet */
+@media (max-width: 980px) {
+  .app-shell,
+  .dashboard-shell,
+  .notebook-shell {
+    width: min(100% - 24px, 900px);
+    padding-top: 14px;
+  }
+
+  .app-header {
+    align-items: flex-start;
+  }
+
+  .header-actions {
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+
+  .exam-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .exam-side {
+    position: static;
+  }
+
+  .question-grid {
+    grid-template-columns: repeat(10, minmax(42px, 1fr));
+    max-height: none;
+  }
+
+  .dashboard-table {
+    min-width: 860px;
+  }
+}
+
+/* Celular: experiencia tipo app */
+@media (max-width: 760px) {
+  :root {
+    --radius: 24px;
+    --radius-sm: 18px;
+  }
+
+  body {
+    min-height: 100svh;
+    background:
+      radial-gradient(circle at top left, color-mix(in srgb, var(--primary), transparent 74%), transparent 18rem),
+      radial-gradient(circle at bottom right, color-mix(in srgb, var(--accent), transparent 78%), transparent 18rem),
+      var(--bg);
+  }
+
+  .app-shell,
+  .dashboard-shell,
+  .notebook-shell {
+    width: 100%;
+    max-width: var(--mobile-shell);
+    min-height: 100svh;
+    margin-inline: auto;
+    padding: max(10px, env(safe-area-inset-top)) 10px var(--app-bottom-gap);
+  }
+
+  .app-header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    padding: 10px 8px 12px;
+    margin: -2px -2px 12px;
+    border: 1px solid color-mix(in srgb, var(--line), transparent 12%);
+    border-radius: 0 0 26px 26px;
+    background: color-mix(in srgb, var(--panel), transparent 4%);
+    box-shadow: 0 14px 34px rgba(0,0,0,.14);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+  }
+
+  .brand {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .brand-mark {
+    width: 46px;
+    height: 46px;
+    border-radius: 16px;
+    flex: 0 0 46px;
+    font-size: .9rem;
+  }
+
+  .brand > div:not(.brand-mark) {
+    min-width: 0;
+  }
+
+  .brand h1 {
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.08;
+  }
+
+  .eyebrow {
+    line-height: 1.25;
+  }
+
+  .header-actions,
+  .dashboard-header-actions {
+    width: 100%;
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    padding: 2px 1px 4px;
+    scroll-snap-type: x proximity;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .header-actions::-webkit-scrollbar,
+  .dashboard-header-actions::-webkit-scrollbar,
+  .notebook-tabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .header-actions > *,
+  .dashboard-header-actions > * {
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+  }
+
+  .icon-btn {
+    min-width: 44px;
+  }
+
+  .ghost-btn,
+  .secondary-btn,
+  .primary-btn,
+  .danger-btn,
+  .nav-btn,
+  .area-btn {
+    min-height: 46px;
+    padding-inline: 15px;
+  }
+
+  .app-main,
+  .dashboard-main {
+    gap: 14px;
+  }
+
+  .hero,
+  .config-bar,
+  .session-card,
+  .tips-section,
+  .access-card,
+  .student-strip,
+  .exam-main,
+  .exam-side,
+  .results-panel,
+  .dashboard-card,
+  .dashboard-filters,
+  .notebook-card,
+  .notebook-question-summary,
+  .notebook-hero,
+  .practice-notebook,
+  .empty-state {
+    box-shadow: 0 16px 40px rgba(0,0,0,.16);
+  }
+
+  .access-panel {
+    min-height: auto;
+    place-items: stretch;
+  }
+
+  .access-card {
+    width: 100%;
+    padding: 22px 16px;
+  }
+
+  .access-card h2 {
+    font-size: clamp(1.65rem, 9vw, 2.35rem);
+    line-height: 1.05;
+  }
+
+  .access-intro {
+    font-size: .96rem;
+  }
+
+  .form-grid,
+  .student-form {
+    grid-template-columns: 1fr;
+  }
+
+  .field-wide {
+    grid-column: auto;
+  }
+
+  .field input,
+  .field select {
+    min-height: 54px;
+    border-radius: 18px;
+    font-size: 1rem;
+  }
+
+  .student-form .primary-btn,
+  .access-card .primary-btn {
+    width: 100%;
+    min-height: 54px;
+    margin-top: 6px;
+  }
+
+  .config-bar {
+    grid-template-columns: 1fr;
+  }
+
+  .mode-control {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .mode-option {
+    border-radius: 18px;
+    min-height: 54px;
+    padding: 12px 14px;
+  }
+
+  .hero h2,
+  .dashboard-hero h2,
+  .notebook-hero h2 {
+    font-size: clamp(1.65rem, 8vw, 2.2rem);
+    line-height: 1.05;
+  }
+
+  .hero-grid,
+  .result-grid,
+  .dashboard-kpi-grid,
+  .individual-summary-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .session-card__head,
+  .exam-top,
+  .result-top,
+  .question-head,
+  .dashboard-card-head,
+  .practice-notebook__head {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .session-duration,
+  .question-head .pill,
+  .exam-top .pill {
+    justify-self: start;
+  }
+
+  .exam-top {
+    position: relative;
+  }
+
+  .timer-box {
+    width: 100%;
+    text-align: left;
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: 12px 14px;
+    background: color-mix(in srgb, var(--panel), transparent 5%);
+  }
+
+  .timer {
+    font-size: 1.85rem;
+  }
+
+  .progress-text {
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .question-card {
+    padding: 17px 14px;
+  }
+
+  .question-text {
+    font-size: 1rem;
+    line-height: 1.68;
+  }
+
+  .prompt {
+    font-size: 1.02rem;
+    line-height: 1.55;
+  }
+
+  .options {
+    gap: 12px;
+  }
+
+  .option {
+    min-height: 64px;
+    border-radius: 20px;
+    grid-template-columns: 44px 1fr;
+    padding: 12px;
+    box-shadow: 0 10px 24px rgba(0,0,0,.08);
+  }
+
+  .option-letter {
+    width: 44px;
+    height: 44px;
+    border-radius: 16px;
+  }
+
+  .feedback,
+  .procedure-card,
+  .side-note {
+    border-radius: 20px;
+  }
+
+  .question-actions,
+  .bottom-actions {
+    position: sticky;
+    bottom: max(10px, env(safe-area-inset-bottom));
+    z-index: 40;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 9px;
+    padding: 10px;
+    margin-inline: -4px;
+    border: 1px solid color-mix(in srgb, var(--line), transparent 12%);
+    border-radius: 24px;
+    background: color-mix(in srgb, var(--panel), transparent 3%);
+    box-shadow: 0 -12px 34px rgba(0,0,0,.18);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+  }
+
+  .nav-group {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 9px;
+    width: 100%;
+  }
+
+  .question-actions .secondary-btn,
+  .question-actions .nav-btn,
+  .bottom-actions .danger-btn,
+  .bottom-actions .secondary-btn,
+  .bottom-actions .primary-btn {
+    width: 100%;
+  }
+
+  .exam-side {
+    padding: 14px;
+  }
+
+  .legend {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .question-grid {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .q-dot {
+    height: 44px;
+    border-radius: 16px;
+  }
+
+  /* Tablas como tarjetas: sesiones y dashboard */
+  .structure-table,
+  .structure-table thead,
+  .structure-table tbody,
+  .structure-table tr,
+  .structure-table th,
+  .structure-table td,
+  .dashboard-table,
+  .dashboard-table thead,
+  .dashboard-table tbody,
+  .dashboard-table tr,
+  .dashboard-table th,
+  .dashboard-table td {
+    display: block;
+    width: 100%;
+    min-width: 0;
+  }
+
+  .structure-table thead,
+  .dashboard-table thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+  }
+
+  .structure-table tbody,
+  .dashboard-table tbody {
+    display: grid;
+    gap: 12px;
+  }
+
+  .structure-table tr,
+  .dashboard-table tr {
+    display: grid;
+    gap: 2px;
+    border: 1px solid var(--line);
+    border-radius: 22px;
+    padding: 12px;
+    background: var(--panel);
+    box-shadow: 0 12px 28px rgba(0,0,0,.12);
+  }
+
+  .structure-table td,
+  .dashboard-table td {
+    border: 0;
+    padding: 8px 4px;
+    display: grid;
+    grid-template-columns: minmax(98px, 34%) 1fr;
+    gap: 10px;
+    align-items: start;
+  }
+
+  .structure-table td::before,
+  .dashboard-table td::before {
+    color: var(--muted);
+    font-size: .7rem;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    font-weight: 950;
+    line-height: 1.25;
+  }
+
+  .structure-table td:nth-child(1)::before { content: "Bloque"; }
+  .structure-table td:nth-child(2)::before { content: "Preguntas"; }
+  .structure-table td:nth-child(3)::before { content: "Área"; }
+  .structure-table td:nth-child(4)::before { content: "Disponibles"; }
+  .structure-table td:nth-child(5)::before { content: "Acción"; }
+
+  .dashboard-table td:nth-child(1)::before { content: "Grupo"; }
+  .dashboard-table td:nth-child(2)::before { content: "Estudiante"; }
+  .dashboard-table td:nth-child(3)::before { content: "Intentos"; }
+  .dashboard-table td:nth-child(4)::before { content: "Último %"; }
+  .dashboard-table td:nth-child(5)::before { content: "Promedio %"; }
+  .dashboard-table td:nth-child(6)::before { content: "Nivel"; }
+  .dashboard-table td:nth-child(7)::before { content: "Áreas por reforzar"; }
+  .dashboard-table td:nth-child(8)::before { content: "PDF"; }
+
+  .dashboard-pdf-actions {
+    justify-content: stretch;
+  }
+
+  .dashboard-pdf-actions .dashboard-inline-btn,
+  .dashboard-pdf-actions .dashboard-pdf-link {
+    flex: 1 1 100%;
+  }
+
+  .dashboard-filters {
+    grid-template-columns: 1fr;
+    padding: 14px;
+  }
+
+  .dashboard-filter-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .dashboard-filter-actions .secondary-btn,
+  .dashboard-filter-actions .header-link {
+    width: 100%;
+  }
+
+  .dashboard-grid-two,
+  .dashboard-hero,
+  .notebook-hero {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-status {
+    max-width: none;
+    min-width: 0;
+  }
+
+  .dashboard-card,
+  .dashboard-hero,
+  .notebook-hero,
+  .notebook-question-summary,
+  .notebook-card.large {
+    padding: 18px 14px;
+  }
+
+  .dashboard-bar-row {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .practice-notebook {
+    padding: 15px 14px;
+  }
+
+  .notebook-main-link {
+    width: 100%;
+  }
+
+  .notebook-resource-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .notebook-mini-card {
+    min-height: 118px;
+    padding: 12px;
+    border-radius: 20px;
+  }
+
+  .notebook-mini-card small {
+    font-size: .78rem;
+  }
+
+  .notebook-tabs {
+    display: flex;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    gap: 8px;
+    padding-bottom: 4px;
+    scroll-snap-type: x proximity;
+  }
+
+  .notebook-tab {
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+    min-height: 44px;
+  }
+
+  .notebook-metadata-grid,
+  .slide-grid,
+  .infographic-grid,
+  .mindmap,
+  .sim-intro-grid,
+  .average-machine,
+  .sim-answer-grid,
+  .generic-simulator-grid,
+  .guided-chip-grid,
+  .guided-choice-grid,
+  .guided-answer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .notebook-embed-wrap {
+    border-radius: 22px;
+  }
+
+  .notebook-embed-wrap iframe {
+    min-height: 320px;
+  }
+
+  .video-placeholder {
+    display: grid;
+    min-height: auto;
+    padding: 18px;
+  }
+
+  .sim-answer {
+    min-height: 84px;
+  }
+
+  .dialog-card,
+  .tips-dialog-card {
+    width: calc(100% - 20px);
+    max-height: 88svh;
+    border-radius: 26px;
+  }
+}
+
+/* Celulares pequeños */
+@media (max-width: 430px) {
+  .app-shell,
+  .dashboard-shell,
+  .notebook-shell {
+    padding-inline: 8px;
+  }
+
+  .brand h1 {
+    font-size: 1.16rem;
+  }
+
+  .brand-mark {
+    width: 42px;
+    height: 42px;
+    flex-basis: 42px;
+  }
+
+  .hero-grid,
+  .result-grid,
+  .dashboard-kpi-grid,
+  .individual-summary-grid,
+  .notebook-resource-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .question-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .nav-group {
+    grid-template-columns: 1fr;
+  }
+
+  .structure-table td,
+  .dashboard-table td {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+
+  .option {
+    grid-template-columns: 40px 1fr;
+  }
+}
+
+/* Pantallas horizontales pequeñas */
+@media (max-height: 520px) and (orientation: landscape) {
+  .app-header {
+    position: static;
+  }
+
+  .question-actions,
+  .bottom-actions {
+    position: static;
+  }
+}
