@@ -12,7 +12,7 @@ const NOTEBOOK_CUSTOM_RESOURCES = {
   "1-1": {
     video: {
       title: "Video de preparación · Sección 1 - Pregunta 1",
-      description: "Recurso multimedia individual cargado para preparar la pregunta 1 de la Sección 1.",
+      description: "Video individual de preparación para la Sección 1 · Matemáticas · Pregunta 1.",
       embedHtml: `<iframe src="https://drive.google.com/file/d/1WjJl5tmp1XrmCs1cPgbNR7ZvytTjtSTZ/preview" width="640" height="480" allow="autoplay" allowfullscreen></iframe>`
     }
   }
@@ -81,9 +81,21 @@ function buildReturnToQuestionUrl(session, questionNumber, returnParam) {
   return `index.html?${params.toString()}`;
 }
 
+function getNotebookQuestionBank() {
+  if (Array.isArray(window.QUESTION_BANK)) return window.QUESTION_BANK;
+  try {
+    if (typeof QUESTION_BANK !== "undefined" && Array.isArray(QUESTION_BANK)) return QUESTION_BANK;
+  } catch (error) {
+    // En algunos navegadores, el banco puede no estar disponible como propiedad de window
+    // porque fue declarado con const en question-bank.js. Este fallback evita que
+    // Notebook muestre "No se encontró la pregunta" cuando el banco sí está cargado.
+  }
+  return [];
+}
+
 function findNotebookQuestion(session, number) {
-  if (!Array.isArray(window.QUESTION_BANK)) return null;
-  return QUESTION_BANK.find(item => Number(item.session) === Number(session) && Number(item.number) === Number(number)) || null;
+  const bank = getNotebookQuestionBank();
+  return bank.find(item => Number(item.session) === Number(session) && Number(item.number) === Number(number)) || null;
 }
 
 function renderNotebook() {
