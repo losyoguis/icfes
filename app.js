@@ -1067,7 +1067,8 @@ function renderPracticeNotebookSection(question) {
     { key: "video", icon: "🎬", label: "Video", text: "Guía audiovisual para comprender el reto." },
     { key: "audio", icon: "🎧", label: "Audio", text: "Escucha una orientación breve de estudio." },
     { key: "presentation", icon: "📊", label: "Presentación", text: "Revisa pasos y estrategias de solución." },
-    { key: "infographic", icon: "🖼️", label: "Infografía", text: "Sintetiza la información en lectura visual." }
+    { key: "infographic", icon: "🖼️", label: "Infografía", text: "Sintetiza la información en lectura visual." },
+    { key: "simulator", icon: "🧩", label: "Simulador", text: "Practica la solución con una experiencia interactiva." }
   ];
 
   return `
@@ -1076,7 +1077,7 @@ function renderPracticeNotebookSection(question) {
         <div>
           <p class="eyebrow">Solo en Práctica con Notebook</p>
           <h4>Notebook de la pregunta ${question.number}</h4>
-          <p>Recursos individuales para esta pregunta: mapa mental, video, audio, presentación e infografía. Preparan la comprensión sin revelar la respuesta.</p>
+          <p>Recursos individuales para esta pregunta: mapa mental, video, audio, presentación, infografía y simulador interactivo. Preparan la comprensión sin revelar la respuesta.</p>
         </div>
         <a class="secondary-btn notebook-main-link" href="${baseUrl}" target="_blank" rel="noopener">Abrir notebook completo</a>
       </div>

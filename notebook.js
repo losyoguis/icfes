@@ -5,7 +5,8 @@ const NOTEBOOK_RESOURCE_TYPES = [
   { key: "video", label: "Video", icon: "🎬" },
   { key: "audio", label: "Audio", icon: "🎧" },
   { key: "presentation", label: "Presentación", icon: "📊" },
-  { key: "infographic", label: "Infografía", icon: "🖼️" }
+  { key: "infographic", label: "Infografía", icon: "🖼️" },
+  { key: "simulator", label: "Simulador", icon: "🧩" }
 ];
 
 const NOTEBOOK_CUSTOM_RESOURCES = {
@@ -34,6 +35,10 @@ const NOTEBOOK_CUSTOM_RESOURCES = {
       title: "Infografía · Sección 1 - Matemáticas - Pregunta 1",
       description: "Infografía individual para sintetizar visualmente la información de la pregunta 1.",
       embedHtml: `<iframe src="https://drive.google.com/file/d/1crO89zIz6JyP3gvLHhi0g2m77fMedXpp/preview" width="640" height="480" allow="autoplay" allowfullscreen></iframe>`
+    },
+    simulator: {
+      title: "Simulador interactivo · Promedio de edades",
+      description: "Actividad dinámica para comprender cómo se resuelve la pregunta 1 de Matemáticas paso a paso."
     }
   }
 };
@@ -196,17 +201,22 @@ function renderNotebookResource() {
   const question = notebookState.question;
   const resource = notebookState.activeResource;
   const customResource = getCustomNotebookResource(question, resource);
-  const content = customResource ? renderCustomNotebookResource(question, resource, customResource) : ({
-    mindmap: renderMindMap(question),
-    video: renderVideoLesson(question),
-    audio: renderAudioGuide(question),
-    presentation: renderPresentation(question),
-    infographic: renderInfographic(question)
-  }[resource] || renderMindMap(question));
+  const content = resource === "simulator"
+    ? renderNotebookSimulator(question, customResource)
+    : (customResource ? renderCustomNotebookResource(question, resource, customResource) : ({
+      mindmap: renderMindMap(question),
+      video: renderVideoLesson(question),
+      audio: renderAudioGuide(question),
+      presentation: renderPresentation(question),
+      infographic: renderInfographic(question)
+    }[resource] || renderMindMap(question)));
   panel.innerHTML = content;
   const playBtn = document.getElementById("playAudioGuideBtn");
   if (playBtn) {
     playBtn.addEventListener("click", () => playAudioGuide(buildAudioGuide(question)));
+  }
+  if (resource === "simulator") {
+    initNotebookSimulator(question);
   }
 }
 
@@ -344,6 +354,264 @@ function renderInfographic(question) {
       <p class="footer-note">Dificultad estimada: ${escapeHtml(question.dificultad || "Por definir")} · Recurso diseñado para práctica formativa.</p>
     </article>
   `;
+}
+
+
+function renderNotebookSimulator(question, customResource) {
+  if (Number(question.session) === 1 && Number(question.number) === 1) {
+    return renderS1P1AverageSimulator(question, customResource);
+  }
+  return renderGenericNotebookSimulator(question);
+}
+
+function renderS1P1AverageSimulator(question, customResource) {
+  const ages = [21, 26, 20, 21, 22, 28, 30];
+  const options = (question.options || []).map(option => `
+    <button class="sim-answer" type="button" data-answer="${escapeHtml(option.letter)}">
+      <strong>${escapeHtml(option.letter)}</strong><span>${escapeHtml(option.text)}</span>
+    </button>
+  `).join("");
+  return `
+    <article class="notebook-card large notebook-simulator-card">
+      <p class="eyebrow">🧩 Simulador · Recurso interactivo individual</p>
+      <h3>${escapeHtml((customResource && customResource.title) || "Simulador interactivo · Pregunta 1")}</h3>
+      <p>${escapeHtml((customResource && customResource.description) || "Explora la pregunta paso a paso antes de responder en el simulador.")}</p>
+
+      <div class="sim-intro-grid">
+        <section class="sim-mini-board">
+          <h4>Reto</h4>
+          <p>Calcula el promedio de las edades en las que siete madres tuvieron su primer hijo.</p>
+          <div class="sim-data-table" role="table" aria-label="Edades de la pregunta 1">
+            <div role="row"><strong>Madre</strong><strong>Edad</strong></div>
+            ${ages.map((age, index) => `<div role="row"><span>${index + 1}</span><span>${age}</span></div>`).join("")}
+          </div>
+        </section>
+        <section class="sim-mini-board sim-concept">
+          <h4>Idea clave</h4>
+          <div class="average-formula">
+            <span>Promedio</span>
+            <strong>=</strong>
+            <span>Suma de datos ÷ cantidad de datos</span>
+          </div>
+          <p>No basta con mirar el dato más repetido o el dato del centro: para el promedio se suman todos los datos y luego se divide por el número total de datos.</p>
+        </section>
+      </div>
+
+      <div class="sim-steps" aria-label="Pasos del simulador de promedio">
+        <section class="sim-step active" data-step="1">
+          <div class="sim-step-head">
+            <span>Paso 1</span>
+            <h4>Selecciona las siete edades y observa la suma</h4>
+          </div>
+          <p>Haz clic en cada edad para agregarla a la suma. El simulador irá construyendo la operación.</p>
+          <div class="age-chip-grid" id="ageChipGrid">
+            ${ages.map((age, index) => `<button class="age-chip" type="button" data-index="${index}" data-age="${age}">${age}</button>`).join("")}
+          </div>
+          <div class="sim-equation" id="sumEquation">Suma: <strong>0</strong></div>
+          <div class="sim-progress-wrap"><span id="sumProgressText">0 de 7 edades seleccionadas</span><div><span id="sumProgressBar"></span></div></div>
+        </section>
+
+        <section class="sim-step" data-step="2">
+          <div class="sim-step-head">
+            <span>Paso 2</span>
+            <h4>Divide entre la cantidad de datos</h4>
+          </div>
+          <p>Como hay siete madres entrevistadas, la suma total debe dividirse entre 7.</p>
+          <label class="sim-input-label" for="dividerInput">¿Entre cuántos datos se divide?</label>
+          <div class="sim-inline-action">
+            <input id="dividerInput" type="number" min="1" max="20" placeholder="Escribe el número" />
+            <button class="secondary-btn" type="button" id="checkDividerBtn">Verificar</button>
+          </div>
+          <p id="dividerFeedback" class="sim-feedback" aria-live="polite"></p>
+        </section>
+
+        <section class="sim-step" data-step="3">
+          <div class="sim-step-head">
+            <span>Paso 3</span>
+            <h4>Construye el promedio</h4>
+          </div>
+          <p>Cuando tengas la suma y el divisor correctos, calcula el promedio.</p>
+          <div class="average-machine">
+            <div><span>Suma</span><strong id="machineSum">—</strong></div>
+            <div><span>÷</span><strong id="machineDivider">—</strong></div>
+            <div><span>Promedio</span><strong id="machineAverage">—</strong></div>
+          </div>
+          <button class="primary-btn" type="button" id="calculateAverageBtn">Calcular promedio</button>
+          <p id="averageFeedback" class="sim-feedback" aria-live="polite"></p>
+        </section>
+
+        <section class="sim-step" data-step="4">
+          <div class="sim-step-head">
+            <span>Paso 4</span>
+            <h4>Relaciona el resultado con las opciones ICFES</h4>
+          </div>
+          <p>Elige la opción que coincide con el promedio obtenido. Esta práctica te ayuda a justificar la respuesta antes de volver a la pregunta.</p>
+          <div class="sim-answer-grid" id="simAnswerGrid">${options}</div>
+          <div id="simFinalFeedback" class="sim-final-feedback" aria-live="polite"></div>
+        </section>
+      </div>
+
+      <div class="sim-teacher-note">
+        <strong>Lectura didáctica:</strong> esta pregunta evalúa interpretación de una tabla y uso del promedio aritmético. El error frecuente es escoger una edad visible en la tabla sin aplicar la operación completa.
+      </div>
+    </article>
+  `;
+}
+
+function renderGenericNotebookSimulator(question) {
+  return `
+    <article class="notebook-card large notebook-simulator-card">
+      <p class="eyebrow">🧩 Simulador · Recurso interactivo individual</p>
+      <h3>Simulador didáctico de la pregunta ${escapeHtml(question.number)}</h3>
+      <p>Este espacio permite preparar una solución guiada para esta pregunta. Cuando se cargue un simulador específico, aparecerán actividades interactivas relacionadas con sus datos, recursos multimedia y tipo de competencia.</p>
+      <div class="generic-simulator-grid">
+        <div><strong>1. Comprende</strong><span>Identifica qué pide la pregunta.</span></div>
+        <div><strong>2. Extrae datos</strong><span>Separa información útil de información contextual.</span></div>
+        <div><strong>3. Aplica estrategia</strong><span>Usa el procedimiento adecuado para el área.</span></div>
+        <div><strong>4. Verifica</strong><span>Compara tu resultado con las opciones.</span></div>
+      </div>
+    </article>
+  `;
+}
+
+function initNotebookSimulator(question) {
+  if (Number(question.session) === 1 && Number(question.number) === 1) {
+    initS1P1AverageSimulator(question);
+  }
+}
+
+function initS1P1AverageSimulator(question) {
+  const ages = [21, 26, 20, 21, 22, 28, 30];
+  const selected = new Set();
+  let divisorOk = false;
+  let averageOk = false;
+  const total = ages.reduce((acc, value) => acc + value, 0);
+  const divisor = ages.length;
+  const average = total / divisor;
+
+  const chips = Array.from(document.querySelectorAll(".age-chip"));
+  const sumEquation = document.getElementById("sumEquation");
+  const sumProgressText = document.getElementById("sumProgressText");
+  const sumProgressBar = document.getElementById("sumProgressBar");
+  const dividerInput = document.getElementById("dividerInput");
+  const checkDividerBtn = document.getElementById("checkDividerBtn");
+  const dividerFeedback = document.getElementById("dividerFeedback");
+  const machineSum = document.getElementById("machineSum");
+  const machineDivider = document.getElementById("machineDivider");
+  const machineAverage = document.getElementById("machineAverage");
+  const calculateAverageBtn = document.getElementById("calculateAverageBtn");
+  const averageFeedback = document.getElementById("averageFeedback");
+  const answerGrid = document.getElementById("simAnswerGrid");
+  const finalFeedback = document.getElementById("simFinalFeedback");
+
+  function currentSum() {
+    return Array.from(selected).reduce((acc, index) => acc + ages[index], 0);
+  }
+
+  function markStep(number, enabled) {
+    const step = document.querySelector(`.sim-step[data-step="${number}"]`);
+    if (step) step.classList.toggle("active", Boolean(enabled));
+  }
+
+  function updateSumUI() {
+    const picked = Array.from(selected).sort((a, b) => a - b).map(index => ages[index]);
+    const sum = currentSum();
+    sumEquation.innerHTML = picked.length
+      ? `Suma: <strong>${picked.join(" + ")} = ${sum}</strong>`
+      : `Suma: <strong>0</strong>`;
+    sumProgressText.textContent = `${picked.length} de ${ages.length} edades seleccionadas`;
+    sumProgressBar.style.width = `${Math.round((picked.length / ages.length) * 100)}%`;
+    machineSum.textContent = picked.length === ages.length ? String(total) : "—";
+    if (picked.length === ages.length) {
+      markStep(2, true);
+      dividerFeedback.textContent = "Muy bien. Ya tienes la suma completa: 168.";
+      dividerFeedback.className = "sim-feedback ok";
+    } else {
+      markStep(2, false);
+      markStep(3, false);
+      markStep(4, false);
+      divisorOk = false;
+      averageOk = false;
+      machineDivider.textContent = "—";
+      machineAverage.textContent = "—";
+    }
+  }
+
+  chips.forEach(chip => {
+    chip.addEventListener("click", () => {
+      const index = Number(chip.dataset.index);
+      if (selected.has(index)) selected.delete(index);
+      else selected.add(index);
+      chip.classList.toggle("selected", selected.has(index));
+      updateSumUI();
+    });
+  });
+
+  if (checkDividerBtn) {
+    checkDividerBtn.addEventListener("click", () => {
+      if (selected.size !== ages.length) {
+        dividerFeedback.textContent = "Primero selecciona las siete edades para construir la suma total.";
+        dividerFeedback.className = "sim-feedback warn";
+        return;
+      }
+      const value = Number(dividerInput.value);
+      if (value === divisor) {
+        divisorOk = true;
+        machineDivider.textContent = String(divisor);
+        dividerFeedback.textContent = "Correcto. Se divide entre 7 porque hay siete datos en la tabla.";
+        dividerFeedback.className = "sim-feedback ok";
+        markStep(3, true);
+      } else {
+        divisorOk = false;
+        machineDivider.textContent = "—";
+        dividerFeedback.textContent = "Revisa la tabla: el divisor debe ser la cantidad total de madres entrevistadas.";
+        dividerFeedback.className = "sim-feedback error";
+        markStep(3, false);
+        markStep(4, false);
+      }
+    });
+  }
+
+  if (calculateAverageBtn) {
+    calculateAverageBtn.addEventListener("click", () => {
+      if (!divisorOk) {
+        averageFeedback.textContent = "Antes de calcular, verifica correctamente el divisor.";
+        averageFeedback.className = "sim-feedback warn";
+        return;
+      }
+      averageOk = true;
+      machineAverage.textContent = String(average);
+      averageFeedback.innerHTML = `Excelente: <strong>${total} ÷ ${divisor} = ${average}</strong>. Ahora busca esa cantidad en las opciones.`;
+      averageFeedback.className = "sim-feedback ok";
+      markStep(4, true);
+    });
+  }
+
+  if (answerGrid) {
+    answerGrid.addEventListener("click", event => {
+      const button = event.target.closest(".sim-answer");
+      if (!button) return;
+      if (!averageOk) {
+        finalFeedback.textContent = "Calcula primero el promedio en el paso 3 antes de elegir la opción.";
+        finalFeedback.className = "sim-final-feedback warn";
+        return;
+      }
+      answerGrid.querySelectorAll(".sim-answer").forEach(item => item.classList.remove("selected", "correct", "wrong"));
+      button.classList.add("selected");
+      const answer = button.dataset.answer;
+      if (answer === question.correctAnswer) {
+        button.classList.add("correct");
+        finalFeedback.innerHTML = `<strong>Correcto.</strong> La respuesta es ${escapeHtml(question.correctAnswer)} porque el promedio de las edades es ${average}. Regresa a la pregunta y marca la opción con seguridad.`;
+        finalFeedback.className = "sim-final-feedback ok";
+      } else {
+        button.classList.add("wrong");
+        finalFeedback.innerHTML = `<strong>Revisa.</strong> La opción elegida no coincide con el promedio calculado. Recuerda: ${total} ÷ ${divisor} = ${average}.`;
+        finalFeedback.className = "sim-final-feedback error";
+      }
+    });
+  }
+
+  updateSumUI();
 }
 
 function buildAudioGuide(question) {

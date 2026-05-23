@@ -3533,3 +3533,346 @@ h3 { font-size: 1.08rem; }
 .notebook-custom-resource .secondary-btn {
   margin-top: 12px;
 }
+
+/* Simulador interactivo dentro del Notebook */
+.notebook-simulator-card {
+  overflow: hidden;
+}
+
+.sim-intro-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 16px;
+  margin: 20px 0;
+}
+
+.sim-mini-board,
+.sim-step,
+.sim-teacher-note,
+.generic-simulator-grid div {
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.045);
+  padding: 18px;
+}
+
+.sim-mini-board h4,
+.sim-step h4 {
+  margin: 0 0 8px;
+}
+
+.sim-data-table {
+  display: grid;
+  gap: 0;
+  margin-top: 14px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  overflow: hidden;
+}
+
+.sim-data-table div {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.sim-data-table div:first-child {
+  background: rgba(96, 165, 250, 0.14);
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  font-size: .78rem;
+  color: var(--muted);
+}
+
+.sim-data-table span,
+.sim-data-table strong {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--line);
+  text-align: center;
+}
+
+.sim-data-table div:last-child span {
+  border-bottom: 0;
+}
+
+.sim-concept {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.average-formula {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  margin: 16px 0;
+  padding: 16px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, rgba(45, 212, 191, 0.18), rgba(96, 165, 250, 0.12));
+  border: 1px solid rgba(45, 212, 191, 0.24);
+  font-weight: 900;
+}
+
+.sim-steps {
+  display: grid;
+  gap: 16px;
+  margin-top: 18px;
+}
+
+.sim-step {
+  opacity: .62;
+  transition: opacity .2s ease, border-color .2s ease, transform .2s ease;
+}
+
+.sim-step.active {
+  opacity: 1;
+  border-color: rgba(45, 212, 191, 0.38);
+  box-shadow: 0 12px 28px rgba(15, 23, 42, .18);
+}
+
+.sim-step-head span {
+  display: inline-flex;
+  width: fit-content;
+  padding: 5px 10px;
+  border-radius: 999px;
+  background: rgba(45, 212, 191, 0.14);
+  color: var(--accent);
+  font-size: .78rem;
+  font-weight: 900;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.age-chip-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 14px 0;
+}
+
+.age-chip {
+  border: 1px solid var(--line);
+  background: var(--card);
+  color: var(--text);
+  border-radius: 16px;
+  padding: 12px 16px;
+  min-width: 64px;
+  font-weight: 900;
+  cursor: pointer;
+  transition: transform .16s ease, border-color .16s ease, background .16s ease;
+}
+
+.age-chip:hover,
+.age-chip.selected {
+  transform: translateY(-1px);
+  border-color: rgba(45, 212, 191, 0.65);
+  background: linear-gradient(135deg, rgba(45, 212, 191, .24), rgba(96, 165, 250, .12));
+}
+
+.sim-equation {
+  margin: 12px 0;
+  padding: 14px;
+  border-radius: 16px;
+  background: rgba(255,255,255,.05);
+  border: 1px dashed rgba(148, 163, 184, .3);
+  line-height: 1.5;
+}
+
+.sim-progress-wrap {
+  display: grid;
+  gap: 8px;
+  color: var(--muted);
+  font-weight: 800;
+}
+
+.sim-progress-wrap div {
+  height: 10px;
+  border-radius: 999px;
+  overflow: hidden;
+  background: rgba(148, 163, 184, .12);
+}
+
+.sim-progress-wrap span#sumProgressBar {
+  display: block;
+  height: 100%;
+  width: 0;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #60a5fa, #2dd4bf);
+  transition: width .2s ease;
+}
+
+.sim-input-label {
+  display: block;
+  margin: 14px 0 6px;
+  color: var(--muted);
+  font-weight: 900;
+}
+
+.sim-inline-action {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.sim-inline-action input {
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 12px 14px;
+  background: var(--card);
+  color: var(--text);
+  font-weight: 900;
+  min-width: 190px;
+}
+
+.sim-feedback,
+.sim-final-feedback {
+  margin: 12px 0 0;
+  padding: 12px 14px;
+  border-radius: 16px;
+  color: var(--muted);
+  background: rgba(255,255,255,.04);
+  border: 1px solid var(--line);
+}
+
+.sim-feedback.ok,
+.sim-final-feedback.ok {
+  color: #d1fae5;
+  background: rgba(16, 185, 129, .14);
+  border-color: rgba(16, 185, 129, .32);
+}
+
+.sim-feedback.warn,
+.sim-final-feedback.warn {
+  color: #fef3c7;
+  background: rgba(245, 158, 11, .14);
+  border-color: rgba(245, 158, 11, .32);
+}
+
+.sim-feedback.error,
+.sim-final-feedback.error {
+  color: #fee2e2;
+  background: rgba(248, 113, 113, .14);
+  border-color: rgba(248, 113, 113, .32);
+}
+
+.average-machine {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin: 16px 0;
+}
+
+.average-machine div {
+  padding: 18px;
+  border-radius: 20px;
+  border: 1px solid var(--line);
+  text-align: center;
+  background: rgba(255,255,255,.05);
+}
+
+.average-machine span {
+  display: block;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  font-size: .74rem;
+  font-weight: 900;
+}
+
+.average-machine strong {
+  display: block;
+  margin-top: 8px;
+  font-size: 1.8rem;
+}
+
+.sim-answer-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.sim-answer {
+  min-height: 90px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 14px;
+  background: var(--card);
+  color: var(--text);
+  cursor: pointer;
+  text-align: left;
+}
+
+.sim-answer strong {
+  display: grid;
+  width: 34px;
+  height: 34px;
+  place-items: center;
+  border-radius: 12px;
+  background: rgba(96, 165, 250, .14);
+  margin-bottom: 8px;
+}
+
+.sim-answer span {
+  display: block;
+  font-weight: 900;
+}
+
+.sim-answer.correct {
+  border-color: rgba(16, 185, 129, .58);
+  background: rgba(16, 185, 129, .14);
+}
+
+.sim-answer.wrong {
+  border-color: rgba(248, 113, 113, .58);
+  background: rgba(248, 113, 113, .12);
+}
+
+.sim-teacher-note {
+  margin-top: 18px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.generic-simulator-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.generic-simulator-grid strong,
+.generic-simulator-grid span {
+  display: block;
+}
+
+.generic-simulator-grid span {
+  color: var(--muted);
+  margin-top: 8px;
+  line-height: 1.45;
+}
+
+@media (max-width: 980px) {
+  .sim-intro-grid,
+  .average-machine,
+  .sim-answer-grid,
+  .generic-simulator-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 680px) {
+  .sim-intro-grid,
+  .average-machine,
+  .sim-answer-grid,
+  .generic-simulator-grid {
+    grid-template-columns: 1fr;
+  }
+  .sim-inline-action input,
+  .sim-inline-action button {
+    width: 100%;
+  }
+}
