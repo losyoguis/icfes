@@ -3943,3 +3943,72 @@ h3 { font-size: 1.08rem; }
     grid-template-columns: 1fr;
   }
 }
+
+/* Simuladores guiados por pregunta · Lectura Crítica sección 1 */
+.reading-simulator-card .reading-route-box {
+  margin-top: 14px;
+  padding: 14px 16px;
+  border: 1px dashed rgba(96, 165, 250, .32);
+  border-radius: 18px;
+  background: rgba(96, 165, 250, .08);
+}
+
+.reading-simulator-card .reading-route-box strong {
+  display: block;
+  margin-bottom: 8px;
+}
+
+.reading-simulator-card .reading-route-box ol {
+  margin: 0;
+  padding-left: 22px;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.reading-concept-box {
+  border-color: rgba(168, 85, 247, .24);
+  background: linear-gradient(135deg, rgba(168, 85, 247, .18), rgba(45, 212, 191, .10));
+}
+
+.reading-answer-grid .sim-answer {
+  min-height: 132px;
+}
+
+.reading-answer-grid .sim-answer span {
+  font-size: .92rem;
+  line-height: 1.35;
+}
+
+/* Simuladores Notebook · Sociales y Ciudadanas */
+.social-simulator-card .social-route-box,
+.social-simulator-card .social-concept-box {
+  border-left: 4px solid rgba(52, 211, 153, 0.8);
+}
+.social-simulator-card .social-chip.selected,
+.social-simulator-card .social-choice.selected,
+.social-simulator-card .social-final-answer.selected {
+  transform: translateY(-1px);
+}
+.social-simulator-card .sim-context-snippet {
+  line-height: 1.55;
+}
+.social-answer-grid .sim-answer span {
+  text-align: left;
+}
+
+/* Simuladores Notebook · Ciencias Naturales */
+.science-simulator-card .science-route-box,
+.science-simulator-card .science-concept-box {
+  border-left: 4px solid rgba(34, 211, 238, 0.85);
+}
+.science-simulator-card .science-chip.selected,
+.science-simulator-card .science-choice.selected,
+.science-simulator-card .science-final-answer.selected {
+  transform: translateY(-1px);
+}
+.science-simulator-card .sim-context-snippet {
+  line-height: 1.55;
+}
+.science-answer-grid .sim-answer span {
+  text-align: left;
+}
