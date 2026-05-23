@@ -8,6 +8,16 @@ const NOTEBOOK_RESOURCE_TYPES = [
   { key: "infographic", label: "Infografía", icon: "🖼️" }
 ];
 
+const NOTEBOOK_CUSTOM_RESOURCES = {
+  "1-1": {
+    video: {
+      title: "Video de preparación · Sección 1 - Pregunta 1",
+      description: "Recurso multimedia individual cargado para preparar la pregunta 1 de la Sección 1.",
+      embedHtml: `<iframe src="https://drive.google.com/file/d/1WjJl5tmp1XrmCs1cPgbNR7ZvytTjtSTZ/preview" width="640" height="480" allow="autoplay" allowfullscreen></iframe>`
+    }
+  }
+};
+
 let notebookState = {
   question: null,
   activeResource: "mindmap",
@@ -153,18 +163,47 @@ function renderNotebookResource() {
   if (!panel || !notebookState.question) return;
   const question = notebookState.question;
   const resource = notebookState.activeResource;
-  const content = {
+  const customResource = getCustomNotebookResource(question, resource);
+  const content = customResource ? renderCustomNotebookResource(question, resource, customResource) : ({
     mindmap: renderMindMap(question),
     video: renderVideoLesson(question),
     audio: renderAudioGuide(question),
     presentation: renderPresentation(question),
     infographic: renderInfographic(question)
-  }[resource] || renderMindMap(question);
+  }[resource] || renderMindMap(question));
   panel.innerHTML = content;
   const playBtn = document.getElementById("playAudioGuideBtn");
   if (playBtn) {
     playBtn.addEventListener("click", () => playAudioGuide(buildAudioGuide(question)));
   }
+}
+
+function getCustomNotebookResource(question, resourceKey) {
+  const key = `${Number(question.session)}-${Number(question.number)}`;
+  const questionResources = NOTEBOOK_CUSTOM_RESOURCES[key];
+  return questionResources ? questionResources[resourceKey] : null;
+}
+
+function renderCustomNotebookResource(question, resourceKey, resource) {
+  const resourceMeta = NOTEBOOK_RESOURCE_TYPES.find(item => item.key === resourceKey) || { label: "Recurso", icon: "📌" };
+  const embed = resource.embedHtml ? `
+    <div class="notebook-embed-wrap" aria-label="${escapeHtml(resource.title || resourceMeta.label)}">
+      ${resource.embedHtml}
+    </div>
+  ` : "";
+  const link = resource.url ? `
+    <a class="secondary-btn" href="${escapeHtml(resource.url)}" target="_blank" rel="noopener">Abrir recurso en una pestaña nueva</a>
+  ` : "";
+  return `
+    <article class="notebook-card large notebook-custom-resource">
+      <p class="eyebrow">${escapeHtml(resourceMeta.icon)} ${escapeHtml(resourceMeta.label)} · Recurso individual</p>
+      <h3>${escapeHtml(resource.title || `${resourceMeta.label} de preparación · Pregunta ${question.number}`)}</h3>
+      <p>${escapeHtml(resource.description || "Material multimedia cargado específicamente para esta pregunta.")}</p>
+      ${embed}
+      ${link}
+      <p class="footer-note">Este recurso pertenece únicamente a la Sección ${escapeHtml(question.session)} · Pregunta ${escapeHtml(question.number)}.</p>
+    </article>
+  `;
 }
 
 function renderMindMap(question) {
