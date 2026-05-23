@@ -4013,10 +4013,37 @@ h3 { font-size: 1.08rem; }
   text-align: left;
 }
 
-.field-help {
-  display: block;
-  margin-top: 0.45rem;
+/* Dashboard: descarga local de PDF individual cuando aún no existe enlace de Drive */
+.dashboard-pdf-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+.dashboard-inline-btn {
+  border: 1px solid var(--line);
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  color: #fff;
+  border-radius: 999px;
+  padding: 7px 11px;
+  font-weight: 900;
+  cursor: pointer;
+  font-size: 0.78rem;
+  box-shadow: var(--shadow-soft);
+}
+
+.dashboard-inline-btn:disabled {
+  opacity: 0.65;
+  cursor: wait;
+}
+
+.dashboard-pdf-link {
+  white-space: nowrap;
+}
+
+.muted-inline {
   color: var(--muted);
+  font-weight: 800;
   font-size: 0.82rem;
-  line-height: 1.35;
 }

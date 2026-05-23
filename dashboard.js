@@ -1,10 +1,10 @@
 const DASHBOARD_ENDPOINT = "https://script.google.com/macros/s/AKfycbw46l-QqQYo7Ah_P9cA85D2a_4miFYf70FfUK304aEfRRrw-HU0ziPfBEpM_n3vWFta/exec";
-const DASHBOARD_INSTITUTION_EMAIL = "pruebas@iemanueljbetancur.edu.co";
 const DASHBOARD_ENDPOINT_DOMAIN = "";
 const DASHBOARD_ENDPOINTS = Array.from(new Set([DASHBOARD_ENDPOINT_DOMAIN, DASHBOARD_ENDPOINT].filter(Boolean)));
 const DASHBOARD_INSTITUTION = "Institución Educativa Manuel J. Betancur";
 const DASHBOARD_SPREADSHEET_ID = "17FbkF9BulfEfAAoDFNkljdsXWjXQOH_cBB3r-Iizjxs";
 const DASHBOARD_SPREADSHEET_URL = `https://docs.google.com/spreadsheets/d/${DASHBOARD_SPREADSHEET_ID}/edit`;
+const DASHBOARD_ALLOWED_GROUPS = ["11-1", "11-2", "11-3"];
 
 const dashboardState = {
   data: null,
@@ -55,6 +55,7 @@ function initDashboard() {
   els.refreshBtn.addEventListener("click", loadDashboardData);
   els.printBtn.addEventListener("click", () => window.print());
   if (els.deleteBtn) els.deleteBtn.addEventListener("click", deleteSheetData);
+  if (els.studentTable) els.studentTable.addEventListener("click", handleStudentTablePdfClick);
   [els.group, els.student, els.from, els.to].forEach(input => input.addEventListener("change", renderDashboard));
   els.clear.addEventListener("click", () => {
     els.group.value = "";
@@ -222,7 +223,7 @@ function fetchJsonp(url, timeoutMs = 25000) {
 function fetchGvizRows(sheetName) {
   return new Promise((resolve, reject) => {
     const callbackName = `gvizCallback_${Date.now()}_${Math.random().toString(36).slice(2)}`;
-    const url = `https://docs.google.com/spreadsheets/d/${DASHBOARD_SPREADSHEET_ID}/gviz/tq?sheet=${encodeURIComponent(sheetName)}&headers=1&tqx=out:json;responseHandler:${callbackName}&t=${Date.now()}`;
+    const url = `https://docs.google.com/spreadsheets/d/${DASHBOARD_SPREADSHEET_ID}/gviz/tq?sheet=${encodeURIComponent(sheetName)}&tqx=out:json;responseHandler:${callbackName}&t=${Date.now()}`;
     const script = document.createElement("script");
     const timer = setTimeout(() => {
       cleanup();
@@ -239,17 +240,8 @@ function fetchGvizRows(sheetName) {
       cleanup();
       try {
         const table = response && response.table ? response.table : { cols: [], rows: [] };
-        let headers = table.cols.map(col => (col.label || col.id || "").trim());
-        let rows = table.rows.map(row => (row.c || []).map(cell => cell ? (cell.f ?? cell.v ?? "") : ""));
-        const expected = expectedHeadersForSheet(sheetName);
-        const normalizedHeaders = headers.map(normalizeHeader);
-        const hasExpectedHeaders = expected.some(name => normalizedHeaders.includes(normalizeHeader(name)));
-        if (!hasExpectedHeaders && rows.length && rows[0].some(cell => expected.map(normalizeHeader).includes(normalizeHeader(cell)))) {
-          headers = rows.shift().map(String);
-        }
-        if (!headers.some(Boolean) || !expected.some(name => headers.map(normalizeHeader).includes(normalizeHeader(name)))) {
-          headers = expected;
-        }
+        const headers = table.cols.map(col => (col.label || col.id || "").trim());
+        const rows = table.rows.map(row => (row.c || []).map(cell => cell ? (cell.f ?? cell.v ?? "") : ""));
         resolve({ headers, rows });
       } catch (error) {
         reject(error);
@@ -264,23 +256,6 @@ function fetchGvizRows(sheetName) {
     script.src = url;
     document.body.appendChild(script);
   });
-}
-
-function expectedHeadersForSheet(sheetName) {
-  if (sheetName === "Respuestas_Detalladas") {
-    return [
-      "Marca de tiempo", "Institucion educativa", "Nombre del estudiante", "Grupo", "Correo del estudiante",
-      "Seccion", "Alcance", "Pregunta", "Area", "Competencia", "Componente", "Dificultad",
-      "Respuesta del estudiante", "Respuesta correcta", "Resultado", "ID envio"
-    ];
-  }
-  return [
-    "Marca de tiempo", "Institucion educativa", "Nombre del estudiante", "Grupo", "Correo del estudiante",
-    "Seccion", "Titulo de sesion", "Alcance", "Modo", "Fecha de finalizacion", "Tiempo empleado",
-    "Preguntas disponibles", "Respondidas", "Calificables", "Correctas", "Incorrectas", "Omitidas",
-    "Porcentaje de acierto", "Nivel de desempeno interno", "Recomendacion pedagogica", "PDF en Drive",
-    "ID PDF en Drive", "Resultado por area JSON", "Detalle por pregunta JSON", "ID envio"
-  ];
 }
 
 function recordsFromSheetRows(table) {
@@ -299,7 +274,7 @@ function recordsFromSheetRows(table) {
       timestampISO: parseDateToIso(at(row, "Marca de tiempo")) || parseDateToIso(at(row, "Fecha de finalizacion")),
       institution: at(row, "Institucion educativa") || DASHBOARD_INSTITUTION,
       studentName: at(row, "Nombre del estudiante"),
-      group: at(row, "Grupo"),
+      group: normalizeGroupValue(at(row, "Grupo")),
       email: at(row, "Correo del estudiante"),
       sessionLabel: at(row, "Seccion"),
       sessionTitle: at(row, "Titulo de sesion"),
@@ -338,7 +313,7 @@ function detailsFromSheetRows(table) {
     timestampISO: parseDateToIso(at(row, "Marca de tiempo")) || parseDateToIso(at(row, "Fecha de finalizacion")),
     institution: at(row, "Institucion educativa") || DASHBOARD_INSTITUTION,
     studentName: at(row, "Nombre del estudiante"),
-    group: at(row, "Grupo"),
+    group: normalizeGroupValue(at(row, "Grupo")),
     email: at(row, "Correo del estudiante"),
     sessionLabel: at(row, "Seccion"),
     scopeLabel: at(row, "Alcance"),
@@ -355,17 +330,46 @@ function detailsFromSheetRows(table) {
 }
 
 function isSystemTestRecord(record) {
-  const email = normalizeEmailForDashboard(record.email || "");
-  const student = String(record.studentName || "").toLowerCase();
   const text = `${record.studentName || ""} ${record.scopeLabel || ""} ${record.sessionTitle || ""} ${record.email || ""}`.toLowerCase();
-  return text.includes("prueba registro liviano")
-    || text.includes("estudiante prueba dashboard")
-    || (text.includes("prueba") && text.includes("dashboard institucional"))
-    || (email === normalizeEmailForDashboard(DASHBOARD_INSTITUTION_EMAIL) && /prueba|pruebas|test|dashboard/i.test(student));
+  return text.includes("prueba registro liviano") || text.includes("estudiante prueba dashboard") || (text.includes("prueba") && text.includes("dashboard institucional"));
 }
 
-function normalizeEmailForDashboard(value) {
-  return String(value || "").replace(/\s+/g, "").trim().toLowerCase();
+function normalizeGroupValue(value) {
+  if (value === null || value === undefined) return "";
+
+  // Google Sheets puede interpretar grupos como "11-1" como fechas.
+  // Por eso se normaliza cualquier fecha equivalente al grupo real.
+  if (value instanceof Date && !Number.isNaN(value.getTime())) {
+    const day = value.getUTCDate ? value.getUTCDate() : value.getDate();
+    const month = value.getUTCMonth ? value.getUTCMonth() : value.getMonth();
+    if (month === 0 && day >= 11 && day <= 13) return `11-${day - 10}`;
+  }
+
+  const raw = String(value || "").trim();
+  if (!raw) return "";
+
+  const clean = raw
+    .replace(/^'+/, "")
+    .replace(/[\u00A0\u1680\u180E\u2000-\u200D\u2028\u2029\u202F\u205F\u3000\uFEFF]/g, "")
+    .trim();
+
+  const direct = clean.match(/^11\s*[-–—/]\s*([123])$/);
+  if (direct) return `11-${direct[1]}`;
+
+  const numeric = clean.match(/^11[.,]([123])$/);
+  if (numeric) return `11-${numeric[1]}`;
+
+  const dateConstructor = clean.match(/Date\(\s*\d{4}\s*,\s*0\s*,\s*(1[123])\s*(?:,|\))/i);
+  if (dateConstructor) return `11-${Number(dateConstructor[1]) - 10}`;
+
+  const isoDate = clean.match(/(?:^|\D)20\d{2}-01-(1[123])(?:T|\D|$)/);
+  if (isoDate) return `11-${Number(isoDate[1]) - 10}`;
+
+  const slashDate = clean.match(/(?:^|\D)(1[123])[\/-]0?1[\/-]20\d{2}(?:\D|$)/) || clean.match(/(?:^|\D)0?1[\/-](1[123])[\/-]20\d{2}(?:\D|$)/);
+  if (slashDate) return `11-${Number(slashDate[1]) - 10}`;
+
+  if (DASHBOARD_ALLOWED_GROUPS.includes(clean)) return clean;
+  return "";
 }
 
 function normalizeHeader(value) {
@@ -414,21 +418,26 @@ function normalizeDashboardData(data) {
       correct: toNumber(record.correct),
       incorrect: toNumber(record.incorrect),
       omitted: toNumber(record.omitted),
+      group: normalizeGroupValue(record.group),
       byArea: Array.isArray(record.byArea) ? record.byArea : []
     })).filter(record => !isSystemTestRecord(record)) : [],
     details: Array.isArray(data.details) ? data.details.map(item => ({
       ...item,
-      number: toNumber(item.number)
+      number: toNumber(item.number),
+      group: normalizeGroupValue(item.group)
     })).filter(record => !isSystemTestRecord(record)) : []
   };
 }
 
 function populateFilterOptions() {
-  const data = dashboardState.data || { records: [] };
-  const groups = unique(data.records.map(record => record.group).filter(Boolean)).sort();
-  const selectedGroup = els.group.value;
+  const selectedGroup = normalizeGroupValue(els.group.value);
+  const groups = DASHBOARD_ALLOWED_GROUPS.slice();
   els.group.innerHTML = `<option value="">Todos los grupos</option>` + groups.map(group => `<option value="${escapeAttr(group)}">${escapeHtml(group)}</option>`).join("");
-  if (groups.includes(selectedGroup)) els.group.value = selectedGroup;
+  if (groups.includes(selectedGroup)) {
+    els.group.value = selectedGroup;
+  } else {
+    els.group.value = "";
+  }
   populateStudentOptions();
 }
 
@@ -579,10 +588,266 @@ function renderRecommendations(summary, records, details) {
   els.recommendations.innerHTML = recommendations.map(text => `<div class="recommendation-item">${escapeHtml(text)}</div>`).join("");
 }
 
+
+function renderPdfActions(student) {
+  const key = escapeAttr(student.key);
+  const drive = student.latest.pdfDriveUrl
+    ? `<a class="dashboard-pdf-link" href="${escapeAttr(student.latest.pdfDriveUrl)}" target="_blank" rel="noopener noreferrer">Abrir Drive</a>`
+    : `<span class="muted-inline">Sin Drive</span>`;
+  return `
+    <div class="dashboard-pdf-actions">
+      ${drive}
+      <button class="dashboard-inline-btn" type="button" data-pdf-action="download-individual" data-key="${key}">Descargar PDF</button>
+    </div>
+  `;
+}
+
+function handleStudentTablePdfClick(event) {
+  const btn = event.target.closest('[data-pdf-action="download-individual"]');
+  if (!btn) return;
+  const key = btn.getAttribute('data-key') || '';
+  downloadStudentDashboardPdf(key, btn);
+}
+
+function downloadStudentDashboardPdf(studentKey, sourceButton) {
+  const records = (dashboardState.data && dashboardState.data.records) ? dashboardState.data.records : [];
+  const studentRecords = records
+    .filter(record => getStudentKey(record) === studentKey)
+    .sort((a, b) => dateValue(b.timestampISO || b.timestamp || b.finishedAtLabel) - dateValue(a.timestampISO || a.timestamp || a.finishedAtLabel));
+
+  if (!studentRecords.length) {
+    setStatus('No fue posible crear el PDF: no se encontró el registro del estudiante.', 'error');
+    return;
+  }
+
+  const latest = studentRecords[0];
+  const groupRecords = records.filter(record => record.group === latest.group);
+  const summary = {
+    attempts: studentRecords.length,
+    studentAvg: round(average(studentRecords.map(record => record.score)), 1),
+    groupAvg: round(average(groupRecords.map(record => record.score)), 1),
+    institutionAvg: round(average(records.map(record => record.score)), 1)
+  };
+
+  try {
+    if (sourceButton) {
+      sourceButton.disabled = true;
+      sourceButton.textContent = 'Creando PDF...';
+    }
+    const pdf = createDashboardStudentPdf(latest, summary);
+    const filename = `informe-dashboard-icfes-mjb-${slugifyPdf(latest.studentName)}-${slugifyPdf(latest.group)}.pdf`;
+    downloadBlob(filename, new Blob([pdf], { type: 'application/pdf' }));
+    setStatus(`PDF individual generado para ${latest.studentName}.`, 'success');
+  } catch (error) {
+    console.error(error);
+    setStatus(`No fue posible crear el PDF individual. Detalle: ${error.message}`, 'error');
+  } finally {
+    if (sourceButton) {
+      sourceButton.disabled = false;
+      sourceButton.textContent = 'Descargar PDF';
+    }
+  }
+}
+
+function createDashboardStudentPdf(record, summary) {
+  const pageWidth = 595.28;
+  const pageHeight = 841.89;
+  const marginX = 44;
+  const rightX = pageWidth - marginX;
+  const colors = {
+    primary: [0.13, 0.31, 0.73],
+    accent: [0.02, 0.65, 0.47],
+    danger: [0.85, 0.31, 0.31],
+    warning: [0.96, 0.62, 0.04],
+    text: [0.06, 0.13, 0.20],
+    muted: [0.38, 0.45, 0.55],
+    line: [0.86, 0.90, 0.95],
+    panel: [0.97, 0.98, 0.99],
+    white: [1, 1, 1]
+  };
+  const ops = [];
+  pdfRect(ops, 0, 0, pageWidth, pageHeight, colors.white);
+  pdfText(ops, 'INFORME INDIVIDUAL - DASHBOARD ICFES SABER 11', marginX, 804, 14.5, true, colors.primary);
+  pdfText(ops, DASHBOARD_INSTITUTION, marginX, 783, 10.8, true, colors.text);
+  pdfText(ops, `Estudiante: ${record.studentName || 'Sin nombre'}`, marginX, 760, 12, true, colors.text);
+  pdfText(ops, `Grupo: ${record.group || 'Sin grupo'} | Correo: ${record.email || 'Sin correo'}`, marginX, 743, 9.5, false, colors.text, 92);
+  pdfText(ops, `${record.sessionLabel || 'Sesión'} | ${record.scopeLabel || 'Intento'} | ${record.modeLabel || 'Modo no registrado'}`, marginX, 727, 9.2, false, colors.muted, 92);
+  pdfText(ops, `Fecha: ${record.finishedAtLabel || formatDateTime(record.timestampISO || record.timestamp)} | Tiempo: ${record.elapsedLabel || 'No registrado'}`, marginX, 712, 9.2, false, colors.muted, 92);
+
+  const cards = [
+    ['Último resultado', `${toNumber(record.score)}%`, colors.primary],
+    ['Promedio estudiante', `${summary.studentAvg}%`, colors.accent],
+    ['Promedio grupo', `${summary.groupAvg}%`, colors.warning],
+    ['Promedio institución', `${summary.institutionAvg}%`, colors.primary]
+  ];
+  const cardY = 638;
+  const cardW = 116;
+  const cardGap = 10;
+  cards.forEach((card, index) => {
+    const x = marginX + index * (cardW + cardGap);
+    pdfRoundRect(ops, x, cardY, cardW, 58, 8, colors.panel, colors.line);
+    pdfText(ops, card[0], x + 10, cardY + 38, 7.8, false, colors.muted, 18);
+    pdfText(ops, card[1], x + 10, cardY + 16, 17, true, card[2]);
+  });
+
+  let y = 590;
+  pdfText(ops, 'RESUMEN DEL INTENTO', marginX, y, 11.2, true, colors.text);
+  y -= 24;
+  const stats = [
+    `Preguntas disponibles: ${toNumber(record.totalQuestions)}`,
+    `Respondidas: ${toNumber(record.answered)}`,
+    `Calificables: ${toNumber(record.scored)}`,
+    `Correctas: ${toNumber(record.correct)}`,
+    `Incorrectas: ${toNumber(record.incorrect)}`,
+    `Omitidas: ${toNumber(record.omitted)}`,
+    `Nivel interno: ${levelForScore(record.score)}`
+  ];
+  stats.forEach(line => { pdfText(ops, line, marginX, y, 9.2, false, colors.text); y -= 15; });
+
+  y -= 8;
+  pdfText(ops, 'GRÁFICO GENERAL DE DESEMPEÑO', marginX, y, 11.2, true, colors.text);
+  y -= 26;
+  const barW = rightX - marginX;
+  pdfText(ops, `Porcentaje de acierto: ${toNumber(record.score)}%`, marginX, y + 22, 9.4, true, colors.text);
+  pdfRect(ops, marginX, y, barW, 16, colors.line);
+  pdfRect(ops, marginX, y, barW * Math.max(0, Math.min(toNumber(record.score), 100)) / 100, 16, colors.primary);
+
+  y -= 42;
+  pdfText(ops, 'RESULTADO POR ÁREA', marginX, y, 11.2, true, colors.text);
+  y -= 24;
+  const areas = Array.isArray(record.byArea) ? record.byArea : [];
+  if (!areas.length) {
+    pdfText(ops, 'No hay desglose por área registrado para este intento.', marginX, y, 9.2, false, colors.muted);
+    y -= 18;
+  } else {
+    areas.forEach(area => {
+      if (y < 125) return;
+      const pct = toNumber(area.percent);
+      pdfText(ops, area.area || 'Área sin nombre', marginX, y, 9.2, true, colors.text);
+      pdfText(ops, `${toNumber(area.correct)}/${toNumber(area.total)} correctas | ${pct}%`, rightX - 170, y, 8.8, false, colors.text);
+      pdfRect(ops, marginX, y - 17, 400, 12, colors.line);
+      pdfRect(ops, marginX, y - 17, 400 * Math.max(0, Math.min(pct, 100)) / 100, 12, colors.accent);
+      y -= 42;
+    });
+  }
+
+  y = Math.max(y - 10, 105);
+  pdfText(ops, 'RECOMENDACIÓN PEDAGÓGICA', marginX, y, 11.2, true, colors.text);
+  y -= 22;
+  pdfText(ops, record.recommendation || recommendationForScore(record.score), marginX, y, 8.8, false, colors.muted, 110);
+  pdfText(ops, 'Este informe fue generado desde el Dashboard Institucional. Si el enlace de Drive aún no aparece, este PDF permite descargar el resultado individual desde la página.', marginX, 56, 8.2, false, colors.muted, 110);
+  pdfText(ops, 'Página 1 de 1', marginX, 30, 8, false, colors.muted);
+  return buildPdfFromStreams([ops.join('\n')], pageWidth, pageHeight);
+}
+
+function downloadBlob(filename, blob) {
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = filename;
+  document.body.appendChild(a);
+  a.click();
+  setTimeout(() => {
+    URL.revokeObjectURL(url);
+    if (a.parentNode) a.parentNode.removeChild(a);
+  }, 0);
+}
+
+function buildPdfFromStreams(streams, pageWidth = 595.28, pageHeight = 841.89) {
+  const objects = [];
+  objects[1] = '<< /Type /Catalog /Pages 2 0 R >>';
+  objects[3] = '<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica /Encoding /WinAnsiEncoding >>';
+  objects[4] = '<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding >>';
+  const kids = [];
+  streams.forEach((stream, index) => {
+    const pageObj = 5 + index * 2;
+    const contentObj = pageObj + 1;
+    kids.push(`${pageObj} 0 R`);
+    objects[pageObj] = `<< /Type /Page /Parent 2 0 R /MediaBox [0 0 ${pageWidth} ${pageHeight}] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents ${contentObj} 0 R >>`;
+    objects[contentObj] = `<< /Length ${stream.length} >>\nstream\n${stream}\nendstream`;
+  });
+  objects[2] = `<< /Type /Pages /Kids [${kids.join(' ')}] /Count ${streams.length} >>`;
+  let pdf = '%PDF-1.4\n';
+  const offsets = [0];
+  for (let i = 1; i < objects.length; i += 1) {
+    offsets[i] = pdf.length;
+    pdf += `${i} 0 obj\n${objects[i]}\nendobj\n`;
+  }
+  const xrefOffset = pdf.length;
+  pdf += `xref\n0 ${objects.length}\n0000000000 65535 f \n`;
+  for (let i = 1; i < objects.length; i += 1) {
+    pdf += `${String(offsets[i]).padStart(10, '0')} 00000 n \n`;
+  }
+  pdf += `trailer\n<< /Size ${objects.length} /Root 1 0 R >>\nstartxref\n${xrefOffset}\n%%EOF`;
+  return pdf;
+}
+
+function pdfText(ops, text, x, y, size = 10, bold = false, color = [0, 0, 0], maxChars = 0) {
+  const lines = wrapPdfText(String(text || ''), maxChars || 0);
+  lines.forEach((line, index) => {
+    const yy = y - index * (size + 3);
+    ops.push(`${color[0]} ${color[1]} ${color[2]} rg`);
+    ops.push('BT');
+    ops.push(`/${bold ? 'F2' : 'F1'} ${size} Tf`);
+    ops.push(`${x} ${yy} Td`);
+    ops.push(`(${escapePdfString(line)}) Tj`);
+    ops.push('ET');
+  });
+}
+
+function pdfRect(ops, x, y, w, h, color) {
+  ops.push(`${color[0]} ${color[1]} ${color[2]} rg`);
+  ops.push(`${x} ${y} ${w} ${h} re f`);
+}
+
+function pdfRoundRect(ops, x, y, w, h, radius, fill, stroke) {
+  pdfRect(ops, x, y, w, h, fill);
+  if (stroke) {
+    ops.push(`${stroke[0]} ${stroke[1]} ${stroke[2]} RG`);
+    ops.push(`0.8 w ${x} ${y} ${w} ${h} re S`);
+  }
+}
+
+function wrapPdfText(text, maxChars) {
+  const cleaned = String(text || '').replace(/\s+/g, ' ').trim();
+  if (!maxChars || cleaned.length <= maxChars) return [cleaned];
+  const words = cleaned.split(' ');
+  const lines = [];
+  let current = '';
+  words.forEach(word => {
+    const next = current ? `${current} ${word}` : word;
+    if (next.length > maxChars && current) {
+      lines.push(current);
+      current = word;
+    } else {
+      current = next;
+    }
+  });
+  if (current) lines.push(current);
+  return lines;
+}
+
+function escapePdfString(text) {
+  return String(text || '')
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[()\\]/g, match => `\\${match}`)
+    .replace(/[\r\n]+/g, ' ');
+}
+
+function slugifyPdf(value) {
+  return String(value || 'estudiante')
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '') || 'estudiante';
+}
+
 function renderStudentTable(records) {
   const students = latestStudents(records);
   els.studentTable.innerHTML = students.map(student => {
-    const pdf = student.latest.pdfDriveUrl ? `<a href="${escapeAttr(student.latest.pdfDriveUrl)}" target="_blank" rel="noopener noreferrer">Abrir</a>` : "-";
+    const pdf = renderPdfActions(student);
     return `
       <tr>
         <td>${escapeHtml(student.group)}</td>
@@ -630,7 +895,10 @@ function renderIndividualPanel(records) {
     </div>
     <div class="recommendations-list">
       <div class="recommendation-item"><strong>Recomendación:</strong> ${escapeHtml(recommendationForScore(studentAvg))}</div>
-      ${latest.pdfDriveUrl ? `<div class="recommendation-item"><a href="${escapeAttr(latest.pdfDriveUrl)}" target="_blank" rel="noopener noreferrer">Abrir PDF individual guardado en Drive</a></div>` : ""}
+      <div class="recommendation-item dashboard-pdf-actions">
+        ${latest.pdfDriveUrl ? `<a href="${escapeAttr(latest.pdfDriveUrl)}" target="_blank" rel="noopener noreferrer">Abrir PDF individual guardado en Drive</a>` : `<span class="muted-inline">Aún no hay PDF en Drive para este intento.</span>`}
+        <button class="dashboard-inline-btn" type="button" data-pdf-action="download-individual" data-key="${escapeAttr(getStudentKey(latest))}">Descargar PDF individual</button>
+      </div>
     </div>
   `;
   els.individualPanel.classList.remove("hidden");
