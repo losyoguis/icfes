@@ -8846,3 +8846,38 @@ html[data-theme="dark"] .simulacro-highlight:has(input:checked) {
 html[data-theme="dark"] .access-tagline {
   color: #93c5fd;
 }
+
+
+/* Modal Inteligencia Híbrida */
+.hybrid-intelligence-content {
+  max-height: 66vh;
+}
+
+.hybrid-intelligence-card {
+  display: grid;
+  gap: 14px;
+}
+
+.hybrid-intelligence-card p {
+  margin: 0;
+  color: var(--text);
+  font-size: clamp(0.96rem, 1.6vw, 1.06rem);
+  line-height: 1.68;
+}
+
+.hybrid-intelligence-card strong {
+  color: var(--primary);
+  font-weight: 900;
+}
+
+body.dark .hybrid-intelligence-card p,
+body.theme-dark .hybrid-intelligence-card p,
+[data-theme="dark"] .hybrid-intelligence-card p {
+  color: #eef4ff;
+}
+
+body.dark .hybrid-intelligence-card strong,
+body.theme-dark .hybrid-intelligence-card strong,
+[data-theme="dark"] .hybrid-intelligence-card strong {
+  color: #7cf7c8;
+}

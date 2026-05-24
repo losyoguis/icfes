@@ -464,24 +464,20 @@ function openInstructionsModal() {
   overlay.innerHTML = `
     <section class="dialog-card tips-dialog-card instructions-dialog-card" role="dialog" aria-modal="true" aria-labelledby="instructionsDialogTitle">
       <button class="dialog-close" type="button" aria-label="Cerrar">×</button>
-      <p class="eyebrow">Guía rápida del simulador</p>
-      <h2 id="instructionsDialogTitle">Instrucciones</h2>
-      <div class="tips-modal-content instructions-content">
-        <article class="tip-card">
-          <ol class="instructions-list">
-            <li><strong>Modo de trabajo:</strong> Simulacro.</li>
-            <li>Iniciar <strong>Primera sesión</strong> o <strong>Segunda sesión</strong>.</li>
-            <li>Analiza la pregunta y da clic en la opción de respuesta.</li>
-            <li>Las preguntas que quieras dejar para el final selecciónalas con <strong>Marcar para revisar</strong>.</li>
-            <li>Cuando finalices, da clic en el botón <strong>Finalizar intento</strong>.</li>
-            <li>Descarga el <strong>informe PDF</strong>.</li>
-            <li>Da clic en <strong>Enviar informe PDF</strong> para cargarlo en el formulario indicado.</li>
-            <li>Usa <strong>Enviar Informe al MJB</strong> para abrir el formulario institucional de la I.E. Manuel J. Betancur.</li>
-          </ol>
+      <p class="eyebrow">Modelo pedagógico de la plataforma</p>
+      <h2 id="instructionsDialogTitle">Inteligencia Híbrida</h2>
+      <div class="tips-modal-content instructions-content hybrid-intelligence-content">
+        <article class="tip-card hybrid-intelligence-card">
+          <p><strong>ICFES Digital Saber 11 – Prepárate para el ICFES con inteligencia artificial</strong> es una plataforma educativa que promueve el uso de la <strong>Inteligencia Híbrida</strong>, entendida como la integración entre la inteligencia humana del estudiante, la orientación pedagógica del docente y el apoyo analítico de la inteligencia artificial.</p>
+          <p>Esta propuesta no busca reemplazar al maestro ni automatizar el aprendizaje, sino fortalecerlo. La Inteligencia Híbrida permite que el estudiante piense, analice, se equivoque, corrija y mejore, mientras la tecnología le ofrece rutas de entrenamiento, retroalimentación inmediata, simuladores interactivos y recursos visuales que favorecen la comprensión.</p>
+          <p>Una de sus principales ventajas es que convierte la preparación para la Prueba Saber 11 en una experiencia más dinámica, personalizada y significativa. El estudiante puede entrenar con Notebook, practicar con AI Studio, resolver preguntas sin límite de tiempo y finalmente enfrentarse a un simulacro, avanzando de manera progresiva desde el aprendizaje guiado hasta la evaluación autónoma.</p>
+          <p>La Inteligencia Híbrida también beneficia al docente, porque le permite acompañar mejor los procesos de preparación, identificar fortalezas y dificultades, orientar refuerzos académicos y transformar los resultados en oportunidades reales de mejora. De esta manera, la tecnología se convierte en una aliada pedagógica y no en un sustituto del criterio humano.</p>
+          <p>Con esta plataforma, la preparación para el ICFES deja de ser únicamente una práctica repetitiva de preguntas y se convierte en un proceso inteligente de entrenamiento, análisis y crecimiento académico. La combinación entre estudiante, docente e inteligencia artificial permite fortalecer la autonomía, la comprensión lectora, el razonamiento, la toma de decisiones y la confianza frente a la prueba.</p>
+          <p><strong>ICFES Digital Saber 11</strong> representa una apuesta por una educación más innovadora, interactiva e inclusiva, donde la Inteligencia Híbrida potencia las capacidades humanas y abre nuevas posibilidades para aprender mejor, prepararse mejor y alcanzar mejores resultados.</p>
         </article>
       </div>
       <div class="dialog-actions tips-modal-actions">
-        <button class="primary-btn" type="button" data-dialog-cancel>Cerrar instrucciones</button>
+        <button class="primary-btn" type="button" data-dialog-cancel>Cerrar</button>
       </div>
     </section>
   `;
