@@ -544,7 +544,6 @@ function renderAccess(pendingScope = null) {
         <h2 id="accessTitle" class="access-brand-title">ICFES Digital Saber 11</h2>
         <p class="access-tagline">Prepárate para el ICFES con inteligencia artificial</p>
         <h3 class="access-register-title">Antes de iniciar, registra tus datos</h3>
-        <p class="access-intro">Esta información aparecerá en la página de resultados, en el informe final en PDF y permitirá el envío automático del informe al estudiante y al equipo institucional de la ${escapeHtml(INSTITUTION_NAME)}.</p>
         <form id="studentForm" class="student-form">
           <div class="form-grid student-form-grid">
             <label class="field field-wide">
