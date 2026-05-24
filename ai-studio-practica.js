@@ -351,7 +351,15 @@
     $$(".ai-nav-dot").forEach(btn => {
       const idx = Number(btn.dataset.jump || -1);
       const item = state.questions[idx];
-      btn.classList.toggle("answered", Boolean(item && state.answers[item.id]));
+      const savedAnswer = item ? state.answers[item.id] : "";
+      btn.classList.toggle("answered", Boolean(savedAnswer));
+      btn.classList.toggle("answered-correct", Boolean(savedAnswer && savedAnswer === item.correctAnswer));
+      btn.classList.toggle("answered-wrong", Boolean(savedAnswer && savedAnswer !== item.correctAnswer));
+      if (item) {
+        const statusLabel = savedAnswer ? `respondida con ${savedAnswer}` : "sin responder";
+        btn.title = `Pregunta ${item.number}: ${statusLabel}`;
+        btn.setAttribute("aria-label", `Pregunta ${item.number}: ${statusLabel}`);
+      }
     });
     const progress = getProgress();
     const answeredPill = $(".ai-hero-stats .pill.muted");
@@ -3801,7 +3809,13 @@
 
       <section class="ai-progress-card"><div class="progress-top"><strong>Avance del bloque</strong><span>${progress.percent}% de acierto acumulado</span></div><div class="progress-bar"><span style="width:${Math.max(0, Math.min(progress.percent, 100))}%"></span></div></section>
 
-      <nav class="ai-question-nav" aria-label="Navegación de preguntas">${state.questions.map((item, idx) => `<button type="button" class="ai-nav-dot ${idx === state.currentIndex ? "active" : ""} ${state.answers[item.id] ? "answered" : ""}" data-jump="${idx}">${item.number}</button>`).join("")}</nav>
+      <nav class="ai-question-nav" aria-label="Navegación de preguntas">${state.questions.map((item, idx) => {
+        const userAnswer = state.answers[item.id] || "";
+        const answeredClass = userAnswer ? "answered" : "";
+        const resultClass = userAnswer ? (userAnswer === item.correctAnswer ? "answered-correct" : "answered-wrong") : "";
+        const statusLabel = userAnswer ? `respondida con ${userAnswer}` : "sin responder";
+        return `<button type="button" class="ai-nav-dot ${idx === state.currentIndex ? "active" : ""} ${answeredClass} ${resultClass}" data-jump="${idx}" title="Pregunta ${item.number}: ${statusLabel}" aria-label="Pregunta ${item.number}: ${statusLabel}">${item.number}</button>`;
+      }).join("")}</nav>
 
       <section class="ai-question-layout">
         <article class="ai-question-card">

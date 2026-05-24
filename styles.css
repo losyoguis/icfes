@@ -8135,3 +8135,180 @@ textarea {
 .ai-practice-page.ai-night input[type="range"] {
   accent-color: #60a5fa;
 }
+
+/* =========================================================
+   Ajuste final AI Studio · contraste de fórmulas + preguntas/respondidas
+   ========================================================= */
+.ai-practice-page .formula-box,
+.ai-practice-page .icfes-fare-card .formula-box {
+  background: #ffffff !important;
+  color: #0f172a !important;
+  border-color: rgba(148, 163, 184, .45) !important;
+  box-shadow: 0 12px 26px rgba(15, 23, 42, .08);
+}
+
+.ai-practice-page .formula-box span,
+.ai-practice-page .formula-box strong,
+.ai-practice-page .formula-box em,
+.ai-practice-page .icfes-fare-card .formula-box span,
+.ai-practice-page .icfes-fare-card .formula-box strong,
+.ai-practice-page .icfes-fare-card .formula-box em {
+  color: #0f172a !important;
+  opacity: 1 !important;
+  text-shadow: none !important;
+}
+
+.ai-practice-page .formula-box strong,
+.ai-practice-page .icfes-fare-card .formula-box strong {
+  color: #1d4ed8 !important;
+}
+
+.ai-practice-page.ai-night .formula-box,
+.ai-practice-page.ai-night .icfes-fare-card .formula-box {
+  background: linear-gradient(135deg, rgba(15, 23, 42, .98), rgba(30, 41, 59, .96)) !important;
+  color: #f8fafc !important;
+  border-color: rgba(96, 165, 250, .55) !important;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.04), 0 18px 42px rgba(0, 0, 0, .34) !important;
+}
+
+.ai-practice-page.ai-night .formula-box span,
+.ai-practice-page.ai-night .formula-box em,
+.ai-practice-page.ai-night .icfes-fare-card .formula-box span,
+.ai-practice-page.ai-night .icfes-fare-card .formula-box em {
+  color: #f8fafc !important;
+  opacity: 1 !important;
+}
+
+.ai-practice-page.ai-night .formula-box strong,
+.ai-practice-page.ai-night .icfes-fare-card .formula-box strong {
+  color: #93c5fd !important;
+}
+
+.ai-practice-page .ai-nav-dot.answered {
+  color: #ffffff !important;
+  font-weight: 950;
+  border-color: rgba(14, 165, 233, .72) !important;
+  background: linear-gradient(135deg, #0ea5e9, #2563eb) !important;
+  box-shadow: 0 9px 22px rgba(37, 99, 235, .30), inset 0 0 0 1px rgba(255,255,255,.22) !important;
+}
+
+.ai-practice-page .ai-nav-dot.answered-correct {
+  background: linear-gradient(135deg, #16a34a, #059669) !important;
+  border-color: rgba(34, 197, 94, .82) !important;
+  box-shadow: 0 9px 22px rgba(22, 163, 74, .30), inset 0 0 0 1px rgba(255,255,255,.22) !important;
+}
+
+.ai-practice-page .ai-nav-dot.answered-wrong {
+  background: linear-gradient(135deg, #f97316, #dc2626) !important;
+  border-color: rgba(248, 113, 113, .86) !important;
+  box-shadow: 0 9px 22px rgba(220, 38, 38, .28), inset 0 0 0 1px rgba(255,255,255,.22) !important;
+}
+
+.ai-practice-page .ai-nav-dot.active.answered,
+.ai-practice-page .ai-nav-dot.active.answered-correct,
+.ai-practice-page .ai-nav-dot.active.answered-wrong {
+  transform: translateY(-2px) scale(1.08);
+  outline: 3px solid rgba(250, 204, 21, .78);
+  outline-offset: 2px;
+}
+
+.ai-practice-page .ai-option.selected,
+.ai-practice-page .english-option-grid button.selected,
+.ai-practice-page .natural-option-grid button.selected,
+.ai-practice-page .social-option-grid button.selected,
+.ai-practice-page .critical-option-grid button.selected,
+.ai-practice-page .math-super-final.selected {
+  border-color: rgba(37, 99, 235, .85) !important;
+  background: linear-gradient(135deg, rgba(37, 99, 235, .18), rgba(6, 182, 212, .16)) !important;
+  box-shadow: 0 14px 30px rgba(37, 99, 235, .20), inset 0 0 0 1px rgba(255,255,255,.32) !important;
+}
+
+.ai-practice-page .ai-option.correct,
+.ai-practice-page .english-option-grid button.correct,
+.ai-practice-page .natural-option-grid button.correct,
+.ai-practice-page .social-option-grid button.correct,
+.ai-practice-page .critical-option-grid button.correct,
+.ai-practice-page .math-super-final.correct {
+  border-color: rgba(22, 163, 74, .88) !important;
+  background: linear-gradient(135deg, rgba(34, 197, 94, .24), rgba(16, 185, 129, .18)) !important;
+  color: #052e16 !important;
+}
+
+.ai-practice-page .ai-option.incorrect,
+.ai-practice-page .english-option-grid button.incorrect,
+.ai-practice-page .natural-option-grid button.incorrect,
+.ai-practice-page .social-option-grid button.incorrect,
+.ai-practice-page .critical-option-grid button.incorrect,
+.ai-practice-page .math-super-final.wrong {
+  border-color: rgba(220, 38, 38, .86) !important;
+  background: linear-gradient(135deg, rgba(248, 113, 113, .24), rgba(249, 115, 22, .16)) !important;
+  color: #450a0a !important;
+}
+
+.ai-practice-page.ai-night .ai-nav-dot.answered,
+.ai-practice-page.ai-night .ai-nav-dot.answered-correct,
+.ai-practice-page.ai-night .ai-nav-dot.answered-wrong {
+  color: #ffffff !important;
+}
+
+.ai-practice-page.ai-night .ai-option.selected,
+.ai-practice-page.ai-night .english-option-grid button.selected,
+.ai-practice-page.ai-night .natural-option-grid button.selected,
+.ai-practice-page.ai-night .social-option-grid button.selected,
+.ai-practice-page.ai-night .critical-option-grid button.selected,
+.ai-practice-page.ai-night .math-super-final.selected {
+  border-color: rgba(147, 197, 253, .90) !important;
+  background: linear-gradient(135deg, rgba(37, 99, 235, .34), rgba(6, 182, 212, .20)) !important;
+  color: #eff6ff !important;
+  box-shadow: 0 16px 34px rgba(37, 99, 235, .30), inset 0 0 0 1px rgba(255,255,255,.12) !important;
+}
+
+.ai-practice-page.ai-night .ai-option.correct,
+.ai-practice-page.ai-night .english-option-grid button.correct,
+.ai-practice-page.ai-night .natural-option-grid button.correct,
+.ai-practice-page.ai-night .social-option-grid button.correct,
+.ai-practice-page.ai-night .critical-option-grid button.correct,
+.ai-practice-page.ai-night .math-super-final.correct {
+  border-color: rgba(74, 222, 128, .95) !important;
+  background: linear-gradient(135deg, rgba(22, 163, 74, .38), rgba(16, 185, 129, .24)) !important;
+  color: #ecfdf5 !important;
+}
+
+.ai-practice-page.ai-night .ai-option.incorrect,
+.ai-practice-page.ai-night .english-option-grid button.incorrect,
+.ai-practice-page.ai-night .natural-option-grid button.incorrect,
+.ai-practice-page.ai-night .social-option-grid button.incorrect,
+.ai-practice-page.ai-night .critical-option-grid button.incorrect,
+.ai-practice-page.ai-night .math-super-final.wrong {
+  border-color: rgba(252, 165, 165, .95) !important;
+  background: linear-gradient(135deg, rgba(220, 38, 38, .36), rgba(249, 115, 22, .20)) !important;
+  color: #fff1f2 !important;
+}
+
+.ai-practice-page .ai-option.correct .option-letter,
+.ai-practice-page .english-option-grid button.correct b,
+.ai-practice-page .natural-option-grid button.correct b,
+.ai-practice-page .social-option-grid button.correct b,
+.ai-practice-page .critical-option-grid button.correct b,
+.ai-practice-page .math-super-final.correct b {
+  background: #16a34a !important;
+  color: #ffffff !important;
+}
+
+.ai-practice-page .ai-option.incorrect .option-letter,
+.ai-practice-page .english-option-grid button.incorrect b,
+.ai-practice-page .natural-option-grid button.incorrect b,
+.ai-practice-page .social-option-grid button.incorrect b,
+.ai-practice-page .critical-option-grid button.incorrect b,
+.ai-practice-page .math-super-final.wrong b {
+  background: #dc2626 !important;
+  color: #ffffff !important;
+}
+
+.ai-practice-page .english-option-grid button span,
+.ai-practice-page .natural-option-grid button span,
+.ai-practice-page .social-option-grid button span,
+.ai-practice-page .critical-option-grid button span,
+.ai-practice-page .ai-option span:not(.option-letter) {
+  color: inherit !important;
+}
