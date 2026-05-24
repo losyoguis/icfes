@@ -719,31 +719,13 @@ function renderHome() {
     </section>
 
 
-    <section class="super-launch-card" aria-label="Acceso rápido al súper simulador de Matemáticas">
+    <section class="ai-studio-route-card" aria-label="Ruta correcta para práctica con AI Studio">
       <div>
-        <p class="eyebrow">Nuevo · AI Studio Matemáticas</p>
-        <h3>Súper simulador dinámico · Sección 2 · Preguntas 29 a 50</h3>
-        <p>Entrenamiento interactivo con gráficas, animaciones, detector de pistas, estrategia, micro-reto y retroalimentación inmediata.</p>
+        <p class="eyebrow">Ruta recomendada</p>
+        <h3>Los súper simuladores ahora se abren desde Práctica con AI Studio</h3>
+        <p>Selecciona el modo <strong>Práctica con AI Studio</strong> y luego elige el bloque correspondiente en la tabla. Para Inglés: <strong>Sección 2 · Preguntas 80 a 134</strong>.</p>
       </div>
-      <a class="primary-btn" href="ai-studio-practica.html?session=2&from=29&to=50&label=Secci%C3%B3n%202%20%C2%B7%20Matem%C3%A1ticas%20%C2%B7%20Preguntas%2029%20a%2050&area=Matem%C3%A1ticas&scopeType=block&available=22">Abrir súper simulador</a>
-    </section>
-
-    <section class="super-launch-card" aria-label="Acceso rápido al súper simulador de Ciencias Naturales">
-      <div>
-        <p class="eyebrow">Nuevo · AI Studio Ciencias Naturales</p>
-        <h3>Súper simulador científico · Sección 2 · Preguntas 51 a 79</h3>
-        <p>Laboratorio interactivo con variables, gráficas animadas, lupa de evidencia, método científico, simulación de fenómenos y retroalimentación inmediata.</p>
-      </div>
-      <a class="primary-btn" href="ai-studio-practica.html?session=2&from=51&to=79&label=Secci%C3%B3n%202%20%C2%B7%20Ciencias%20Naturales%20%C2%B7%20Preguntas%2051%20a%2079&area=Ciencias%20Naturales&scopeType=block&available=29">Abrir súper simulador</a>
-    </section>
-
-    <section class="super-launch-card" aria-label="Acceso rápido al súper simulador de Inglés">
-      <div>
-        <p class="eyebrow">Nuevo · AI Studio Inglés</p>
-        <h3>Súper simulador de Inglés · Sección 2 · Preguntas 80 a 134</h3>
-        <p>Entrenamiento interactivo con context scanner, gráfica de comprensión, vocabulario, gramática, avisos, diálogos, cloze text, lectura crítica en inglés y retroalimentación inmediata.</p>
-      </div>
-      <a class="primary-btn" href="ai-studio-practica.html?session=2&from=80&to=134&label=Secci%C3%B3n%202%20%C2%B7%20Ingl%C3%A9s%20%C2%B7%20Preguntas%2080%20a%20134&area=Ingl%C3%A9s&scopeType=block&available=55">Abrir súper simulador</a>
+      <span class="pill success">AI Studio integrado</span>
     </section>
 
     <section class="session-grid" id="sessionGrid"></section>

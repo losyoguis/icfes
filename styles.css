@@ -11,6 +11,7 @@
   --warning: #f59e0b;
   --danger: #d94f4f;
   --shadow: 0 24px 60px rgba(17, 36, 75, 0.12);
+  --shadow-soft: 0 16px 42px rgba(17, 36, 75, 0.10);
   --radius: 22px;
   --radius-sm: 14px;
 }
@@ -3519,7 +3520,7 @@ h3 { font-size: 1.08rem; }
   border-radius: 22px;
   border: 1px solid var(--line);
   background: rgba(15, 23, 42, 0.45);
-  box-shadow: var(--shadow-soft);
+  box-shadow: var(--shadow);
 }
 
 .notebook-embed-wrap iframe {
@@ -4030,7 +4031,7 @@ h3 { font-size: 1.08rem; }
   font-weight: 900;
   cursor: pointer;
   font-size: 0.78rem;
-  box-shadow: var(--shadow-soft);
+  box-shadow: var(--shadow);
 }
 
 .dashboard-inline-btn:disabled {
@@ -5222,6 +5223,7 @@ textarea {
   --ai-accent: #06b6d4;
   --ai-success: #10b981;
   --ai-danger: #ef4444;
+  --ai-shadow-soft: 0 18px 48px rgba(15, 23, 42, .10);
 }
 [data-ai-theme="dark"] {
   --ai-bg: #060b18;
@@ -5235,6 +5237,7 @@ textarea {
   --ai-accent: #22d3ee;
   --ai-success: #34d399;
   --ai-danger: #fb7185;
+  --ai-shadow-soft: 0 18px 48px rgba(0, 0, 0, .28);
 }
 .ai-practice-page.ai-day,
 .ai-practice-page.ai-night {
@@ -7384,7 +7387,54 @@ textarea {
   .math-super-table > div { min-width: 520px; }
 }
 
-/* Acceso rápido al súper simulador de Matemáticas */
+
+.ai-studio-route-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 18px;
+  align-items: center;
+  margin: 18px 0;
+  padding: 20px;
+  border: 1px solid var(--line);
+  border-radius: 26px;
+  background:
+    radial-gradient(circle at 8% 0%, rgba(36,85,195,.14), transparent 32%),
+    radial-gradient(circle at 94% 20%, rgba(4,167,119,.13), transparent 34%),
+    var(--panel);
+  box-shadow: var(--shadow);
+}
+.ai-studio-route-card h3 { margin: 4px 0 8px; font-size: clamp(1.05rem, 2.6vw, 1.35rem); }
+.ai-studio-route-card p { color: var(--muted); line-height: 1.55; margin-bottom: 0; }
+@media (max-width: 760px) { .ai-studio-route-card { grid-template-columns: 1fr; } }
+
+.ai-studio-catalog {
+  display: grid;
+  gap: 16px;
+  margin: 20px 0;
+}
+.ai-studio-catalog .super-launch-card {
+  border-color: var(--ai-border);
+  background:
+    radial-gradient(circle at 8% 0%, rgba(96,165,250,.18), transparent 32%),
+    radial-gradient(circle at 94% 20%, rgba(34,211,238,.18), transparent 34%),
+    var(--ai-card);
+}
+.ai-studio-catalog .super-launch-card.featured {
+  box-shadow: 0 24px 60px rgba(37, 99, 235, .18);
+  transform: translateY(-1px);
+}
+.ai-route-help {
+  padding: 20px;
+  border-radius: 24px;
+  border: 1px solid var(--ai-border);
+  background: var(--ai-card);
+  color: var(--ai-text);
+  box-shadow: 0 18px 48px rgba(15, 23, 42, .09);
+}
+.ai-route-help h3 { margin: 0 0 8px; }
+.ai-route-help p { color: var(--ai-muted); line-height: 1.55; }
+
+/* Tarjetas de súper simuladores AI Studio */
 .super-launch-card {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
@@ -7397,8 +7447,8 @@ textarea {
   background:
     radial-gradient(circle at 8% 0%, rgba(96,165,250,.18), transparent 32%),
     radial-gradient(circle at 94% 20%, rgba(34,211,238,.18), transparent 34%),
-    var(--card);
-  box-shadow: var(--shadow-soft);
+    var(--panel);
+  box-shadow: var(--shadow);
 }
 .super-launch-card h3 {
   margin: 4px 0 8px;
@@ -7762,4 +7812,159 @@ textarea {
   .english-clue-buttons { grid-template-columns: 1fr; }
   .english-bar-row { grid-template-columns: 82px 1fr 42px; }
   .english-soundboard { min-height: 180px; }
+}
+
+/* =========================================================
+   Corrección de contraste día/noche · Práctica con AI Studio
+   Tablas y recursos HTML de Inglés, Matemáticas y Ciencias
+   ========================================================= */
+.ai-practice-page .ai-resource-card,
+.ai-practice-page .concept-card {
+  color: var(--ai-text);
+}
+
+.ai-practice-page .ai-resource-card .table-wrap,
+.ai-practice-page .concept-card .table-wrap,
+.ai-practice-page .question-resource .table-wrap {
+  background: var(--ai-card);
+  border-color: var(--ai-border);
+  box-shadow: 0 12px 30px rgba(15, 23, 42, .07);
+}
+
+.ai-practice-page .ai-resource-card table,
+.ai-practice-page .concept-card table,
+.ai-practice-page .question-resource table,
+.ai-practice-page .data-table,
+.ai-practice-page .structure-table,
+.ai-practice-page .mini-table {
+  background: var(--ai-card);
+  color: var(--ai-text);
+}
+
+.ai-practice-page .ai-resource-card th,
+.ai-practice-page .concept-card th,
+.ai-practice-page .question-resource th,
+.ai-practice-page .data-table th,
+.ai-practice-page .structure-table th,
+.ai-practice-page .mini-table th {
+  background: var(--ai-card-2);
+  color: var(--ai-muted);
+  border-color: var(--ai-border);
+}
+
+.ai-practice-page .ai-resource-card td,
+.ai-practice-page .concept-card td,
+.ai-practice-page .question-resource td,
+.ai-practice-page .data-table td,
+.ai-practice-page .structure-table td,
+.ai-practice-page .mini-table td {
+  background: rgba(255, 255, 255, .72);
+  color: var(--ai-text);
+  border-color: var(--ai-border);
+}
+
+.ai-practice-page .ai-resource-card tr:nth-child(even) td,
+.ai-practice-page .concept-card tr:nth-child(even) td,
+.ai-practice-page .question-resource tr:nth-child(even) td,
+.ai-practice-page .data-table tr:nth-child(even) td,
+.ai-practice-page .structure-table tr:nth-child(even) td,
+.ai-practice-page .mini-table tr:nth-child(even) td {
+  background: rgba(241, 245, 249, .92);
+}
+
+.ai-practice-page.ai-day .ai-resource-card .table-wrap,
+.ai-practice-page.ai-day .concept-card .table-wrap,
+.ai-practice-page.ai-day .question-resource .table-wrap {
+  background: #ffffff;
+  border-color: rgba(148, 163, 184, .42);
+}
+
+.ai-practice-page.ai-day .ai-resource-card th,
+.ai-practice-page.ai-day .concept-card th,
+.ai-practice-page.ai-day .question-resource th,
+.ai-practice-page.ai-day .data-table th,
+.ai-practice-page.ai-day .structure-table th,
+.ai-practice-page.ai-day .mini-table th {
+  background: #eef2f7;
+  color: #334155;
+}
+
+.ai-practice-page.ai-day .ai-resource-card td,
+.ai-practice-page.ai-day .concept-card td,
+.ai-practice-page.ai-day .question-resource td,
+.ai-practice-page.ai-day .data-table td,
+.ai-practice-page.ai-day .structure-table td,
+.ai-practice-page.ai-day .mini-table td {
+  background: #ffffff;
+  color: #0f172a;
+}
+
+.ai-practice-page.ai-day .ai-resource-card tr:nth-child(even) td,
+.ai-practice-page.ai-day .concept-card tr:nth-child(even) td,
+.ai-practice-page.ai-day .question-resource tr:nth-child(even) td,
+.ai-practice-page.ai-day .data-table tr:nth-child(even) td,
+.ai-practice-page.ai-day .structure-table tr:nth-child(even) td,
+.ai-practice-page.ai-day .mini-table tr:nth-child(even) td {
+  background: #f8fafc;
+}
+
+.ai-practice-page.ai-night .ai-resource-card .table-wrap,
+.ai-practice-page.ai-night .concept-card .table-wrap,
+.ai-practice-page.ai-night .question-resource .table-wrap {
+  background: rgba(2, 6, 23, .88);
+  border-color: rgba(148, 163, 184, .32);
+  box-shadow: 0 18px 44px rgba(0, 0, 0, .28);
+}
+
+.ai-practice-page.ai-night .ai-resource-card table,
+.ai-practice-page.ai-night .concept-card table,
+.ai-practice-page.ai-night .question-resource table,
+.ai-practice-page.ai-night .data-table,
+.ai-practice-page.ai-night .structure-table,
+.ai-practice-page.ai-night .mini-table {
+  background: rgba(15, 23, 42, .96);
+  color: #f8fafc;
+}
+
+.ai-practice-page.ai-night .ai-resource-card th,
+.ai-practice-page.ai-night .concept-card th,
+.ai-practice-page.ai-night .question-resource th,
+.ai-practice-page.ai-night .data-table th,
+.ai-practice-page.ai-night .structure-table th,
+.ai-practice-page.ai-night .mini-table th {
+  background: rgba(30, 41, 59, .98);
+  color: #e2e8f0;
+  border-color: rgba(148, 163, 184, .30);
+}
+
+.ai-practice-page.ai-night .ai-resource-card td,
+.ai-practice-page.ai-night .concept-card td,
+.ai-practice-page.ai-night .question-resource td,
+.ai-practice-page.ai-night .data-table td,
+.ai-practice-page.ai-night .structure-table td,
+.ai-practice-page.ai-night .mini-table td {
+  background: rgba(15, 23, 42, .94);
+  color: #f8fafc;
+  border-color: rgba(148, 163, 184, .26);
+}
+
+.ai-practice-page.ai-night .ai-resource-card tr:nth-child(even) td,
+.ai-practice-page.ai-night .concept-card tr:nth-child(even) td,
+.ai-practice-page.ai-night .question-resource tr:nth-child(even) td,
+.ai-practice-page.ai-night .data-table tr:nth-child(even) td,
+.ai-practice-page.ai-night .structure-table tr:nth-child(even) td,
+.ai-practice-page.ai-night .mini-table tr:nth-child(even) td {
+  background: rgba(30, 41, 59, .88);
+}
+
+.ai-practice-page.ai-night .ai-resource-card em,
+.ai-practice-page.ai-night .concept-card em,
+.ai-practice-page.ai-night .question-resource em {
+  color: #bfdbfe;
+}
+
+.ai-practice-page.ai-night .ai-resource-card strong,
+.ai-practice-page.ai-night .concept-card strong,
+.ai-practice-page.ai-night .question-resource strong {
+  color: #ffffff;
 }

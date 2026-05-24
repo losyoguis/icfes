@@ -10,6 +10,7 @@
   const $$ = (selector, root = document) => Array.from(root.querySelectorAll(selector));
 
   const params = new URLSearchParams(window.location.search);
+  const hasExplicitScope = params.has("session") || params.has("from") || params.has("to") || params.has("area");
   const scope = {
     session: Number(params.get("session") || 1),
     from: Number(params.get("from") || 1),
@@ -145,6 +146,92 @@
     const answered = Object.keys(state.answers).filter(key => state.answers[key]).length;
     const correct = state.questions.reduce((sum, q) => sum + (state.answers[q.id] === q.correctAnswer ? 1 : 0), 0);
     return { total, answered, correct, percent: total ? Math.round((correct / total) * 100) : 0 };
+  }
+
+
+  const AI_SUPER_SIMULATORS = [
+    {
+      title: "Súper simulador de Matemáticas",
+      eyebrow: "Sección 2 · Matemáticas",
+      range: "Preguntas 29 a 50",
+      description: "Gráficas, animaciones, detector de pistas, estrategia, micro-reto y retroalimentación inmediata.",
+      href: "ai-studio-practica.html?session=2&from=29&to=50&label=Secci%C3%B3n%202%20%C2%B7%20Matem%C3%A1ticas%20%C2%B7%20Preguntas%2029%20a%2050&area=Matem%C3%A1ticas&scopeType=block&available=22"
+    },
+    {
+      title: "Súper simulador de Ciencias Naturales",
+      eyebrow: "Sección 2 · Ciencias Naturales",
+      range: "Preguntas 51 a 79",
+      description: "Laboratorio científico con variables, gráficas animadas, método científico, simulación de fenómenos y evidencia.",
+      href: "ai-studio-practica.html?session=2&from=51&to=79&label=Secci%C3%B3n%202%20%C2%B7%20Ciencias%20Naturales%20%C2%B7%20Preguntas%2051%20a%2079&area=Ciencias%20Naturales&scopeType=block&available=29"
+    },
+    {
+      title: "Súper simulador de Inglés",
+      eyebrow: "Sección 2 · Inglés",
+      range: "Preguntas 80 a 134",
+      description: "Context scanner, gráfica de comprensión, vocabulario, gramática, avisos, diálogos, cloze text y lectura crítica en inglés.",
+      href: "ai-studio-practica.html?session=2&from=80&to=134&label=Secci%C3%B3n%202%20%C2%B7%20Ingl%C3%A9s%20%C2%B7%20Preguntas%2080%20a%20134&area=Ingl%C3%A9s&scopeType=block&available=55",
+      featured: true
+    }
+  ];
+
+  function isEnglishSuperScope() {
+    return Number(scope.session) === 2 && Number(scope.from) === 80 && Number(scope.to) === 134 && String(scope.area || "").toLowerCase().includes("ingl");
+  }
+
+  function isMathSuperScope() {
+    return Number(scope.session) === 2 && Number(scope.from) === 29 && Number(scope.to) === 50 && String(scope.area || "").toLowerCase().includes("matem");
+  }
+
+  function isNaturalScienceSuperScope() {
+    return Number(scope.session) === 2 && Number(scope.from) === 51 && Number(scope.to) === 79 && String(scope.area || "").toLowerCase().includes("ciencias");
+  }
+
+  function scopeDisplayTitle() {
+    if (isEnglishSuperScope()) return "Súper simulador de Inglés";
+    if (isMathSuperScope()) return "Súper simulador de Matemáticas";
+    if (isNaturalScienceSuperScope()) return "Súper simulador de Ciencias Naturales";
+    return "Práctica con AI Studio";
+  }
+
+  function scopeDisplayIntro() {
+    if (isEnglishSuperScope()) return "Módulo integrado en Práctica con AI Studio para resolver las preguntas 80 a 134 con lectura contextual, gramática, vocabulario, propósito comunicativo, gráficas y retroalimentación inmediata.";
+    if (isMathSuperScope()) return "Módulo integrado en Práctica con AI Studio para resolver las preguntas 29 a 50 con gráficas, animaciones, pistas, estrategia y micro-retos.";
+    if (isNaturalScienceSuperScope()) return "Módulo integrado en Práctica con AI Studio para resolver las preguntas 51 a 79 con laboratorio científico, variables, evidencias y simulaciones.";
+    return "Simuladores dinámicos en HTML, CSS y JavaScript puro, con gráficas, animaciones, modo día/noche y entrenamiento paso a paso tipo Saber 11.";
+  }
+
+  function renderAiStudioLanding() {
+    const app = $("#aiStudioApp");
+    if (!app) return;
+    const student = getStudent();
+    app.innerHTML = `
+      <section class="ai-hero-panel ai-animated-hero">
+        <div>
+          <p class="eyebrow">${escapeHtml(INSTITUTION)}</p>
+          <h2>Práctica con AI Studio</h2>
+          <p>Selecciona un súper simulador dentro de AI Studio. Este espacio concentra los módulos dinámicos e interactivos del simulador, sin separarlos del inicio general.</p>
+        </div>
+        <div class="ai-hero-stats"><span class="pill">${escapeHtml(student.fullName)} · ${escapeHtml(student.group)}</span><span class="pill success">Súper simuladores</span><span class="pill muted">HTML · CSS · JS</span></div>
+      </section>
+
+      <section class="ai-studio-catalog" aria-label="Catálogo de súper simuladores en AI Studio">
+        ${AI_SUPER_SIMULATORS.map(item => `
+          <article class="super-launch-card ${item.featured ? "featured" : ""}">
+            <div>
+              <p class="eyebrow">${escapeHtml(item.eyebrow)}</p>
+              <h3>${escapeHtml(item.title)} · ${escapeHtml(item.range)}</h3>
+              <p>${escapeHtml(item.description)}</p>
+            </div>
+            <a class="primary-btn" href="${item.href}">Abrir en AI Studio</a>
+          </article>
+        `).join("")}
+      </section>
+
+      <section class="ai-route-help">
+        <h3>Ruta desde el simulador principal</h3>
+        <p>También puedes entrar desde <strong>Inicio → Modo de trabajo: Práctica con AI Studio → Sección 2 → Inglés 80 a 134</strong>.</p>
+        <a class="secondary-btn" href="index.html">Volver al inicio</a>
+      </section>`;
   }
 
   function areaType(q) {
@@ -3648,7 +3735,7 @@
 
     app.innerHTML = `
       <section class="ai-hero-panel ai-animated-hero">
-        <div><p class="eyebrow">${escapeHtml(INSTITUTION)}</p><h2>Práctica con AI Studio</h2><p>Simuladores dinámicos en HTML, CSS y JavaScript puro, con gráficas, animaciones, modo día/noche y entrenamiento paso a paso tipo Saber 11.</p></div>
+        <div><p class="eyebrow">${escapeHtml(INSTITUTION)}</p><h2>${escapeHtml(scopeDisplayTitle())}</h2><p>${escapeHtml(scopeDisplayIntro())}</p></div>
         <div class="ai-hero-stats"><span class="pill">${escapeHtml(student.fullName)} · ${escapeHtml(student.group)}</span><span class="pill success">${escapeHtml(scope.label)}</span><span class="pill muted">${progress.answered}/${progress.total} respondidas</span></div>
       </section>
 
@@ -4114,6 +4201,10 @@
     initTheme();
     const themeBtn = $('#aiThemeToggle');
     if (themeBtn) themeBtn.addEventListener('click', () => applyTheme(getTheme() === 'dark' ? 'light' : 'dark'));
+    if (!hasExplicitScope) {
+      renderAiStudioLanding();
+      return;
+    }
     loadQuestions();
     renderQuestion();
   }
