@@ -721,15 +721,6 @@ function renderHome() {
     </section>
 
 
-    <section class="ai-studio-route-card" aria-label="Ruta correcta para práctica con AI Studio">
-      <div>
-        <p class="eyebrow">Ruta recomendada</p>
-        <h3>Los súper simuladores ahora se abren desde Entrenamiento con AI Studio</h3>
-        <p>Selecciona el modo <strong>Entrenamiento con AI Studio</strong> y luego elige el bloque correspondiente en la tabla. Para Inglés: <strong>Sección 2 · Preguntas 80 a 134</strong>.</p>
-      </div>
-      <span class="pill success">AI Studio integrado</span>
-    </section>
-
     <section class="session-grid" id="sessionGrid"></section>
   `;
 
