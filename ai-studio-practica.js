@@ -321,11 +321,59 @@
       const isCorrect = letter === q.correctAnswer;
       const statusClass = show && isCorrect ? "correct" : show && isSelected && !isCorrect ? "incorrect" : "";
       return `
-        <button class="ai-option ${isSelected ? "selected" : ""} ${statusClass}" type="button" data-answer="${escapeHtml(letter)}">
+        <button class="ai-option ${isSelected ? "selected" : ""} ${statusClass}" type="button" data-answer="${escapeHtml(letter)}" aria-pressed="${isSelected ? "true" : "false"}">
           <span class="option-letter">${escapeHtml(letter)}</span>
           <span>${opt.text || opt.label || ""}</span>
         </button>`;
     }).join("");
+  }
+
+  function paintAnswerState(q, selected) {
+    if (!q || !selected) return;
+    const correct = q.correctAnswer || "";
+    const selectors = [
+      [".ai-option[data-answer]", "answer", "incorrect"],
+      ["[data-english-option]", "englishOption", "incorrect"],
+      ["[data-natural-option]", "naturalOption", "incorrect"],
+      ["[data-social-option]", "socialOption", "incorrect"],
+      ["[data-crit-option]", "critOption", "incorrect"],
+      ["[data-s2math-final]", "s2mathFinal", "wrong"]
+    ];
+    selectors.forEach(([selector, key, wrongClass]) => {
+      $$(selector).forEach(btn => {
+        const letter = btn.dataset[key] || btn.dataset.answer || "";
+        btn.classList.remove("selected", "correct", "incorrect", "wrong");
+        btn.setAttribute("aria-pressed", letter === selected ? "true" : "false");
+        if (letter === selected) btn.classList.add("selected", letter === correct ? "correct" : wrongClass);
+        if (letter === correct && state.showExplanation[q.id]) btn.classList.add("correct");
+      });
+    });
+    $$(".ai-nav-dot").forEach(btn => {
+      const idx = Number(btn.dataset.jump || -1);
+      const item = state.questions[idx];
+      btn.classList.toggle("answered", Boolean(item && state.answers[item.id]));
+    });
+    const progress = getProgress();
+    const answeredPill = $(".ai-hero-stats .pill.muted");
+    if (answeredPill) answeredPill.textContent = `${progress.answered}/${progress.total} respondidas`;
+    const progressText = $(".progress-top span");
+    if (progressText) progressText.textContent = `${progress.percent}% de acierto acumulado`;
+    const progressBar = $(".progress-bar span");
+    if (progressBar) progressBar.style.width = `${Math.max(0, Math.min(progress.percent, 100))}%`;
+  }
+
+  function selectCurrentAnswer(letter, options = {}) {
+    const q = currentQuestion();
+    if (!q || !letter) return false;
+    state.answers[q.id] = letter;
+    state.showExplanation[q.id] = true;
+    saveAiState();
+    if (options.render) {
+      renderQuestion();
+    } else {
+      paintAnswerState(q, letter);
+    }
+    return letter === q.correctAnswer;
   }
 
   function renderAiScanner(q) {
@@ -2695,7 +2743,7 @@
       const q = currentQuestion();
       const chosen = btn.dataset.s2mathFinal || "";
       $$("[data-s2math-final]", sim).forEach(item => item.classList.remove("selected", "correct", "wrong"));
-      const ok = q && chosen === q.correctAnswer;
+      const ok = selectCurrentAnswer(chosen, { render: false });
       btn.classList.add("selected", ok ? "correct" : "wrong");
       const fb = $("#mathSuperFinalFeedback");
       if (!fb) return;
@@ -3348,6 +3396,13 @@
     const tokens = englishTextTokens(q);
     const bars = profile.lens.map((label, i) => ({ label, value: Math.max(20, Math.min(96, profile.weights[i] - profile.seed + i * 3)) }));
     const optionBars = opts.map((o, i) => ({ letter: o.letter, value: o.letter === q.correctAnswer ? 94 : Math.max(24, 68 - i * 8 + profile.seed) }));
+    const selectedAnswer = state.answers[q.id] || "";
+    const showAnswer = Boolean(state.showExplanation[q.id]);
+    const optionFeedback = selectedAnswer
+      ? (selectedAnswer === q.correctAnswer
+        ? `✅ <strong>${escapeHtml(selectedAnswer)}</strong> encaja con el contexto, la gramática y la intención comunicativa.`
+        : `💡 <strong>${escapeHtml(selectedAnswer)}</strong> puede ser distractor. Revisa si traduce literalmente, contradice el contexto o no completa bien la función.`)
+      : "Selecciona una opción para recibir retroalimentación inmediata.";
     const activityLabels = {
       matching: ["Definition", "Object", "Context", "Extra word"],
       notice: ["Notice", "Place", "Reader", "Action"],
@@ -3427,12 +3482,17 @@
             <h4>4. Option lab</h4>
             <p>Elige una opción y verifica si conserva el sentido, la gramática y la función comunicativa.</p>
             <div class="choice-grid english-option-grid">
-              ${opts.map(o => `<button type="button" data-english-option="${escapeHtml(o.letter)}"><b>${escapeHtml(o.letter)}</b><span>${escapeHtml(o.text).slice(0, 140)}${o.text.length > 140 ? "…" : ""}</span></button>`).join("")}
+              ${opts.map(o => {
+                const isSelected = selectedAnswer === o.letter;
+                const isCorrect = o.letter === q.correctAnswer;
+                const cls = `${isSelected ? "selected " : ""}${showAnswer && isCorrect ? "correct" : showAnswer && isSelected && !isCorrect ? "incorrect" : ""}`.trim();
+                return `<button type="button" data-english-option="${escapeHtml(o.letter)}" class="${cls}" aria-pressed="${isSelected ? "true" : "false"}"><b>${escapeHtml(o.letter)}</b><span>${escapeHtml(o.text).slice(0, 140)}${o.text.length > 140 ? "…" : ""}</span></button>`;
+              }).join("")}
             </div>
             <div class="english-mini-bars">
               ${optionBars.map(b => `<div class="english-mini-row"><span>${escapeHtml(b.letter)}</span><div><i style="width:${b.value}%"></i></div></div>`).join("")}
             </div>
-            <div id="englishOptionFeedback" class="english-feedback">Selecciona una opción para recibir retroalimentación inmediata.</div>
+            <div id="englishOptionFeedback" class="english-feedback">${optionFeedback}</div>
           </article>
         </div>
 
@@ -3481,7 +3541,7 @@
       $$('[data-english-option]', sim).forEach(b => b.classList.remove('selected', 'correct', 'incorrect'));
       const q = currentQuestion();
       const chosen = btn.dataset.englishOption || '';
-      const ok = q && chosen === q.correctAnswer;
+      const ok = selectCurrentAnswer(chosen, { render: false });
       btn.classList.add('selected', ok ? 'correct' : 'incorrect');
       const fb = $('#englishOptionFeedback');
       if (fb) fb.innerHTML = ok
@@ -3777,11 +3837,7 @@
     }));
 
     $$('[data-answer]').forEach(btn => btn.addEventListener('click', () => {
-      const q = currentQuestion(); if (!q) return;
-      state.answers[q.id] = btn.dataset.answer;
-      state.showExplanation[q.id] = true;
-      saveAiState();
-      renderQuestion();
+      selectCurrentAnswer(btn.dataset.answer || '', { render: true });
     }));
 
     $$('[data-tab]').forEach(btn => btn.addEventListener('click', () => { state.activeTab = btn.dataset.tab || 'simulator'; saveAiState(); renderQuestion(); }));
@@ -3835,7 +3891,7 @@
       $$('[data-crit-option]').forEach(b => b.classList.remove('selected', 'correct', 'incorrect'));
       const q = currentQuestion();
       const chosen = btn.dataset.critOption || '';
-      const ok = q && chosen === q.correctAnswer;
+      const ok = selectCurrentAnswer(chosen, { render: false });
       btn.classList.add('selected', ok ? 'correct' : 'incorrect');
       const fb = $('#criticalOptionFeedback');
       if (fb) fb.innerHTML = ok
@@ -3873,7 +3929,7 @@
       $$('[data-social-option]').forEach(b => b.classList.remove('selected', 'correct', 'incorrect'));
       const q = currentQuestion();
       const chosen = btn.dataset.socialOption || '';
-      const ok = q && chosen === q.correctAnswer;
+      const ok = selectCurrentAnswer(chosen, { render: false });
       btn.classList.add('selected', ok ? 'correct' : 'incorrect');
       const fb = $('#socialOptionFeedback');
       if (fb) fb.innerHTML = ok
@@ -3901,7 +3957,7 @@
       $$('[data-natural-option]').forEach(b => b.classList.remove('selected', 'correct', 'incorrect'));
       const q = currentQuestion();
       const chosen = btn.dataset.naturalOption || '';
-      const ok = q && chosen === q.correctAnswer;
+      const ok = selectCurrentAnswer(chosen, { render: false });
       btn.classList.add('selected', ok ? 'correct' : 'incorrect');
       const fb = $('#naturalOptionFeedback');
       if (fb) fb.innerHTML = ok

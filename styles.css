@@ -7968,3 +7968,170 @@ textarea {
 .ai-practice-page.ai-night .question-resource strong {
   color: #ffffff;
 }
+
+/* =========================================================
+   Revisión funcional AI Studio · Selección de respuestas + modo noche
+   ========================================================= */
+.ai-option,
+.english-option-grid button,
+.natural-option-grid button,
+.social-option-grid button,
+.critical-option-grid button,
+.math-super-final {
+  position: relative;
+  z-index: 1;
+  pointer-events: auto;
+  user-select: none;
+}
+
+.ai-option span,
+.english-option-grid button *,
+.natural-option-grid button *,
+.social-option-grid button *,
+.critical-option-grid button *,
+.math-super-final * {
+  pointer-events: none;
+}
+
+.ai-option.selected,
+.english-option-grid button.selected,
+.natural-option-grid button.selected,
+.social-option-grid button.selected,
+.critical-option-grid button.selected,
+.math-super-final.selected {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 26px rgba(37, 99, 235, .16);
+}
+
+.ai-practice-page.ai-night {
+  --ai-bg: #020617;
+  --ai-card: rgba(11, 18, 32, .97);
+  --ai-card-2: rgba(17, 24, 39, .96);
+  --ai-text: #f8fafc;
+  --ai-muted: #dbeafe;
+  --ai-border: rgba(148, 163, 184, .34);
+  background:
+    radial-gradient(circle at 8% -4%, rgba(37, 99, 235, .28), transparent 28%),
+    radial-gradient(circle at 94% 5%, rgba(124, 58, 237, .24), transparent 30%),
+    radial-gradient(circle at 50% 110%, rgba(6, 182, 212, .14), transparent 36%),
+    linear-gradient(180deg, #020617 0%, #071225 48%, #0f172a 100%) !important;
+  color: #f8fafc !important;
+}
+
+.ai-practice-page.ai-night .mobile-app-shell,
+.ai-practice-page.ai-night .ai-practice-main {
+  background: transparent !important;
+}
+
+.ai-practice-page.ai-night .ai-practice-topbar {
+  background: rgba(2, 6, 23, .92) !important;
+  border-color: rgba(148, 163, 184, .30) !important;
+  box-shadow: 0 18px 48px rgba(0, 0, 0, .34) !important;
+}
+
+.ai-practice-page.ai-night .ai-hero-panel,
+.ai-practice-page.ai-night .ai-progress-card,
+.ai-practice-page.ai-night .ai-question-card,
+.ai-practice-page.ai-night .ai-panel,
+.ai-practice-page.ai-night .loading-card,
+.ai-practice-page.ai-night .ai-resource-card,
+.ai-practice-page.ai-night .question-prompt,
+.ai-practice-page.ai-night .english-card,
+.ai-practice-page.ai-night .natural-card,
+.ai-practice-page.ai-night .social-card,
+.ai-practice-page.ai-night .critical-card,
+.ai-practice-page.ai-night .math-super-card,
+.ai-practice-page.ai-night .math-super-panel {
+  background: rgba(11, 18, 32, .97) !important;
+  color: #f8fafc !important;
+  border-color: rgba(148, 163, 184, .30) !important;
+}
+
+.ai-practice-page.ai-night .ai-hero-panel p,
+.ai-practice-page.ai-night .question-copy p,
+.ai-practice-page.ai-night .sim-subtitle,
+.ai-practice-page.ai-night .ai-small-note,
+.ai-practice-page.ai-night .english-card p,
+.ai-practice-page.ai-night .natural-card p,
+.ai-practice-page.ai-night .social-card p,
+.ai-practice-page.ai-night .critical-card p,
+.ai-practice-page.ai-night .math-super-card p,
+.ai-practice-page.ai-night .math-super-panel p {
+  color: #dbeafe !important;
+}
+
+.ai-practice-page.ai-night .ai-option,
+.ai-practice-page.ai-night .english-option-grid button,
+.ai-practice-page.ai-night .natural-option-grid button,
+.ai-practice-page.ai-night .social-option-grid button,
+.ai-practice-page.ai-night .critical-option-grid button,
+.ai-practice-page.ai-night .math-super-final {
+  background: rgba(17, 24, 39, .98) !important;
+  color: #f8fafc !important;
+  border-color: rgba(148, 163, 184, .36) !important;
+}
+
+.ai-practice-page.ai-night .ai-option:hover,
+.ai-practice-page.ai-night .ai-option.selected,
+.ai-practice-page.ai-night .english-option-grid button:hover,
+.ai-practice-page.ai-night .english-option-grid button.selected,
+.ai-practice-page.ai-night .natural-option-grid button:hover,
+.ai-practice-page.ai-night .natural-option-grid button.selected,
+.ai-practice-page.ai-night .social-option-grid button:hover,
+.ai-practice-page.ai-night .social-option-grid button.selected,
+.ai-practice-page.ai-night .critical-option-grid button:hover,
+.ai-practice-page.ai-night .critical-option-grid button.selected,
+.ai-practice-page.ai-night .math-super-final:hover,
+.ai-practice-page.ai-night .math-super-final.selected {
+  background: rgba(37, 99, 235, .24) !important;
+  border-color: rgba(96, 165, 250, .75) !important;
+}
+
+.ai-practice-page.ai-night .ai-option.correct,
+.ai-practice-page.ai-night .english-option-grid button.correct,
+.ai-practice-page.ai-night .natural-option-grid button.correct,
+.ai-practice-page.ai-night .social-option-grid button.correct,
+.ai-practice-page.ai-night .critical-option-grid button.correct,
+.ai-practice-page.ai-night .math-super-final.correct {
+  background: rgba(16, 185, 129, .22) !important;
+  border-color: rgba(52, 211, 153, .78) !important;
+  color: #ecfdf5 !important;
+}
+
+.ai-practice-page.ai-night .ai-option.incorrect,
+.ai-practice-page.ai-night .english-option-grid button.incorrect,
+.ai-practice-page.ai-night .natural-option-grid button.incorrect,
+.ai-practice-page.ai-night .social-option-grid button.incorrect,
+.ai-practice-page.ai-night .critical-option-grid button.incorrect,
+.ai-practice-page.ai-night .math-super-final.wrong {
+  background: rgba(239, 68, 68, .20) !important;
+  border-color: rgba(248, 113, 113, .78) !important;
+  color: #fff1f2 !important;
+}
+
+.ai-practice-page.ai-night .option-letter,
+.ai-practice-page.ai-night .english-option-grid button b,
+.ai-practice-page.ai-night .natural-option-grid button b,
+.ai-practice-page.ai-night .social-option-grid button b,
+.ai-practice-page.ai-night .critical-option-grid button b,
+.ai-practice-page.ai-night .math-super-final b {
+  background: rgba(96, 165, 250, .20) !important;
+  color: #bfdbfe !important;
+}
+
+.ai-practice-page.ai-night .progress-bar,
+.ai-practice-page.ai-night .english-bar-row div,
+.ai-practice-page.ai-night .english-mini-row div,
+.ai-practice-page.ai-night .natural-bar-row div,
+.ai-practice-page.ai-night .natural-mini-row div,
+.ai-practice-page.ai-night .social-bar-row div,
+.ai-practice-page.ai-night .social-mini-row div,
+.ai-practice-page.ai-night .critical-bar-row div,
+.ai-practice-page.ai-night .critical-mini-row div,
+.ai-practice-page.ai-night .math-super-bar-row div {
+  background: rgba(30, 41, 59, .95) !important;
+}
+
+.ai-practice-page.ai-night input[type="range"] {
+  accent-color: #60a5fa;
+}
