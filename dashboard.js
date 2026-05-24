@@ -53,7 +53,7 @@ function initDashboard() {
   });
 
   els.refreshBtn.addEventListener("click", loadDashboardData);
-  els.printBtn.addEventListener("click", () => window.print());
+  els.printBtn.addEventListener("click", exportDashboardPdf);
   if (els.deleteBtn) els.deleteBtn.addEventListener("click", deleteSheetData);
   if (els.studentTable) els.studentTable.addEventListener("click", handleStudentTablePdfClick);
   [els.group, els.student, els.from, els.to].forEach(input => input.addEventListener("change", renderDashboard));
@@ -73,41 +73,273 @@ function setStatus(message, kind = "info") {
   els.status.dataset.kind = kind;
 }
 
+function exportDashboardPdf() {
+  const records = (dashboardState.filteredRecords && dashboardState.filteredRecords.length)
+    ? dashboardState.filteredRecords
+    : ((dashboardState.data && dashboardState.data.records) ? dashboardState.data.records : []);
+  const details = (dashboardState.filteredDetails && dashboardState.filteredDetails.length)
+    ? dashboardState.filteredDetails
+    : ((dashboardState.data && dashboardState.data.details) ? dashboardState.data.details : []);
+
+  if (!records.length) {
+    setStatus('No hay datos visibles para exportar. Actualiza el dashboard o cambia los filtros.', 'warning');
+    return;
+  }
+
+  try {
+    els.printBtn.disabled = true;
+    els.printBtn.textContent = 'Creando PDF...';
+    const summary = summarize(records);
+    const pdf = createInstitutionalDashboardPdf(records, details, summary);
+    const filename = `dashboard-institucional-icfes-digital-saber11-${compactDate(new Date())}.pdf`;
+    downloadBlob(filename, new Blob([pdf], { type: 'application/pdf' }), { keepOpen: true });
+    setStatus('PDF del dashboard generado. Si Google Sites bloquea la descarga automática, usa el botón Abrir PDF del aviso.', 'success');
+  } catch (error) {
+    console.error(error);
+    setStatus(`No fue posible exportar el PDF del dashboard. Detalle: ${error.message || error}`, 'error');
+  } finally {
+    els.printBtn.disabled = false;
+    els.printBtn.textContent = 'Exportar PDF';
+  }
+}
+
+function createInstitutionalDashboardPdf(records, details, summary) {
+  const pageWidth = 595.28;
+  const pageHeight = 841.89;
+  const marginX = 42;
+  const rightX = pageWidth - marginX;
+  const colors = {
+    primary: [0.13, 0.31, 0.73],
+    accent: [0.02, 0.65, 0.47],
+    danger: [0.85, 0.31, 0.31],
+    warning: [0.96, 0.62, 0.04],
+    text: [0.06, 0.13, 0.20],
+    muted: [0.38, 0.45, 0.55],
+    line: [0.86, 0.90, 0.95],
+    panel: [0.97, 0.98, 0.99],
+    white: [1, 1, 1]
+  };
+
+  const pages = [];
+  const ops = [];
+  pdfRect(ops, 0, 0, pageWidth, pageHeight, colors.white);
+  pdfText(ops, 'DASHBOARD INSTITUCIONAL - ICFES DIGITAL SABER 11', marginX, 804, 14, true, colors.primary);
+  pdfText(ops, DASHBOARD_INSTITUTION, marginX, 784, 10.5, true, colors.text);
+  pdfText(ops, `Generado: ${formatDateTime(new Date().toISOString())}`, marginX, 767, 8.5, false, colors.muted);
+
+  const studentText = els.student && els.student.value ? (els.student.options[els.student.selectedIndex] ? els.student.options[els.student.selectedIndex].text : 'Filtrado') : 'Todos';
+  const filterText = `Filtros: Grupo ${els.group && els.group.value ? els.group.value : 'Todos'} | Estudiante ${studentText} | Desde ${els.from && els.from.value ? els.from.value : 'Inicio'} | Hasta ${els.to && els.to.value ? els.to.value : 'Hoy'}`;
+  pdfText(ops, filterText, marginX, 750, 8.3, false, colors.muted, 112);
+
+  const cards = [
+    ['Intentos', String(summary.totalAttempts), colors.primary],
+    ['Estudiantes', String(summary.uniqueStudents), colors.accent],
+    ['Promedio', `${summary.avgScore}%`, colors.primary],
+    ['Nivel', summary.mainLevel, colors.warning]
+  ];
+  const cardY = 690;
+  const cardW = 118;
+  const cardGap = 10;
+  cards.forEach((card, index) => {
+    const x = marginX + index * (cardW + cardGap);
+    pdfRoundRect(ops, x, cardY, cardW, 56, 8, colors.panel, colors.line);
+    pdfText(ops, card[0], x + 10, cardY + 36, 8, false, colors.muted, 18);
+    pdfText(ops, card[1], x + 10, cardY + 15, 15.5, true, card[2], 16);
+  });
+
+  let y = 650;
+  pdfText(ops, 'PROMEDIO POR GRUPO', marginX, y, 10.8, true, colors.text);
+  y -= 23;
+  const groupRows = Object.entries(groupBy(records, record => record.group || 'Sin grupo'))
+    .map(([group, items]) => ({ label: group, pct: round(average(items.map(item => item.score)), 1), detail: `${unique(items.map(getStudentKey)).length} estudiante(s) · ${items.length} intento(s)` }))
+    .sort((a, b) => b.pct - a.pct)
+    .slice(0, 6);
+  if (!groupRows.length) {
+    pdfText(ops, 'No hay datos por grupo.', marginX, y, 8.8, false, colors.muted);
+    y -= 18;
+  } else {
+    groupRows.forEach(row => { pdfDashboardBar(ops, row.label, row.pct, row.detail, marginX, y, 250, colors.primary, colors); y -= 29; });
+  }
+
+  y -= 8;
+  pdfText(ops, 'DESEMPENO POR AREA', marginX, y, 10.8, true, colors.text);
+  y -= 23;
+  const areaRows = Object.entries(summarizeAreas(records))
+    .map(([area, stat]) => ({ label: area, pct: stat.total ? round((stat.correct / stat.total) * 100, 1) : 0, detail: `${stat.correct}/${stat.total} correctas` }))
+    .sort((a, b) => b.pct - a.pct)
+    .slice(0, 7);
+  if (!areaRows.length) {
+    pdfText(ops, 'No hay desglose por area.', marginX, y, 8.8, false, colors.muted);
+    y -= 18;
+  } else {
+    areaRows.forEach(row => { pdfDashboardBar(ops, row.label, row.pct, row.detail, marginX, y, 250, colors.accent, colors); y -= 29; });
+  }
+
+  y -= 8;
+  pdfText(ops, 'PREGUNTAS CRITICAS', marginX, y, 10.8, true, colors.text);
+  y -= 23;
+  const criticalRows = questionStats(details)
+    .filter(item => item.total >= 1)
+    .sort((a, b) => a.percentCorrect - b.percentCorrect || b.total - a.total)
+    .slice(0, 8)
+    .map(item => ({ label: `P${item.number} ${item.area || ''}`, pct: Math.round(100 - item.percentCorrect), detail: `${item.incorrect + item.omitted}/${item.total} dificultades` }));
+  if (!criticalRows.length) {
+    pdfText(ops, 'Aun no hay detalle suficiente para identificar preguntas criticas.', marginX, y, 8.8, false, colors.muted, 110);
+    y -= 18;
+  } else {
+    criticalRows.forEach(row => { if (y > 65) { pdfDashboardBar(ops, row.label, row.pct, row.detail, marginX, y, 250, colors.danger, colors); y -= 28; } });
+  }
+
+  pdfText(ops, 'Pagina 1 de 2', marginX, 30, 8, false, colors.muted);
+  pages.push(ops.join('\n'));
+
+  const ops2 = [];
+  pdfRect(ops2, 0, 0, pageWidth, pageHeight, colors.white);
+  pdfText(ops2, 'SEGUIMIENTO INDIVIDUAL Y RECOMENDACIONES', marginX, 804, 13, true, colors.primary);
+  pdfText(ops2, `Promedio general filtrado: ${summary.avgScore}% | Area fortaleza: ${summary.bestArea} | Area prioritaria: ${summary.weakArea}`, marginX, 782, 8.7, false, colors.muted, 110);
+
+  let y2 = 748;
+  pdfText(ops2, 'ULTIMO RESULTADO POR ESTUDIANTE', marginX, y2, 10.8, true, colors.text);
+  y2 -= 24;
+  const students = latestStudents(records).slice(0, 18);
+  if (!students.length) {
+    pdfText(ops2, 'No hay estudiantes registrados en el filtro actual.', marginX, y2, 8.8, false, colors.muted);
+  } else {
+    students.forEach(student => {
+      if (y2 < 122) return;
+      const name = `${student.studentName || 'Sin nombre'} · ${student.group || 'Sin grupo'}`;
+      const detail = `${student.latest.score}% ultimo | Promedio ${student.avgScore}% | ${student.attempts} intento(s)`;
+      pdfText(ops2, name, marginX, y2, 8.8, true, colors.text, 58);
+      pdfText(ops2, detail, marginX + 285, y2, 8.2, false, colors.muted, 52);
+      pdfRect(ops2, marginX, y2 - 15, rightX - marginX, 8, colors.line);
+      pdfRect(ops2, marginX, y2 - 15, (rightX - marginX) * Math.max(0, Math.min(toNumber(student.latest.score), 100)) / 100, 8, colors.primary);
+      y2 -= 34;
+    });
+  }
+
+  y2 = Math.max(y2 - 12, 112);
+  pdfText(ops2, 'LECTURA PEDAGOGICA', marginX, y2, 10.8, true, colors.text);
+  y2 -= 22;
+  const recommendations = [
+    `El promedio general filtrado es ${summary.avgScore}%, con nivel predominante ${summary.mainLevel}.`,
+    `El area prioritaria es ${summary.weakArea}. Se recomienda disenar refuerzos cortos por competencias y revisar distractores frecuentes.`,
+    `Usar estos datos como lectura pedagogica interna. No reemplaza el calculo oficial del ICFES, pero orienta planes de mejoramiento institucional.`
+  ];
+  recommendations.forEach(line => { pdfText(ops2, line, marginX, y2, 8.6, false, colors.muted, 112); y2 -= 30; });
+  pdfText(ops2, 'Herramienta educativa independiente. No oficial ni afiliada al ICFES.', marginX, 56, 8.2, false, colors.muted, 110);
+  pdfText(ops2, 'Pagina 2 de 2', marginX, 30, 8, false, colors.muted);
+  pages.push(ops2.join('\n'));
+
+  return buildPdfFromStreams(pages, pageWidth, pageHeight);
+}
+
+function pdfDashboardBar(ops, label, pct, detail, x, y, width, color, colors) {
+  const safePct = Math.max(0, Math.min(toNumber(pct), 100));
+  pdfText(ops, label, x, y, 8.3, true, colors.text, 42);
+  pdfText(ops, `${safePct}% · ${detail}`, x + width + 14, y, 8, false, colors.muted, 44);
+  pdfRect(ops, x, y - 15, width, 9, colors.line);
+  pdfRect(ops, x, y - 15, width * safePct / 100, 9, color);
+}
+
+function compactDate(date) {
+  const d = date instanceof Date ? date : new Date(date);
+  if (Number.isNaN(d.getTime())) return 'fecha';
+  const pad = n => String(n).padStart(2, '0');
+  return `${d.getFullYear()}${pad(d.getMonth() + 1)}${pad(d.getDate())}-${pad(d.getHours())}${pad(d.getMinutes())}`;
+}
+
 function deleteSheetData() {
-  const firstConfirm = window.confirm(
-    "Esta acción borrará los resultados registrados en Google Sheets y dejará las hojas listas con sus encabezados.\n\nNo se borrarán las carpetas ni los PDF guardados en Drive.\n\n¿Deseas continuar?"
-  );
-  if (!firstConfirm) return;
+  openDeleteSheetModal();
+}
 
-  const phrase = window.prompt('Para confirmar escribe exactamente: BORRAR DATOS');
-  if ((phrase || '').trim().toUpperCase() !== 'BORRAR DATOS') {
-    setStatus('Borrado cancelado: la frase de confirmación no coincide.', 'warning');
-    return;
-  }
+function openDeleteSheetModal() {
+  closeDashboardUtilityModal();
+  const overlay = document.createElement('div');
+  overlay.className = 'dashboard-utility-overlay';
+  overlay.id = 'dashboardUtilityModal';
+  overlay.innerHTML = `
+    <section class="dashboard-utility-card" role="dialog" aria-modal="true" aria-labelledby="deleteSheetsTitle">
+      <button class="dialog-close" type="button" data-dashboard-modal-close aria-label="Cerrar">×</button>
+      <p class="eyebrow">Acción institucional</p>
+      <h2 id="deleteSheetsTitle">Borrar datos de Google Sheets</h2>
+      <p class="dashboard-utility-warning">Esta acción limpiará los registros del dashboard y dejará las hojas listas con sus encabezados. No se borrarán carpetas ni PDF guardados en Drive.</p>
+      <label class="field">
+        <span>Confirmación obligatoria</span>
+        <input id="deleteConfirmPhrase" type="text" autocomplete="off" placeholder="Escribe: BORRAR DATOS" />
+      </label>
+      <label class="field">
+        <span>Clave institucional</span>
+        <input id="deletePassword" type="password" autocomplete="current-password" placeholder="Clave de borrado" />
+      </label>
+      <div class="dashboard-utility-status" id="deleteModalStatus" role="status"></div>
+      <div class="dialog-actions">
+        <button class="secondary-btn" type="button" data-dashboard-modal-close>Cancelar</button>
+        <button class="danger-btn" type="button" id="confirmDeleteSheetsBtn">Sí, borrar datos</button>
+      </div>
+    </section>
+  `;
+  document.body.appendChild(overlay);
+  const phrase = overlay.querySelector('#deleteConfirmPhrase');
+  const password = overlay.querySelector('#deletePassword');
+  const status = overlay.querySelector('#deleteModalStatus');
+  const confirmBtn = overlay.querySelector('#confirmDeleteSheetsBtn');
+  overlay.querySelectorAll('[data-dashboard-modal-close]').forEach(btn => btn.addEventListener('click', closeDashboardUtilityModal));
+  overlay.addEventListener('click', event => { if (event.target === overlay) closeDashboardUtilityModal(); });
+  overlay.addEventListener('keydown', event => { if (event.key === 'Escape') closeDashboardUtilityModal(); });
+  phrase.focus();
 
-  const password = window.prompt('Escribe la clave institucional de borrado:');
-  if (!password) {
-    setStatus('Borrado cancelado: no se ingresó la clave institucional.', 'warning');
-    return;
-  }
+  confirmBtn.addEventListener('click', () => {
+    const phraseValue = (phrase.value || '').trim().toUpperCase();
+    const passwordValue = (password.value || '').trim();
+    if (phraseValue !== 'BORRAR DATOS') {
+      status.textContent = 'Debes escribir exactamente BORRAR DATOS para continuar.';
+      status.dataset.kind = 'warning';
+      phrase.focus();
+      return;
+    }
+    if (!passwordValue) {
+      status.textContent = 'Ingresa la clave institucional de borrado.';
+      status.dataset.kind = 'warning';
+      password.focus();
+      return;
+    }
 
-  els.deleteBtn.disabled = true;
-  setStatus('Borrando datos de Google Sheets...', 'warning');
+    confirmBtn.disabled = true;
+    confirmBtn.textContent = 'Borrando...';
+    els.deleteBtn.disabled = true;
+    status.textContent = 'Conectando con Apps Script y borrando datos...';
+    status.dataset.kind = 'warning';
+    setStatus('Borrando datos de Google Sheets...', 'warning');
 
-  const query = `?accion=borrar-datos&confirmacion=${encodeURIComponent('BORRAR DATOS')}&clave=${encodeURIComponent(password.trim())}`;
-  fetchJsonpFromEndpoints(DASHBOARD_ENDPOINTS, query, 90000)
-    .then(response => {
-      if (!response || response.ok === false) throw new Error(response && response.message ? response.message : 'No fue posible borrar los datos.');
-      setStatus(`${response.message || 'Datos borrados correctamente.'} Hojas limpiadas: ${(response.sheetsCleared || []).join(', ')}`, 'success');
-      dashboardState.data = { ok: true, records: [], details: [], updatedAt: new Date().toISOString(), institutionName: DASHBOARD_INSTITUTION };
-      renderDashboard();
-      setTimeout(loadDashboardData, 1200);
-    })
-    .catch(error => {
-      console.error(error);
-      setStatus(`No fue posible borrar los datos. Detalle: ${error.message}`, 'error');
-    })
-    .finally(() => { els.deleteBtn.disabled = false; });
+    const query = `?accion=borrar-datos&confirmacion=${encodeURIComponent('BORRAR DATOS')}&clave=${encodeURIComponent(passwordValue)}`;
+    fetchJsonpFromEndpoints(DASHBOARD_ENDPOINTS, query, 90000)
+      .then(response => {
+        if (!response || response.ok === false) throw new Error(response && response.message ? response.message : 'No fue posible borrar los datos.');
+        const cleared = (response.sheetsCleared || []).join(', ');
+        status.textContent = `${response.message || 'Datos borrados correctamente.'}${cleared ? ' Hojas limpiadas: ' + cleared : ''}`;
+        status.dataset.kind = 'success';
+        setStatus(`${response.message || 'Datos borrados correctamente.'}${cleared ? ' Hojas limpiadas: ' + cleared : ''}`, 'success');
+        dashboardState.data = { ok: true, records: [], details: [], updatedAt: new Date().toISOString(), institutionName: DASHBOARD_INSTITUTION };
+        renderDashboard();
+        setTimeout(() => { closeDashboardUtilityModal(); loadDashboardData(); }, 1600);
+      })
+      .catch(error => {
+        console.error(error);
+        status.textContent = `No fue posible borrar los datos. Detalle: ${error.message || error}`;
+        status.dataset.kind = 'error';
+        setStatus(`No fue posible borrar los datos. Detalle: ${error.message || error}`, 'error');
+      })
+      .finally(() => {
+        confirmBtn.disabled = false;
+        confirmBtn.textContent = 'Sí, borrar datos';
+        els.deleteBtn.disabled = false;
+      });
+  });
+}
+
+function closeDashboardUtilityModal() {
+  const current = document.getElementById('dashboardUtilityModal');
+  if (current && current.parentNode) current.parentNode.removeChild(current);
 }
 
 function loadDashboardData() {
@@ -740,17 +972,64 @@ function createDashboardStudentPdf(record, summary) {
   return buildPdfFromStreams([ops.join('\n')], pageWidth, pageHeight);
 }
 
-function downloadBlob(filename, blob) {
+function downloadBlob(filename, blob, options = {}) {
   const url = URL.createObjectURL(blob);
   const a = document.createElement('a');
   a.href = url;
   a.download = filename;
+  a.rel = 'noopener';
+  a.style.position = 'fixed';
+  a.style.left = '-9999px';
   document.body.appendChild(a);
-  a.click();
+  try {
+    a.click();
+  } catch (error) {
+    console.warn('Descarga automática no disponible en este contenedor.', error);
+  }
+  setTimeout(() => { if (a.parentNode) a.parentNode.removeChild(a); }, 250);
+
+  // Google Sites puede bloquear descargas automáticas dentro de iframes.
+  // Por eso siempre dejamos un enlace manual y una opción de abrir el PDF dentro del iframe.
+  showDownloadFallbackDialog(filename, url);
+  const revokeDelay = options.keepOpen ? 10 * 60 * 1000 : 3 * 60 * 1000;
   setTimeout(() => {
-    URL.revokeObjectURL(url);
-    if (a.parentNode) a.parentNode.removeChild(a);
-  }, 0);
+    const active = document.getElementById('dashboardDownloadModal');
+    if (!active || active.dataset.url !== url) URL.revokeObjectURL(url);
+  }, revokeDelay);
+}
+
+function showDownloadFallbackDialog(filename, url) {
+  const existing = document.getElementById('dashboardDownloadModal');
+  if (existing && existing.parentNode) existing.parentNode.removeChild(existing);
+  const overlay = document.createElement('div');
+  overlay.className = 'dashboard-utility-overlay';
+  overlay.id = 'dashboardDownloadModal';
+  overlay.dataset.url = url;
+  overlay.innerHTML = `
+    <section class="dashboard-utility-card dashboard-download-card" role="dialog" aria-modal="true" aria-labelledby="downloadPdfTitle">
+      <button class="dialog-close" type="button" data-dashboard-download-close aria-label="Cerrar">×</button>
+      <p class="eyebrow">PDF generado</p>
+      <h2 id="downloadPdfTitle">Exportación lista</h2>
+      <p>Si Google Sites bloqueó la descarga automática, usa una de estas opciones manuales.</p>
+      <p class="dashboard-file-name">${escapeHtml(filename)}</p>
+      <div class="dialog-actions dashboard-download-actions">
+        <a class="primary-btn header-link" href="${url}" download="${escapeAttr(filename)}">Descargar PDF</a>
+        <a class="secondary-btn header-link" href="${url}" target="_blank" rel="noopener noreferrer">Abrir PDF</a>
+        <button class="ghost-btn" type="button" id="openPdfHereBtn">Abrir aquí</button>
+      </div>
+    </section>
+  `;
+  document.body.appendChild(overlay);
+  overlay.querySelectorAll('[data-dashboard-download-close]').forEach(btn => btn.addEventListener('click', () => closeDownloadFallbackDialog(url)));
+  overlay.addEventListener('click', event => { if (event.target === overlay) closeDownloadFallbackDialog(url); });
+  const openHere = overlay.querySelector('#openPdfHereBtn');
+  if (openHere) openHere.addEventListener('click', () => { window.location.href = url; });
+}
+
+function closeDownloadFallbackDialog(url) {
+  const modal = document.getElementById('dashboardDownloadModal');
+  if (modal && modal.parentNode) modal.parentNode.removeChild(modal);
+  if (url) setTimeout(() => URL.revokeObjectURL(url), 1000);
 }
 
 function buildPdfFromStreams(streams, pageWidth = 595.28, pageHeight = 841.89) {

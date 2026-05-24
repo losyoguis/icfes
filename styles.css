@@ -9308,3 +9308,135 @@ html[data-theme="dark"] textarea::placeholder {
   color: #cbd5e1 !important;
   opacity: 1 !important;
 }
+
+/* Corrección Google Sites: acciones del dashboard sin prompt/print nativos */
+.dashboard-utility-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 12000;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: max(18px, env(safe-area-inset-top)) 14px 18px;
+  overflow-y: auto;
+  background: rgba(2, 6, 23, 0.72);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.dashboard-utility-card {
+  width: min(620px, 100%);
+  position: relative;
+  margin-top: 12px;
+  padding: clamp(20px, 4vw, 30px);
+  border-radius: 28px;
+  border: 1px solid var(--line);
+  background: var(--panel);
+  color: var(--text);
+  box-shadow: 0 28px 90px rgba(2, 6, 23, 0.42);
+}
+
+.dashboard-utility-card h2 {
+  margin: 6px 0 12px;
+  font-size: clamp(1.35rem, 4vw, 2rem);
+  line-height: 1.12;
+  color: var(--text);
+}
+
+.dashboard-utility-card p {
+  color: var(--muted);
+  line-height: 1.58;
+}
+
+.dashboard-utility-warning {
+  padding: 14px 16px;
+  border-radius: 18px;
+  border: 1px solid rgba(245, 158, 11, 0.34);
+  background: rgba(245, 158, 11, 0.12);
+  color: var(--text) !important;
+  font-weight: 800;
+}
+
+.dashboard-utility-status {
+  min-height: 22px;
+  margin: 12px 0 4px;
+  font-weight: 900;
+  line-height: 1.45;
+  color: var(--muted);
+}
+
+.dashboard-utility-status[data-kind="success"] { color: #047857; }
+.dashboard-utility-status[data-kind="warning"] { color: #b45309; }
+.dashboard-utility-status[data-kind="error"] { color: #b91c1c; }
+
+.dashboard-file-name {
+  word-break: break-word;
+  padding: 10px 12px;
+  border-radius: 16px;
+  border: 1px solid var(--line);
+  background: var(--soft);
+  color: var(--text) !important;
+  font-weight: 900;
+}
+
+.dashboard-download-actions {
+  justify-content: stretch;
+}
+
+.dashboard-download-actions .primary-btn,
+.dashboard-download-actions .secondary-btn,
+.dashboard-download-actions .ghost-btn {
+  min-height: 48px;
+}
+
+html[data-theme="dark"] .dashboard-utility-card {
+  background: linear-gradient(180deg, rgba(15, 23, 42, 0.99), rgba(11, 18, 32, 0.98)) !important;
+  color: #f8fafc !important;
+  border-color: rgba(148, 163, 184, 0.42) !important;
+}
+
+html[data-theme="dark"] .dashboard-utility-card h2,
+html[data-theme="dark"] .dashboard-utility-card label,
+html[data-theme="dark"] .dashboard-utility-card span,
+html[data-theme="dark"] .dashboard-utility-card strong,
+html[data-theme="dark"] .dashboard-file-name {
+  color: #f8fafc !important;
+}
+
+html[data-theme="dark"] .dashboard-utility-card p,
+html[data-theme="dark"] .dashboard-utility-card .eyebrow {
+  color: #cbd5e1 !important;
+}
+
+html[data-theme="dark"] .dashboard-utility-warning {
+  background: rgba(245, 158, 11, 0.16) !important;
+  border-color: rgba(251, 191, 36, 0.42) !important;
+  color: #fef3c7 !important;
+}
+
+html[data-theme="dark"] .dashboard-utility-status[data-kind="success"] { color: #86efac !important; }
+html[data-theme="dark"] .dashboard-utility-status[data-kind="warning"] { color: #fde68a !important; }
+html[data-theme="dark"] .dashboard-utility-status[data-kind="error"] { color: #fecaca !important; }
+
+@media (max-width: 640px) {
+  .dashboard-utility-overlay {
+    padding: 10px;
+  }
+
+  .dashboard-utility-card {
+    margin-top: 0;
+    border-radius: 24px;
+  }
+
+  .dashboard-download-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-download-actions .primary-btn,
+  .dashboard-download-actions .secondary-btn,
+  .dashboard-download-actions .ghost-btn,
+  .dashboard-utility-card .dialog-actions button {
+    width: 100%;
+  }
+}
