@@ -108,3 +108,12 @@ Cada recurso se abre en `notebook.html` y se genera de forma contextual según l
 ## Actualización responsive tipo app móvil
 
 Esta versión incorpora un rediseño responsive tipo app móvil para el simulador, el dashboard y el Notebook. Incluye cabecera fija con efecto app, botones táctiles, tarjetas adaptativas, tablas convertidas en tarjetas en celular, navegación inferior fija en preguntas, compatibilidad con áreas seguras de iOS/Android y manifest web para experiencia instalable desde el navegador.
+
+
+## Actualización: Super simuladores AI Studio · Matemáticas S2 P29-P50
+
+Se agregó un súper simulador dinámico e interactivo en `ai-studio-practica.html` para la Sección 2 de Matemáticas, preguntas 29 a 50. Para usarlo: seleccionar `Práctica con AI Studio` en la pantalla inicial y luego elegir el bloque de Matemáticas 29 a 50 de la Sesión 2.
+
+## Actualización AI Studio · Inglés Sección 2
+
+Se agregó el **Súper Simulador de Inglés** para la Sección 2, preguntas 80 a 134. El módulo incluye entrenamiento interactivo para vocabulario, avisos, conversaciones, cloze text y comprensión lectora, con gráficas animadas, context scanner, laboratorio de opciones y retroalimentación inmediata.

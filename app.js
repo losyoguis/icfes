@@ -683,7 +683,7 @@ function renderHome() {
       <p class="eyebrow">${escapeHtml(INSTITUTION_NAME)}</p>
       <h2>Simulador ICFES Saber 11° por sesiones, bloques y áreas</h2>
       <p>
-        Selecciona una sesión completa o un bloque específico para iniciar el simulacro, practicar con Notebook o entrenar sin límite de tiempo.
+        Selecciona una sesión completa o un bloque específico para iniciar el simulacro, practicar con Notebook, trabajar con AI Studio o entrenar sin límite de tiempo.
       </p>
       <div class="hero-grid">
         <div class="stat"><strong>2</strong><span>sesiones configuradas</span></div>
@@ -711,12 +711,40 @@ function renderHome() {
         <div class="mode-control">
           <label class="mode-option"><input type="radio" name="mode" value="simulacro" ${state.mode === "simulacro" ? "checked" : ""}> Simulacro</label>
           <label class="mode-option"><input type="radio" name="mode" value="practica" ${state.mode === "practica" ? "checked" : ""}> Práctica con Notebook</label>
+          <label class="mode-option ai-studio-mode"><input type="radio" name="mode" value="ai-studio" ${state.mode === "ai-studio" ? "checked" : ""}> Práctica con AI Studio</label>
           <label class="mode-option"><input type="radio" name="mode" value="entrenamiento" ${state.mode === "entrenamiento" ? "checked" : ""}> Entrenamiento sin tiempo</label>
         </div>
       </div>
       <button class="secondary-btn" id="resumeBtn" type="button">Continuar intento guardado</button>
     </section>
 
+
+    <section class="super-launch-card" aria-label="Acceso rápido al súper simulador de Matemáticas">
+      <div>
+        <p class="eyebrow">Nuevo · AI Studio Matemáticas</p>
+        <h3>Súper simulador dinámico · Sección 2 · Preguntas 29 a 50</h3>
+        <p>Entrenamiento interactivo con gráficas, animaciones, detector de pistas, estrategia, micro-reto y retroalimentación inmediata.</p>
+      </div>
+      <a class="primary-btn" href="ai-studio-practica.html?session=2&from=29&to=50&label=Secci%C3%B3n%202%20%C2%B7%20Matem%C3%A1ticas%20%C2%B7%20Preguntas%2029%20a%2050&area=Matem%C3%A1ticas&scopeType=block&available=22">Abrir súper simulador</a>
+    </section>
+
+    <section class="super-launch-card" aria-label="Acceso rápido al súper simulador de Ciencias Naturales">
+      <div>
+        <p class="eyebrow">Nuevo · AI Studio Ciencias Naturales</p>
+        <h3>Súper simulador científico · Sección 2 · Preguntas 51 a 79</h3>
+        <p>Laboratorio interactivo con variables, gráficas animadas, lupa de evidencia, método científico, simulación de fenómenos y retroalimentación inmediata.</p>
+      </div>
+      <a class="primary-btn" href="ai-studio-practica.html?session=2&from=51&to=79&label=Secci%C3%B3n%202%20%C2%B7%20Ciencias%20Naturales%20%C2%B7%20Preguntas%2051%20a%2079&area=Ciencias%20Naturales&scopeType=block&available=29">Abrir súper simulador</a>
+    </section>
+
+    <section class="super-launch-card" aria-label="Acceso rápido al súper simulador de Inglés">
+      <div>
+        <p class="eyebrow">Nuevo · AI Studio Inglés</p>
+        <h3>Súper simulador de Inglés · Sección 2 · Preguntas 80 a 134</h3>
+        <p>Entrenamiento interactivo con context scanner, gráfica de comprensión, vocabulario, gramática, avisos, diálogos, cloze text, lectura crítica en inglés y retroalimentación inmediata.</p>
+      </div>
+      <a class="primary-btn" href="ai-studio-practica.html?session=2&from=80&to=134&label=Secci%C3%B3n%202%20%C2%B7%20Ingl%C3%A9s%20%C2%B7%20Preguntas%2080%20a%20134&area=Ingl%C3%A9s&scopeType=block&available=55">Abrir súper simulador</a>
+    </section>
 
     <section class="session-grid" id="sessionGrid"></section>
   `;
@@ -861,6 +889,11 @@ function startScope(scope) {
   const navNumbers = createNumberRange(range.from, range.to);
   const availableNumbers = navNumbers.filter(number => getQuestion(session.id, number));
 
+  if (state.mode === "ai-studio") {
+    openAiStudioPractice(session, scope, range, availableNumbers);
+    return;
+  }
+
   storageRemove(SUBMISSION_KEY);
 
   state = {
@@ -885,6 +918,22 @@ function startScope(scope) {
   saveState();
   renderExam({ scrollToTimer: true });
   if (state.mode !== "entrenamiento") startTimer();
+}
+
+function openAiStudioPractice(session, scope, range, availableNumbers = []) {
+  const params = new URLSearchParams({
+    session: String(session.id),
+    from: String(range.from),
+    to: String(range.to),
+    label: range.label || "Sesión completa",
+    area: scope.area || "",
+    scopeType: scope.type || "session",
+    available: String(availableNumbers.length || 0)
+  });
+  if (state.student) {
+    storageSet(STUDENT_KEY, JSON.stringify(state.student));
+  }
+  window.location.href = `ai-studio-practica.html?${params.toString()}`;
 }
 
 function renderExam({ scrollToTimer = false } = {}) {
