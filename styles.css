@@ -8312,3 +8312,413 @@ textarea {
 .ai-practice-page .ai-option span:not(.option-letter) {
   color: inherit !important;
 }
+
+
+/* =========================================================
+   Ajuste solicitado · AI Studio sin Dashboard + contraste total
+   modo oscuro en todos los recursos de preguntas
+   ========================================================= */
+.ai-practice-page .ai-top-actions a[href*="dashboard"],
+.ai-practice-page a[href="dashboard.html"] {
+  display: none !important;
+}
+
+.ai-practice-page.ai-night,
+.ai-practice-page.ai-night .ai-practice-shell,
+.ai-practice-page.ai-night .mobile-app-shell {
+  background-color: #020617 !important;
+  color: #f8fafc !important;
+}
+
+.ai-practice-page.ai-night .ai-practice-brand h1,
+.ai-practice-page.ai-night h1,
+.ai-practice-page.ai-night h2,
+.ai-practice-page.ai-night h3,
+.ai-practice-page.ai-night h4,
+.ai-practice-page.ai-night h5,
+.ai-practice-page.ai-night h6,
+.ai-practice-page.ai-night .eyebrow,
+.ai-practice-page.ai-night .question-title,
+.ai-practice-page.ai-night .prompt,
+.ai-practice-page.ai-night .subtle-title,
+.ai-practice-page.ai-night .resource-title,
+.ai-practice-page.ai-night .graph-title,
+.ai-practice-page.ai-night .chart-small-title,
+.ai-practice-page.ai-night .reading-instruction {
+  color: #f8fafc !important;
+  opacity: 1 !important;
+}
+
+.ai-practice-page.ai-night p,
+.ai-practice-page.ai-night li,
+.ai-practice-page.ai-night label,
+.ai-practice-page.ai-night small,
+.ai-practice-page.ai-night figcaption,
+.ai-practice-page.ai-night .footer-note,
+.ai-practice-page.ai-night .source-note,
+.ai-practice-page.ai-night .resource-note,
+.ai-practice-page.ai-night .resource-footnote,
+.ai-practice-page.ai-night .reading-note,
+.ai-practice-page.ai-night .reading-source,
+.ai-practice-page.ai-night .ai-feedback,
+.ai-practice-page.ai-night .ai-small-note,
+.ai-practice-page.ai-night .question-copy,
+.ai-practice-page.ai-night .question-copy p,
+.ai-practice-page.ai-night .question-prompt,
+.ai-practice-page.ai-night .progress-top,
+.ai-practice-page.ai-night .scanner-grid p,
+.ai-practice-page.ai-night .stepper-card p {
+  color: #e2e8f0 !important;
+  opacity: 1 !important;
+}
+
+.ai-practice-page.ai-night strong,
+.ai-practice-page.ai-night b,
+.ai-practice-page.ai-night em,
+.ai-practice-page.ai-night span:not(.pill):not(.option-letter):not(.ai-badge) {
+  color: inherit;
+  opacity: 1 !important;
+}
+
+.ai-practice-page.ai-night .ai-resource-card,
+.ai-practice-page.ai-night .question-resource,
+.ai-practice-page.ai-night .concept-card,
+.ai-practice-page.ai-night .data-card,
+.ai-practice-page.ai-night .info-card,
+.ai-practice-page.ai-night .graph-card,
+.ai-practice-page.ai-night .chart-card,
+.ai-practice-page.ai-night .reading-card,
+.ai-practice-page.ai-night .procedure-card,
+.ai-practice-page.ai-night .fragment-card,
+.ai-practice-page.ai-night .caption-box,
+.ai-practice-page.ai-night .formula-card,
+.ai-practice-page.ai-night .formula-note,
+.ai-practice-page.ai-night .route-card,
+.ai-practice-page.ai-night .science-diagram-card,
+.ai-practice-page.ai-night .science-graph-card,
+.ai-practice-page.ai-night .wifi-board section,
+.ai-practice-page.ai-night .wave-options figure,
+.ai-practice-page.ai-night .evolution-options figure,
+.ai-practice-page.ai-night .force-graphs-grid figure,
+.ai-practice-page.ai-night .scalp-visual-grid > *,
+.ai-practice-page.ai-night .model-grid > *,
+.ai-practice-page.ai-night .mini-model,
+.ai-practice-page.ai-night .svg-panel,
+.ai-practice-page.ai-night .boxplot-card,
+.ai-practice-page.ai-night .malaria-card,
+.ai-practice-page.ai-night .mineral-card,
+.ai-practice-page.ai-night .chemistry-card,
+.ai-practice-page.ai-night .scalp-card {
+  background: linear-gradient(180deg, rgba(15, 23, 42, .98), rgba(11, 18, 32, .96)) !important;
+  color: #f8fafc !important;
+  border-color: rgba(148, 163, 184, .34) !important;
+  box-shadow: 0 18px 44px rgba(0, 0, 0, .28) !important;
+}
+
+.ai-practice-page.ai-night .ai-resource-card *,
+.ai-practice-page.ai-night .question-resource *,
+.ai-practice-page.ai-night .concept-card *,
+.ai-practice-page.ai-night .data-card *,
+.ai-practice-page.ai-night .info-card *,
+.ai-practice-page.ai-night .graph-card *,
+.ai-practice-page.ai-night .chart-card *,
+.ai-practice-page.ai-night .reading-card *,
+.ai-practice-page.ai-night .procedure-card *,
+.ai-practice-page.ai-night .fragment-card *,
+.ai-practice-page.ai-night .formula-card *,
+.ai-practice-page.ai-night .route-card *,
+.ai-practice-page.ai-night .science-graph-card *,
+.ai-practice-page.ai-night .science-diagram-card * {
+  color: inherit;
+  opacity: 1 !important;
+}
+
+.ai-practice-page.ai-night .ai-resource-card a,
+.ai-practice-page.ai-night .question-resource a,
+.ai-practice-page.ai-night .concept-card a,
+.ai-practice-page.ai-night .reading-card a {
+  color: #93c5fd !important;
+}
+
+.ai-practice-page.ai-night .formula-box,
+.ai-practice-page.ai-night .formula-inline,
+.ai-practice-page.ai-night .formula-box-wide,
+.ai-practice-page.ai-night .icfes-formula-comparison,
+.ai-practice-page.ai-night .live-formula-card,
+.ai-practice-page.ai-night .average-formula,
+.ai-practice-page.ai-night .english-result-card,
+.ai-practice-page.ai-night .combo-result,
+.ai-practice-page.ai-night .order-card,
+.ai-practice-page.ai-night .phase-output,
+.ai-practice-page.ai-night .word-feedback,
+.ai-practice-page.ai-night .english-feedback,
+.ai-practice-page.ai-night .math-super-feedback,
+.ai-practice-page.ai-night .natural-feedback,
+.ai-practice-page.ai-night .social-feedback,
+.ai-practice-page.ai-night .critical-feedback {
+  background: linear-gradient(135deg, rgba(15, 23, 42, .99), rgba(30, 41, 59, .96)) !important;
+  color: #f8fafc !important;
+  border-color: rgba(96, 165, 250, .52) !important;
+}
+
+.ai-practice-page.ai-night .formula-box *,
+.ai-practice-page.ai-night .formula-inline *,
+.ai-practice-page.ai-night .formula-box-wide *,
+.ai-practice-page.ai-night .icfes-formula-comparison *,
+.ai-practice-page.ai-night .live-formula-card *,
+.ai-practice-page.ai-night .average-formula *,
+.ai-practice-page.ai-night .english-result-card *,
+.ai-practice-page.ai-night .combo-result *,
+.ai-practice-page.ai-night .order-card *,
+.ai-practice-page.ai-night .phase-output *,
+.ai-practice-page.ai-night .word-feedback *,
+.ai-practice-page.ai-night .english-feedback * {
+  color: #f8fafc !important;
+  opacity: 1 !important;
+  text-shadow: none !important;
+}
+
+.ai-practice-page.ai-night .table-wrap,
+.ai-practice-page.ai-night .science-table-wrap,
+.ai-practice-page.ai-night .icfes-table-wrap,
+.ai-practice-page.ai-night .option-table-wrap,
+.ai-practice-page.ai-night table,
+.ai-practice-page.ai-night .data-table,
+.ai-practice-page.ai-night .structure-table,
+.ai-practice-page.ai-night .option-table,
+.ai-practice-page.ai-night .mini-table,
+.ai-practice-page.ai-night .fare-table,
+.ai-practice-page.ai-night .symptoms-table,
+.ai-practice-page.ai-night .icfes-table {
+  background: #0b1220 !important;
+  color: #f8fafc !important;
+  border-color: rgba(148, 163, 184, .36) !important;
+}
+
+.ai-practice-page.ai-night th,
+.ai-practice-page.ai-night td,
+.ai-practice-page.ai-night .structure-table td,
+.ai-practice-page.ai-night .data-table td,
+.ai-practice-page.ai-night .data-table th,
+.ai-practice-page.ai-night .option-table td,
+.ai-practice-page.ai-night .option-table th,
+.ai-practice-page.ai-night .mini-table td,
+.ai-practice-page.ai-night .mini-table th,
+.ai-practice-page.ai-night .fare-table td,
+.ai-practice-page.ai-night .fare-table th,
+.ai-practice-page.ai-night .symptoms-table td,
+.ai-practice-page.ai-night .symptoms-table th {
+  background: #101827 !important;
+  color: #f8fafc !important;
+  border-color: rgba(148, 163, 184, .34) !important;
+  opacity: 1 !important;
+}
+
+.ai-practice-page.ai-night thead th,
+.ai-practice-page.ai-night .structure-table thead th,
+.ai-practice-page.ai-night .data-table thead th,
+.ai-practice-page.ai-night .option-table thead th,
+.ai-practice-page.ai-night .mini-table thead th {
+  background: #1e293b !important;
+  color: #dbeafe !important;
+}
+
+.ai-practice-page.ai-night tbody tr:nth-child(even) td,
+.ai-practice-page.ai-night .structure-table tr:nth-child(even) td,
+.ai-practice-page.ai-night .data-table tr:nth-child(even) td,
+.ai-practice-page.ai-night .option-table tr:nth-child(even) td,
+.ai-practice-page.ai-night .mini-table tr:nth-child(even) td {
+  background: #111f33 !important;
+}
+
+.ai-practice-page.ai-night .structure-table td::before,
+.ai-practice-page.ai-night .dashboard-table td::before {
+  color: #bfdbfe !important;
+}
+
+.ai-practice-page.ai-night .ai-option,
+.ai-practice-page.ai-night .english-option-grid button,
+.ai-practice-page.ai-night .natural-option-grid button,
+.ai-practice-page.ai-night .social-option-grid button,
+.ai-practice-page.ai-night .critical-option-grid button,
+.ai-practice-page.ai-night .math-super-final,
+.ai-practice-page.ai-night .route-btn,
+.ai-practice-page.ai-night .combo-btn,
+.ai-practice-page.ai-night .tax-btn,
+.ai-practice-page.ai-night .word-btn,
+.ai-practice-page.ai-night .clue-btn,
+.ai-practice-page.ai-night .confidence-btn,
+.ai-practice-page.ai-night .english-step,
+.ai-practice-page.ai-night .english-clue-buttons button,
+.ai-practice-page.ai-night .english-token-box button,
+.ai-practice-page.ai-night .natural-token-box button,
+.ai-practice-page.ai-night .social-token-box button,
+.ai-practice-page.ai-night .critical-token-box button,
+.ai-practice-page.ai-night .keyword-chip {
+  background: #111827 !important;
+  color: #f8fafc !important;
+  border-color: rgba(148, 163, 184, .42) !important;
+}
+
+.ai-practice-page.ai-night .ai-option *,
+.ai-practice-page.ai-night .english-option-grid button *,
+.ai-practice-page.ai-night .natural-option-grid button *,
+.ai-practice-page.ai-night .social-option-grid button *,
+.ai-practice-page.ai-night .critical-option-grid button *,
+.ai-practice-page.ai-night .math-super-final * {
+  color: inherit !important;
+}
+
+.ai-practice-page.ai-night .ai-option:hover,
+.ai-practice-page.ai-night .ai-option.selected,
+.ai-practice-page.ai-night .english-option-grid button:hover,
+.ai-practice-page.ai-night .english-option-grid button.selected,
+.ai-practice-page.ai-night .natural-option-grid button:hover,
+.ai-practice-page.ai-night .natural-option-grid button.selected,
+.ai-practice-page.ai-night .social-option-grid button:hover,
+.ai-practice-page.ai-night .social-option-grid button.selected,
+.ai-practice-page.ai-night .critical-option-grid button:hover,
+.ai-practice-page.ai-night .critical-option-grid button.selected,
+.ai-practice-page.ai-night .math-super-final:hover,
+.ai-practice-page.ai-night .math-super-final.selected {
+  background: linear-gradient(135deg, rgba(37, 99, 235, .48), rgba(6, 182, 212, .26)) !important;
+  color: #ffffff !important;
+  border-color: rgba(147, 197, 253, .95) !important;
+}
+
+.ai-practice-page.ai-night .ai-option.correct,
+.ai-practice-page.ai-night .english-option-grid button.correct,
+.ai-practice-page.ai-night .natural-option-grid button.correct,
+.ai-practice-page.ai-night .social-option-grid button.correct,
+.ai-practice-page.ai-night .critical-option-grid button.correct,
+.ai-practice-page.ai-night .math-super-final.correct {
+  background: linear-gradient(135deg, rgba(22, 163, 74, .44), rgba(16, 185, 129, .30)) !important;
+  color: #f0fdf4 !important;
+  border-color: rgba(134, 239, 172, .95) !important;
+}
+
+.ai-practice-page.ai-night .ai-option.incorrect,
+.ai-practice-page.ai-night .english-option-grid button.incorrect,
+.ai-practice-page.ai-night .natural-option-grid button.incorrect,
+.ai-practice-page.ai-night .social-option-grid button.incorrect,
+.ai-practice-page.ai-night .critical-option-grid button.incorrect,
+.ai-practice-page.ai-night .math-super-final.wrong {
+  background: linear-gradient(135deg, rgba(220, 38, 38, .42), rgba(249, 115, 22, .25)) !important;
+  color: #fff1f2 !important;
+  border-color: rgba(252, 165, 165, .96) !important;
+}
+
+.ai-practice-page.ai-night .option-letter,
+.ai-practice-page.ai-night .english-option-grid button b,
+.ai-practice-page.ai-night .natural-option-grid button b,
+.ai-practice-page.ai-night .social-option-grid button b,
+.ai-practice-page.ai-night .critical-option-grid button b,
+.ai-practice-page.ai-night .math-super-final b {
+  background: linear-gradient(135deg, #2563eb, #7c3aed) !important;
+  color: #ffffff !important;
+  border-color: rgba(255,255,255,.18) !important;
+}
+
+.ai-practice-page.ai-night .ai-nav-dot {
+  background: #e5e7eb !important;
+  color: #0f172a !important;
+  border-color: rgba(226, 232, 240, .70) !important;
+}
+
+.ai-practice-page.ai-night .ai-nav-dot.active {
+  background: linear-gradient(135deg, #2563eb, #7c3aed) !important;
+  color: #ffffff !important;
+}
+
+.ai-practice-page.ai-night .ai-nav-dot.answered,
+.ai-practice-page.ai-night .ai-nav-dot.answered-correct,
+.ai-practice-page.ai-night .ai-nav-dot.answered-wrong {
+  color: #ffffff !important;
+}
+
+.ai-practice-page.ai-night .ai-nav-dot.answered-correct {
+  background: linear-gradient(135deg, #16a34a, #059669) !important;
+}
+
+.ai-practice-page.ai-night .ai-nav-dot.answered-wrong {
+  background: linear-gradient(135deg, #f97316, #dc2626) !important;
+}
+
+.ai-practice-page.ai-night svg text,
+.ai-practice-page.ai-night .diagram-svg text,
+.ai-practice-page.ai-night .wave-svg text,
+.ai-practice-page.ai-night .mini-chart text,
+.ai-practice-page.ai-night .linechart-svg text,
+.ai-practice-page.ai-night .sci-plot text,
+.ai-practice-page.ai-night .polar-svg text,
+.ai-practice-page.ai-night .venn-svg text,
+.ai-practice-page.ai-night .english-plot text {
+  fill: #f8fafc !important;
+  color: #f8fafc !important;
+  opacity: 1 !important;
+}
+
+.ai-practice-page.ai-night .diagram-svg,
+.ai-practice-page.ai-night .wave-svg,
+.ai-practice-page.ai-night .mini-chart,
+.ai-practice-page.ai-night .linechart-svg,
+.ai-practice-page.ai-night .sci-plot,
+.ai-practice-page.ai-night .polar-svg,
+.ai-practice-page.ai-night .venn-svg,
+.ai-practice-page.ai-night .english-plot,
+.ai-practice-page.ai-night .canvas-svg,
+.ai-practice-page.ai-night .vote-svg,
+.ai-practice-page.ai-night .transport-svg,
+.ai-practice-page.ai-night .garden-svg,
+.ai-practice-page.ai-night .cake-svg,
+.ai-practice-page.ai-night .ramp-svg,
+.ai-practice-page.ai-night .reaction-chart-svg {
+  background: #0f172a !important;
+  color: #f8fafc !important;
+  border-color: rgba(148, 163, 184, .34) !important;
+}
+
+.ai-practice-page.ai-night .chart-grid line,
+.ai-practice-page.ai-night .grid-lines line,
+.ai-practice-page.ai-night .polar-grid circle,
+.ai-practice-page.ai-night .polar-grid line,
+.ai-practice-page.ai-night .mesh line,
+.ai-practice-page.ai-night .boxplot-grid line {
+  stroke: rgba(226, 232, 240, .38) !important;
+}
+
+.ai-practice-page.ai-night input,
+.ai-practice-page.ai-night textarea,
+.ai-practice-page.ai-night select,
+.ai-practice-page.ai-night .ai-notepad {
+  background: #0f172a !important;
+  color: #f8fafc !important;
+  border-color: rgba(148, 163, 184, .42) !important;
+}
+
+.ai-practice-page.ai-night input::placeholder,
+.ai-practice-page.ai-night textarea::placeholder {
+  color: #bfdbfe !important;
+}
+
+.ai-practice-page.ai-night .petrichor-card {
+  background: #0b1220 !important;
+  color: #f8fafc !important;
+  border-color: rgba(148, 163, 184, .40) !important;
+}
+
+.ai-practice-page.ai-night .petrichor-title,
+.ai-practice-page.ai-night .petrichor-close,
+.ai-practice-page.ai-night .petrichor-close p {
+  color: #f8fafc !important;
+}
+
+.ai-practice-page.ai-night .petrichor-bubble,
+.ai-practice-page.ai-night .speech,
+.ai-practice-page.ai-night .thought,
+.ai-practice-page.ai-night .caption-box {
+  background: #111827 !important;
+  color: #f8fafc !important;
+  border-color: rgba(226, 232, 240, .70) !important;
+  box-shadow: none !important;
+}
