@@ -33,6 +33,7 @@ const STORAGE_KEY = "simulador_icfes_saber11_estado_v2";
 const HISTORY_KEY = "simulador_icfes_saber11_historial_v2";
 const STUDENT_KEY = "simulador_icfes_saber11_estudiante_v2";
 const SUBMISSION_KEY = "simulador_icfes_saber11_envio_actual_v2";
+const NOTEBOOK_RETURN_KEY = "simulador_icfes_saber11_notebook_return_v2";
 
 // Envío automático de informes por correo y registro en Google Sheets.
 // URL /exec oficial entregada por la Institución Educativa Manuel J. Betancur.
@@ -54,6 +55,7 @@ const logoutBtn = document.getElementById("logoutBtn");
 const themeBtn = document.getElementById("themeBtn");
 const tipsBtn = document.getElementById("tipsBtn");
 const instructionsBtn = document.getElementById("instructionsBtn");
+const dashboardBtn = document.getElementById("dashboardBtn");
 
 let timerInterval = null;
 let state = {
@@ -76,19 +78,34 @@ let state = {
 function storageGet(key, fallback = null) {
   try {
     const value = window.localStorage.getItem(key);
-    return value === null ? fallback : value;
+    if (value !== null) return value;
   } catch (error) {
-    return fallback;
+    // En algunos navegadores, al estar incrustado en Google Sites, localStorage puede estar restringido.
   }
+  try {
+    const value = window.sessionStorage.getItem(key);
+    if (value !== null) return value;
+  } catch (error) {
+    // sessionStorage queda como respaldo para navegación interna en iframe.
+  }
+  return fallback;
 }
 
 function storageSet(key, value) {
+  let saved = false;
   try {
     window.localStorage.setItem(key, value);
-    return true;
+    saved = true;
   } catch (error) {
-    return false;
+    // Se intenta respaldo con sessionStorage.
   }
+  try {
+    window.sessionStorage.setItem(key, value);
+    saved = true;
+  } catch (error) {
+    // Si ambos almacenamientos fallan, se continúa sin romper la app.
+  }
+  return saved;
 }
 
 function storageRemove(key) {
@@ -96,6 +113,11 @@ function storageRemove(key) {
     window.localStorage.removeItem(key);
   } catch (error) {
     // En algunos navegadores, al estar incrustado en Google Sites, el almacenamiento puede estar limitado.
+  }
+  try {
+    window.sessionStorage.removeItem(key);
+  } catch (error) {
+    // Respaldo silencioso.
   }
 }
 
@@ -107,11 +129,42 @@ function storageJson(key, fallback) {
   }
 }
 
+
+function scrollEmbeddedFrameTop() {
+  window.requestAnimationFrame(() => {
+    try {
+      const shell = document.querySelector('.app-shell');
+      if (shell && typeof shell.scrollIntoView === 'function') {
+        shell.scrollIntoView({ block: 'start', inline: 'nearest', behavior: 'auto' });
+      }
+      window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+      if (app && typeof app.focus === 'function') app.focus({ preventScroll: true });
+    } catch (error) {
+      window.scrollTo(0, 0);
+    }
+  });
+}
+
+function installEmbeddedTopBehavior() {
+  if (!app || !window.MutationObserver) return;
+  let pending = false;
+  const observer = new MutationObserver(() => {
+    if (pending) return;
+    pending = true;
+    window.requestAnimationFrame(() => {
+      pending = false;
+      scrollEmbeddedFrameTop();
+    });
+  });
+  observer.observe(app, { childList: true });
+}
+
 function init() {
   const savedTheme = storageGet("simulador_icfes_theme", "light");
   document.documentElement.dataset.theme = savedTheme;
   themeBtn.textContent = savedTheme === "dark" ? "☀️" : "🌙";
   bindGlobalEvents();
+  installEmbeddedTopBehavior();
   const savedStudent = loadSavedStudent();
   if (savedStudent) {
     state.student = savedStudent;
@@ -128,14 +181,17 @@ function handleNotebookReturnRequest() {
   const params = new URLSearchParams(window.location.search);
   if (params.get("volverPregunta") !== "1") return false;
 
-  const raw = storageGet(STORAGE_KEY);
+  const raw = storageGet(STORAGE_KEY) || storageGet(NOTEBOOK_RETURN_KEY);
   const requestedSession = Number(params.get("session") || state.sessionId || 2);
   const requestedQuestion = Number(params.get("question") || 1);
 
   try {
-    const saved = raw ? JSON.parse(raw) : null;
+    const notebookPayload = raw ? JSON.parse(raw) : null;
+    const saved = notebookPayload && notebookPayload.state ? notebookPayload.state : notebookPayload;
     if (!saved || Number(saved.sessionId) !== requestedSession) {
       state.mode = params.get("mode") || "practica";
+      const savedStudent = loadSavedStudent();
+      if (savedStudent) state.student = savedStudent;
       renderHome();
       setTimeout(() => {
         alert("No hay un intento guardado para volver directamente a esa pregunta. Selecciona el modo Entrenamiento con Notebook e inicia la sesión correspondiente.");
@@ -156,6 +212,8 @@ function handleNotebookReturnRequest() {
     }
     homeBtn.classList.remove("hidden");
     window.history.replaceState({}, "", window.location.pathname);
+    storageRemove(NOTEBOOK_RETURN_KEY);
+    saveState();
     renderExam({ scrollToTimer: false });
     scrollToPageTop();
     if (state.mode !== "entrenamiento") startTimer();
@@ -178,6 +236,14 @@ function bindGlobalEvents() {
     document.documentElement.dataset.theme = next;
     themeBtn.textContent = next === "dark" ? "☀️" : "🌙";
     storageSet("simulador_icfes_theme", next);
+  });
+
+  window.addEventListener("beforeunload", () => {
+    saveState();
+  });
+
+  document.addEventListener("visibilitychange", () => {
+    if (document.visibilityState === "hidden") saveState();
   });
 }
 
@@ -246,6 +312,7 @@ function performLogout() {
 function updateHeaderSessionButtons() {
   const loggedIn = hasValidStudent();
   if (logoutBtn) logoutBtn.classList.toggle("hidden", !loggedIn);
+  if (dashboardBtn) dashboardBtn.classList.toggle("hidden", !loggedIn);
 }
 
 function openActionDialog({ title, message, confirmText = "Aceptar", cancelText = "Cancelar", danger = false, onConfirm }) {
@@ -532,6 +599,7 @@ function renderAccess(pendingScope = null) {
   state.screen = "access";
   homeBtn.classList.add("hidden");
   if (logoutBtn) logoutBtn.classList.add("hidden");
+  if (dashboardBtn) dashboardBtn.classList.add("hidden");
   const current = state.student || loadSavedStudent() || { fullName: "", group: "", email: "" };
   const currentFullName = normalizeNameInput(current.fullName || `${current.firstName || ""} ${current.lastName || ""}`);
   const currentGroup = normalizeGroupInput(current.group || current.gradeGroup || current.course || "");
@@ -1034,6 +1102,14 @@ function renderQuestion(question) {
     });
   });
 
+  card.querySelectorAll("[data-notebook-link]").forEach(link => {
+    link.addEventListener("click", event => {
+      event.preventDefault();
+      prepareNotebookNavigation(question);
+      window.location.href = link.href;
+    });
+  });
+
   document.getElementById("markBtn").addEventListener("click", () => {
     state.marked[key] = !state.marked[key];
     saveState();
@@ -1076,6 +1152,22 @@ function renderResources(resources) {
   }).join("");
 }
 
+
+function prepareNotebookNavigation(question) {
+  if (!question) return;
+  state.currentNumber = Number(question.number) || state.currentNumber;
+  saveState();
+  storageSet(NOTEBOOK_RETURN_KEY, JSON.stringify({
+    savedAt: new Date().toISOString(),
+    source: "notebook",
+    sessionId: state.sessionId,
+    questionNumber: state.currentNumber,
+    mode: state.mode,
+    student: state.student,
+    state
+  }));
+}
+
 function renderPracticeNotebookSection(question) {
   const sessionParam = encodeURIComponent(String(question.session));
   const questionParam = encodeURIComponent(String(question.number));
@@ -1098,11 +1190,11 @@ function renderPracticeNotebookSection(question) {
           <h4>Notebook de la pregunta ${question.number}</h4>
           <p>Recursos individuales para esta pregunta: mapa mental, video, audio, presentación, infografía y simulador interactivo. Preparan la comprensión sin revelar la respuesta.</p>
         </div>
-        <a class="secondary-btn notebook-main-link" href="${baseUrl}" target="_blank" rel="noopener">Abrir notebook completo</a>
+        <a class="secondary-btn notebook-main-link" href="${baseUrl}" data-notebook-link="true">Abrir notebook completo</a>
       </div>
       <div class="notebook-resource-grid">
         ${tools.map(tool => `
-          <a class="notebook-mini-card" href="${baseUrl}&resource=${encodeURIComponent(tool.key)}" target="_blank" rel="noopener">
+          <a class="notebook-mini-card" href="${baseUrl}&resource=${encodeURIComponent(tool.key)}" data-notebook-link="true">
             <span class="notebook-mini-card__icon">${tool.icon}</span>
             <strong>${tool.label}</strong>
             <small>${tool.text}</small>

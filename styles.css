@@ -8881,3 +8881,430 @@ body.theme-dark .hybrid-intelligence-card strong,
 [data-theme="dark"] .hybrid-intelligence-card strong {
   color: #7cf7c8;
 }
+
+/* =========================================================
+   Ajuste final solicitado: Dashboard solo con sesión iniciada
+   + contraste reforzado en modo noche
+   ========================================================= */
+#dashboardBtn.hidden { display: none !important; }
+#dashboardBtn {
+  text-decoration: none;
+  white-space: nowrap;
+}
+html[data-theme="dark"] body {
+  color: #f8fafc !important;
+  background:
+    radial-gradient(circle at top left, rgba(59, 130, 246, 0.22), transparent 30rem),
+    radial-gradient(circle at bottom right, rgba(16, 185, 129, 0.16), transparent 28rem),
+    #020617 !important;
+}
+html[data-theme="dark"] .brand h1,
+html[data-theme="dark"] .access-brand-title,
+html[data-theme="dark"] .access-register-title,
+html[data-theme="dark"] .session-title,
+html[data-theme="dark"] .question-title,
+html[data-theme="dark"] .results-title,
+html[data-theme="dark"] .app-main h1,
+html[data-theme="dark"] .app-main h2,
+html[data-theme="dark"] .app-main h3,
+html[data-theme="dark"] .app-main h4 {
+  color: #f8fafc !important;
+  opacity: 1 !important;
+}
+html[data-theme="dark"] .eyebrow,
+html[data-theme="dark"] .session-label,
+html[data-theme="dark"] .timer-label,
+html[data-theme="dark"] .student-group-label,
+html[data-theme="dark"] .field span,
+html[data-theme="dark"] .stat span,
+html[data-theme="dark"] .pill.muted {
+  color: #c7d2fe !important;
+  opacity: 1 !important;
+}
+html[data-theme="dark"] .app-main p,
+html[data-theme="dark"] .app-main li,
+html[data-theme="dark"] .session-description,
+html[data-theme="dark"] .question-copy,
+html[data-theme="dark"] .feedback,
+html[data-theme="dark"] .score-note,
+html[data-theme="dark"] .report-note,
+html[data-theme="dark"] .access-card p:not(.access-tagline) {
+  color: #dbeafe !important;
+  opacity: 1 !important;
+}
+html[data-theme="dark"] .access-card,
+html[data-theme="dark"] .session-card,
+html[data-theme="dark"] .config-bar,
+html[data-theme="dark"] .student-strip,
+html[data-theme="dark"] .exam-header,
+html[data-theme="dark"] .question-card,
+html[data-theme="dark"] .results-card,
+html[data-theme="dark"] .score-card,
+html[data-theme="dark"] .report-card,
+html[data-theme="dark"] .empty-state,
+html[data-theme="dark"] .dialog-card,
+html[data-theme="dark"] .modal-card,
+html[data-theme="dark"] .notebook-mini-card,
+html[data-theme="dark"] .question-prompt,
+html[data-theme="dark"] .table-wrap {
+  background: linear-gradient(180deg, rgba(15, 23, 42, 0.98), rgba(11, 18, 32, 0.96)) !important;
+  color: #f8fafc !important;
+  border-color: rgba(148, 163, 184, 0.36) !important;
+}
+html[data-theme="dark"] input,
+html[data-theme="dark"] select,
+html[data-theme="dark"] textarea {
+  background: #0f172a !important;
+  color: #f8fafc !important;
+  border-color: rgba(148, 163, 184, 0.44) !important;
+  caret-color: #f8fafc !important;
+}
+html[data-theme="dark"] input::placeholder,
+html[data-theme="dark"] textarea::placeholder {
+  color: #cbd5e1 !important;
+  opacity: 0.92 !important;
+}
+html[data-theme="dark"] select option {
+  background: #0f172a !important;
+  color: #f8fafc !important;
+}
+html[data-theme="dark"] .icon-btn,
+html[data-theme="dark"] .ghost-btn,
+html[data-theme="dark"] .secondary-btn,
+html[data-theme="dark"] .tiny-btn,
+html[data-theme="dark"] .nav-btn,
+html[data-theme="dark"] .area-btn,
+html[data-theme="dark"] .mode-option,
+html[data-theme="dark"] .option {
+  background: #111827 !important;
+  color: #f8fafc !important;
+  border-color: rgba(148, 163, 184, 0.42) !important;
+}
+html[data-theme="dark"] .primary-btn,
+html[data-theme="dark"] .danger-btn {
+  color: #ffffff !important;
+}
+html[data-theme="dark"] .structure-table,
+html[data-theme="dark"] .structure-table th,
+html[data-theme="dark"] .structure-table td,
+html[data-theme="dark"] table,
+html[data-theme="dark"] th,
+html[data-theme="dark"] td {
+  color: #f8fafc !important;
+  border-color: rgba(148, 163, 184, 0.36) !important;
+}
+html[data-theme="dark"] .structure-table th,
+html[data-theme="dark"] thead th {
+  background: #1e293b !important;
+  color: #dbeafe !important;
+}
+html[data-theme="dark"] .structure-table td,
+html[data-theme="dark"] tbody td {
+  background: #101827 !important;
+  color: #f8fafc !important;
+}
+html[data-theme="dark"] .structure-table tr:nth-child(even) td,
+html[data-theme="dark"] tbody tr:nth-child(even) td {
+  background: #111f33 !important;
+}
+html[data-theme="dark"] .option.selected,
+html[data-theme="dark"] .mode-option:has(input:checked) {
+  color: #ffffff !important;
+  border-color: rgba(147, 197, 253, 0.88) !important;
+}
+html[data-theme="dark"] .hero,
+html[data-theme="dark"] .hero h2,
+html[data-theme="dark"] .hero p,
+html[data-theme="dark"] .hero .eyebrow,
+html[data-theme="dark"] .hero strong,
+html[data-theme="dark"] .hero span {
+  color: #ffffff !important;
+}
+
+/* Refuerzo extra para recursos internos del Entrenamiento con AI Studio en modo noche */
+.ai-practice-page.ai-night .ai-practice-main,
+.ai-practice-page.ai-night .ai-practice-shell,
+.ai-practice-page.ai-night .mobile-app-shell {
+  background: #020617 !important;
+  color: #f8fafc !important;
+}
+.ai-practice-page.ai-night :is(h1,h2,h3,h4,h5,h6,.question-title,.resource-title,.graph-title,.reading-instruction) {
+  color: #f8fafc !important;
+  opacity: 1 !important;
+}
+.ai-practice-page.ai-night :is(p,li,label,small,figcaption,.question-copy,.ai-small-note,.reading-note,.source-note,.resource-note,.progress-top) {
+  color: #e2e8f0 !important;
+  opacity: 1 !important;
+}
+.ai-practice-page.ai-night :is(.ai-resource-card,.question-resource,.question-prompt,.ai-question-card,.ai-panel,.english-card,.natural-card,.social-card,.critical-card,.math-super-card,.math-super-panel,.reading-card,.chart-card,.graph-card,.formula-card,.data-card,.info-card,.caption-box,.fragment-card,.procedure-card) {
+  background: linear-gradient(180deg, rgba(15, 23, 42, .99), rgba(11, 18, 32, .97)) !important;
+  color: #f8fafc !important;
+  border-color: rgba(148, 163, 184, .38) !important;
+}
+.ai-practice-page.ai-night :is(.ai-resource-card,.question-resource,.question-prompt,.ai-question-card,.ai-panel,.english-card,.natural-card,.social-card,.critical-card,.math-super-card,.math-super-panel,.reading-card,.chart-card,.graph-card,.formula-card,.data-card,.info-card,.caption-box,.fragment-card,.procedure-card) * {
+  opacity: 1 !important;
+}
+.ai-practice-page.ai-night :is(.formula-box,.formula-inline,.formula-box-wide,.english-result-card,.word-feedback,.english-feedback,.natural-feedback,.social-feedback,.critical-feedback,.math-super-feedback) {
+  background: linear-gradient(135deg, #0f172a, #1e293b) !important;
+  color: #f8fafc !important;
+  border-color: rgba(96, 165, 250, .56) !important;
+}
+.ai-practice-page.ai-night :is(.formula-box,.formula-inline,.formula-box-wide,.english-result-card,.word-feedback,.english-feedback,.natural-feedback,.social-feedback,.critical-feedback,.math-super-feedback) * {
+  color: #f8fafc !important;
+  opacity: 1 !important;
+  text-shadow: none !important;
+}
+.ai-practice-page.ai-night :is(table,thead,tbody,tr,th,td,.table-wrap,.science-table-wrap,.icfes-table-wrap,.option-table-wrap,.data-table,.structure-table,.option-table,.mini-table,.fare-table,.symptoms-table,.icfes-table) {
+  color: #f8fafc !important;
+  border-color: rgba(148, 163, 184, .38) !important;
+}
+.ai-practice-page.ai-night :is(th,td,.data-table th,.data-table td,.structure-table th,.structure-table td,.option-table th,.option-table td,.mini-table th,.mini-table td,.fare-table th,.fare-table td,.symptoms-table th,.symptoms-table td) {
+  background: #101827 !important;
+  color: #f8fafc !important;
+  border-color: rgba(148, 163, 184, .38) !important;
+}
+.ai-practice-page.ai-night thead th {
+  background: #1e293b !important;
+  color: #dbeafe !important;
+}
+.ai-practice-page.ai-night tbody tr:nth-child(even) td {
+  background: #111f33 !important;
+}
+.ai-practice-page.ai-night :is(.ai-option,.english-option-grid button,.natural-option-grid button,.social-option-grid button,.critical-option-grid button,.math-super-final,.route-btn,.combo-btn,.tax-btn,.word-btn,.clue-btn,.confidence-btn,.english-step,.keyword-chip) {
+  background: #111827 !important;
+  color: #f8fafc !important;
+  border-color: rgba(148, 163, 184, .44) !important;
+}
+.ai-practice-page.ai-night :is(.ai-option,.english-option-grid button,.natural-option-grid button,.social-option-grid button,.critical-option-grid button,.math-super-final,.route-btn,.combo-btn,.tax-btn,.word-btn,.clue-btn,.confidence-btn,.english-step,.keyword-chip) * {
+  color: inherit !important;
+}
+.ai-practice-page.ai-night .ai-nav-dot:not(.active):not(.answered):not(.answered-correct):not(.answered-wrong) {
+  background: #e5e7eb !important;
+  color: #0f172a !important;
+  border-color: rgba(226, 232, 240, .72) !important;
+}
+.ai-practice-page.ai-night .ai-nav-dot.active,
+.ai-practice-page.ai-night .ai-nav-dot.answered,
+.ai-practice-page.ai-night .ai-nav-dot.answered-correct,
+.ai-practice-page.ai-night .ai-nav-dot.answered-wrong {
+  color: #ffffff !important;
+}
+.ai-practice-page.ai-night svg text,
+.ai-practice-page.ai-night svg tspan {
+  fill: #f8fafc !important;
+  opacity: 1 !important;
+}
+.ai-practice-page.ai-night input,
+.ai-practice-page.ai-night select,
+.ai-practice-page.ai-night textarea {
+  background: #0f172a !important;
+  color: #f8fafc !important;
+  border-color: rgba(148, 163, 184, .44) !important;
+}
+.ai-practice-page.ai-night input::placeholder,
+.ai-practice-page.ai-night textarea::placeholder {
+  color: #cbd5e1 !important;
+}
+
+/* ==========================================================
+   Optimización para Google Sites / iframe embebido
+   Hace que todas las vistas arranquen desde la parte superior
+   y evita centrados verticales que dejan la app en mitad del marco.
+   ========================================================== */
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  align-items: flex-start !important;
+  justify-content: flex-start !important;
+}
+
+.app-shell,
+.dashboard-shell,
+.notebook-shell {
+  min-height: auto !important;
+  margin-top: 0 !important;
+  padding-top: 12px !important;
+  padding-bottom: 28px !important;
+}
+
+.app-main,
+.dashboard-main,
+.notebook-main {
+  align-content: start !important;
+  align-items: start !important;
+  justify-content: stretch !important;
+  min-height: auto !important;
+}
+
+.access-panel {
+  min-height: auto !important;
+  display: block !important;
+  place-items: initial !important;
+  align-items: start !important;
+  justify-items: stretch !important;
+  padding-top: 0 !important;
+  margin-top: 0 !important;
+}
+
+.access-card {
+  margin: 0 auto !important;
+}
+
+.hero,
+.dashboard-hero,
+.notebook-hero,
+.empty-state {
+  min-height: auto !important;
+  align-content: start !important;
+  place-items: stretch !important;
+}
+
+.session-grid,
+.exam-layout,
+.dashboard-grid,
+.dashboard-grid-two,
+.notebook-grid {
+  align-items: start !important;
+}
+
+.dialog-overlay {
+  align-items: flex-start !important;
+  justify-items: center !important;
+  place-items: start center !important;
+  padding-top: max(14px, env(safe-area-inset-top)) !important;
+  overflow-y: auto !important;
+}
+
+.dialog-card,
+.tips-dialog-card,
+.instructions-dialog-card {
+  margin-top: 0 !important;
+  max-height: calc(100svh - 28px) !important;
+  overflow-y: auto !important;
+}
+
+.dialog-actions button {
+  min-height: 46px !important;
+}
+
+@media (max-width: 760px) {
+  .app-shell,
+  .dashboard-shell,
+  .notebook-shell {
+    min-height: auto !important;
+    padding-top: max(8px, env(safe-area-inset-top)) !important;
+  }
+
+  .app-main,
+  .dashboard-main,
+  .notebook-main {
+    min-height: auto !important;
+  }
+
+  .access-panel {
+    min-height: auto !important;
+    display: block !important;
+  }
+
+  .dialog-overlay {
+    align-items: flex-start !important;
+    place-items: start center !important;
+    padding: max(10px, env(safe-area-inset-top)) 10px 14px !important;
+  }
+
+  .dialog-card,
+  .tips-dialog-card,
+  .instructions-dialog-card {
+    width: 100% !important;
+    max-height: calc(100svh - 24px) !important;
+  }
+}
+
+/* Refuerzo final de contraste en modo noche para formularios y textos embebidos */
+html[data-theme="dark"] body,
+html[data-theme="dark"] .app-main,
+html[data-theme="dark"] .dashboard-main,
+html[data-theme="dark"] .notebook-main {
+  color: #f8fafc !important;
+}
+
+html[data-theme="dark"] .access-card,
+html[data-theme="dark"] .student-strip,
+html[data-theme="dark"] .config-bar,
+html[data-theme="dark"] .session-card,
+html[data-theme="dark"] .exam-main,
+html[data-theme="dark"] .exam-side,
+html[data-theme="dark"] .results-panel,
+html[data-theme="dark"] .dashboard-card,
+html[data-theme="dark"] .dashboard-filters,
+html[data-theme="dark"] .notebook-card,
+html[data-theme="dark"] .notebook-question-summary,
+html[data-theme="dark"] .notebook-hero,
+html[data-theme="dark"] .practice-notebook,
+html[data-theme="dark"] .empty-state,
+html[data-theme="dark"] .table-wrap,
+html[data-theme="dark"] .option-rich,
+html[data-theme="dark"] .resource-box,
+html[data-theme="dark"] .context-box {
+  background: linear-gradient(180deg, #111e33 0%, #0b1220 100%) !important;
+  color: #f8fafc !important;
+  border-color: rgba(148, 163, 184, 0.38) !important;
+}
+
+html[data-theme="dark"] .access-card *,
+html[data-theme="dark"] .session-card *,
+html[data-theme="dark"] .question-card *,
+html[data-theme="dark"] .exam-main *,
+html[data-theme="dark"] .exam-side *,
+html[data-theme="dark"] .results-panel *,
+html[data-theme="dark"] .dashboard-card *,
+html[data-theme="dark"] .notebook-card *,
+html[data-theme="dark"] .practice-notebook *,
+html[data-theme="dark"] .table-wrap *,
+html[data-theme="dark"] .option-rich * {
+  text-shadow: none;
+}
+
+html[data-theme="dark"] p,
+html[data-theme="dark"] li,
+html[data-theme="dark"] td,
+html[data-theme="dark"] th,
+html[data-theme="dark"] span,
+html[data-theme="dark"] label,
+html[data-theme="dark"] small,
+html[data-theme="dark"] .muted,
+html[data-theme="dark"] .session-description,
+html[data-theme="dark"] .question-text,
+html[data-theme="dark"] .prompt,
+html[data-theme="dark"] .access-intro {
+  color: #dbeafe !important;
+}
+
+html[data-theme="dark"] h1,
+html[data-theme="dark"] h2,
+html[data-theme="dark"] h3,
+html[data-theme="dark"] h4,
+html[data-theme="dark"] strong,
+html[data-theme="dark"] b,
+html[data-theme="dark"] .access-tagline,
+html[data-theme="dark"] .timer,
+html[data-theme="dark"] .option strong {
+  color: #ffffff !important;
+}
+
+html[data-theme="dark"] input,
+html[data-theme="dark"] select,
+html[data-theme="dark"] textarea {
+  background: #17243a !important;
+  color: #f8fafc !important;
+  border-color: rgba(147, 197, 253, 0.34) !important;
+}
+
+html[data-theme="dark"] input::placeholder,
+html[data-theme="dark"] textarea::placeholder {
+  color: #cbd5e1 !important;
+  opacity: 1 !important;
+}

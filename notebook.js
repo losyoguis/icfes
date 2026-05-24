@@ -9,6 +9,24 @@ const NOTEBOOK_RESOURCE_TYPES = [
   { key: "simulator", label: "Simulador", icon: "🧩" }
 ];
 
+
+function notebookStorageGet(key, fallback = null) {
+  try {
+    const value = window.localStorage.getItem(key);
+    if (value !== null) return value;
+  } catch (error) {}
+  try {
+    const value = window.sessionStorage.getItem(key);
+    if (value !== null) return value;
+  } catch (error) {}
+  return fallback;
+}
+
+function notebookStorageSet(key, value) {
+  try { window.localStorage.setItem(key, value); } catch (error) {}
+  try { window.sessionStorage.setItem(key, value); } catch (error) {}
+}
+
 const NOTEBOOK_CUSTOM_RESOURCES = {
   "1-1": {
     mindmap: {
@@ -72,11 +90,25 @@ function initNotebook() {
 
 function configureReturnButtons() {
   const returnBtn = document.getElementById("returnQuestionHeaderBtn");
-  if (returnBtn) returnBtn.href = notebookState.returnUrl || "index.html";
+  if (!returnBtn) return;
+  returnBtn.href = notebookState.returnUrl || "index.html";
+  returnBtn.addEventListener("click", event => {
+    event.preventDefault();
+    const fallbackUrl = notebookState.returnUrl || returnBtn.href || "index.html";
+    const cameFromSimulator = /index\.html|simulador|icfes/i.test(document.referrer || "");
+    if (cameFromSimulator && window.history.length > 1) {
+      window.history.back();
+      window.setTimeout(() => {
+        if (!document.hidden) window.location.href = fallbackUrl;
+      }, 700);
+      return;
+    }
+    window.location.href = fallbackUrl;
+  }, { once: true });
 }
 
 function initNotebookTheme() {
-  const storedTheme = localStorage.getItem("simulador_icfes_tema") || "dark";
+  const storedTheme = notebookStorageGet("simulador_icfes_theme", notebookStorageGet("simulador_icfes_tema", "dark"));
   document.body.dataset.theme = storedTheme;
   const themeBtn = document.getElementById("themeBtn");
   if (!themeBtn) return;
@@ -84,7 +116,8 @@ function initNotebookTheme() {
   themeBtn.addEventListener("click", () => {
     const nextTheme = document.body.dataset.theme === "light" ? "dark" : "light";
     document.body.dataset.theme = nextTheme;
-    localStorage.setItem("simulador_icfes_tema", nextTheme);
+    notebookStorageSet("simulador_icfes_theme", nextTheme);
+    notebookStorageSet("simulador_icfes_tema", nextTheme);
     themeBtn.textContent = nextTheme === "light" ? "🌙" : "☀️";
   });
 }
