@@ -46,7 +46,7 @@ const REPORT_MJB_FORM_URL = "https://docs.google.com/forms/d/1Q-jAP50dzVLYEmuhgE
 const INSTITUTION_NAME = "Institución Educativa Manuel J. Betancur";
 const INSTITUTION_SHORT_NAME = "I.E. Manuel J. Betancur";
 const REPORT_AUTOSEND_ON_FINISH = true;
-const REPORT_APP_VERSION = "ICFES-S2-1-134-responsive-email-estudiante-corregido-v13";
+const REPORT_APP_VERSION = "ICFES-DIGITAL-SABER-11-IA-v14";
 
 const app = document.getElementById("app");
 const homeBtn = document.getElementById("homeBtn");
@@ -58,7 +58,7 @@ const instructionsBtn = document.getElementById("instructionsBtn");
 let timerInterval = null;
 let state = {
   screen: "home",
-  mode: "simulacro",
+  mode: "practica",
   sessionId: null,
   scope: null,
   navNumbers: [],
@@ -138,7 +138,7 @@ function handleNotebookReturnRequest() {
       state.mode = params.get("mode") || "practica";
       renderHome();
       setTimeout(() => {
-        alert("No hay un intento guardado para volver directamente a esa pregunta. Selecciona el modo Práctica con Notebook e inicia la sesión correspondiente.");
+        alert("No hay un intento guardado para volver directamente a esa pregunta. Selecciona el modo Entrenamiento con Notebook e inicia la sesión correspondiente.");
       }, 120);
       return true;
     }
@@ -224,7 +224,7 @@ function performLogout() {
   storageRemove(SUBMISSION_KEY);
   state = {
     screen: "access",
-    mode: "simulacro",
+    mode: "practica",
     sessionId: null,
     scope: null,
     navNumbers: [],
@@ -257,7 +257,7 @@ function openActionDialog({ title, message, confirmText = "Aceptar", cancelText 
   overlay.innerHTML = `
     <section class="dialog-card" role="dialog" aria-modal="true" aria-labelledby="dialogTitle" aria-describedby="dialogMessage">
       <button class="dialog-close" type="button" aria-label="Cerrar">×</button>
-      <p class="eyebrow">Simulador ICFES</p>
+      <p class="eyebrow">ICFES Digital Saber 11</p>
       <h2 id="dialogTitle">${title}</h2>
       <p id="dialogMessage">${message}</p>
       <div class="dialog-actions">
@@ -545,7 +545,9 @@ function renderAccess(pendingScope = null) {
     <section class="access-panel" aria-labelledby="accessTitle">
       <div class="access-card">
         <p class="eyebrow">${escapeHtml(INSTITUTION_NAME)}</p>
-        <h2 id="accessTitle">Antes de iniciar, registra tus datos</h2>
+        <h2 id="accessTitle" class="access-brand-title">ICFES Digital Saber 11</h2>
+        <p class="access-tagline">Prepárate para el ICFES con inteligencia artificial</p>
+        <h3 class="access-register-title">Antes de iniciar, registra tus datos</h3>
         <p class="access-intro">Esta información aparecerá en la página de resultados, en el informe final en PDF y permitirá el envío automático del informe al estudiante y al equipo institucional de la ${escapeHtml(INSTITUTION_NAME)}.</p>
         <form id="studentForm" class="student-form">
           <div class="form-grid student-form-grid">
@@ -681,9 +683,9 @@ function renderHome() {
   app.innerHTML = `
     <section class="hero">
       <p class="eyebrow">${escapeHtml(INSTITUTION_NAME)}</p>
-      <h2>Simulador ICFES Saber 11° por sesiones, bloques y áreas</h2>
+      <h2>ICFES Digital Saber 11</h2>
       <p>
-        Selecciona una sesión completa o un bloque específico para iniciar el simulacro, practicar con Notebook, trabajar con AI Studio o entrenar sin límite de tiempo.
+        Prepárate para el ICFES con inteligencia artificial. Elige entre entrenamiento con Notebook, entrenamiento con AI Studio, práctica sin tiempo o SIMULACRO cronometrado.
       </p>
       <div class="hero-grid">
         <div class="stat"><strong>2</strong><span>sesiones configuradas</span></div>
@@ -708,11 +710,11 @@ function renderHome() {
     <section class="config-bar" aria-label="Configuración del simulador">
       <div>
         <p class="eyebrow">Modo de trabajo</p>
-        <div class="mode-control">
-          <label class="mode-option"><input type="radio" name="mode" value="simulacro" ${state.mode === "simulacro" ? "checked" : ""}> Simulacro</label>
-          <label class="mode-option"><input type="radio" name="mode" value="practica" ${state.mode === "practica" ? "checked" : ""}> Práctica con Notebook</label>
-          <label class="mode-option ai-studio-mode"><input type="radio" name="mode" value="ai-studio" ${state.mode === "ai-studio" ? "checked" : ""}> Práctica con AI Studio</label>
-          <label class="mode-option"><input type="radio" name="mode" value="entrenamiento" ${state.mode === "entrenamiento" ? "checked" : ""}> Entrenamiento sin tiempo</label>
+        <div class="mode-control ordered-mode-control">
+          <label class="mode-option"><input type="radio" name="mode" value="practica" ${state.mode === "practica" ? "checked" : ""}> <span class="mode-number">1</span> Entrenamiento con Notebook</label>
+          <label class="mode-option ai-studio-mode"><input type="radio" name="mode" value="ai-studio" ${state.mode === "ai-studio" ? "checked" : ""}> <span class="mode-number">2</span> Entrenamiento con AI Studio</label>
+          <label class="mode-option"><input type="radio" name="mode" value="entrenamiento" ${state.mode === "entrenamiento" ? "checked" : ""}> <span class="mode-number">3</span> Práctica sin tiempo</label>
+          <label class="mode-option simulacro-highlight"><input type="radio" name="mode" value="simulacro" ${state.mode === "simulacro" ? "checked" : ""}> <span class="mode-number">4</span> SIMULACRO</label>
         </div>
       </div>
       <button class="secondary-btn" id="resumeBtn" type="button">Continuar intento guardado</button>
@@ -722,8 +724,8 @@ function renderHome() {
     <section class="ai-studio-route-card" aria-label="Ruta correcta para práctica con AI Studio">
       <div>
         <p class="eyebrow">Ruta recomendada</p>
-        <h3>Los súper simuladores ahora se abren desde Práctica con AI Studio</h3>
-        <p>Selecciona el modo <strong>Práctica con AI Studio</strong> y luego elige el bloque correspondiente en la tabla. Para Inglés: <strong>Sección 2 · Preguntas 80 a 134</strong>.</p>
+        <h3>Los súper simuladores ahora se abren desde Entrenamiento con AI Studio</h3>
+        <p>Selecciona el modo <strong>Entrenamiento con AI Studio</strong> y luego elige el bloque correspondiente en la tabla. Para Inglés: <strong>Sección 2 · Preguntas 80 a 134</strong>.</p>
       </div>
       <span class="pill success">AI Studio integrado</span>
     </section>
@@ -1106,7 +1108,7 @@ function renderPracticeNotebookSection(question) {
     <section class="practice-notebook" aria-label="Notebook de preparación individual para esta pregunta">
       <div class="practice-notebook__head">
         <div>
-          <p class="eyebrow">Solo en Práctica con Notebook</p>
+          <p class="eyebrow">Solo en Entrenamiento con Notebook</p>
           <h4>Notebook de la pregunta ${question.number}</h4>
           <p>Recursos individuales para esta pregunta: mapa mental, video, audio, presentación, infografía y simulador interactivo. Preparan la comprensión sin revelar la respuesta.</p>
         </div>
@@ -1470,8 +1472,9 @@ function formatSeconds(totalSeconds) {
 function getModeLabel(mode) {
   return {
     simulacro: "Simulacro",
-    practica: "Práctica",
-    entrenamiento: "Entrenamiento"
+    practica: "Entrenamiento con Notebook",
+    "ai-studio": "Entrenamiento con AI Studio",
+    entrenamiento: "Práctica sin tiempo"
   }[mode] || mode;
 }
 
@@ -2237,7 +2240,7 @@ function delay(ms) {
 
 function buildPdfReportLines(result) {
   const lines = [
-    "REPORTE DETALLADO - SIMULADOR ICFES SABER 11",
+    "REPORTE DETALLADO - ICFES DIGITAL SABER 11",
     `${result.institutionName}`,
     "",
     `Estudiante: ${result.studentName}`,
@@ -2293,7 +2296,7 @@ function createChartPdf(result) {
 
   const ops = [];
   pdfRect(ops, 0, 0, pageWidth, pageHeight, colors.white);
-  pdfText(ops, "INFORME DE RESULTADOS - SIMULADOR ICFES SABER 11", marginX, 804, 14.5, true, colors.primary);
+  pdfText(ops, "INFORME DE RESULTADOS - ICFES DIGITAL SABER 11", marginX, 804, 14.5, true, colors.primary);
   pdfText(ops, result.institutionName || INSTITUTION_NAME, marginX, 784, 11, true, colors.text);
   pdfText(ops, `Estudiante: ${result.studentName}`, marginX, 764, 11.5, true, colors.text);
   pdfText(ops, `Grupo: ${result.studentGroup} | Correo: ${result.studentEmail}`, marginX, 747, 9.5, false, colors.text, 92);

@@ -190,13 +190,13 @@
     if (isEnglishSuperScope()) return "Súper simulador de Inglés";
     if (isMathSuperScope()) return "Súper simulador de Matemáticas";
     if (isNaturalScienceSuperScope()) return "Súper simulador de Ciencias Naturales";
-    return "Práctica con AI Studio";
+    return "Entrenamiento con AI Studio";
   }
 
   function scopeDisplayIntro() {
-    if (isEnglishSuperScope()) return "Módulo integrado en Práctica con AI Studio para resolver las preguntas 80 a 134 con lectura contextual, gramática, vocabulario, propósito comunicativo, gráficas y retroalimentación inmediata.";
-    if (isMathSuperScope()) return "Módulo integrado en Práctica con AI Studio para resolver las preguntas 29 a 50 con gráficas, animaciones, pistas, estrategia y micro-retos.";
-    if (isNaturalScienceSuperScope()) return "Módulo integrado en Práctica con AI Studio para resolver las preguntas 51 a 79 con laboratorio científico, variables, evidencias y simulaciones.";
+    if (isEnglishSuperScope()) return "Módulo integrado en Entrenamiento con AI Studio para resolver las preguntas 80 a 134 con lectura contextual, gramática, vocabulario, propósito comunicativo, gráficas y retroalimentación inmediata.";
+    if (isMathSuperScope()) return "Módulo integrado en Entrenamiento con AI Studio para resolver las preguntas 29 a 50 con gráficas, animaciones, pistas, estrategia y micro-retos.";
+    if (isNaturalScienceSuperScope()) return "Módulo integrado en Entrenamiento con AI Studio para resolver las preguntas 51 a 79 con laboratorio científico, variables, evidencias y simulaciones.";
     return "Simuladores dinámicos en HTML, CSS y JavaScript puro, con gráficas, animaciones, modo día/noche y entrenamiento paso a paso tipo Saber 11.";
   }
 
@@ -208,7 +208,7 @@
       <section class="ai-hero-panel ai-animated-hero">
         <div>
           <p class="eyebrow">${escapeHtml(INSTITUTION)}</p>
-          <h2>Práctica con AI Studio</h2>
+          <h2>Entrenamiento con AI Studio</h2>
           <p>Selecciona un súper simulador dentro de AI Studio. Este espacio concentra los módulos dinámicos e interactivos del simulador, sin separarlos del inicio general.</p>
         </div>
         <div class="ai-hero-stats"><span class="pill">${escapeHtml(student.fullName)} · ${escapeHtml(student.group)}</span><span class="pill success">Súper simuladores</span><span class="pill muted">HTML · CSS · JS</span></div>
@@ -229,7 +229,7 @@
 
       <section class="ai-route-help">
         <h3>Ruta desde el simulador principal</h3>
-        <p>También puedes entrar desde <strong>Inicio → Modo de trabajo: Práctica con AI Studio → Sección 2 → Inglés 80 a 134</strong>.</p>
+        <p>También puedes entrar desde <strong>Inicio → Modo de trabajo: Entrenamiento con AI Studio → Sección 2 → Inglés 80 a 134</strong>.</p>
         <a class="secondary-btn" href="index.html">Volver al inicio</a>
       </section>`;
   }
@@ -3797,7 +3797,7 @@
     const q = currentQuestion();
 
     if (!q) {
-      app.innerHTML = `<section class="empty-state ai-empty"><p class="eyebrow">Práctica con AI Studio</p><h2>No se encontraron preguntas para este bloque</h2><p>Vuelve al simulador y selecciona un bloque con preguntas disponibles.</p><a class="primary-btn" href="index.html">Volver al simulador</a></section>`;
+      app.innerHTML = `<section class="empty-state ai-empty"><p class="eyebrow">Entrenamiento con AI Studio</p><h2>No se encontraron preguntas para este bloque</h2><p>Vuelve a ICFES Digital y selecciona un bloque con preguntas disponibles.</p><a class="primary-btn" href="index.html">Volver a ICFES Digital</a></section>`;
       return;
     }
 

@@ -1,7 +1,7 @@
 {
-  "name": "Simulador ICFES Saber 11° - Manuel J. Betancur",
-  "short_name": "ICFES MJB",
-  "description": "Simulador ICFES Saber 11° con Notebook, dashboard e informes para la Institución Educativa Manuel J. Betancur.",
+  "name": "ICFES Digital Saber 11",
+  "short_name": "ICFES Digital",
+  "description": "Prepárate para el ICFES con inteligencia artificial: Notebook, AI Studio, práctica sin tiempo y simulacro.",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",

@@ -151,7 +151,7 @@ function renderNotebook() {
       <div>
         <p class="eyebrow">${NOTEBOOK_INSTITUTION}</p>
         <h2>Preparación guiada para la pregunta ${question.number}</h2>
-        <p>Este espacio acompaña el modo <strong>Práctica con Notebook</strong>. Cada pregunta tiene su propio conjunto de recursos: mapa mental, video, audio, presentación e infografía.</p>
+        <p>Este espacio acompaña el modo <strong>Entrenamiento con Notebook</strong>. Cada pregunta tiene su propio conjunto de recursos: mapa mental, video, audio, presentación e infografía.</p>
       </div>
       <div class="notebook-badge">
         <span>Área</span>

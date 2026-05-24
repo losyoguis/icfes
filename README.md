@@ -1,4 +1,4 @@
-# Simulador ICFES Saber 11 - Institución Educativa Manuel J. Betancur
+# ICFES Digital Saber 11 - Prepárate para el ICFES con inteligencia artificial
 
 Versión actualizada con banco de preguntas incorporado hasta **Inglés 134** y sistema de informes institucionales.
 
@@ -92,9 +92,9 @@ El dashboard tiene doble vía de lectura:
 Se reforzó el envío real de resultados a Google Sheets y al dashboard institucional. El sistema registra primero un resumen liviano confirmado y luego envía el detalle por pregunta en lotes pequeños.
 
 
-## Actualización: Notebook en Práctica con Notebook
+## Actualización: Notebook en Entrenamiento con Notebook
 
-Esta versión agrega una sección formativa visible únicamente cuando el estudiante trabaja en el modo **Práctica con Notebook**. En cada pregunta aparece el bloque **Notebook**, con acceso a cinco recursos de preparación:
+Esta versión agrega una sección formativa visible únicamente cuando el estudiante trabaja en el modo **Entrenamiento con Notebook**. En cada pregunta aparece el bloque **Notebook**, con acceso a cinco recursos de preparación:
 
 1. Mapa mental.
 2. Video guía.
@@ -112,7 +112,7 @@ Esta versión incorpora un rediseño responsive tipo app móvil para el simulado
 
 ## Actualización: Super simuladores AI Studio · Matemáticas S2 P29-P50
 
-Se agregó un súper simulador dinámico e interactivo en `ai-studio-practica.html` para la Sección 2 de Matemáticas, preguntas 29 a 50. Para usarlo: seleccionar `Práctica con AI Studio` en la pantalla inicial y luego elegir el bloque de Matemáticas 29 a 50 de la Sesión 2.
+Se agregó un súper simulador dinámico e interactivo en `ai-studio-practica.html` para la Sección 2 de Matemáticas, preguntas 29 a 50. Para usarlo: seleccionar `Entrenamiento con AI Studio` en la pantalla inicial y luego elegir el bloque de Matemáticas 29 a 50 de la Sesión 2.
 
 ## Actualización AI Studio · Inglés Sección 2
 
