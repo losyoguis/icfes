@@ -61,6 +61,268 @@ const NOTEBOOK_CUSTOM_RESOURCES = {
   }
 };
 
+const NOTEBOOK_SHEETS_CONFIG = {
+  spreadsheetId: "1S1T77UJpP678_-gRLFhJNjeK4YcYIt5twt7X7okqiL8",
+  enabled: true,
+  resourceTypes: [
+    { key: "mindmap", sheetLabel: "Mapa Mental", order: "1", label: "Mapa mental", icon: "🧠" },
+    { key: "video", sheetLabel: "Video", order: "2", label: "Video", icon: "🎬" },
+    { key: "audio", sheetLabel: "Audio", order: "3", label: "Audio", icon: "🎧" },
+    { key: "presentation", sheetLabel: "Presentación", order: "4", label: "Presentación", icon: "📊" },
+    { key: "infographic", sheetLabel: "Infografía", order: "5", label: "Infografía", icon: "🖼️" }
+  ],
+  validAreas: {
+    1: ["Matemáticas", "Lectura Crítica", "Sociales y Ciudadanas", "Ciencias Naturales"],
+    2: ["Sociales y Ciudadanas", "Matemáticas", "Ciencias Naturales", "Inglés"]
+  }
+};
+
+const NOTEBOOK_SHEETS_CACHE = {
+  loaded: false,
+  loading: false,
+  error: null,
+  resources: {},
+  lastLoadedAt: null,
+  promise: null
+};
+
+function normalizeNotebookText(value) {
+  return String(value || "")
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/\s+/g, " ")
+    .trim()
+    .toLowerCase();
+}
+
+function getNotebookCellValue(cell) {
+  if (!cell) return "";
+  const value = cell.f !== undefined && cell.f !== null ? cell.f : cell.v;
+  if (value === undefined || value === null) return "";
+  return String(value).trim();
+}
+
+function isNotebookAreaAllowed(session, area) {
+  const allowed = NOTEBOOK_SHEETS_CONFIG.validAreas[Number(session)] || [];
+  const normalizedArea = normalizeNotebookText(area);
+  return allowed.some(item => normalizeNotebookText(item) === normalizedArea);
+}
+
+function getNotebookAreaFromPrefix(prefix) {
+  return String(prefix || "").replace(/Secci[oó]n\s*\d+\s*-\s*/i, "").trim();
+}
+
+function getNotebookSessionFromPrefix(prefix) {
+  const match = String(prefix || "").match(/Secci[oó]n\s*(\d+)/i);
+  return match ? Number(match[1]) : null;
+}
+
+function extractNotebookIframeSrc(value) {
+  const text = String(value || "").replace(/&amp;/g, "&");
+  const match = text.match(/<iframe[^>]+src=["']([^"']+)["']/i);
+  return match ? match[1].trim() : "";
+}
+
+function extractNotebookFirstUrl(value) {
+  const text = String(value || "").replace(/&amp;/g, "&");
+  const match = text.match(/https?:\/\/[^\s"'<>]+/i);
+  return match ? match[0].replace(/[),.;]+$/g, "") : "";
+}
+
+function toNotebookPreviewUrl(rawUrl) {
+  const url = String(rawUrl || "").trim().replace(/&amp;/g, "&");
+  if (!url) return "";
+
+  const driveFile = url.match(/drive\.google\.com\/file\/d\/([^/]+)/i);
+  if (driveFile) return `https://drive.google.com/file/d/${driveFile[1]}/preview`;
+
+  const publishedSlides = url.match(/docs\.google\.com\/presentation\/d\/e\/([^/]+)/i);
+  if (publishedSlides) {
+    if (/pubembed/i.test(url)) return url;
+    return `https://docs.google.com/presentation/d/e/${publishedSlides[1]}/pubembed?start=false&loop=false&delayms=3000`;
+  }
+
+  const slides = url.match(/docs\.google\.com\/presentation\/d\/([^/]+)/i);
+  if (slides) return `https://docs.google.com/presentation/d/${slides[1]}/embed?start=false&loop=false&delayms=3000`;
+
+  const publishedDoc = url.match(/docs\.google\.com\/document\/d\/e\/([^/]+)/i);
+  if (publishedDoc) return url.includes("embedded=true") ? url : `${url}${url.includes("?") ? "&" : "?"}embedded=true`;
+
+  const doc = url.match(/docs\.google\.com\/document\/d\/([^/]+)/i);
+  if (doc) return `https://docs.google.com/document/d/${doc[1]}/preview`;
+
+  const sheet = url.match(/docs\.google\.com\/spreadsheets\/d\/([^/]+)/i);
+  if (sheet) return `https://docs.google.com/spreadsheets/d/${sheet[1]}/preview`;
+
+  return url;
+}
+
+function buildNotebookEmbedHtml(rawValue) {
+  const src = toNotebookPreviewUrl(extractNotebookIframeSrc(rawValue) || extractNotebookFirstUrl(rawValue));
+  if (!src) return "";
+  return `<iframe src="${escapeHtml(src)}" loading="lazy" allow="autoplay; fullscreen" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>`;
+}
+
+function getNotebookResourceSourceUrl(rawValue) {
+  return extractNotebookIframeSrc(rawValue) || extractNotebookFirstUrl(rawValue) || "";
+}
+
+function buildNotebookSheetResource(session, area, questionNumber, resourceMeta, rawValue, rowInfo = {}) {
+  const embedHtml = buildNotebookEmbedHtml(rawValue);
+  const url = getNotebookResourceSourceUrl(rawValue);
+  return {
+    title: `${resourceMeta.label} · Sección ${session} - ${area} - Pregunta ${questionNumber}`,
+    description: `Recurso importado automáticamente desde el Google Sheets institucional para preparar la pregunta ${questionNumber} de ${area}.`,
+    embedHtml,
+    url,
+    source: "Google Sheets institucional",
+    rawValue,
+    sourceRow: rowInfo.rowNumber || null,
+    updatedAt: rowInfo.timestamp || ""
+  };
+}
+
+function loadNotebookSheetsResources(force = false) {
+  if (!NOTEBOOK_SHEETS_CONFIG.enabled) return Promise.resolve(NOTEBOOK_SHEETS_CACHE.resources);
+  if (NOTEBOOK_SHEETS_CACHE.loaded && !force) return Promise.resolve(NOTEBOOK_SHEETS_CACHE.resources);
+  if (NOTEBOOK_SHEETS_CACHE.loading && NOTEBOOK_SHEETS_CACHE.promise) return NOTEBOOK_SHEETS_CACHE.promise;
+
+  NOTEBOOK_SHEETS_CACHE.loading = true;
+  NOTEBOOK_SHEETS_CACHE.error = null;
+
+  NOTEBOOK_SHEETS_CACHE.promise = new Promise((resolve, reject) => {
+    const callbackName = `notebookSheetsCallback_${Date.now()}_${Math.random().toString(36).slice(2)}`;
+    const script = document.createElement("script");
+    const timeout = window.setTimeout(() => {
+      cleanup();
+      NOTEBOOK_SHEETS_CACHE.loading = false;
+      NOTEBOOK_SHEETS_CACHE.error = "No fue posible cargar el Google Sheets institucional. Revisa permisos de visualización o conexión.";
+      reject(new Error(NOTEBOOK_SHEETS_CACHE.error));
+    }, 14000);
+
+    function cleanup() {
+      window.clearTimeout(timeout);
+      try { delete window[callbackName]; } catch (error) { window[callbackName] = undefined; }
+      if (script.parentNode) script.parentNode.removeChild(script);
+    }
+
+    window[callbackName] = response => {
+      try {
+        const resources = buildNotebookResourcesFromGviz(response);
+        NOTEBOOK_SHEETS_CACHE.resources = resources;
+        NOTEBOOK_SHEETS_CACHE.loaded = true;
+        NOTEBOOK_SHEETS_CACHE.loading = false;
+        NOTEBOOK_SHEETS_CACHE.error = null;
+        NOTEBOOK_SHEETS_CACHE.lastLoadedAt = new Date().toISOString();
+        cleanup();
+        resolve(resources);
+      } catch (error) {
+        cleanup();
+        NOTEBOOK_SHEETS_CACHE.loading = false;
+        NOTEBOOK_SHEETS_CACHE.error = "El Google Sheets se cargó, pero no se pudo interpretar su estructura.";
+        reject(error);
+      }
+    };
+
+    script.onerror = () => {
+      cleanup();
+      NOTEBOOK_SHEETS_CACHE.loading = false;
+      NOTEBOOK_SHEETS_CACHE.error = "No se pudo conectar con el Google Sheets institucional.";
+      reject(new Error(NOTEBOOK_SHEETS_CACHE.error));
+    };
+
+    const base = `https://docs.google.com/spreadsheets/d/${NOTEBOOK_SHEETS_CONFIG.spreadsheetId}/gviz/tq`;
+    const tqx = `out:json;responseHandler:${callbackName}`;
+    script.src = `${base}?tqx=${encodeURIComponent(tqx)}&headers=1&cb=${Date.now()}`;
+    document.head.appendChild(script);
+  });
+
+  return NOTEBOOK_SHEETS_CACHE.promise;
+}
+
+function buildNotebookResourcesFromGviz(response) {
+  const table = response && response.table ? response.table : null;
+  if (!table || !Array.isArray(table.cols) || !Array.isArray(table.rows)) return {};
+
+  const labels = table.cols.map(col => String(col.label || col.id || "").trim());
+  const normalizedLabels = labels.map(label => normalizeNotebookText(label));
+  const resources = {};
+  const numberColumns = labels
+    .map((label, index) => ({ label, index }))
+    .filter(item => /\|\s*N[uú]mero de pregunta/i.test(item.label));
+
+  table.rows.forEach((row, rowIndex) => {
+    const cells = row.c || [];
+    const timestamp = getNotebookCellValue(cells[1]) || getNotebookCellValue(cells[0]);
+
+    numberColumns.forEach(numberColumn => {
+      const prefix = numberColumn.label.split("|")[0].trim();
+      const session = getNotebookSessionFromPrefix(prefix);
+      const area = getNotebookAreaFromPrefix(prefix);
+      const questionNumberRaw = getNotebookCellValue(cells[numberColumn.index]);
+      const questionNumber = Number(String(questionNumberRaw).replace(/[^0-9]/g, ""));
+
+      if (!session || !questionNumber || !isNotebookAreaAllowed(session, area)) return;
+
+      const questionKey = `${session}-${questionNumber}`;
+      if (!resources[questionKey]) resources[questionKey] = {};
+
+      NOTEBOOK_SHEETS_CONFIG.resourceTypes.forEach(resourceMeta => {
+        const expectedLabel = normalizeNotebookText(`${prefix} | ${resourceMeta.order}. ${resourceMeta.sheetLabel}`);
+        let resourceIndex = normalizedLabels.indexOf(expectedLabel);
+        if (resourceIndex < 0) {
+          resourceIndex = labels.findIndex(label => {
+            const normalized = normalizeNotebookText(label);
+            return normalized.startsWith(normalizeNotebookText(`${prefix} |`))
+              && normalized.includes(normalizeNotebookText(resourceMeta.sheetLabel));
+          });
+        }
+        if (resourceIndex < 0) return;
+
+        const rawValue = getNotebookCellValue(cells[resourceIndex]);
+        if (!rawValue) return;
+
+        resources[questionKey][resourceMeta.key] = buildNotebookSheetResource(session, area, questionNumber, resourceMeta, rawValue, {
+          rowNumber: rowIndex + 2,
+          timestamp
+        });
+      });
+    });
+  });
+
+  Object.keys(resources).forEach(key => {
+    if (!Object.keys(resources[key]).length) delete resources[key];
+  });
+
+  return resources;
+}
+
+function renderNotebookSheetsLoadingResource(question, resourceKey) {
+  const resourceMeta = NOTEBOOK_RESOURCE_TYPES.find(item => item.key === resourceKey) || { label: "Recurso", icon: "📌" };
+  return `
+    <article class="notebook-card large notebook-loading-resource">
+      <p class="eyebrow">${escapeHtml(resourceMeta.icon)} ${escapeHtml(resourceMeta.label)} · Google Sheets institucional</p>
+      <h3>Cargando recurso de la pregunta ${escapeHtml(question.number)}</h3>
+      <p>Estamos buscando automáticamente el código embebido en el Sheets institucional. Esto permite que el Notebook se actualice cuando el archivo se actualice.</p>
+      <div class="notebook-loading-bar" aria-hidden="true"><span></span></div>
+    </article>
+  `;
+}
+
+function renderNotebookSheetsMissingResource(question, resourceKey) {
+  const resourceMeta = NOTEBOOK_RESOURCE_TYPES.find(item => item.key === resourceKey) || { label: "Recurso", icon: "📌" };
+  const error = NOTEBOOK_SHEETS_CACHE.error ? `<p class="footer-note">Detalle técnico: ${escapeHtml(NOTEBOOK_SHEETS_CACHE.error)}</p>` : "";
+  return `
+    <article class="notebook-card large notebook-missing-resource">
+      <p class="eyebrow">${escapeHtml(resourceMeta.icon)} ${escapeHtml(resourceMeta.label)} · Pendiente</p>
+      <h3>Aún no hay ${escapeHtml(resourceMeta.label.toLowerCase())} cargado para la pregunta ${escapeHtml(question.number)}</h3>
+      <p>Cuando el Google Sheets institucional tenga el código embed o enlace correspondiente, este espacio lo mostrará automáticamente en el Notebook.</p>
+      ${error}
+    </article>
+  `;
+}
+
+
 let notebookState = {
   question: null,
   activeResource: "mindmap",
@@ -86,6 +348,14 @@ function initNotebook() {
   notebookState.activeResource = NOTEBOOK_RESOURCE_TYPES.some(item => item.key === resource) ? resource : "mindmap";
   configureReturnButtons();
   renderNotebook();
+  loadNotebookSheetsResources()
+    .then(() => {
+      renderNotebookResource();
+    })
+    .catch(error => {
+      console.warn("Notebook Sheets:", error);
+      renderNotebookResource();
+    });
 }
 
 function configureReturnButtons() {
@@ -234,15 +504,24 @@ function renderNotebookResource() {
   const question = notebookState.question;
   const resource = notebookState.activeResource;
   const customResource = getCustomNotebookResource(question, resource);
-  const content = resource === "simulator"
-    ? renderNotebookSimulator(question, customResource)
-    : (customResource ? renderCustomNotebookResource(question, resource, customResource) : ({
+  let content = "";
+  if (resource === "simulator") {
+    content = renderNotebookSimulator(question, customResource);
+  } else if (customResource) {
+    content = renderCustomNotebookResource(question, resource, customResource);
+  } else if (NOTEBOOK_SHEETS_CONFIG.resourceTypes.some(item => item.key === resource)) {
+    content = (NOTEBOOK_SHEETS_CACHE.loaded || NOTEBOOK_SHEETS_CACHE.error)
+      ? renderNotebookSheetsMissingResource(question, resource)
+      : renderNotebookSheetsLoadingResource(question, resource);
+  } else {
+    content = ({
       mindmap: renderMindMap(question),
       video: renderVideoLesson(question),
       audio: renderAudioGuide(question),
       presentation: renderPresentation(question),
       infographic: renderInfographic(question)
-    }[resource] || renderMindMap(question)));
+    }[resource] || renderMindMap(question));
+  }
   panel.innerHTML = content;
   const playBtn = document.getElementById("playAudioGuideBtn");
   if (playBtn) {
@@ -255,6 +534,8 @@ function renderNotebookResource() {
 
 function getCustomNotebookResource(question, resourceKey) {
   const key = `${Number(question.session)}-${Number(question.number)}`;
+  const dynamicResources = NOTEBOOK_SHEETS_CACHE.resources[key];
+  if (dynamicResources && dynamicResources[resourceKey]) return dynamicResources[resourceKey];
   const questionResources = NOTEBOOK_CUSTOM_RESOURCES[key];
   return questionResources ? questionResources[resourceKey] : null;
 }

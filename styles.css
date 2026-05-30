@@ -632,6 +632,7 @@ h3 { font-size: 1.08rem; }
   background: var(--line);
 }
 .legend .answered i { background: var(--accent); }
+.legend .notebook-ready i { background: linear-gradient(135deg, #2563eb, #22d3ee); border: 1px solid rgba(125, 211, 252, 0.8); }
 .legend .marked i { background: var(--warning); }
 .legend .pending i { background: var(--panel-2); border: 1px solid var(--line); }
 .legend .missing i { background: repeating-linear-gradient(45deg, var(--line), var(--line) 3px, transparent 3px, transparent 6px); }
@@ -658,7 +659,38 @@ h3 { font-size: 1.08rem; }
 
 .q-dot.active { outline: 3px solid color-mix(in srgb, var(--primary), transparent 72%); border-color: var(--primary); }
 .q-dot.answered { background: color-mix(in srgb, var(--accent), transparent 82%); border-color: color-mix(in srgb, var(--accent), transparent 45%); }
+.q-dot.notebook-ready {
+  position: relative;
+  background: linear-gradient(135deg, #1d4ed8 0%, #0891b2 58%, #22c55e 100%);
+  border-color: rgba(125, 211, 252, 0.95);
+  color: #ffffff;
+  box-shadow: 0 0 0 1px rgba(125, 211, 252, 0.28), 0 10px 24px rgba(8, 145, 178, 0.2);
+}
+.q-dot.notebook-ready::after {
+  content: "✓";
+  position: absolute;
+  top: 4px;
+  right: 6px;
+  width: 16px;
+  height: 16px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  background: rgba(255, 255, 255, 0.94);
+  color: #065f46;
+  font-size: 0.72rem;
+  font-weight: 1000;
+  line-height: 1;
+}
+.q-dot.notebook-ready.active {
+  outline: 4px solid rgba(251, 191, 36, 0.38);
+  border-color: #fbbf24;
+}
+.q-dot.notebook-ready.answered {
+  box-shadow: inset 0 -5px 0 rgba(52, 211, 153, 0.92), 0 0 0 1px rgba(125, 211, 252, 0.28), 0 10px 24px rgba(8, 145, 178, 0.2);
+}
 .q-dot.marked { box-shadow: inset 0 -4px 0 var(--warning); }
+.q-dot.notebook-ready.marked { box-shadow: inset 0 -5px 0 var(--warning), 0 0 0 1px rgba(125, 211, 252, 0.28), 0 10px 24px rgba(8, 145, 178, 0.2); }
 .q-dot.missing {
   background: repeating-linear-gradient(45deg, var(--panel-2), var(--panel-2) 5px, color-mix(in srgb, var(--line), transparent 30%) 5px, color-mix(in srgb, var(--line), transparent 30%) 10px);
   color: var(--muted);
@@ -9438,5 +9470,440 @@ html[data-theme="dark"] .dashboard-utility-status[data-kind="error"] { color: #f
   .dashboard-download-actions .ghost-btn,
   .dashboard-utility-card .dialog-actions button {
     width: 100%;
+  }
+}
+
+/* Integración dinámica Notebook + Google Sheets institucional */
+.notebook-loading-resource,
+.notebook-missing-resource {
+  border-style: dashed;
+}
+
+.notebook-loading-bar {
+  width: min(420px, 100%);
+  height: 12px;
+  margin-top: 22px;
+  border-radius: 999px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: rgba(148, 163, 184, 0.14);
+}
+
+.notebook-loading-bar span {
+  display: block;
+  width: 38%;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  animation: notebookLoadingMove 1.2s ease-in-out infinite alternate;
+}
+
+@keyframes notebookLoadingMove {
+  from { transform: translateX(0); }
+  to { transform: translateX(165%); }
+}
+
+.notebook-custom-resource .footer-note {
+  margin-top: 14px;
+}
+
+.notebook-custom-resource .notebook-embed-wrap + .secondary-btn,
+.notebook-custom-resource .secondary-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+body[data-theme="dark"] .notebook-embed-wrap {
+  background: #08111f;
+  border-color: rgba(148, 163, 184, 0.34);
+}
+
+body[data-theme="light"] .notebook-embed-wrap {
+  background: #f8fafc;
+  border-color: rgba(15, 23, 42, 0.14);
+}
+
+@media (max-width: 760px) {
+  .notebook-loading-bar {
+    height: 10px;
+  }
+}
+
+/* =========================================================
+   Corrección visual: recursos gráficos de preguntas
+   ---------------------------------------------------------
+   En modo noche los SVG de las preguntas usan currentColor.
+   Si el contenedor es oscuro, algunos trazos se vuelven blancos
+   y pierden contraste sobre fondos claros internos. Este bloque
+   mantiene los diagramas como una hoja clara con tinta oscura,
+   tanto en simulacro como en práctica/Notebook.
+   ========================================================= */
+.question-resource img,
+.question-resource svg,
+.question-resource .chart-card svg,
+.question-resource .venn-svg,
+.question-resource .linechart-svg,
+.question-resource .cake-svg,
+.question-resource .canvas-svg,
+.question-resource .vote-svg,
+.question-resource .transport-svg,
+.question-resource .garden-svg,
+.question-resource .ramp-svg,
+.question-resource .polar-svg,
+.question-resource .diagram-svg,
+.question-resource .wave-svg,
+.question-resource .reaction-chart-svg,
+.question-resource .mismatch-svg,
+.question-resource .trend-svg {
+  background: #f8fafc !important;
+  color: #0f172a !important;
+  border-color: #d9e4f2 !important;
+  opacity: 1 !important;
+  filter: none !important;
+}
+
+.question-resource .chart-card,
+.question-resource .ramp-figure,
+.question-resource .venn-figure,
+.question-resource .cake-figure,
+.question-resource .canvas-figure,
+.question-resource .vote-figure,
+.question-resource .transport-figure,
+.question-resource .garden-figure,
+.question-resource .polar-figure {
+  background: #f8fafc !important;
+  color: #0f172a !important;
+  border-color: #d9e4f2 !important;
+}
+
+.question-resource svg text,
+.question-resource svg tspan,
+.question-resource svg .measure-label,
+.question-resource svg .figure-label,
+.question-resource svg .canvas-label,
+.question-resource svg .garden-label,
+.question-resource svg .transport-label,
+.question-resource svg .transport-number,
+.question-resource svg .cake-num,
+.question-resource svg .polar-label,
+.question-resource svg .polar-axis-label {
+  fill: #0f172a !important;
+  color: #0f172a !important;
+  opacity: 1 !important;
+}
+
+html[data-theme="dark"] .question-resource img,
+html[data-theme="dark"] .question-resource svg,
+html[data-theme="dark"] .question-resource .chart-card svg,
+html[data-theme="dark"] .question-resource .venn-svg,
+html[data-theme="dark"] .question-resource .linechart-svg,
+html[data-theme="dark"] .question-resource .cake-svg,
+html[data-theme="dark"] .question-resource .canvas-svg,
+html[data-theme="dark"] .question-resource .vote-svg,
+html[data-theme="dark"] .question-resource .transport-svg,
+html[data-theme="dark"] .question-resource .garden-svg,
+html[data-theme="dark"] .question-resource .ramp-svg,
+html[data-theme="dark"] .question-resource .polar-svg,
+html[data-theme="dark"] .question-resource .diagram-svg,
+html[data-theme="dark"] .question-resource .wave-svg,
+html[data-theme="dark"] .question-resource .reaction-chart-svg,
+html[data-theme="dark"] .question-resource .mismatch-svg,
+html[data-theme="dark"] .question-resource .trend-svg {
+  background: #f8fafc !important;
+  color: #0f172a !important;
+  border-color: #d9e4f2 !important;
+  opacity: 1 !important;
+  filter: none !important;
+}
+
+html[data-theme="dark"] .question-resource .chart-card,
+html[data-theme="dark"] .question-resource .ramp-figure,
+html[data-theme="dark"] .question-resource .venn-figure,
+html[data-theme="dark"] .question-resource .cake-figure,
+html[data-theme="dark"] .question-resource .canvas-figure,
+html[data-theme="dark"] .question-resource .vote-figure,
+html[data-theme="dark"] .question-resource .transport-figure,
+html[data-theme="dark"] .question-resource .garden-figure,
+html[data-theme="dark"] .question-resource .polar-figure {
+  background: #f8fafc !important;
+  color: #0f172a !important;
+  border-color: #d9e4f2 !important;
+  box-shadow: 0 18px 42px rgba(0, 0, 0, .28) !important;
+}
+
+html[data-theme="dark"] .question-resource svg text,
+html[data-theme="dark"] .question-resource svg tspan,
+html[data-theme="dark"] .question-resource svg .measure-label,
+html[data-theme="dark"] .question-resource svg .figure-label,
+html[data-theme="dark"] .question-resource svg .canvas-label,
+html[data-theme="dark"] .question-resource svg .garden-label,
+html[data-theme="dark"] .question-resource svg .transport-label,
+html[data-theme="dark"] .question-resource svg .transport-number,
+html[data-theme="dark"] .question-resource svg .cake-num,
+html[data-theme="dark"] .question-resource svg .polar-label,
+html[data-theme="dark"] .question-resource svg .polar-axis-label {
+  fill: #0f172a !important;
+  color: #0f172a !important;
+  opacity: 1 !important;
+}
+
+html[data-theme="dark"] .question-resource svg [stroke="currentColor"],
+html[data-theme="dark"] .question-resource svg [fill="currentColor"] {
+  color: #0f172a !important;
+}
+
+html[data-theme="dark"] .question-resource svg marker path,
+html[data-theme="dark"] .question-resource svg path[fill="currentColor"] {
+  fill: #0f172a !important;
+}
+
+html[data-theme="dark"] .question-resource svg line[stroke="currentColor"],
+html[data-theme="dark"] .question-resource svg path[stroke="currentColor"],
+html[data-theme="dark"] .question-resource svg polyline[stroke="currentColor"],
+html[data-theme="dark"] .question-resource svg polygon[stroke="currentColor"],
+html[data-theme="dark"] .question-resource svg rect[stroke="currentColor"] {
+  stroke: #0f172a !important;
+}
+
+/* ==========================================================
+   Modo de trabajo como desplegable obligatorio
+   ========================================================== */
+.mode-select-bar {
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: stretch;
+  overflow: visible;
+}
+
+.mode-select-panel {
+  position: relative;
+  display: grid;
+  gap: 14px;
+  padding: clamp(16px, 2.2vw, 22px);
+  border-radius: calc(var(--radius) - 4px);
+  border: 1px solid color-mix(in srgb, var(--primary), transparent 58%);
+  background:
+    radial-gradient(circle at 14% 18%, color-mix(in srgb, var(--primary), transparent 78%), transparent 34%),
+    radial-gradient(circle at 84% 10%, color-mix(in srgb, var(--accent), transparent 80%), transparent 30%),
+    linear-gradient(135deg, color-mix(in srgb, var(--panel-2), #ffffff 7%), var(--panel));
+  box-shadow: 0 18px 48px rgba(37, 99, 235, 0.12);
+}
+
+.mode-select-panel.needs-mode {
+  border-color: rgba(245, 158, 11, 0.72);
+  box-shadow: 0 0 0 4px rgba(245, 158, 11, 0.13), 0 18px 48px rgba(245, 158, 11, 0.12);
+}
+
+.mode-select-panel.has-mode {
+  border-color: color-mix(in srgb, var(--primary), transparent 35%);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--primary), transparent 86%), 0 18px 48px rgba(16, 185, 129, 0.10);
+}
+
+.mode-select-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.mode-select-head h3 {
+  margin: 2px 0 0;
+  font-size: clamp(1.05rem, 2vw, 1.35rem);
+}
+
+.required-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 12px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #f59e0b, #fbbf24);
+  color: #111827;
+  font-weight: 950;
+  font-size: .78rem;
+  white-space: nowrap;
+  box-shadow: 0 10px 24px rgba(245, 158, 11, .24);
+}
+
+.mode-select-panel.has-mode .required-badge {
+  background: linear-gradient(135deg, #34d399, #2dd4bf);
+  color: #052e16;
+}
+
+.mode-select-wrap {
+  position: relative;
+  display: grid;
+  grid-template-columns: 46px minmax(0, 1fr);
+  align-items: center;
+  gap: 12px;
+}
+
+.mode-select-icon {
+  width: 46px;
+  height: 46px;
+  border-radius: 16px;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, color-mix(in srgb, var(--primary), transparent 25%), color-mix(in srgb, var(--accent), transparent 20%));
+  color: #fff;
+  font-size: 1.2rem;
+  box-shadow: 0 14px 28px rgba(37, 99, 235, .22);
+}
+
+#modeSelect {
+  width: 100%;
+  min-height: 58px;
+  border-radius: 18px;
+  border: 2px solid color-mix(in srgb, var(--primary), transparent 54%);
+  padding: 0 52px 0 18px;
+  background:
+    linear-gradient(135deg, color-mix(in srgb, var(--panel), #ffffff 10%), color-mix(in srgb, var(--panel-2), #ffffff 5%));
+  color: var(--text);
+  font-weight: 950;
+  font-size: clamp(1rem, 1.8vw, 1.15rem);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.18), 0 12px 30px rgba(15, 23, 42, .08);
+  cursor: pointer;
+}
+
+#modeSelect.mode-select-missing {
+  border-color: #f59e0b;
+  animation: modeSelectPulse 1.35s ease-in-out infinite;
+}
+
+@keyframes modeSelectPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(245, 158, 11, .28), 0 12px 30px rgba(15, 23, 42, .08); }
+  50% { box-shadow: 0 0 0 7px rgba(245, 158, 11, .12), 0 12px 30px rgba(15, 23, 42, .08); }
+}
+
+.mode-select-preview {
+  min-height: 64px;
+}
+
+.mode-preview-empty,
+.mode-preview-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 13px 15px;
+  border-radius: 18px;
+  border: 1px solid var(--line);
+  background: color-mix(in srgb, var(--panel-2), transparent 0%);
+}
+
+.mode-preview-empty {
+  color: var(--muted);
+  border-style: dashed;
+}
+
+.mode-preview-empty strong,
+.mode-preview-card strong {
+  display: block;
+  color: var(--text);
+  font-weight: 950;
+}
+
+.mode-preview-empty span,
+.mode-preview-card span:not(.mode-preview-icon) {
+  display: block;
+  color: var(--muted);
+  line-height: 1.35;
+}
+
+.mode-preview-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 15px;
+  display: grid;
+  place-items: center;
+  background: color-mix(in srgb, var(--primary), transparent 82%);
+  flex: 0 0 auto;
+}
+
+.mode-preview-simulacro {
+  border-color: rgba(245, 158, 11, .58);
+  background: linear-gradient(135deg, rgba(245, 158, 11, .16), color-mix(in srgb, var(--panel-2), transparent 0%));
+}
+
+button.disabled-until-mode,
+button:disabled.disabled-until-mode {
+  opacity: .48;
+  cursor: not-allowed;
+  filter: grayscale(.32);
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+html[data-theme="dark"] .mode-select-panel {
+  background:
+    radial-gradient(circle at 14% 18%, rgba(96, 165, 250, .20), transparent 34%),
+    radial-gradient(circle at 84% 10%, rgba(45, 212, 191, .16), transparent 30%),
+    linear-gradient(135deg, rgba(15, 23, 42, .98), rgba(8, 13, 26, .98)) !important;
+  color: #f8fafc !important;
+  border-color: rgba(96, 165, 250, .45) !important;
+}
+
+html[data-theme="dark"] .mode-select-panel.needs-mode {
+  border-color: rgba(251, 191, 36, .78) !important;
+  box-shadow: 0 0 0 4px rgba(251, 191, 36, .12), 0 18px 48px rgba(0,0,0,.28) !important;
+}
+
+html[data-theme="dark"] #modeSelect {
+  background: linear-gradient(135deg, #111827, #0f172a) !important;
+  color: #f8fafc !important;
+  border-color: rgba(147, 197, 253, .52) !important;
+}
+
+html[data-theme="dark"] #modeSelect option {
+  background: #0f172a !important;
+  color: #f8fafc !important;
+}
+
+html[data-theme="dark"] .mode-preview-empty,
+html[data-theme="dark"] .mode-preview-card {
+  background: rgba(17, 24, 39, .92) !important;
+  border-color: rgba(148, 163, 184, .40) !important;
+  color: #e2e8f0 !important;
+}
+
+html[data-theme="dark"] .mode-preview-empty strong,
+html[data-theme="dark"] .mode-preview-card strong {
+  color: #f8fafc !important;
+}
+
+html[data-theme="dark"] .mode-preview-empty span,
+html[data-theme="dark"] .mode-preview-card span:not(.mode-preview-icon) {
+  color: #cbd5e1 !important;
+}
+
+@media (max-width: 900px) {
+  .mode-select-bar {
+    grid-template-columns: 1fr;
+  }
+  .mode-select-bar #resumeBtn {
+    width: 100%;
+  }
+}
+
+@media (max-width: 620px) {
+  .mode-select-panel {
+    padding: 14px;
+  }
+  .mode-select-head {
+    flex-direction: column;
+  }
+  .mode-select-wrap {
+    grid-template-columns: 1fr;
+  }
+  .mode-select-icon {
+    display: none;
+  }
+  #modeSelect {
+    min-height: 54px;
+    padding-left: 14px;
+    font-size: .98rem;
+  }
+  .mode-preview-empty,
+  .mode-preview-card {
+    align-items: flex-start;
   }
 }

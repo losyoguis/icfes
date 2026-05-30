@@ -60,7 +60,7 @@ const dashboardBtn = document.getElementById("dashboardBtn");
 let timerInterval = null;
 let state = {
   screen: "home",
-  mode: "practica",
+  mode: "",
   sessionId: null,
   scope: null,
   navNumbers: [],
@@ -74,6 +74,223 @@ let state = {
   remainingSeconds: 0,
   finished: false
 };
+
+
+
+// Estado de recursos Notebook importados desde Google Sheets para marcar en el panel
+// las preguntas que ya tienen multimedia completa: mapa mental, video, audio, presentación e infografía.
+const NOTEBOOK_PANEL_CONFIG = {
+  spreadsheetId: "1S1T77UJpP678_-gRLFhJNjeK4YcYIt5twt7X7okqiL8",
+  enabled: true,
+  resourceTypes: [
+    { key: "mindmap", sheetLabel: "Mapa Mental", order: "1" },
+    { key: "video", sheetLabel: "Video", order: "2" },
+    { key: "audio", sheetLabel: "Audio", order: "3" },
+    { key: "presentation", sheetLabel: "Presentación", order: "4" },
+    { key: "infographic", sheetLabel: "Infografía", order: "5" }
+  ],
+  validAreas: {
+    1: ["Matemáticas", "Lectura Crítica", "Sociales y Ciudadanas", "Ciencias Naturales"],
+    2: ["Sociales y Ciudadanas", "Matemáticas", "Ciencias Naturales", "Inglés"]
+  }
+};
+
+const NOTEBOOK_PANEL_CACHE = {
+  loaded: false,
+  loading: false,
+  error: null,
+  resources: {
+    // Pregunta modelo ya integrada manualmente en Notebook.
+    "1-1": { mindmap: true, video: true, audio: true, presentation: true, infographic: true }
+  },
+  lastLoadedAt: null,
+  promise: null
+};
+
+function normalizeNotebookPanelText(value) {
+  return String(value || "")
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/\s+/g, " ")
+    .trim()
+    .toLowerCase();
+}
+
+function getNotebookPanelCellValue(cell) {
+  if (!cell) return "";
+  const value = cell.f !== undefined && cell.f !== null ? cell.f : cell.v;
+  if (value === undefined || value === null) return "";
+  return String(value).trim();
+}
+
+function getNotebookPanelSessionFromPrefix(prefix) {
+  const match = String(prefix || "").match(/Secci[oó]n\s*(\d+)/i);
+  return match ? Number(match[1]) : null;
+}
+
+function getNotebookPanelAreaFromPrefix(prefix) {
+  return String(prefix || "").replace(/Secci[oó]n\s*\d+\s*-\s*/i, "").trim();
+}
+
+function isNotebookPanelAreaAllowed(session, area) {
+  const allowed = NOTEBOOK_PANEL_CONFIG.validAreas[Number(session)] || [];
+  const normalizedArea = normalizeNotebookPanelText(area);
+  return allowed.some(item => normalizeNotebookPanelText(item) === normalizedArea);
+}
+
+function loadNotebookPanelResources(force = false) {
+  if (!NOTEBOOK_PANEL_CONFIG.enabled) return Promise.resolve(NOTEBOOK_PANEL_CACHE.resources);
+  if (NOTEBOOK_PANEL_CACHE.loaded && !force) return Promise.resolve(NOTEBOOK_PANEL_CACHE.resources);
+  if (NOTEBOOK_PANEL_CACHE.loading && NOTEBOOK_PANEL_CACHE.promise) return NOTEBOOK_PANEL_CACHE.promise;
+
+  NOTEBOOK_PANEL_CACHE.loading = true;
+  NOTEBOOK_PANEL_CACHE.error = null;
+
+  NOTEBOOK_PANEL_CACHE.promise = new Promise((resolve, reject) => {
+    const callbackName = `notebookPanelCallback_${Date.now()}_${Math.random().toString(36).slice(2)}`;
+    const script = document.createElement("script");
+    const timeout = window.setTimeout(() => {
+      cleanup();
+      NOTEBOOK_PANEL_CACHE.loading = false;
+      NOTEBOOK_PANEL_CACHE.error = "No fue posible cargar el Google Sheets institucional para marcar Notebook completo.";
+      reject(new Error(NOTEBOOK_PANEL_CACHE.error));
+    }, 14000);
+
+    function cleanup() {
+      window.clearTimeout(timeout);
+      try { delete window[callbackName]; } catch (error) { window[callbackName] = undefined; }
+      if (script.parentNode) script.parentNode.removeChild(script);
+    }
+
+    window[callbackName] = response => {
+      try {
+        const dynamicResources = buildNotebookPanelResourcesFromGviz(response);
+        NOTEBOOK_PANEL_CACHE.resources = {
+          ...NOTEBOOK_PANEL_CACHE.resources,
+          ...dynamicResources
+        };
+        NOTEBOOK_PANEL_CACHE.loaded = true;
+        NOTEBOOK_PANEL_CACHE.loading = false;
+        NOTEBOOK_PANEL_CACHE.error = null;
+        NOTEBOOK_PANEL_CACHE.lastLoadedAt = new Date().toISOString();
+        cleanup();
+        resolve(NOTEBOOK_PANEL_CACHE.resources);
+      } catch (error) {
+        cleanup();
+        NOTEBOOK_PANEL_CACHE.loading = false;
+        NOTEBOOK_PANEL_CACHE.error = "El Sheets cargó, pero no se pudo interpretar para el panel Notebook.";
+        reject(error);
+      }
+    };
+
+    script.onerror = () => {
+      cleanup();
+      NOTEBOOK_PANEL_CACHE.loading = false;
+      NOTEBOOK_PANEL_CACHE.error = "No se pudo conectar con el Google Sheets institucional para el panel Notebook.";
+      reject(new Error(NOTEBOOK_PANEL_CACHE.error));
+    };
+
+    const base = `https://docs.google.com/spreadsheets/d/${NOTEBOOK_PANEL_CONFIG.spreadsheetId}/gviz/tq`;
+    const tqx = `out:json;responseHandler:${callbackName}`;
+    script.src = `${base}?tqx=${encodeURIComponent(tqx)}&headers=1&cb=${Date.now()}`;
+    document.head.appendChild(script);
+  });
+
+  return NOTEBOOK_PANEL_CACHE.promise;
+}
+
+function buildNotebookPanelResourcesFromGviz(response) {
+  const table = response && response.table ? response.table : null;
+  if (!table || !Array.isArray(table.cols) || !Array.isArray(table.rows)) return {};
+
+  const labels = table.cols.map(col => String(col.label || col.id || "").trim());
+  const normalizedLabels = labels.map(label => normalizeNotebookPanelText(label));
+  const resources = {};
+  const numberColumns = labels
+    .map((label, index) => ({ label, index }))
+    .filter(item => /\|\s*N[uú]mero de pregunta/i.test(item.label));
+
+  table.rows.forEach(row => {
+    const cells = row.c || [];
+
+    numberColumns.forEach(numberColumn => {
+      const prefix = numberColumn.label.split("|")[0].trim();
+      const session = getNotebookPanelSessionFromPrefix(prefix);
+      const area = getNotebookPanelAreaFromPrefix(prefix);
+      const questionNumberRaw = getNotebookPanelCellValue(cells[numberColumn.index]);
+      const questionNumber = Number(String(questionNumberRaw).replace(/[^0-9]/g, ""));
+
+      if (!session || !questionNumber || !isNotebookPanelAreaAllowed(session, area)) return;
+
+      const questionKey = `${session}-${questionNumber}`;
+      if (!resources[questionKey]) resources[questionKey] = {};
+
+      NOTEBOOK_PANEL_CONFIG.resourceTypes.forEach(resourceMeta => {
+        const expectedLabel = normalizeNotebookPanelText(`${prefix} | ${resourceMeta.order}. ${resourceMeta.sheetLabel}`);
+        let resourceIndex = normalizedLabels.indexOf(expectedLabel);
+        if (resourceIndex < 0) {
+          resourceIndex = labels.findIndex(label => {
+            const normalized = normalizeNotebookPanelText(label);
+            return normalized.startsWith(normalizeNotebookPanelText(`${prefix} |`))
+              && normalized.includes(normalizeNotebookPanelText(resourceMeta.sheetLabel));
+          });
+        }
+        if (resourceIndex < 0) return;
+
+        const rawValue = getNotebookPanelCellValue(cells[resourceIndex]);
+        if (!rawValue) return;
+        resources[questionKey][resourceMeta.key] = true;
+      });
+    });
+  });
+
+  Object.keys(resources).forEach(key => {
+    if (!Object.keys(resources[key]).length) delete resources[key];
+  });
+
+  return resources;
+}
+
+function ensureNotebookPanelResources() {
+  if (state.mode !== "practica") return;
+  loadNotebookPanelResources()
+    .then(() => updateNotebookPanelGridStatus())
+    .catch(error => {
+      console.warn("Notebook panel Sheets:", error);
+      updateNotebookPanelGridStatus();
+    });
+}
+
+function getNotebookPanelResourceCount(sessionId, questionNumber) {
+  const key = `${Number(sessionId)}-${Number(questionNumber)}`;
+  const resources = NOTEBOOK_PANEL_CACHE.resources[key] || {};
+  return NOTEBOOK_PANEL_CONFIG.resourceTypes.filter(item => Boolean(resources[item.key])).length;
+}
+
+function hasNotebookPanelComplete(sessionId, questionNumber) {
+  return getNotebookPanelResourceCount(sessionId, questionNumber) >= NOTEBOOK_PANEL_CONFIG.resourceTypes.length;
+}
+
+function getNotebookPanelStatusLabel(sessionId, questionNumber) {
+  const count = getNotebookPanelResourceCount(sessionId, questionNumber);
+  if (count >= NOTEBOOK_PANEL_CONFIG.resourceTypes.length) return "Notebook completo: mapa mental, video, audio, presentación e infografía.";
+  if (count > 0) return `Notebook parcial: ${count} de ${NOTEBOOK_PANEL_CONFIG.resourceTypes.length} recursos multimedia.`;
+  if (NOTEBOOK_PANEL_CACHE.loading) return "Consultando recursos Notebook en el Sheets institucional.";
+  return "Notebook pendiente de multimedia completa.";
+}
+
+function updateNotebookPanelGridStatus() {
+  if (state.screen !== "exam" || state.mode !== "practica") return;
+  const grid = document.getElementById("questionGrid");
+  if (!grid) return;
+  grid.querySelectorAll("button[data-number]").forEach(button => {
+    const number = Number(button.dataset.number);
+    const complete = hasNotebookPanelComplete(state.sessionId, number);
+    button.classList.toggle("notebook-ready", complete);
+    button.title = getNotebookPanelStatusLabel(state.sessionId, number);
+    button.setAttribute("aria-label", `Pregunta ${number}. ${getNotebookPanelStatusLabel(state.sessionId, number)}`);
+  });
+}
 
 function storageGet(key, fallback = null) {
   try {
@@ -290,7 +507,7 @@ function performLogout() {
   storageRemove(SUBMISSION_KEY);
   state = {
     screen: "access",
-    mode: "practica",
+    mode: "",
     sessionId: null,
     scope: null,
     navNumbers: [],
@@ -622,18 +839,28 @@ function renderAccess(pendingScope = null) {
               <span>Grupo</span>
               <select id="studentGroup" required>
                 <option value="">Selecciona el grupo</option>
+                <option value="9-1" ${currentGroup === "9-1" ? "selected" : ""}>9-1</option>
+                <option value="9-2" ${currentGroup === "9-2" ? "selected" : ""}>9-2</option>
+                <option value="9-3" ${currentGroup === "9-3" ? "selected" : ""}>9-3</option>
+                <option value="9-4" ${currentGroup === "9-4" ? "selected" : ""}>9-4</option>
+                <option value="10-1" ${currentGroup === "10-1" ? "selected" : ""}>10-1</option>
+                <option value="10-2" ${currentGroup === "10-2" ? "selected" : ""}>10-2</option>
+                <option value="10-3" ${currentGroup === "10-3" ? "selected" : ""}>10-3</option>
+                <option value="10-4" ${currentGroup === "10-4" ? "selected" : ""}>10-4</option>
                 <option value="11-1" ${currentGroup === "11-1" ? "selected" : ""}>11-1</option>
                 <option value="11-2" ${currentGroup === "11-2" ? "selected" : ""}>11-2</option>
                 <option value="11-3" ${currentGroup === "11-3" ? "selected" : ""}>11-3</option>
+                <option value="Profesor" ${currentGroup === "Profesor" ? "selected" : ""}>Profesor</option>
+                <option value="Invitado" ${currentGroup === "Invitado" ? "selected" : ""}>Invitado</option>
               </select>
             </label>
             <label class="field field-wide">
               <span>Correo electrónico del estudiante</span>
-              <input id="studentEmail" type="email" autocomplete="email" required maxlength="140" placeholder="Ejemplo: estudiante@correo.com" value="${escapeAttr(currentEmail)}" />
+              <input id="studentEmail" type="email" autocomplete="email" required maxlength="140" placeholder="Ejemplo: estudiante@iemanueljbetancur.edu.co" value="${escapeAttr(currentEmail)}" />
             </label>
             <label class="field field-wide">
               <span>Confirmar correo electrónico</span>
-              <input id="studentEmailConfirm" type="email" autocomplete="email" required maxlength="140" placeholder="Vuelve a escribir el correo del estudiante" value="${escapeAttr(currentEmail)}" />
+              <input id="studentEmailConfirm" type="email" autocomplete="email" required maxlength="140" placeholder="Confirma el correo @iemanueljbetancur.edu.co" value="${escapeAttr(currentEmail)}" />
             </label>
           </div>
           <div class="form-error" id="studentFormError" aria-live="polite"></div>
@@ -659,7 +886,7 @@ function renderAccess(pendingScope = null) {
     }
 
     if (!group) {
-      error.textContent = "Por favor, selecciona el grupo: 11-1, 11-2 o 11-3.";
+      error.textContent = "Por favor, selecciona un grupo: 9-1, 9-2, 9-3, 9-4, 10-1, 10-2, 10-3, 10-4, 11-1, 11-2, 11-3, Profesor o Invitado.";
       return;
     }
 
@@ -689,8 +916,13 @@ function normalizeNameInput(value) {
 }
 
 function normalizeGroupInput(value) {
-  const group = String(value || "").replace(/\s+/g, "").trim();
-  return ["11-1", "11-2", "11-3"].includes(group) ? group : "";
+  const raw = String(value || "").replace(/\s+/g, "").trim();
+  const normalized = raw.toLowerCase();
+  const allowed = ["9-1", "9-2", "9-3", "9-4", "10-1", "10-2", "10-3", "10-4", "11-1", "11-2", "11-3"];
+  if (allowed.includes(normalized)) return normalized;
+  if (normalized === "profesor") return "Profesor";
+  if (normalized === "invitado") return "Invitado";
+  return "";
 }
 
 function normalizeEmailInput(value) {
@@ -770,14 +1002,27 @@ function renderHome() {
       </div>
     </section>
 
-    <section class="config-bar" aria-label="Configuración del simulador">
-      <div>
-        <p class="eyebrow">Modo de trabajo</p>
-        <div class="mode-control ordered-mode-control">
-          <label class="mode-option"><input type="radio" name="mode" value="practica" ${state.mode === "practica" ? "checked" : ""}> <span class="mode-number">1</span> Entrenamiento con Notebook</label>
-          <label class="mode-option ai-studio-mode"><input type="radio" name="mode" value="ai-studio" ${state.mode === "ai-studio" ? "checked" : ""}> <span class="mode-number">2</span> Entrenamiento con AI Studio</label>
-          <label class="mode-option"><input type="radio" name="mode" value="entrenamiento" ${state.mode === "entrenamiento" ? "checked" : ""}> <span class="mode-number">3</span> Práctica sin tiempo</label>
-          <label class="mode-option simulacro-highlight"><input type="radio" name="mode" value="simulacro" ${state.mode === "simulacro" ? "checked" : ""}> <span class="mode-number">4</span> SIMULACRO</label>
+    <section class="config-bar mode-select-bar" aria-label="Configuración del simulador">
+      <div class="mode-select-panel ${state.mode ? "has-mode" : "needs-mode"}">
+        <div class="mode-select-head">
+          <div>
+            <p class="eyebrow">Modo de trabajo obligatorio</p>
+            <h3>Selecciona cómo quieres entrenar</h3>
+          </div>
+          <span class="required-badge">Requerido</span>
+        </div>
+        <label class="mode-select-wrap" for="modeSelect">
+          <span class="mode-select-icon">🚀</span>
+          <select id="modeSelect" name="mode" required aria-label="Selecciona el modo de trabajo">
+            <option value="" ${!state.mode ? "selected" : ""} disabled>Elige un modo de trabajo antes de iniciar</option>
+            <option value="practica" ${state.mode === "practica" ? "selected" : ""}>1. Entrenamiento con Notebook</option>
+            <option value="ai-studio" ${state.mode === "ai-studio" ? "selected" : ""}>2. Entrenamiento con AI Studio</option>
+            <option value="entrenamiento" ${state.mode === "entrenamiento" ? "selected" : ""}>3. Práctica sin tiempo</option>
+            <option value="simulacro" ${state.mode === "simulacro" ? "selected" : ""}>4. SIMULACRO — recomendado para medir desempeño</option>
+          </select>
+        </label>
+        <div class="mode-select-preview" id="modeSelectPreview">
+          ${renderModeSelectPreview(state.mode)}
         </div>
       </div>
       <button class="secondary-btn" id="resumeBtn" type="button">Continuar intento guardado</button>
@@ -787,11 +1032,14 @@ function renderHome() {
     <section class="session-grid" id="sessionGrid"></section>
   `;
 
-  document.querySelectorAll('input[name="mode"]').forEach(input => {
-    input.addEventListener("change", event => {
+  const modeSelect = document.getElementById("modeSelect");
+  if (modeSelect) {
+    modeSelect.addEventListener("change", event => {
       state.mode = event.target.value;
+      updateModeSelectUi();
     });
-  });
+  }
+  updateModeSelectUi();
 
   document.getElementById("changeStudentBtn").addEventListener("click", () => {
     openActionDialog({
@@ -807,6 +1055,86 @@ function renderHome() {
   document.getElementById("resumeBtn").addEventListener("click", resumeSavedAttempt);
   renderSessionCards();
   app.focus();
+}
+
+function renderModeSelectPreview(mode) {
+  const data = {
+    "practica": {
+      icon: "📒",
+      title: "Entrenamiento con Notebook",
+      text: "Explora recursos multimedia, mapa mental, video, audio, presentación e infografía antes de responder."
+    },
+    "ai-studio": {
+      icon: "🤖",
+      title: "Entrenamiento con AI Studio",
+      text: "Practica con simuladores dinámicos, pistas, laboratorios y retroalimentación interactiva."
+    },
+    "entrenamiento": {
+      icon: "🧭",
+      title: "Práctica sin tiempo",
+      text: "Resuelve preguntas con calma, sin cronómetro, para fortalecer comprensión y estrategia."
+    },
+    "simulacro": {
+      icon: "🏁",
+      title: "SIMULACRO",
+      text: "Modo recomendado para medir desempeño con tiempo y condiciones más cercanas a la prueba."
+    }
+  }[mode];
+
+  if (!data) {
+    return `
+      <div class="mode-preview-empty">
+        <strong>Primero selecciona un modo.</strong>
+        <span>Después podrás iniciar una sesión completa o elegir un bloque específico.</span>
+      </div>
+    `;
+  }
+
+  return `
+    <div class="mode-preview-card ${mode === "simulacro" ? "mode-preview-simulacro" : ""}">
+      <span class="mode-preview-icon">${data.icon}</span>
+      <div>
+        <strong>${data.title}</strong>
+        <span>${data.text}</span>
+      </div>
+    </div>
+  `;
+}
+
+function updateModeSelectUi() {
+  const panel = document.querySelector(".mode-select-panel");
+  const preview = document.getElementById("modeSelectPreview");
+  const modeSelect = document.getElementById("modeSelect");
+  const hasMode = Boolean(state.mode);
+
+  if (panel) {
+    panel.classList.toggle("has-mode", hasMode);
+    panel.classList.toggle("needs-mode", !hasMode);
+  }
+  if (preview) preview.innerHTML = renderModeSelectPreview(state.mode);
+  if (modeSelect) modeSelect.classList.toggle("mode-select-missing", !hasMode);
+  document.querySelectorAll('[data-action="session"], [data-action="area"]').forEach(button => {
+    button.disabled = !hasMode;
+    button.classList.toggle("disabled-until-mode", !hasMode);
+    button.title = hasMode ? "" : "Selecciona primero un modo de trabajo";
+  });
+}
+
+function ensureModeSelected() {
+  if (state.mode) return true;
+  const modeSelect = document.getElementById("modeSelect");
+  updateModeSelectUi();
+  if (modeSelect) {
+    modeSelect.focus({ preventScroll: true });
+    modeSelect.scrollIntoView({ behavior: "smooth", block: "center" });
+  }
+  openActionDialog({
+    title: "Selecciona un modo de trabajo",
+    message: "Antes de iniciar una sesión o elegir un bloque, debes seleccionar cómo quieres trabajar: Notebook, AI Studio, práctica sin tiempo o SIMULACRO.",
+    confirmText: "Entendido",
+    cancelText: "Cerrar"
+  });
+  return false;
 }
 
 function renderSessionCards() {
@@ -857,6 +1185,7 @@ function renderSessionCards() {
     button.addEventListener("click", event => {
       const action = event.currentTarget.dataset.action;
       const sessionId = Number(event.currentTarget.dataset.session);
+      if (!ensureModeSelected()) return;
       if (action === "session") startScope({ sessionId, type: "session" });
       if (action === "area") {
         startScope({
@@ -869,6 +1198,7 @@ function renderSessionCards() {
       }
     });
   });
+  updateModeSelectUi();
 }
 
 function showStructure(sessionId) {
@@ -911,13 +1241,14 @@ function showStructure(sessionId) {
     </section>
   `;
 
-  document.getElementById("startFromStructure").addEventListener("click", () => startScope({ sessionId, type: "session" }));
+  document.getElementById("startFromStructure").addEventListener("click", () => { if (ensureModeSelected()) startScope({ sessionId, type: "session" }); });
   document.getElementById("backHome").addEventListener("click", renderHome);
   homeBtn.classList.remove("hidden");
   updateHeaderSessionButtons();
 }
 
 function startScope(scope) {
+  if (!ensureModeSelected()) return;
   if (!hasValidStudent()) {
     renderAccess(scope);
     return;
@@ -1027,6 +1358,7 @@ function renderExam({ scrollToTimer = false } = {}) {
       <aside class="exam-side" aria-label="Navegación de preguntas">
         <h3 class="side-title">Panel de preguntas</h3>
         <div class="legend">
+          ${state.mode === "practica" ? `<span class="notebook-ready"><i></i>Notebook completo</span>` : ""}
           <span class="answered"><i></i>Respondida</span>
           <span class="marked"><i></i>Marcada para revisar</span>
           <span class="pending"><i></i>Pendiente</span>
@@ -1040,6 +1372,7 @@ function renderExam({ scrollToTimer = false } = {}) {
 
   renderQuestion(question);
   renderQuestionGrid();
+  if (state.mode === "practica") ensureNotebookPanelResources();
   if (scrollToTimer) scrollToTimerBox();
   else app.focus();
 }
@@ -1237,10 +1570,13 @@ function renderQuestionGrid() {
     const key = getAnswerKey(number);
     const classes = ["q-dot"];
     if (!question) classes.push("missing");
+    if (question && state.mode === "practica" && hasNotebookPanelComplete(state.sessionId, number)) classes.push("notebook-ready");
     if (number === state.currentNumber) classes.push("active");
     if (state.answers[key]) classes.push("answered");
     if (state.marked[key]) classes.push("marked");
-    return `<button class="${classes.join(" ")}" type="button" data-number="${number}" ${question ? "" : "disabled"}>${number}</button>`;
+    const notebookStatus = question && state.mode === "practica" ? getNotebookPanelStatusLabel(state.sessionId, number) : "";
+    const ariaLabel = question ? `Pregunta ${number}${notebookStatus ? `. ${notebookStatus}` : ""}` : `Pregunta ${number}. No disponible todavía`;
+    return `<button class="${classes.join(" ")}" type="button" data-number="${number}" title="${escapeAttr(notebookStatus || ariaLabel)}" aria-label="${escapeAttr(ariaLabel)}" ${question ? "" : "disabled"}>${number}</button>`;
   }).join("");
 
   grid.querySelectorAll("button:not(:disabled)").forEach(button => {
@@ -1548,6 +1884,7 @@ function formatSeconds(totalSeconds) {
 }
 
 function getModeLabel(mode) {
+  if (!mode) return "Modo no seleccionado";
   return {
     simulacro: "Simulacro",
     practica: "Entrenamiento con Notebook",
