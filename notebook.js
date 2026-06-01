@@ -74,7 +74,10 @@ const NOTEBOOK_SHEETS_CONFIG = {
   validAreas: {
     1: ["Matemáticas", "Lectura Crítica", "Sociales y Ciudadanas", "Ciencias Naturales"],
     2: ["Sociales y Ciudadanas", "Matemáticas", "Ciencias Naturales", "Inglés"]
-  }
+  },
+  // Punto de continuidad: este módulo consulta el Sheets institucional cada vez que se abre Notebook.
+  // Si mañana el Sheets cambia, no hay que reescribir las preguntas: se vuelve a cargar por sección, área y número.
+  currentFocus: "Sección 1 y 2 · recursos 1 a 5: mapa mental, video, audio, presentación e infografía"
 };
 
 const NOTEBOOK_SHEETS_CACHE = {
@@ -197,6 +200,7 @@ function loadNotebookSheetsResources(force = false) {
       cleanup();
       NOTEBOOK_SHEETS_CACHE.loading = false;
       NOTEBOOK_SHEETS_CACHE.error = "No fue posible cargar el Google Sheets institucional. Revisa permisos de visualización o conexión.";
+      updateNotebookSheetStatus();
       reject(new Error(NOTEBOOK_SHEETS_CACHE.error));
     }, 14000);
 
@@ -215,6 +219,7 @@ function loadNotebookSheetsResources(force = false) {
         NOTEBOOK_SHEETS_CACHE.error = null;
         NOTEBOOK_SHEETS_CACHE.lastLoadedAt = new Date().toISOString();
         cleanup();
+        updateNotebookSheetStatus();
         resolve(resources);
       } catch (error) {
         cleanup();
@@ -480,6 +485,8 @@ function renderNotebook() {
       ${resourceTabs}
     </section>
 
+    <section id="notebookSheetStatus" class="notebook-sheet-status" aria-live="polite"></section>
+
     <section id="notebookResource" class="notebook-resource-panel"></section>
   `;
 
@@ -495,7 +502,60 @@ function renderNotebook() {
   });
 
   renderNotebookResource();
+  updateNotebookSheetStatus();
+  const refreshBtn = document.getElementById("refreshNotebookSheetsBtn");
+  if (refreshBtn) {
+    refreshBtn.addEventListener("click", () => {
+      NOTEBOOK_SHEETS_CACHE.loaded = false;
+      NOTEBOOK_SHEETS_CACHE.promise = null;
+      renderNotebookResource();
+      updateNotebookSheetStatus();
+      loadNotebookSheetsResources(true)
+        .then(() => {
+          renderNotebookResource();
+          updateNotebookSheetStatus();
+        })
+        .catch(() => {
+          renderNotebookResource();
+          updateNotebookSheetStatus();
+        });
+    });
+  }
   NOTEBOOK_APP.focus();
+}
+
+function getNotebookResourceCountForQuestion(question) {
+  if (!question) return 0;
+  const key = `${Number(question.session)}-${Number(question.number)}`;
+  const resources = NOTEBOOK_SHEETS_CACHE.resources[key] || NOTEBOOK_CUSTOM_RESOURCES[key] || {};
+  return NOTEBOOK_SHEETS_CONFIG.resourceTypes.filter(item => Boolean(resources[item.key])).length;
+}
+
+function updateNotebookSheetStatus() {
+  const status = document.getElementById("notebookSheetStatus");
+  if (!status || !notebookState.question) return;
+  const count = getNotebookResourceCountForQuestion(notebookState.question);
+  const total = NOTEBOOK_SHEETS_CONFIG.resourceTypes.length;
+  const loadedText = NOTEBOOK_SHEETS_CACHE.loading
+    ? "Consultando Google Sheets institucional…"
+    : NOTEBOOK_SHEETS_CACHE.error
+      ? NOTEBOOK_SHEETS_CACHE.error
+      : count >= total
+        ? "Notebook completo importado desde Sheets."
+        : `Notebook parcial: ${count} de ${total} recursos multimedia.`;
+  const timeText = NOTEBOOK_SHEETS_CACHE.lastLoadedAt
+    ? `Última lectura: ${new Date(NOTEBOOK_SHEETS_CACHE.lastLoadedAt).toLocaleString("es-CO")}`
+    : "Lectura automática al abrir este Notebook.";
+  status.innerHTML = `
+    <div>
+      <strong>${escapeHtml(loadedText)}</strong>
+      <span>${escapeHtml(timeText)}</span>
+    </div>
+    <button class="secondary-btn small-btn" type="button" id="refreshNotebookSheetsBtn">Actualizar desde Sheets</button>
+  `;
+  status.classList.toggle("complete", count >= total);
+  status.classList.toggle("loading", NOTEBOOK_SHEETS_CACHE.loading);
+  status.classList.toggle("error", Boolean(NOTEBOOK_SHEETS_CACHE.error));
 }
 
 function renderNotebookResource() {
@@ -550,6 +610,9 @@ function renderCustomNotebookResource(question, resourceKey, resource) {
   const link = resource.url ? `
     <a class="secondary-btn" href="${escapeHtml(resource.url)}" target="_blank" rel="noopener">Abrir recurso en una pestaña nueva</a>
   ` : "";
+  const sheetMeta = resource.sourceRow || resource.updatedAt ? `
+    <p class="footer-note notebook-source-note">Fuente: ${escapeHtml(resource.source || "Google Sheets institucional")}${resource.sourceRow ? ` · Fila ${escapeHtml(resource.sourceRow)}` : ""}${resource.updatedAt ? ` · Registro ${escapeHtml(resource.updatedAt)}` : ""}</p>
+  ` : "";
   return `
     <article class="notebook-card large notebook-custom-resource">
       <p class="eyebrow">${escapeHtml(resourceMeta.icon)} ${escapeHtml(resourceMeta.label)} · Recurso individual</p>
@@ -557,7 +620,7 @@ function renderCustomNotebookResource(question, resourceKey, resource) {
       <p>${escapeHtml(resource.description || "Material multimedia cargado específicamente para esta pregunta.")}</p>
       ${embed}
       ${link}
-      <p class="footer-note">Este recurso pertenece únicamente a la Sección ${escapeHtml(question.session)} · Pregunta ${escapeHtml(question.number)}.</p>
+      ${sheetMeta || `<p class="footer-note">Este recurso pertenece únicamente a la Sección ${escapeHtml(question.session)} · Pregunta ${escapeHtml(question.number)}.</p>`}
     </article>
   `;
 }

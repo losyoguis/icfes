@@ -47,7 +47,7 @@ const REPORT_MJB_FORM_URL = "https://docs.google.com/forms/d/1Q-jAP50dzVLYEmuhgE
 const INSTITUTION_NAME = "Institución Educativa Manuel J. Betancur";
 const INSTITUTION_SHORT_NAME = "I.E. Manuel J. Betancur";
 const REPORT_AUTOSEND_ON_FINISH = true;
-const REPORT_APP_VERSION = "ICFES-DIGITAL-SABER-11-IA-v14";
+const REPORT_APP_VERSION = "ICFES-DIGITAL-SABER-11-IA-v15-notebook-sheets";
 
 const app = document.getElementById("app");
 const homeBtn = document.getElementById("homeBtn");
@@ -282,14 +282,47 @@ function getNotebookPanelStatusLabel(sessionId, questionNumber) {
 function updateNotebookPanelGridStatus() {
   if (state.screen !== "exam" || state.mode !== "practica") return;
   const grid = document.getElementById("questionGrid");
-  if (!grid) return;
-  grid.querySelectorAll("button[data-number]").forEach(button => {
-    const number = Number(button.dataset.number);
-    const complete = hasNotebookPanelComplete(state.sessionId, number);
-    button.classList.toggle("notebook-ready", complete);
-    button.title = getNotebookPanelStatusLabel(state.sessionId, number);
-    button.setAttribute("aria-label", `Pregunta ${number}. ${getNotebookPanelStatusLabel(state.sessionId, number)}`);
+  if (grid) {
+    grid.querySelectorAll("button[data-number]").forEach(button => {
+      const number = Number(button.dataset.number);
+      const complete = hasNotebookPanelComplete(state.sessionId, number);
+      const count = getNotebookPanelResourceCount(state.sessionId, number);
+      button.classList.toggle("notebook-ready", complete);
+      button.classList.toggle("notebook-partial", count > 0 && !complete);
+      button.title = getNotebookPanelStatusLabel(state.sessionId, number);
+      button.setAttribute("aria-label", `Pregunta ${number}. ${getNotebookPanelStatusLabel(state.sessionId, number)}`);
+    });
+  }
+  updateNotebookMiniCardStatus();
+}
+
+function updateNotebookMiniCardStatus() {
+  const question = getQuestion(state.sessionId, state.currentNumber);
+  if (!question || state.mode !== "practica") return;
+  const resources = NOTEBOOK_PANEL_CACHE.resources[`${Number(question.session)}-${Number(question.number)}`] || {};
+  document.querySelectorAll(".notebook-mini-card[data-resource]").forEach(card => {
+    const key = card.dataset.resource;
+    if (key === "simulator") return;
+    const ready = Boolean(resources[key]);
+    card.classList.toggle("resource-ready", ready);
+    card.classList.toggle("resource-pending", !ready && NOTEBOOK_PANEL_CACHE.loaded);
+    const status = card.querySelector(".notebook-mini-status");
+    if (status) {
+      if (ready) status.textContent = "Disponible desde Sheets";
+      else if (NOTEBOOK_PANEL_CACHE.loading) status.textContent = "Consultando Sheets";
+      else status.textContent = "Pendiente en Sheets";
+    }
   });
+  const summary = document.getElementById("notebookInlineStatus");
+  if (summary) {
+    const count = getNotebookPanelResourceCount(question.session, question.number);
+    summary.textContent = count >= NOTEBOOK_PANEL_CONFIG.resourceTypes.length
+      ? "Notebook completo: 5 recursos multimedia listos."
+      : NOTEBOOK_PANEL_CACHE.loading
+        ? "Consultando recursos multimedia en el Sheets institucional…"
+        : `Notebook parcial: ${count} de ${NOTEBOOK_PANEL_CONFIG.resourceTypes.length} recursos multimedia.`;
+    summary.classList.toggle("complete", count >= NOTEBOOK_PANEL_CONFIG.resourceTypes.length);
+  }
 }
 
 function storageGet(key, fallback = null) {
@@ -1525,14 +1558,27 @@ function renderPracticeNotebookSection(question) {
         </div>
         <a class="secondary-btn notebook-main-link" href="${baseUrl}" data-notebook-link="true">Abrir notebook completo</a>
       </div>
+      <p id="notebookInlineStatus" class="notebook-inline-status">${getNotebookPanelStatusLabel(question.session, question.number)}</p>
       <div class="notebook-resource-grid">
-        ${tools.map(tool => `
-          <a class="notebook-mini-card" href="${baseUrl}&resource=${encodeURIComponent(tool.key)}" data-notebook-link="true">
-            <span class="notebook-mini-card__icon">${tool.icon}</span>
-            <strong>${tool.label}</strong>
-            <small>${tool.text}</small>
-          </a>
-        `).join("")}
+        ${tools.map(tool => {
+          const resources = NOTEBOOK_PANEL_CACHE.resources[`${Number(question.session)}-${Number(question.number)}`] || {};
+          const ready = tool.key === "simulator" || Boolean(resources[tool.key]);
+          const statusText = tool.key === "simulator"
+            ? "Interactivo interno"
+            : ready
+              ? "Disponible desde Sheets"
+              : NOTEBOOK_PANEL_CACHE.loading
+                ? "Consultando Sheets"
+                : "Pendiente en Sheets";
+          return `
+            <a class="notebook-mini-card ${ready ? "resource-ready" : "resource-pending"}" href="${baseUrl}&resource=${encodeURIComponent(tool.key)}" data-notebook-link="true" data-resource="${tool.key}">
+              <span class="notebook-mini-card__icon">${tool.icon}</span>
+              <strong>${tool.label}</strong>
+              <small>${tool.text}</small>
+              <em class="notebook-mini-status">${statusText}</em>
+            </a>
+          `;
+        }).join("")}
       </div>
     </section>
   `;
