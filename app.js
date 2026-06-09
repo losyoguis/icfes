@@ -1632,6 +1632,28 @@ function renderQuestionGrid() {
       renderExam({ scrollToTimer: true });
     });
   });
+
+  keepActiveQuestionVisibleInPanel();
+}
+
+function keepActiveQuestionVisibleInPanel() {
+  const grid = document.getElementById("questionGrid");
+  if (!grid) return;
+
+  requestAnimationFrame(() => {
+    const activeButton = grid.querySelector(`.q-dot[data-number="${state.currentNumber}"]`);
+    if (!activeButton) return;
+
+    const targetTop = activeButton.offsetTop - (grid.clientHeight / 2) + (activeButton.offsetHeight / 2);
+    const maxTop = Math.max(grid.scrollHeight - grid.clientHeight, 0);
+    const nextTop = Math.min(Math.max(targetTop, 0), maxTop);
+
+    if (typeof grid.scrollTo === "function") {
+      grid.scrollTo({ top: nextTop, behavior: "auto" });
+    } else {
+      grid.scrollTop = nextTop;
+    }
+  });
 }
 
 function moveLoadedQuestion(direction) {
